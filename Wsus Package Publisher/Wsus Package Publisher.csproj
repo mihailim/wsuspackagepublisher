@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wsus_Package_Publisher</RootNamespace>
+    <AssemblyName>Wsus Package Publisher</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Package Publisher-64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.UpdateServices.Administration, Version=3.1.6001.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Update Services\Api\Microsoft.UpdateServices.Administration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Company.cs" />
+    <Compile Include="ComputerDetailViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComputerDetailViewer.Designer.cs">
+      <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerListViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComputerListViewer.Designer.cs">
+      <DependentUpon>ComputerListViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmApprovalSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmApprovalSet.Designer.cs">
+      <DependentUpon>FrmApprovalSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdatePublisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdatePublisher.Designer.cs">
+      <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RulesGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RulesGroup.Designer.cs">
+      <DependentUpon>RulesGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateInformationsWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateInformationsWizard.Designer.cs">
+      <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateRulesWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateRulesWizard.Designer.cs">
+      <DependentUpon>FrmUpdateRulesWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWsusPackagePublisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWsusPackagePublisher.Designer.cs">
+      <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenericRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GenericRule.Designer.cs">
+      <DependentUpon>GenericRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuleMsiProductInstalled.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuleMsiProductInstalled.Designer.cs">
+      <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmUpdateFilesWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateFilesWizard.Designer.cs">
+      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateWizard.Designer.cs">
+      <DependentUpon>FrmUpdateWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RulesViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RulesViewer.Designer.cs">
+      <DependentUpon>RulesViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateDetailViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateDetailViewer.Designer.cs">
+      <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateListViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateListViewer.Designer.cs">
+      <DependentUpon>UpdateListViewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ComputerDetailViewer.resx">
+      <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerListViewer.en.resx">
+      <DependentUpon>ComputerListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerListViewer.fr.resx">
+      <DependentUpon>ComputerListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerListViewer.resx">
+      <DependentUpon>ComputerListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmApprovalSet.en.resx">
+      <DependentUpon>FrmApprovalSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmApprovalSet.fr.resx">
+      <DependentUpon>FrmApprovalSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmApprovalSet.resx">
+      <DependentUpon>FrmApprovalSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateInformationsWizard.en.resx">
+      <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateInformationsWizard.fr.resx">
+      <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateInformationsWizard.resx">
+      <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdatePublisher.en.resx">
+      <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdatePublisher.fr.resx">
+      <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdatePublisher.resx">
+      <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateRulesWizard.en.resx">
+      <DependentUpon>FrmUpdateRulesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateRulesWizard.fr.resx">
+      <DependentUpon>FrmUpdateRulesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateRulesWizard.resx">
+      <DependentUpon>FrmUpdateRulesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateWizard.en.resx">
+      <DependentUpon>FrmUpdateWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateWizard.fr.resx">
+      <DependentUpon>FrmUpdateWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWsusPackagePublisher.en.resx">
+      <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWsusPackagePublisher.fr.resx">
+      <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWsusPackagePublisher.resx">
+      <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleMsiProductInstalled.en.resx">
+      <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleMsiProductInstalled.fr.resx">
+      <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleMsiProductInstalled.resx">
+      <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FrmUpdateFilesWizard.en.resx">
+      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateFilesWizard.fr.resx">
+      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateFilesWizard.resx">
+      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateWizard.resx">
+      <DependentUpon>FrmUpdateWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.en.resx" />
+    <EmbeddedResource Include="Resources\Resources.fr.resx" />
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RulesViewer.resx">
+      <DependentUpon>RulesViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDetailViewer.en.resx">
+      <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDetailViewer.fr.resx">
+      <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDetailViewer.resx">
+      <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateListViewer.en.resx">
+      <DependentUpon>UpdateListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateListViewer.fr.resx">
+      <DependentUpon>UpdateListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateListViewer.resx">
+      <DependentUpon>UpdateListViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Package Publisher-64.ico" />
+    <None Include="Resources\Valider-64.png" />
+    <None Include="Resources\Settings-64.png" />
+    <None Include="Resources\Server-64.png" />
+    <None Include="Resources\Rapport-64.png" />
+    <None Include="Resources\Log-Out-48.png" />
+    <None Include="Resources\Lock Screen-48.png" />
+    <None Include="Resources\Help-48.png" />
+    <None Include="Resources\Eran-64.png" />
+    <None Include="Resources\Corbeille-64.png" />
+    <None Include="Resources\Connecting-64.png" />
+    <None Include="Resources\Certificate-64.png" />
+    <None Include="Resources\Apply-64.png" />
+    <None Include="Resources\Add-Files-To-Archive-Blue-64.png" />
+    <None Include="Resources\xml.png" />
+    <None Include="Resources\Package Publisher-64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
