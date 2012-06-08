@@ -13,7 +13,7 @@ namespace UpdateViewer
         /// <summary>
         /// Create a new instance of Company with the name 'companyName'.
         /// </summary>
-        /// <param name="companyName">Name of th Company.</param>
+        /// <param name="companyName">Name of the Company.</param>
         internal Company(string companyName)
         {
             CompanyName = companyName;

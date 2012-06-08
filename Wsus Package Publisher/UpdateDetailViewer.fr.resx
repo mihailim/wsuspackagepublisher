@@ -117,9 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 154</value>
+    <value>6, 136</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 13</value>
@@ -128,13 +135,16 @@
     <value>URL plus d'info. : </value>
   </data>
   <data name="txtBxAdditionnalInformationURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 151</value>
+    <value>105, 133</value>
   </data>
   <data name="txtBxAdditionnalInformationURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 20</value>
+    <value>483, 20</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>247, 96</value>
+    <value>323, 87</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 13</value>
@@ -143,10 +153,19 @@
     <value>Date d'Arrivé : </value>
   </data>
   <data name="txtBxArrivalDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 93</value>
+    <value>406, 84</value>
   </data>
   <data name="txtBxArrivalDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 20</value>
+    <value>182, 20</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 11</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 13</value>
@@ -155,10 +174,19 @@
     <value>Companie : </value>
   </data>
   <data name="txtBxCompany.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 15</value>
+    <value>105, 6</value>
   </data>
   <data name="txtBxCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 20</value>
+    <value>483, 20</value>
+  </data>
+  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 87</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 13</value>
@@ -166,14 +194,32 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Date de Création : </value>
   </data>
+  <data name="txtBxCreationDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
   <data name="txtBxCreationDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 93</value>
+    <value>105, 84</value>
   </data>
   <data name="txtBxCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 20</value>
+    <value>185, 20</value>
   </data>
-  <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>619, 168</value>
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 176</value>
+  </data>
+  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 35</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -182,10 +228,19 @@
     <value>Produit : </value>
   </data>
   <data name="txtBxProductTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 41</value>
+    <value>105, 32</value>
   </data>
   <data name="txtBxProductTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 20</value>
+    <value>483, 20</value>
+  </data>
+  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 61</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 13</value>
@@ -194,44 +249,58 @@
     <value>Titre : </value>
   </data>
   <data name="txtBxTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 67</value>
+    <value>105, 58</value>
   </data>
   <data name="txtBxTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 20</value>
+    <value>483, 20</value>
+  </data>
+  <data name="btnApprove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnApprove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 13</value>
+    <value>611, 6</value>
   </data>
   <data name="btnApprove.Text" xml:space="preserve">
     <value>Approuver...</value>
   </data>
+  <data name="btnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 136</value>
+    <value>611, 93</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
     <value>Supprimer</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnDecline.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Top, Right</value>
+  </data>
+  <data name="btnDecline.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnDecline.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 44</value>
+    <value>611, 35</value>
   </data>
   <data name="btnDecline.Text" xml:space="preserve">
     <value>Refuser</value>
   </data>
   <data name="btnExpire.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Top, Right</value>
+  </data>
+  <data name="btnExpire.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnExpire.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 73</value>
+    <value>611, 64</value>
   </data>
   <data name="btnExpire.Text" xml:space="preserve">
     <value>Expirer</value>
   </data>
+  <data name="chkBxIsApproved.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="chkBxIsApproved.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 119</value>
+    <value>105, 110</value>
   </data>
   <data name="chkBxIsApproved.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 17</value>
@@ -239,14 +308,65 @@
   <data name="chkBxIsApproved.Text" xml:space="preserve">
     <value>Est Approuvé</value>
   </data>
+  <data name="chkBxIsExpired.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="chkBxIsExpired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="chkBxIsExpired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 119</value>
+    <value>326, 110</value>
   </data>
   <data name="chkBxIsExpired.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
   </data>
   <data name="chkBxIsExpired.Text" xml:space="preserve">
     <value>Est Refusé</value>
+  </data>
+  <data name="tabUpdateDetailViewer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 173</value>
+  </data>
+  <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 152</value>
+  </data>
+  <data name="tabInformations.Size" type="System.Drawing.Size, System.Drawing">
+    <value>692, 331</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Groupe d'ordinateurs : </value>
+  </data>
+  <data name="cmbBxComputerGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cmbBxComputerGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 21</value>
+  </data>
+  <data name="dgvComputerStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvComputerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>680, 292</value>
+  </data>
+  <data name="tabStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>692, 331</value>
+  </data>
+  <data name="tabUpdateDetailViewer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="tabUpdateDetailViewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 357</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>700, 357</value>

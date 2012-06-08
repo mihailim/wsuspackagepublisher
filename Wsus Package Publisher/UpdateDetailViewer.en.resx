@@ -121,4 +121,50 @@
   <data name="txtBxAdditionnalInformationURL.Size" type="System.Drawing.Size, System.Drawing">
     <value>345, 20</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 95</value>
+  </data>
+  <data name="txtBxArrivalDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 92</value>
+  </data>
+  <data name="txtBxArrivalDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 20</value>
+  </data>
+  <data name="txtBxCompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 20</value>
+  </data>
+  <data name="txtBxCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 20</value>
+  </data>
+  <data name="txtBxProductTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 20</value>
+  </data>
+  <data name="txtBxTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 20</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnDecline.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnExpire.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="chkBxIsExpired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 115</value>
+  </data>
+  <data name="cmbBxComputerGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cmbBxComputerGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 6</value>
+  </data>
+  <data name="cmbBxComputerGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 21</value>
+  </data>
+  <data name="dgvComputerStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvComputerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 337</value>
+  </data>
 </root>

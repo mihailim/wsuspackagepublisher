@@ -50,7 +50,7 @@ namespace Wsus_Package_Publisher
 
             if (rows.Count == 1)
             {
-                _detailViewer.DisplayUpdate((IUpdate)rows[0].Cells["UpdateId"].Value);
+                _detailViewer.ViewedUpdate = (IUpdate)rows[0].Cells["UpdateId"].Value;
             }
         }
 

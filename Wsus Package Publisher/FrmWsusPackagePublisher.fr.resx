@@ -141,13 +141,13 @@
     <value>&amp;Fichier</value>
   </data>
   <data name="certificatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>160, 30</value>
   </data>
   <data name="certificatToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Certificat...</value>
   </data>
   <data name="paramètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>160, 30</value>
   </data>
   <data name="paramètresToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Paramètres...</value>
@@ -165,7 +165,7 @@
     <value>&amp;English</value>
   </data>
   <data name="langagueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>160, 30</value>
   </data>
   <data name="langagueToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Langague</value>

@@ -21,11 +21,16 @@ namespace Wsus_Package_Publisher
             InitializeComponent();
             _wsusPackagePublisher = wsusPackagePublisher;
             _updateListViewer = updateListViewer;
+
+            foreach (string group in _wsusPackagePublisher.ComputerGroups.Keys)
+            {
+                cmbBxComputerGroup.Items.Add(group);
+            }
         }
 
         internal void DisplayUpdate(IUpdate update)
         {
-            _update = update;
+            // Informations Tab
 
             if ((update.CompanyTitles.Count != 0) && (!string.IsNullOrEmpty(update.CompanyTitles[0])))
                 txtBxCompany.Text = update.CompanyTitles[0].ToString();
@@ -44,6 +49,20 @@ namespace Wsus_Package_Publisher
                 txtBxAdditionnalInformationURL.Text = update.AdditionalInformationUrls[0].ToString();
             if (!string.IsNullOrEmpty(update.Description))
                 txtBxDescription.Text = update.Description;
+
+            // Status Tab
+
+            dgvComputerStatus.Rows.Clear();
+            if (cmbBxComputerGroup.SelectedItem != null)
+            {
+                IComputerTargetGroup targetGroup = _wsusPackagePublisher.GetTargetGroup(cmbBxComputerGroup.SelectedItem.ToString());
+                UpdateInstallationInfoCollection updateInfo = targetGroup.GetUpdateInstallationInfoPerComputerTarget(ViewedUpdate);
+                
+                foreach (IUpdateInstallationInfo info in updateInfo)
+                {
+                    dgvComputerStatus.Rows.Add(_wsusPackagePublisher.GetComputerName(info.ComputerTargetId), info.UpdateInstallationState.ToString(), info.UpdateApprovalAction.ToString());
+                }
+            }
         }
 
         internal void ClearDisplay()
@@ -57,6 +76,8 @@ namespace Wsus_Package_Publisher
             txtBxArrivalDate.Text = "";
             txtBxAdditionnalInformationURL.Text = "";
             txtBxDescription.Text = "";
+
+            dgvComputerStatus.Rows.Clear();
         }
 
         internal IUpdate ViewedUpdate
@@ -80,5 +101,11 @@ namespace Wsus_Package_Publisher
         {
             _wsusPackagePublisher.Approve(ViewedUpdate);
         }
+
+        private void cmbBxComputerGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayUpdate(ViewedUpdate);
+        }
+
     }
 }

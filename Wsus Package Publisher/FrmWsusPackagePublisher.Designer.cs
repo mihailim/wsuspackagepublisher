@@ -143,6 +143,7 @@
             resources.ApplyResources(this.paramètresToolStripMenuItem, "paramètresToolStripMenuItem");
             this.paramètresToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Settings_64;
             this.paramètresToolStripMenuItem.Name = "paramètresToolStripMenuItem";
+            this.paramètresToolStripMenuItem.Click += new System.EventHandler(this.paramètresToolStripMenuItem_Click);
             // 
             // langagueToolStripMenuItem
             // 
@@ -156,6 +157,7 @@
             // 
             resources.ApplyResources(this.françaisToolStripMenuItem, "françaisToolStripMenuItem");
             this.françaisToolStripMenuItem.Name = "françaisToolStripMenuItem";
+            this.françaisToolStripMenuItem.Click += new System.EventHandler(this.françaisToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
@@ -163,6 +165,8 @@
             this.englishToolStripMenuItem.Checked = true;
             this.englishToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
             // misesÀJourToolStripMenuItem
             // 

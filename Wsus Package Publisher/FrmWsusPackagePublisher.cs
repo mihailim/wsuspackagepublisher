@@ -12,9 +12,9 @@ namespace Wsus_Package_Publisher
 {
     public partial class FrmWsusPackagePublisher : Form
     {
-        private string serverName = "wsus01";
-        private int serverPort = 443;
-        private bool useSecureConnection = true;
+        //private string serverName = "wsus01";
+        //private int serverPort = 443;
+        //private bool useSecureConnection = true;
         private AdminProxy proxy = new AdminProxy();
         private IUpdateServer wsus;
         private Dictionary<string, Guid> computerGroups = new Dictionary<string, Guid>();
@@ -29,8 +29,21 @@ namespace Wsus_Package_Publisher
 
         public FrmWsusPackagePublisher()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
+
             InitializeComponent();
+
+            if (Properties.Settings.Default.Language == "fr")
+            {
+                françaisToolStripMenuItem.Checked = true;
+                englishToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                françaisToolStripMenuItem.Checked = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
             trvWsus.ExpandAll();
         }
 
@@ -96,10 +109,10 @@ namespace Wsus_Package_Publisher
         private void btnConnectToServer_Click(object sender, EventArgs e)
         {
             btnConnectToServer.Enabled = false;
-            wsus = proxy.GetRemoteUpdateServerInstance(serverName, useSecureConnection, serverPort);
+            wsus = proxy.GetRemoteUpdateServerInstance(Properties.Settings.Default.ServerName, Properties.Settings.Default.UseSSL, Properties.Settings.Default.ServerPort);
             wsus.PreferredCulture = "fr";
 
-            serverNode = new TreeNode(serverName);
+            serverNode = new TreeNode(Properties.Settings.Default.ServerName);
             trvWsus.Nodes.Add(serverNode);
 
             IComputerTargetGroup allComputerGroup = wsus.GetComputerTargetGroup(ComputerTargetGroupId.AllComputers);
@@ -227,5 +240,57 @@ namespace Wsus_Package_Publisher
             }
             this.Cursor = Cursors.Default;
         }
+
+        internal Dictionary<string, Guid> ComputerGroups
+        {
+            get { return computerGroups; }
+        }
+
+        /// <summary>
+        /// Return the ComputerTargetGroup which have for name 'targetGroupName'.
+        /// </summary>
+        /// <param name="targetGroupName">The name of the group</param>
+        /// <returns>Return the object IComputerTargetGroup corresponding to the group.</returns>
+        internal IComputerTargetGroup GetTargetGroup(string targetGroupName)
+        {
+            return wsus.GetComputerTargetGroup(computerGroups[targetGroupName]);
+        }
+
+        /// <summary>
+        /// Return the name of a computer.
+        /// </summary>
+        /// <param name="id">Guid of the computer.</param>
+        /// <returns>The name of the computer.</returns>
+        internal string GetComputerName(string id)
+        {
+            return wsus.GetComputerTarget(id).FullDomainName;
+        }
+
+        private void françaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            françaisToolStripMenuItem.Checked = true;
+            englishToolStripMenuItem.Checked = false;
+            Properties.Settings.Default.Language = "fr";
+            Properties.Settings.Default.Save();
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            englishToolStripMenuItem.Checked = true;
+            françaisToolStripMenuItem.Checked = false;
+            Properties.Settings.Default.Language = "en";
+            Properties.Settings.Default.Save();
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+        }
+
+        private void paramètresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSettings settings = new FrmSettings();
+            settings.ShowDialog();
+        }
+               
     }
 }

@@ -31,7 +31,7 @@ namespace Wsus_Package_Publisher
             calendar.Resizable = DataGridViewTriState.True;
             calendar.Name = "DeadLine";
             calendar.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            calendar.FillWeight = 20;
+            calendar.FillWeight = 25;
 
             dgvTargetGroup.Columns.Add(calendar);
 

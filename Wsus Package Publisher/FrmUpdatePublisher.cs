@@ -75,6 +75,7 @@ namespace Wsus_Package_Publisher
             prgBrPublishing.Value = 75;
             publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
             prgBrPublishing.Value = 100;
+            MessageBox.Show("La mise à jour a été publiée.");
             System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
         }
     }

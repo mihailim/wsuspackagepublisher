@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateListViewer));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvUpdateList = new System.Windows.Forms.DataGridView();
@@ -42,6 +42,7 @@
             // 
             // dgvUpdateList
             // 
+            resources.ApplyResources(this.dgvUpdateList, "dgvUpdateList");
             this.dgvUpdateList.AllowUserToAddRows = false;
             this.dgvUpdateList.AllowUserToDeleteRows = false;
             this.dgvUpdateList.AllowUserToOrderColumns = true;
@@ -51,7 +52,6 @@
             this.ArrivalDate,
             this.CreationDate,
             this.UpdateId});
-            resources.ApplyResources(this.dgvUpdateList, "dgvUpdateList");
             this.dgvUpdateList.Name = "dgvUpdateList";
             this.dgvUpdateList.ReadOnly = true;
             this.dgvUpdateList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -62,7 +62,7 @@
             this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
             this.Title.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Title.FillWeight = 70F;
+            this.Title.FillWeight = 60F;
             resources.ApplyResources(this.Title, "Title");
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
@@ -72,7 +72,7 @@
             this.ArrivalDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
             this.ArrivalDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ArrivalDate.FillWeight = 15F;
+            this.ArrivalDate.FillWeight = 20F;
             resources.ApplyResources(this.ArrivalDate, "ArrivalDate");
             this.ArrivalDate.Name = "ArrivalDate";
             this.ArrivalDate.ReadOnly = true;
@@ -82,7 +82,7 @@
             this.CreationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
             this.CreationDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CreationDate.FillWeight = 15F;
+            this.CreationDate.FillWeight = 20F;
             resources.ApplyResources(this.CreationDate, "CreationDate");
             this.CreationDate.Name = "CreationDate";
             this.CreationDate.ReadOnly = true;

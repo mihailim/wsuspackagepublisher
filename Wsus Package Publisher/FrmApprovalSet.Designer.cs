@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTargetGroup = new System.Windows.Forms.DataGridView();
-            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Approvval = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Approvval = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTargetGroup)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,32 +61,6 @@
             this.dgvTargetGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTargetGroup.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTargetGroup_CellMouseClick);
             // 
-            // Group
-            // 
-            this.Group.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Group.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Group.FillWeight = 60F;
-            resources.ApplyResources(this.Group, "Group");
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
-            // 
-            // Approvval
-            // 
-            this.Approvval.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Approvval.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Approvval.FillWeight = 20F;
-            resources.ApplyResources(this.Approvval, "Approvval");
-            this.Approvval.Items.AddRange(new object[] {
-            "Approve For Installation",
-            "Approve For Optionnal Installation",
-            "Approve For Desinstallation",
-            "Not Approve"});
-            this.Approvval.Name = "Approvval";
-            this.Approvval.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Approvval.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btnOk
             // 
             resources.ApplyResources(this.btnOk, "btnOk");
@@ -100,6 +74,32 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // Group
+            // 
+            this.Group.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Group.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Group.FillWeight = 50F;
+            resources.ApplyResources(this.Group, "Group");
+            this.Group.Name = "Group";
+            this.Group.ReadOnly = true;
+            // 
+            // Approvval
+            // 
+            this.Approvval.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Approvval.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Approvval.FillWeight = 25F;
+            resources.ApplyResources(this.Approvval, "Approvval");
+            this.Approvval.Items.AddRange(new object[] {
+            "Approve For Installation",
+            "Approve For Optionnal Installation",
+            "Approve For Desinstallation",
+            "Not Approve"});
+            this.Approvval.Name = "Approvval";
+            this.Approvval.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Approvval.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmApprovalSet
             // 

@@ -29,6 +29,9 @@ namespace Wsus_Package_Publisher
         {
             string result = "";
 
+            if (FormList.Count == 0)
+                return result;
+
             switch (GroupType)
             {
                 case GroupLogicalOperator.And:
