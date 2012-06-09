@@ -117,38 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cmbBxRules.Size" type="System.Drawing.Size, System.Drawing">
-    <value>455, 21</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 13</value>
+  <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Rule type : </value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnOk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="btnAddRule.Text" xml:space="preserve">
-    <value>&amp;Add Rule...</value>
+  <data name="btnOk.Text" xml:space="preserve">
+    <value>&amp;Ok</value>
   </data>
-  <data name="btnAndGrouping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 23</value>
-  </data>
-  <data name="btnAndGrouping.Text" xml:space="preserve">
-    <value>"AND" Grouping</value>
-  </data>
-  <data name="btnORGrouping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 23</value>
-  </data>
-  <data name="btnORGrouping.Text" xml:space="preserve">
-    <value>"OR" Grouping</value>
-  </data>
-  <data name="btnNext.Text" xml:space="preserve">
-    <value>Netx&amp;&gt;</value>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="btnPrevious.Text" xml:space="preserve">
-    <value>&amp;&lt;Previous</value>
+  <data name="cmbBxProcessorArchitecture.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmbBxProcessorArchitecture.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 189</value>
+  </data>
+  <data name="cmbBxProcessorArchitecture.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 21</value>
+  </data>
+  <data name="chkBxInverseRule.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  </data>
+  <data name="chkBxInverseRule.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 216</value>
+  </data>
+  <data name="chkBxInverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 17</value>
+  </data>
+  <data name="chkBxInverseRule.Text" xml:space="preserve">
+    <value>Reverse Rule</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Processor Architecture : </value>
   </data>
 </root>

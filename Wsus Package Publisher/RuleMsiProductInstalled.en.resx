@@ -163,7 +163,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxIncludeMaxVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 325</value>
+    <value>80, 314</value>
   </data>
   <data name="chkBxIncludeMaxVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 24</value>
@@ -178,7 +178,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 355</value>
+    <value>80, 344</value>
   </data>
   <data name="nupVersionMax1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -190,7 +190,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 355</value>
+    <value>174, 344</value>
   </data>
   <data name="nupVersionMax2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -202,7 +202,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 355</value>
+    <value>265, 344</value>
   </data>
   <data name="nupVersionMax3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -214,7 +214,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>356, 355</value>
+    <value>356, 344</value>
   </data>
   <data name="nupVersionMax4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -226,7 +226,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 357</value>
+    <value>0, 346</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 13</value>
@@ -241,7 +241,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxIncludeMinVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 381</value>
+    <value>83, 370</value>
   </data>
   <data name="chkBxIncludeMinVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
@@ -256,7 +256,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 411</value>
+    <value>83, 400</value>
   </data>
   <data name="nupVersionMin1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -268,7 +268,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 411</value>
+    <value>174, 400</value>
   </data>
   <data name="nupVersionMin2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -280,7 +280,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 411</value>
+    <value>265, 400</value>
   </data>
   <data name="nupVersionMin3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -292,7 +292,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>356, 411</value>
+    <value>356, 400</value>
   </data>
   <data name="nupVersionMin4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -304,7 +304,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 413</value>
+    <value>3, 402</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -319,7 +319,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 453</value>
+    <value>3, 442</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 13</value>
@@ -331,7 +331,7 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="cmbBxLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 450</value>
+    <value>86, 439</value>
   </data>
   <data name="cmbBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 21</value>
@@ -343,7 +343,7 @@
     <value>False</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>391, 448</value>
+    <value>391, 437</value>
   </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
@@ -352,12 +352,12 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>310, 448</value>
+    <value>310, 437</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>470, 472</value>
+    <value>468, 470</value>
   </data>
 </root>

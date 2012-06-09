@@ -291,6 +291,11 @@ namespace Wsus_Package_Publisher
             FrmSettings settings = new FrmSettings();
             settings.ShowDialog();
         }
-               
+
+
+        internal void Decline(IUpdate ViewedUpdate)
+        {
+            ViewedUpdate.Decline();
+        }
     }
 }

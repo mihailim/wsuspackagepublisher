@@ -107,5 +107,10 @@ namespace Wsus_Package_Publisher
             DisplayUpdate(ViewedUpdate);
         }
 
+        private void btnDecline_Click(object sender, EventArgs e)
+        {
+            _wsusPackagePublisher.Decline(ViewedUpdate);
+        }
+
     }
 }

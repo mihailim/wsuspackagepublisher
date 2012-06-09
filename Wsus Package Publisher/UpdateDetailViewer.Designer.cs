@@ -151,6 +151,7 @@
             resources.ApplyResources(this.btnDecline, "btnDecline");
             this.btnDecline.Name = "btnDecline";
             this.btnDecline.UseVisualStyleBackColor = true;
+            this.btnDecline.Click += new System.EventHandler(this.btnDecline_Click);
             // 
             // btnExpire
             // 

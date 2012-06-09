@@ -24,8 +24,9 @@ namespace Wsus_Package_Publisher
         {
             GenericRule frmRule;
 
-            RuleMsiProductInstalled MsiRule = new RuleMsiProductInstalled();
-            frmRule = MsiRule;
+            frmRule = GetSelectedForm();
+            //RuleMsiProductInstalled MsiRule = new RuleMsiProductInstalled();
+            //frmRule = MsiRule;
             Form frm = new Form();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Controls.Add(frmRule);
@@ -39,6 +40,19 @@ namespace Wsus_Package_Publisher
                 frm = null;
             }
             rulesViewer1.Rules = _currentGroup;            
+        }
+
+        private GenericRule GetSelectedForm()
+        {
+            switch (cmbBxRules.SelectedItem.ToString())
+            {
+                case "Produit MSI Installé":
+                    return new RuleMsiProductInstalled();
+                case "Architecture du processeur":
+                    return new RuleProcessorArchitecture();
+                default:
+                    return new RuleMsiProductInstalled();
+            }
         }
 
         internal string GetXmlFormattedRule()

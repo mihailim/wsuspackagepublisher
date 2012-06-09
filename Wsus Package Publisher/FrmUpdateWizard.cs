@@ -186,8 +186,7 @@ namespace Wsus_Package_Publisher
             updateIsInstallableRulesWizard.Hide();
             InitializeUpdateIsInstalledRulesWizard();
         }
-
-
+        
         internal Dictionary<string, Company> Companies
         {
             get { return _companies; }

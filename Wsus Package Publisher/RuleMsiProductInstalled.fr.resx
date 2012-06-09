@@ -130,7 +130,7 @@
     <value>True</value>
   </data>
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>466, 204</value>
+    <value>484, 204</value>
   </data>
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -151,7 +151,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="txtBxMsiCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 20</value>
+    <value>382, 20</value>
   </data>
   <data name="txtBxMsiCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -187,7 +187,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxIncludeMaxVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 306</value>
+    <value>98, 297</value>
   </data>
   <data name="chkBxIncludeMaxVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 17</value>
@@ -205,7 +205,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 329</value>
+    <value>98, 320</value>
   </data>
   <data name="nupVersionMax1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -220,7 +220,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 329</value>
+    <value>189, 320</value>
   </data>
   <data name="nupVersionMax2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -235,7 +235,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 329</value>
+    <value>280, 320</value>
   </data>
   <data name="nupVersionMax3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -247,7 +247,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMax4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 329</value>
+    <value>371, 320</value>
   </data>
   <data name="nupVersionMax4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -262,7 +262,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 331</value>
+    <value>3, 322</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 13</value>
@@ -286,7 +286,7 @@
     <value>NoControl</value>
   </data>
   <data name="chkBxIncludeMinVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 361</value>
+    <value>98, 352</value>
   </data>
   <data name="chkBxIncludeMinVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 17</value>
@@ -304,7 +304,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 384</value>
+    <value>98, 375</value>
   </data>
   <data name="nupVersionMin1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -319,7 +319,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 384</value>
+    <value>189, 375</value>
   </data>
   <data name="nupVersionMin2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -334,7 +334,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 384</value>
+    <value>280, 375</value>
   </data>
   <data name="nupVersionMin3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -349,7 +349,7 @@
     <value>False</value>
   </data>
   <data name="nupVersionMin4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 384</value>
+    <value>371, 375</value>
   </data>
   <data name="nupVersionMin4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -364,7 +364,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 386</value>
+    <value>3, 377</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -382,7 +382,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 428</value>
+    <value>3, 419</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 13</value>
@@ -397,10 +397,10 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="cmbBxLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 425</value>
+    <value>82, 416</value>
   </data>
   <data name="cmbBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 21</value>
+    <value>212, 21</value>
   </data>
   <data name="cmbBxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -412,7 +412,7 @@
     <value>False</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 423</value>
+    <value>381, 414</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -424,7 +424,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 423</value>
+    <value>300, 414</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -433,6 +433,6 @@
     <value>&amp;Annuler</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 443</value>
+    <value>462, 444</value>
   </data>
 </root>
