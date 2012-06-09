@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="prgBrPublishing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 23</value>
+    <value>309, 23</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 9</value>
@@ -135,7 +135,7 @@
     <value>Publishing Update : </value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 73</value>
+    <value>12, 68</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
@@ -150,9 +150,16 @@
     <value>89, 93</value>
   </data>
   <data name="chkLstBxPublishing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 154</value>
+    <value>309, 139</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnOk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnOk.Text" xml:space="preserve">
+    <value>&amp;Ok</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>417, 260</value>
+    <value>410, 280</value>
   </data>
 </root>

@@ -16,7 +16,7 @@ namespace Wsus_Package_Publisher
         private string _vendorName;
         private string _productName;
         private string _title;
-        private string _description = "Description par défaut";
+        private string _description = "Default description";
 
 
         internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies)
@@ -124,7 +124,7 @@ namespace Wsus_Package_Publisher
             if (!string.IsNullOrEmpty(txtBxDescription.Text))
             Description = txtBxDescription.Text;
             else
-                Description = "Description par défaut";
+                Description = "Default description";
         }
 
     }

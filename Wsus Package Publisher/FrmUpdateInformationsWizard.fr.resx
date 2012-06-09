@@ -196,7 +196,7 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 95</value>
+    <value>126, 95</value>
   </data>
   <data name="txtBxDescription.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -205,16 +205,16 @@
     <value>Both</value>
   </data>
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>627, 100</value>
+    <value>588, 100</value>
   </data>
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 13</value>
+    <value>83, 13</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>

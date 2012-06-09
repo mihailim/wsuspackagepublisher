@@ -12,9 +12,6 @@ namespace Wsus_Package_Publisher
 {
     public partial class FrmWsusPackagePublisher : Form
     {
-        //private string serverName = "wsus01";
-        //private int serverPort = 443;
-        //private bool useSecureConnection = true;
         private AdminProxy proxy = new AdminProxy();
         private IUpdateServer wsus;
         private Dictionary<string, Guid> computerGroups = new Dictionary<string, Guid>();

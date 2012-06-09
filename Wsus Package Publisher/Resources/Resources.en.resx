@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArrivalDate" xml:space="preserve">
+    <value>Arrival Date</value>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
   <data name="DescriptionInformationsWizard" xml:space="preserve">
     <value>Indicate here the informations about the update. Fields in bold are required.
 
@@ -153,6 +159,37 @@ KB Article Id (Optional): Specify the number of KB article.
 
  Click 'Next' to proceed to the next step.</value>
   </data>
+  <data name="DescriptionIsInstallableWizard" xml:space="preserve">
+    <value>Indicate here the rule or rules that allow clients computer to determine if the update is installable.
+
+ - Msi Product installed: Checks in the registry if the product is already installed based on MSI code.
+ - Processor Architecture: Determines whether the processor is x86, x64 or IA64.
+
+
+ Click 'Next' to proceed to the next step.</value>
+  </data>
+  <data name="DescriptionIsInstalledWizard" xml:space="preserve">
+    <value>Indicate here the rule or rules that allow clients computer to determine if the update is already installed.
+
+ - Msi Product installed: Checks in the registry if the product is already installed based on MSI code.
+ - Processor Architecture: Determines whether the processor is x86, x64 or IA64.
+
+
+
+ Click 'Next' to proceed to the next step.</value>
+  </data>
+  <data name="DescriptionRuleMsiProductInstalled" xml:space="preserve">
+    <value>Indicate here informations on the Msi product. Fields in bold are required.
+
+Msi code (required): Msi Product Code in format 12345678-1234-1234-1234-1234566789012
+Reverse the rule: Verify that the product is NOT installed.
+Max version. (Optional): Specifies a maximum version number for the installed product.
+Version Min. (Optional): Specifies a minimum version number for the installed product.
+Language (Optional): Specifies the language in which the product must be installed.</value>
+  </data>
+  <data name="DescriptionRuleProcessorArchitecture" xml:space="preserve">
+    <value>Indicate on whitch processor architecture the product can be installed.</value>
+  </data>
   <data name="DescriptionUpdateFileWizard" xml:space="preserve">
     <value>Indicate here the file  or files to create the update. Fields in bold are required.
 
@@ -165,7 +202,127 @@ Command line (Optional): Indicate one or more parameters for the file update. Eg
 
  Click 'Next' to proceed to the next step.</value>
   </data>
+  <data name="FileCreated" xml:space="preserve">
+    <value>File Created Date</value>
+  </data>
+  <data name="FileCreatedPrependRegSz" xml:space="preserve">
+    <value>File Created Prepend RegSz</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>File Exists</value>
+  </data>
+  <data name="FileExistsPrependRegSz" xml:space="preserve">
+    <value>File Exists Prepend RegSz</value>
+  </data>
+  <data name="FileModified" xml:space="preserve">
+    <value>File Modified Date</value>
+  </data>
+  <data name="FileModifiedPrependRegSz" xml:space="preserve">
+    <value>File Modified Prepend RegSz</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>File Size</value>
+  </data>
+  <data name="FileSizePrependRegSz" xml:space="preserve">
+    <value>File Size Prepend RegSz</value>
+  </data>
+  <data name="FileVersion" xml:space="preserve">
+    <value>File Version</value>
+  </data>
+  <data name="FileVersionPrependRegSz" xml:space="preserve">
+    <value>File Version Prepend RegSz</value>
+  </data>
+  <data name="FinishedPublishing" xml:space="preserve">
+    <value>Sucessfull Publishing</value>
+  </data>
+  <data name="GetPublisher" xml:space="preserve">
+    <value>Get Publisher</value>
+  </data>
+  <data name="GroupEnd" xml:space="preserve">
+    <value>&lt;End</value>
+  </data>
+  <data name="GroupStart" xml:space="preserve">
+    <value>&lt;Start</value>
+  </data>
+  <data name="MsiApplicationInstallable" xml:space="preserve">
+    <value>Msi Application Installable</value>
+  </data>
+  <data name="MsiApplicationInstalled" xml:space="preserve">
+    <value>Msi Application Installed</value>
+  </data>
+  <data name="MsiApplicationSuperseded" xml:space="preserve">
+    <value>Msi Application Superseded</value>
+  </data>
+  <data name="MsiComponentInstalledForProduct" xml:space="preserve">
+    <value>MSi Component Installed For Product</value>
+  </data>
+  <data name="MsiFeatureInstalledForProduct" xml:space="preserve">
+    <value>Msi Feature Installed for Product</value>
+  </data>
+  <data name="MsiPatchInstallable" xml:space="preserve">
+    <value>Msi Patch Installable</value>
+  </data>
+  <data name="MsiPatchinstalled" xml:space="preserve">
+    <value>Msi Patch Installed</value>
+  </data>
+  <data name="MsiPatchInstalledForProduct" xml:space="preserve">
+    <value>Msi Patch Installed For Product</value>
+  </data>
+  <data name="MsiPatchSuperseded" xml:space="preserve">
+    <value>Msi Patch Superseded</value>
+  </data>
+  <data name="MsiProductInstalled" xml:space="preserve">
+    <value>Msi Product Installed</value>
+  </data>
+  <data name="NumberOfProcessor" xml:space="preserve">
+    <value>Number Of Processor</value>
+  </data>
   <data name="openFileDialogueUpdateFile" xml:space="preserve">
     <value>All accepted files|*.msi;*.msp;*.exe|MSI Files|*.msi|MSP Files|*.msp|EXE Files|*.exe</value>
+  </data>
+  <data name="PopulatePackage" xml:space="preserve">
+    <value>Populate Package</value>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Processor Architecture</value>
+  </data>
+  <data name="RegDword" xml:space="preserve">
+    <value>Reg Dword</value>
+  </data>
+  <data name="RegExpendSz" xml:space="preserve">
+    <value>Reg Expend Sz</value>
+  </data>
+  <data name="RegKeyExists" xml:space="preserve">
+    <value>Reg Key Exists</value>
+  </data>
+  <data name="RegKeyLoop" xml:space="preserve">
+    <value>Value Of Every sub Reg Key</value>
+  </data>
+  <data name="RegSz" xml:space="preserve">
+    <value>Reg Sz</value>
+  </data>
+  <data name="RegSzToVersion" xml:space="preserve">
+    <value>Reg Sz To Version</value>
+  </data>
+  <data name="RuleAnd" xml:space="preserve">
+    <value>AND</value>
+  </data>
+  <data name="RuleOR" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="SavingPackage" xml:space="preserve">
+    <value>Saving Package</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="WindowsLanguage" xml:space="preserve">
+    <value>Windows Language</value>
+  </data>
+  <data name="WindowsVersion" xml:space="preserve">
+    <value>Windows Version</value>
+  </data>
+  <data name="WmiQuery" xml:space="preserve">
+    <value>Wmi Query</value>
   </data>
 </root>

@@ -46,12 +46,6 @@
             // 
             resources.ApplyResources(this.cmbBxRules, "cmbBxRules");
             this.cmbBxRules.FormattingEnabled = true;
-            this.cmbBxRules.Items.AddRange(new object[] {
-            resources.GetString("cmbBxRules.Items"),
-            resources.GetString("cmbBxRules.Items1"),
-            resources.GetString("cmbBxRules.Items2"),
-            resources.GetString("cmbBxRules.Items3"),
-            resources.GetString("cmbBxRules.Items4")});
             this.cmbBxRules.Name = "cmbBxRules";
             // 
             // label1

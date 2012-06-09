@@ -33,18 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTargetGroup = new System.Windows.Forms.DataGridView();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Approvval = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTargetGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTargetGroup
             // 
+            resources.ApplyResources(this.dgvTargetGroup, "dgvTargetGroup");
             this.dgvTargetGroup.AllowUserToAddRows = false;
             this.dgvTargetGroup.AllowUserToDeleteRows = false;
-            resources.ApplyResources(this.dgvTargetGroup, "dgvTargetGroup");
             this.dgvTargetGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTargetGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Group,
@@ -60,20 +60,6 @@
             this.dgvTargetGroup.Name = "dgvTargetGroup";
             this.dgvTargetGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTargetGroup.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTargetGroup_CellMouseClick);
-            // 
-            // btnOk
-            // 
-            resources.ApplyResources(this.btnOk, "btnOk");
-            this.btnOk.Name = "btnOk";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // btnCancel
-            // 
-            resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // Group
             // 
@@ -100,6 +86,20 @@
             this.Approvval.Name = "Approvval";
             this.Approvval.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Approvval.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnOk
+            // 
+            resources.ApplyResources(this.btnOk, "btnOk");
+            this.btnOk.Name = "btnOk";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnCancel
+            // 
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // FrmApprovalSet
             // 

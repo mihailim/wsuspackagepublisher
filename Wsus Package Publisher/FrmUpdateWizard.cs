@@ -117,7 +117,7 @@ namespace Wsus_Package_Publisher
         private void InitializeUpdateIsInstalledRulesWizard()
         {
             splitContainer1.Panel2.Controls.Clear();
-            txtBxDescription.Text = resManager.GetString("DescriptionInformationsWizard");
+            txtBxDescription.Text = resManager.GetString("DescriptionIsInstalledWizard");
 
             updateIsInstalledRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstalledRulesWizard);
@@ -149,7 +149,7 @@ namespace Wsus_Package_Publisher
         private void InitializeUpdateIsInstallableRulesWizard()
         {
             splitContainer1.Panel2.Controls.Clear();
-            txtBxDescription.Text = resManager.GetString("DescriptionInformationsWizard");
+            txtBxDescription.Text = resManager.GetString("DescriptionIsInstallableWizard");
 
             updateIsInstallableRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstallableRulesWizard);
@@ -171,7 +171,6 @@ namespace Wsus_Package_Publisher
             updatePublisher.Dock = DockStyle.Fill;
             updatePublisher.Select();
             updatePublisher.Publish();
-
         }
 
         private void updateIsInstallableRulesWizard_btnCancel_Click(object sender, EventArgs e)

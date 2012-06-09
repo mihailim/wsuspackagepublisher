@@ -13,11 +13,15 @@ namespace Wsus_Package_Publisher
     {
         RulesGroup _masterGroup = new RulesGroup();
         RulesGroup _currentGroup;
-        
+        System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateRulesWizard).Assembly);
+
         internal FrmUpdateRulesWizard()
         {
             InitializeComponent();
             _currentGroup = _masterGroup;
+            cmbBxRules.Items.Add(resManager.GetString("MsiProductInstalled"));
+            cmbBxRules.Items.Add(resManager.GetString("Processor"));
+
         }
 
         private void btnAddRule_Click(object sender, EventArgs e)
@@ -25,8 +29,6 @@ namespace Wsus_Package_Publisher
             GenericRule frmRule;
 
             frmRule = GetSelectedForm();
-            //RuleMsiProductInstalled MsiRule = new RuleMsiProductInstalled();
-            //frmRule = MsiRule;
             Form frm = new Form();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Controls.Add(frmRule);
@@ -44,11 +46,11 @@ namespace Wsus_Package_Publisher
 
         private GenericRule GetSelectedForm()
         {
-            switch (cmbBxRules.SelectedItem.ToString())
+            switch (cmbBxRules.SelectedIndex)
             {
-                case "Produit MSI Installé":
+                case 0:
                     return new RuleMsiProductInstalled();
-                case "Architecture du processeur":
+                case 1:
                     return new RuleProcessorArchitecture();
                 default:
                     return new RuleMsiProductInstalled();

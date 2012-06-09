@@ -135,7 +135,7 @@
     <value>Publication de la mise à jour :</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 73</value>
+    <value>12, 67</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>
@@ -147,7 +147,13 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="chkLstBxPublishing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 184</value>
+    <value>337, 154</value>
+  </data>
+  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>351, 256</value>
+  </data>
+  <data name="btnOk.Text" xml:space="preserve">
+    <value>&amp;Ok</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>438, 291</value>

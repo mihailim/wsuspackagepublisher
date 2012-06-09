@@ -130,15 +130,6 @@
   <data name="btnAddRule.Text" xml:space="preserve">
     <value>Ajouter...</value>
   </data>
-  <data name="btnNext.Text" xml:space="preserve">
-    <value>Suivant &amp;&gt;</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Annuler</value>
-  </data>
-  <data name="btnPrevious.Text" xml:space="preserve">
-    <value>&amp;&lt; Précédent</value>
-  </data>
   <data name="btnAndGrouping.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 23</value>
   </data>
@@ -150,5 +141,27 @@
   </data>
   <data name="btnORGrouping.Text" xml:space="preserve">
     <value>Grouper par "OU"</value>
+  </data>
+  <data name="rulesViewer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 319</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>Suivant &amp;&gt;</value>
+  </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Annuler</value>
+  </data>
+  <data name="btnPrevious.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnPrevious.Text" xml:space="preserve">
+    <value>&amp;&lt; Précédent</value>
   </data>
 </root>

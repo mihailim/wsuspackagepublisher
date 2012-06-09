@@ -59,6 +59,7 @@
             // cmbBxProcessorArchitecture
             // 
             resources.ApplyResources(this.cmbBxProcessorArchitecture, "cmbBxProcessorArchitecture");
+            this.cmbBxProcessorArchitecture.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxProcessorArchitecture.FormattingEnabled = true;
             this.cmbBxProcessorArchitecture.Items.AddRange(new object[] {
             resources.GetString("cmbBxProcessorArchitecture.Items"),

@@ -28,27 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerDetailViewer));
             this.txtBxDetail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtBxDetail
             // 
-            this.txtBxDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBxDetail.Location = new System.Drawing.Point(0, 0);
-            this.txtBxDetail.Multiline = true;
+            resources.ApplyResources(this.txtBxDetail, "txtBxDetail");
             this.txtBxDetail.Name = "txtBxDetail";
             this.txtBxDetail.ReadOnly = true;
-            this.txtBxDetail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtBxDetail.Size = new System.Drawing.Size(581, 297);
-            this.txtBxDetail.TabIndex = 0;
             // 
             // ComputerDetailViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtBxDetail);
             this.Name = "ComputerDetailViewer";
-            this.Size = new System.Drawing.Size(581, 297);
             this.ResumeLayout(false);
             this.PerformLayout();
 

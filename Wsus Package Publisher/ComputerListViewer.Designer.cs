@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerListViewer));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dGVComputer = new System.Windows.Forms.DataGridView();
             this.ComputerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,7 @@
             // 
             // dGVComputer
             // 
+            resources.ApplyResources(this.dGVComputer, "dGVComputer");
             this.dGVComputer.AllowUserToAddRows = false;
             this.dGVComputer.AllowUserToDeleteRows = false;
             this.dGVComputer.AllowUserToOrderColumns = true;
@@ -47,7 +48,6 @@
             this.dGVComputer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ComputerName,
             this.IPAdress});
-            resources.ApplyResources(this.dGVComputer, "dGVComputer");
             this.dGVComputer.Name = "dGVComputer";
             this.dGVComputer.ReadOnly = true;
             this.dGVComputer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

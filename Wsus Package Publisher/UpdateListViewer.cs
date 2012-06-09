@@ -15,8 +15,7 @@ namespace Wsus_Package_Publisher
         UpdateDetailViewer _detailViewer;
         Company _company;
         Product _product;
-        System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(UpdateListViewer).Assembly);
-
+       
         internal UpdateListViewer(FrmWsusPackagePublisher wsusPackagePublisher, Company company, Product product)
         {
             InitializeComponent();

@@ -123,8 +123,8 @@
   <data name="Approvval.HeaderText" xml:space="preserve">
     <value>Approbation</value>
   </data>
-  <data name="DeadLine.HeaderText" xml:space="preserve">
-    <value>Date Limite</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Annuler</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Approuver la/les mise(s) à jour</value>

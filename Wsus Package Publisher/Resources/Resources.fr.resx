@@ -186,4 +186,144 @@ Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   <data name="Title" xml:space="preserve">
     <value>Titre</value>
   </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Date de Création</value>
+  </data>
+  <data name="DescriptionIsInstallableWizard" xml:space="preserve">
+    <value>Indiquez içi la/les règles qui permettrons aux clients de déterminer si la mise à jour est installable.
+
+- Produit Msi installé : Vérifie dans la base de registre si le produit est déjà installé en ce basant sur le code MSI.
+- Architecture du Processeur : Détermine si le processeur est de type x86, x64 ou IA64.
+
+
+
+Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
+  </data>
+  <data name="DescriptionIsInstalledWizard" xml:space="preserve">
+    <value>Indiquez içi la/les règles qui permettrons aux clients de déterminer si la mise à jour est déjà installée.
+
+- Produit Msi installé : Vérifie dans la base de registre si le produit est déjà installé en ce basant sur le code MSI.
+- Architecture du Processeur : Détermine si le processeur est de type x86, x64 ou IA64.
+
+
+
+Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
+  </data>
+  <data name="DescriptionRuleMsiProductInstalled" xml:space="preserve">
+    <value>Indiquez içi les informations concernant le produit Msi à recherché.  Les champs en caractères gras sont obligatoires.
+
+Code Msi (Obligatoire) : Code du produit Msi au format 12345678-1234-1234-1234-1234566789012
+Inverser la règle : Vérifiera que le produit n'est PAS installé.
+Version Max. (Facultatif) : Spécifie un numéro de version maximal pour le produit installé.
+Version Min. (Facultatif) : Spécifie un numéro de version minimal pour le produit installé.
+Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être installé.</value>
+  </data>
+  <data name="DescriptionRuleProcessorArchitecture" xml:space="preserve">
+    <value>Indiquez sur quel architecture le produit peut-être installé.</value>
+  </data>
+  <data name="FileCreated" xml:space="preserve">
+    <value>Date de création du fichier</value>
+  </data>
+  <data name="FileCreatedPrependRegSz" xml:space="preserve">
+    <value>Date de création du fichier préfixer par Registre</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>Fichier existe</value>
+  </data>
+  <data name="FileExistsPrependRegSz" xml:space="preserve">
+    <value>Fichier existe préfixer par Registre</value>
+  </data>
+  <data name="FileModified" xml:space="preserve">
+    <value>Date de modification du fichier</value>
+  </data>
+  <data name="FileModifiedPrependRegSz" xml:space="preserve">
+    <value>Date de modification du fichier préfixer par Registre</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>Taille du fichier</value>
+  </data>
+  <data name="FileSizePrependRegSz" xml:space="preserve">
+    <value>Taille du fichier préfixer par Registre</value>
+  </data>
+  <data name="FileVersion" xml:space="preserve">
+    <value>Version du fichier</value>
+  </data>
+  <data name="FileVersionPrependRegSz" xml:space="preserve">
+    <value>Version du fichier préfixer par Registre</value>
+  </data>
+  <data name="FinishedPublishing" xml:space="preserve">
+    <value>Publication terminée</value>
+  </data>
+  <data name="GetPublisher" xml:space="preserve">
+    <value>Récupération du du Publisher</value>
+  </data>
+  <data name="MsiApplicationInstallable" xml:space="preserve">
+    <value>Application Msi installable</value>
+  </data>
+  <data name="MsiApplicationInstalled" xml:space="preserve">
+    <value>Application Msi installé</value>
+  </data>
+  <data name="MsiApplicationSuperseded" xml:space="preserve">
+    <value>Application Msi remplacée</value>
+  </data>
+  <data name="MsiComponentInstalledForProduct" xml:space="preserve">
+    <value>Composant MSi installé pour le produit</value>
+  </data>
+  <data name="MsiFeatureInstalledForProduct" xml:space="preserve">
+    <value>Fonctionnalité Msi installée pour le produit</value>
+  </data>
+  <data name="MsiPatchInstallable" xml:space="preserve">
+    <value>Patch Msp installable</value>
+  </data>
+  <data name="MsiPatchinstalled" xml:space="preserve">
+    <value>Patch Msp installé</value>
+  </data>
+  <data name="MsiPatchInstalledForProduct" xml:space="preserve">
+    <value>Patch Msp installé pour le produit</value>
+  </data>
+  <data name="MsiPatchSuperseded" xml:space="preserve">
+    <value>Patch Msp remplacé</value>
+  </data>
+  <data name="MsiProductInstalled" xml:space="preserve">
+    <value>Produit Msi Installé</value>
+  </data>
+  <data name="NumberOfProcessor" xml:space="preserve">
+    <value>Nombre de processeur</value>
+  </data>
+  <data name="PopulatePackage" xml:space="preserve">
+    <value>Création du package</value>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Architecture du processeur</value>
+  </data>
+  <data name="RegDword" xml:space="preserve">
+    <value>Valeur Dword du Registre</value>
+  </data>
+  <data name="RegExpendSz" xml:space="preserve">
+    <value>Valeur de la chaine extensible du Registre</value>
+  </data>
+  <data name="RegKeyExists" xml:space="preserve">
+    <value>Clé de Registre existe</value>
+  </data>
+  <data name="RegKeyLoop" xml:space="preserve">
+    <value>Valeur de toutes les sous clés</value>
+  </data>
+  <data name="RegSz" xml:space="preserve">
+    <value>Valeur de la chaine du Registre</value>
+  </data>
+  <data name="RegSzToVersion" xml:space="preserve">
+    <value>Valeur de la chaine du Registre en tant que version</value>
+  </data>
+  <data name="SavingPackage" xml:space="preserve">
+    <value>Sauvegarde du package</value>
+  </data>
+  <data name="WindowsLanguage" xml:space="preserve">
+    <value>Langue de Windows</value>
+  </data>
+  <data name="WindowsVersion" xml:space="preserve">
+    <value>Version de Windows</value>
+  </data>
+  <data name="WmiQuery" xml:space="preserve">
+    <value>Requette Wmi</value>
+  </data>
 </root>

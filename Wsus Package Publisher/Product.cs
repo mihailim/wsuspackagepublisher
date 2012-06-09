@@ -50,8 +50,7 @@ namespace Wsus_Package_Publisher
             _updates.Add(update);
         }
 
-        /// <summary>mber of update for this Product.
-        /// Get the nu
+        /// <summary>Get the number of update for this Product.
         /// </summary>
         /// <returns>Number of updates.</returns>
         internal int GetUpdatesCount()

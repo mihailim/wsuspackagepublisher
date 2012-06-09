@@ -74,10 +74,13 @@ namespace Wsus_Package_Publisher
         bool _useVersionMin = false;
         bool _reversRule = false;
         System.Text.RegularExpressions.Regex regExp = new System.Text.RegularExpressions.Regex("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$");
+        System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleMsiProductInstalled).Assembly);
 
         internal RuleMsiProductInstalled()
         {
             InitializeComponent();
+
+            txtBxDescription.Text = resManager.GetString("DescriptionRuleMsiProductInstalled");
             foreach (string language in _languagesByString.Keys)
             {
                 cmbBxLanguage.Items.Add(language);

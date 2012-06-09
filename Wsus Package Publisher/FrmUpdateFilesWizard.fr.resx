@@ -256,7 +256,7 @@
     <value>467, 387</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
+    <value>&amp;Annuler</value>
   </data>
   <data name="lstBxAdditionnalFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>

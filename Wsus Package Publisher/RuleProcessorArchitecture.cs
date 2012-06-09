@@ -13,10 +13,13 @@ namespace Wsus_Package_Publisher
     {
         private ushort _processorArchitecture;
         private bool _reverseRule;
+        System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleProcessorArchitecture).Assembly);
 
         internal RuleProcessorArchitecture()
         {
             InitializeComponent();
+            txtBxDescription.Text = resManager.GetString("DescriptionRuleProcessorArchitecture");
+            cmbBxProcessorArchitecture.Select();
         }
 
         #region Methods - Méthodes

@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.chkLstBxPublishing = new System.Windows.Forms.CheckedListBox();
+            this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // prgBrPublishing
@@ -56,10 +57,19 @@
             this.chkLstBxPublishing.FormattingEnabled = true;
             this.chkLstBxPublishing.Name = "chkLstBxPublishing";
             // 
+            // btnOk
+            // 
+            resources.ApplyResources(this.btnOk, "btnOk");
+            this.btnOk.Name = "btnOk";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
             // FrmUpdatePublisher
             // 
+            this.AcceptButton = this.btnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.chkLstBxPublishing);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -77,5 +87,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox chkLstBxPublishing;
+        private System.Windows.Forms.Button btnOk;
     }
 }
