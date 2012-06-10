@@ -168,6 +168,12 @@
     <Compile Include="RulesViewer.Designer.cs">
       <DependentUpon>RulesViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="RuleWindowsVersion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuleWindowsVersion.Designer.cs">
+      <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="UpdateDetailViewer.cs">
       <SubType>UserControl</SubType>
@@ -302,6 +308,15 @@
     <EmbeddedResource Include="RulesViewer.resx">
       <DependentUpon>RulesViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsVersion.en.resx">
+      <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsVersion.fr.resx">
+      <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsVersion.resx">
+      <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateDetailViewer.en.resx">
       <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +336,7 @@
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

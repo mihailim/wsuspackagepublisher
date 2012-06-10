@@ -149,6 +149,9 @@
   <data name="chkLstBxPublishing.Size" type="System.Drawing.Size, System.Drawing">
     <value>337, 154</value>
   </data>
+  <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>351, 256</value>
   </data>

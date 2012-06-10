@@ -326,4 +326,42 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
   <data name="WmiQuery" xml:space="preserve">
     <value>Requette Wmi</value>
   </data>
+  <data name="ComparisonEqualTo" xml:space="preserve">
+    <value>Egal à</value>
+  </data>
+  <data name="ComparisonGreaterThan" xml:space="preserve">
+    <value>Supérieur à</value>
+  </data>
+  <data name="ComparisonGreaterThanOrEqualTo" xml:space="preserve">
+    <value>Supérieur ou égal à</value>
+  </data>
+  <data name="ComparisonLessThan" xml:space="preserve">
+    <value>Inférieur à</value>
+  </data>
+  <data name="ComparisonLessThanOrEqualTo" xml:space="preserve">
+    <value>Inférieur ou égal à</value>
+  </data>
+  <data name="DescriptionRuleWindowsVersion" xml:space="preserve">
+    <value>Indiquez la version de Windows sur laquelle le produit peut-être installé.
+
+Vous devez paramétrer au moins 'Version Majeur' et/ou 'Produit'.
+
+Attention : Un controleur de domaine apparaitra avec un 'Produit' = 'Controleur de domaine' et non pas 'Serveur'
+
+Comparaison : Opérateur logique de comparaison. Par défaut, l'opérateur est 'Egal à'.
+
+Sélection facile : Présélections à votre disposition.
+
+Version Majeur : Version majeur du système d'exploitation.
+
+Version Mineur : Version mineur du système d'exploitation.
+
+Build Number : Build du système d'exploitation.
+
+Produit : Détermine si il s'agit d'une station de travail, d'un serveur ou d'un controleur de domaine.
+
+Service Pack Majeur : Version majeur du service pack.
+
+Service Pack Mineur : Version mineur du service pack.</value>
+  </data>
 </root>

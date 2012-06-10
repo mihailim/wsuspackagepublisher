@@ -53,6 +53,7 @@ namespace Wsus_Package_Publisher
 
             prgBrPublishing.Value = 25;
             chkLstBxPublishing.Items.Add(resManager.GetString("PopulatePackage"), true);
+            chkLstBxPublishing.Refresh();
             sdp.Title = _informationsWizard.Title;
             sdp.Description = _informationsWizard.Description;
             sdp.VendorName = _informationsWizard.VendorName;
@@ -74,12 +75,15 @@ namespace Wsus_Package_Publisher
             sdp.Save(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             prgBrPublishing.Value = 50;
             chkLstBxPublishing.Items.Add(resManager.GetString("SavingPackage"), true);
+            chkLstBxPublishing.Refresh();
             IPublisher publisher = _wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             prgBrPublishing.Value = 75;
             chkLstBxPublishing.Items.Add(resManager.GetString("GetPublisher"), true);
+            chkLstBxPublishing.Refresh();
             publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
             prgBrPublishing.Value = 100;
             chkLstBxPublishing.Items.Add(resManager.GetString("FinishedPublishing"), true);
+            chkLstBxPublishing.Refresh();
             MessageBox.Show("La mise à jour a été publiée.");
             System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
             btnOk.Enabled = true;

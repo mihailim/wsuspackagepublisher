@@ -21,6 +21,7 @@ namespace Wsus_Package_Publisher
             _currentGroup = _masterGroup;
             cmbBxRules.Items.Add(resManager.GetString("MsiProductInstalled"));
             cmbBxRules.Items.Add(resManager.GetString("Processor"));
+            cmbBxRules.Items.Add(resManager.GetString("WindowsVersion"));
 
         }
 
@@ -52,6 +53,8 @@ namespace Wsus_Package_Publisher
                     return new RuleMsiProductInstalled();
                 case 1:
                     return new RuleProcessorArchitecture();
+                case 2:
+                    return new RuleWindowsVersion();
                 default:
                     return new RuleMsiProductInstalled();
             }

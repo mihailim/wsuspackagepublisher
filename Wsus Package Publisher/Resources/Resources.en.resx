@@ -239,10 +239,10 @@ Command line (Optional): Indicate one or more parameters for the file update. Eg
     <value>Get Publisher</value>
   </data>
   <data name="GroupEnd" xml:space="preserve">
-    <value>&lt;End</value>
+    <value>&lt;End </value>
   </data>
   <data name="GroupStart" xml:space="preserve">
-    <value>&lt;Start</value>
+    <value>&lt;Start </value>
   </data>
   <data name="MsiApplicationInstallable" xml:space="preserve">
     <value>Msi Application Installable</value>
@@ -324,5 +324,43 @@ Command line (Optional): Indicate one or more parameters for the file update. Eg
   </data>
   <data name="WmiQuery" xml:space="preserve">
     <value>Wmi Query</value>
+  </data>
+  <data name="ComparisonEqualTo" xml:space="preserve">
+    <value>Equal To</value>
+  </data>
+  <data name="ComparisonGreaterThan" xml:space="preserve">
+    <value>Greater Than</value>
+  </data>
+  <data name="ComparisonGreaterThanOrEqualTo" xml:space="preserve">
+    <value>Greater Than Or Equal To</value>
+  </data>
+  <data name="ComparisonLessThan" xml:space="preserve">
+    <value>Less Than</value>
+  </data>
+  <data name="ComparisonLessThanOrEqualTo" xml:space="preserve">
+    <value>Less Than Or Equal To</value>
+  </data>
+  <data name="DescriptionRuleWindowsVersion" xml:space="preserve">
+    <value>Indicate the version of Windows on which the product can be installed.
+
+You must set at least 'Major Version' and/or 'Product Type'.
+
+Caution: A domain controller appear with a 'product' = 'domain controller' and not 'Server'.
+
+Comparison: Logical operator comparison. By default, the operator is 'Equal To'.
+
+Easy Selection : Presets at your disposal.
+
+Major Version: Major version of the operating system.
+
+Minor Revision: Minor version of the operating system.
+
+Build Number: Build of the Operating System.
+
+Product: Determines whether this is a workstation, server or domain controller.
+
+Service Pack Major: Major service pack version.
+
+Service Pack Minor: Minor service pack version.</value>
   </data>
 </root>
