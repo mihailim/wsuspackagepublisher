@@ -95,7 +95,7 @@ namespace Wsus_Package_Publisher
         /// </summary>
         /// <param name="version">The string to check against Regexp.</param>
         /// <returns>True if the string match, else false.</returns>
-        private bool IsVersionStringCorrectlyformatted(string version)
+        private bool IsVersionStringCorrectlyformated(string version)
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}");
 
@@ -265,7 +265,7 @@ namespace Wsus_Package_Publisher
             get { return nupVersionMax1.Value + "." + nupVersionMax2.Value + "." + nupVersionMax3.Value + "." + nupVersionMax4.Value; }
             set
             {
-                if (IsVersionStringCorrectlyformatted(value))
+                if (IsVersionStringCorrectlyformated(value))
                 {
                     nupVersionMax1.Value = GetVersionNumber(value, 0);
                     nupVersionMax2.Value = GetVersionNumber(value, 1);
@@ -284,7 +284,7 @@ namespace Wsus_Package_Publisher
             get { return nupVersionMin1.Value + "." + nupVersionMin2.Value + "." + nupVersionMin3.Value + "." + nupVersionMin4.Value; }
             set
             {
-                if (IsVersionStringCorrectlyformatted(value))
+                if (IsVersionStringCorrectlyformated(value))
                 {
                     nupVersionMin1.Value = GetVersionNumber(value, 0);
                     nupVersionMin2.Value = GetVersionNumber(value, 1);

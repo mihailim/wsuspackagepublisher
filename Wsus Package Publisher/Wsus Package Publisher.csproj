@@ -168,6 +168,12 @@
     <Compile Include="RulesViewer.Designer.cs">
       <DependentUpon>RulesViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="RuleWindowsLanguage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuleWindowsLanguage.Designer.cs">
+      <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuleWindowsVersion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -307,6 +313,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RulesViewer.resx">
       <DependentUpon>RulesViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsLanguage.en.resx">
+      <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsLanguage.fr.resx">
+      <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleWindowsLanguage.resx">
+      <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuleWindowsVersion.en.resx">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>

@@ -363,4 +363,9 @@ Service Pack Major: Major service pack version.
 
 Service Pack Minor: Minor service pack version.</value>
   </data>
+  <data name="DescriptionWindowsLanguage" xml:space="preserve">
+    <value>Select the language in which Windows must be installed.
+
+Warning : In case of a multilanguage installation of Windows, this rule will always be evaluated to 'True'.</value>
+  </data>
 </root>

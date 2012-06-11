@@ -227,6 +227,7 @@
             // cmbBxComputerGroup
             // 
             resources.ApplyResources(this.cmbBxComputerGroup, "cmbBxComputerGroup");
+            this.cmbBxComputerGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxComputerGroup.FormattingEnabled = true;
             this.cmbBxComputerGroup.Name = "cmbBxComputerGroup";
             this.cmbBxComputerGroup.SelectedIndexChanged += new System.EventHandler(this.cmbBxComputerGroup_SelectedIndexChanged);

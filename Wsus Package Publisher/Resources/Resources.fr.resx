@@ -364,4 +364,9 @@ Service Pack Majeur : Version majeur du service pack.
 
 Service Pack Mineur : Version mineur du service pack.</value>
   </data>
+  <data name="DescriptionWindowsLanguage" xml:space="preserve">
+    <value>Sélectionnez la langue dans laquelle Windows doit-être installé.
+
+Attention : Dans le cas d'une version multilangue de Windows, cette règle sera toujours évalué à 'Vrai'.</value>
+  </data>
 </root>
