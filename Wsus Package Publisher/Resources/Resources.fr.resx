@@ -255,7 +255,7 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
     <value>Publication terminée</value>
   </data>
   <data name="GetPublisher" xml:space="preserve">
-    <value>Récupération du du Publisher</value>
+    <value>Récupération du Publisher</value>
   </data>
   <data name="MsiApplicationInstallable" xml:space="preserve">
     <value>Application Msi installable</value>
@@ -368,5 +368,14 @@ Service Pack Mineur : Version mineur du service pack.</value>
     <value>Sélectionnez la langue dans laquelle Windows doit-être installé.
 
 Attention : Dans le cas d'une version multilangue de Windows, cette règle sera toujours évalué à 'Vrai'.</value>
+  </data>
+  <data name="DescriptionFileExists" xml:space="preserve">
+    <value>Dossier Standard (Optionnel) : Liste de dossier pré-définis dont l'emplacement peut varier d'un OS à l'autre.
+Chemin vers le fichier (Obligatoire) : Chemin complet vers le fichier à rechercher (260 caractères max.).
+Version (Optionnel) : Version du fichier.
+Date de Création (Optionnel) : Date de création du fichier.
+Date de Modification (Optionnel) : Date de modification du fichier.
+Taille (Optionnel) : Taille en octet du fichier.
+Language (Optionnel) : Language du fichier.</value>
   </data>
 </root>

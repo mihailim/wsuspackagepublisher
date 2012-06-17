@@ -23,6 +23,7 @@ namespace Wsus_Package_Publisher
             cmbBxRules.Items.Add(resManager.GetString("Processor"));
             cmbBxRules.Items.Add(resManager.GetString("WindowsVersion"));
             cmbBxRules.Items.Add(resManager.GetString("WindowsLanguage"));
+            cmbBxRules.Items.Add(resManager.GetString("FileExists"));
 
         }
 
@@ -58,6 +59,8 @@ namespace Wsus_Package_Publisher
                     return new RuleWindowsVersion();
                 case 3:
                     return new RuleWindowsLanguage();
+                case 4:
+                    return new RuleFileExists();
                 default:
                     return new RuleMsiProductInstalled();
             }

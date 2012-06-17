@@ -368,4 +368,13 @@ Service Pack Minor: Minor service pack version.</value>
 
 Warning : In case of a multilanguage installation of Windows, this rule will always be evaluated to 'True'.</value>
   </data>
+  <data name="DescriptionFileExists" xml:space="preserve">
+    <value>Knwon folder (Optional): List of predefined folder whose location may vary from one OS to another.
+File Path (Required): Full path to the file search (260 characters max.).
+File Version (optional): File Version.
+Creation Date (Optional): Creation date of the file.
+Modified Date (Optional): Modified date of the file.
+File Size (Optional): Size in bytes of the file.
+Language (optional): Language of the file.</value>
+  </data>
 </root>

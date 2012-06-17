@@ -100,6 +100,12 @@
     <Compile Include="FrmUpdatePublisher.Designer.cs">
       <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
     </Compile>
+    <Compile Include="RuleFileExists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuleFileExists.Designer.cs">
+      <DependentUpon>RuleFileExists.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuleProcessorArchitecture.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,6 +270,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWsusPackagePublisher.resx">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileExists.en.resx">
+      <DependentUpon>RuleFileExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileExists.fr.resx">
+      <DependentUpon>RuleFileExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileExists.resx">
+      <DependentUpon>RuleFileExists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuleMsiProductInstalled.en.resx">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
