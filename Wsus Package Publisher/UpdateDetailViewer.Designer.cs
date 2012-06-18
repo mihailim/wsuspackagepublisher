@@ -182,6 +182,8 @@
             // tabInformations
             // 
             resources.ApplyResources(this.tabInformations, "tabInformations");
+            this.tabInformations.BackColor = System.Drawing.Color.White;
+            this.tabInformations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabInformations.Controls.Add(this.txtBxDescription);
             this.tabInformations.Controls.Add(this.chkBxIsExpired);
             this.tabInformations.Controls.Add(this.label5);
@@ -203,7 +205,6 @@
             this.tabInformations.Controls.Add(this.txtBxCompany);
             this.tabInformations.Controls.Add(this.label3);
             this.tabInformations.Name = "tabInformations";
-            this.tabInformations.UseVisualStyleBackColor = true;
             // 
             // txtBxDescription
             // 
@@ -213,11 +214,12 @@
             // tabStatus
             // 
             resources.ApplyResources(this.tabStatus, "tabStatus");
+            this.tabStatus.BackColor = System.Drawing.Color.White;
+            this.tabStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabStatus.Controls.Add(this.label8);
             this.tabStatus.Controls.Add(this.cmbBxComputerGroup);
             this.tabStatus.Controls.Add(this.dgvComputerStatus);
             this.tabStatus.Name = "tabStatus";
-            this.tabStatus.UseVisualStyleBackColor = true;
             // 
             // label8
             // 

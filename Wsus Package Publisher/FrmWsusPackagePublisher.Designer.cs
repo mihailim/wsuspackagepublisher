@@ -46,6 +46,7 @@
             this.créerUneMiseÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -86,6 +87,7 @@
             // splitContainer2
             // 
             resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -105,7 +107,8 @@
             this.FichierStripMenuItem,
             this.outilsToolStripMenuItem,
             this.misesÀJourToolStripMenuItem,
-            this.aideToolStripMenuItem});
+            this.aideToolStripMenuItem,
+            this.toolStripComboBox1});
             this.menuStrip.Name = "menuStrip";
             // 
             // FichierStripMenuItem
@@ -198,6 +201,11 @@
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
+            // toolStripComboBox1
+            // 
+            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            // 
             // FrmWsusPackagePublisher
             // 
             resources.ApplyResources(this, "$this");
@@ -236,5 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem françaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         internal System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }

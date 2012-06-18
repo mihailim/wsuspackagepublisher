@@ -229,6 +229,10 @@ namespace Wsus_Package_Publisher
                         updateListViewer = new UpdateListViewer(this, company, product);
                         splitContainer2.SuspendLayout();
                         splitContainer2.Panel1.Controls.Clear();
+                        if (updateListViewer.DataGridViewHeight < (splitContainer2.Height / 2))
+                            splitContainer2.SplitterDistance = (int)(updateListViewer.DataGridViewHeight + 0.05 * updateListViewer.DataGridViewHeight);
+                        else
+                            splitContainer2.SplitterDistance = (int)(splitContainer2.Height / 2);
                         splitContainer2.Panel1.Controls.Add(updateListViewer);
                         updateListViewer.Dock = DockStyle.Fill;
                         splitContainer2.ResumeLayout();
@@ -294,5 +298,6 @@ namespace Wsus_Package_Publisher
         {
             ViewedUpdate.Decline();
         }
+
     }
 }

@@ -62,5 +62,21 @@ namespace Wsus_Package_Publisher
         {
             get { return _product; }
         }
+
+        internal int DataGridViewHeight
+        {
+            get
+            {
+                int height = 0;
+
+                height += dgvUpdateList.ColumnHeadersHeight;
+                foreach (DataGridViewRow row in dgvUpdateList.Rows)
+                {
+                    height += row.Height;
+                }
+
+                return height;
+            }
+        }
     }
 }
