@@ -24,6 +24,7 @@ namespace Wsus_Package_Publisher
             cmbBxRules.Items.Add(resManager.GetString("WindowsVersion"));
             cmbBxRules.Items.Add(resManager.GetString("WindowsLanguage"));
             cmbBxRules.Items.Add(resManager.GetString("FileExists"));
+            cmbBxRules.Items.Add(resManager.GetString("FileExistsPrependRegSz"));
 
         }
 
@@ -61,6 +62,8 @@ namespace Wsus_Package_Publisher
                     return new RuleWindowsLanguage();
                 case 4:
                     return new RuleFileExists();
+                case 5:
+                    return new RuleFileExistsPrependRegSz();
                 default:
                     return new RuleMsiProductInstalled();
             }
