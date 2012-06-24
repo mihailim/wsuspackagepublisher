@@ -378,4 +378,11 @@ Date de Modification (Optionnel) : Date de modification du fichier.
 Taille (Optionnel) : Taille en octet du fichier.
 Language (Optionnel) : Language du fichier.</value>
   </data>
+  <data name="DescriptionFileVersion" xml:space="preserve">
+    <value>Indiquez içi les informations concernant le fichier à vérifier et ca version.
+
+Dossier Standard (Optionnel) : Liste de dossier pré-définis dont l'emplacement peut varier d'un OS à l'autre.
+Chemin vers le fichier (Obligatoire) : Chemin complet vers le fichier à rechercher (260 caractères max.).
+Version (Obligatoire) : Version du fichier.</value>
+  </data>
 </root>

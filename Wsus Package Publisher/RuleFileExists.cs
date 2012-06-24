@@ -117,7 +117,7 @@ namespace Wsus_Package_Publisher
             {0x29 ,"SYSTEMX86" },
             {0x24 ,"WINDOWS" }
         };
-        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager(typeof(RuleFileExists));
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileExists).Assembly);
 
         internal RuleFileExists()
         {

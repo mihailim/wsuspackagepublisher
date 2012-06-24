@@ -112,6 +112,12 @@
     <Compile Include="RuleFileExistsPrependRegSz.Designer.cs">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
     </Compile>
+    <Compile Include="RuleFileVersion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuleFileVersion.Designer.cs">
+      <DependentUpon>RuleFileVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuleProcessorArchitecture.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -294,6 +300,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RuleFileExistsPrependRegSz.resx">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileVersion.en.resx">
+      <DependentUpon>RuleFileVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileVersion.fr.resx">
+      <DependentUpon>RuleFileVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleFileVersion.resx">
+      <DependentUpon>RuleFileVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuleMsiProductInstalled.en.resx">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>

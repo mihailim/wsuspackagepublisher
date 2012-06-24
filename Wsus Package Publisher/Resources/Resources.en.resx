@@ -377,4 +377,11 @@ Modified Date (Optional): Modified date of the file.
 File Size (Optional): Size in bytes of the file.
 Language (optional): Language of the file.</value>
   </data>
+  <data name="DescriptionFileVersion" xml:space="preserve">
+    <value>Indicate here the information about the file and verify that version.
+
+Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
+Path to the file (Required): Full path to the file search (260 characters max.).
+Version (mandatory): File Version.</value>
+  </data>
 </root>
