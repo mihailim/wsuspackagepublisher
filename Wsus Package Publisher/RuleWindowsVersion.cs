@@ -23,7 +23,7 @@ namespace Wsus_Package_Publisher
         
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleWindowsVersion).Assembly);
 
-        internal RuleWindowsVersion()
+        public RuleWindowsVersion()
         {
             InitializeComponent();
 
@@ -39,22 +39,6 @@ namespace Wsus_Package_Publisher
         }
 
         #region (Properties - Propriétés)
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "WindowsVersion"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
 
         internal bool UseComparison
         {
@@ -394,6 +378,11 @@ namespace Wsus_Package_Publisher
             }
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return resManager.GetString("WindowsVersion");
         }
 
         #endregion

@@ -126,7 +126,7 @@ Nom Du Produit (Obligatoire) : Nom du produit mis à jour. Par exemple : Java, E
 
 Titre (Obligatoire) : C'est içi que vous définissez le titre de la mise à jour. Par exemple : Java 6 update 31, Symantec Endpoint Protection 12.1 RU1 MP1, Flash Player 11.2.0.233...
 
-Description (Facultatif) : Vous pouvez préciser içi des informations concernant la mise à jour. Tels que, les améliorations apportées, les bugs corrigés...
+Description (Obligatoire) : Vous pouvez préciser içi des informations concernant la mise à jour. Tels que, les améliorations apportées, les bugs corrigés...
 
 URL Plus d'Info (Facultatif) : Précisez içi une URL vers une page web donnant plus d'informations sur la mise à jour.
 
@@ -384,5 +384,11 @@ Language (Optionnel) : Language du fichier.</value>
 Dossier Standard (Optionnel) : Liste de dossier pré-définis dont l'emplacement peut varier d'un OS à l'autre.
 Chemin vers le fichier (Obligatoire) : Chemin complet vers le fichier à rechercher (260 caractères max.).
 Version (Obligatoire) : Version du fichier.</value>
+  </data>
+  <data name="NoDescription" xml:space="preserve">
+    <value>Aucune description disponible.</value>
+  </data>
+  <data name="UpdatePublished" xml:space="preserve">
+    <value>La mise à jour a été publiée.</value>
   </data>
 </root>

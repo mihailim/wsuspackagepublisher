@@ -19,14 +19,13 @@ namespace Wsus_Package_Publisher
         {
             InitializeComponent();
             _currentGroup = _masterGroup;
-            cmbBxRules.Items.Add(resManager.GetString("MsiProductInstalled"));
-            cmbBxRules.Items.Add(resManager.GetString("Processor"));
-            cmbBxRules.Items.Add(resManager.GetString("WindowsVersion"));
-            cmbBxRules.Items.Add(resManager.GetString("WindowsLanguage"));
-            cmbBxRules.Items.Add(resManager.GetString("FileExists"));
-            cmbBxRules.Items.Add(resManager.GetString("FileExistsPrependRegSz"));
-            cmbBxRules.Items.Add(resManager.GetString("FileVersion"));
-
+            cmbBxRules.Items.Add(new RuleMsiProductInstalled());
+            cmbBxRules.Items.Add(new RuleProcessorArchitecture());
+            cmbBxRules.Items.Add(new RuleWindowsVersion());
+            cmbBxRules.Items.Add(new RuleWindowsLanguage());
+            cmbBxRules.Items.Add(new RuleFileExists());
+            cmbBxRules.Items.Add(new RuleFileExistsPrependRegSz());
+            cmbBxRules.Items.Add(new RuleFileVersion());
         }
 
         private void btnAddRule_Click(object sender, EventArgs e)
@@ -51,25 +50,10 @@ namespace Wsus_Package_Publisher
 
         private GenericRule GetSelectedForm()
         {
-            switch (cmbBxRules.SelectedIndex)
-            {
-                case 0:
-                    return new RuleMsiProductInstalled();
-                case 1:
-                    return new RuleProcessorArchitecture();
-                case 2:
-                    return new RuleWindowsVersion();
-                case 3:
-                    return new RuleWindowsLanguage();
-                case 4:
-                    return new RuleFileExists();
-                case 5:
-                    return new RuleFileExistsPrependRegSz();
-                case 6:
-                    return new RuleFileVersion();
-                default:
-                    return new RuleMsiProductInstalled();
-            }
+            Object selectedRule = cmbBxRules.SelectedItem;
+            Type ruleType = selectedRule.GetType();
+            System.Reflection.Assembly assembly = ruleType.Assembly;
+            return (GenericRule)assembly.CreateInstance(ruleType.FullName);            
         }
 
         internal string GetXmlFormattedRule()

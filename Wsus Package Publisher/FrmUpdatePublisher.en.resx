@@ -122,11 +122,14 @@
     <value>Top, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="prgBrPublishing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 39</value>
+  </data>
   <data name="prgBrPublishing.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 23</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Underline</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 13</value>
@@ -135,22 +138,13 @@
     <value>Publishing Update : </value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 68</value>
+    <value>12, 45</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Progress : </value>
-  </data>
-  <data name="chkLstBxPublishing.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="chkLstBxPublishing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 93</value>
-  </data>
-  <data name="chkLstBxPublishing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>309, 139</value>
   </data>
   <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -159,10 +153,22 @@
   <data name="btnOk.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 103</value>
+  </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
+  <data name="lblProgress.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 13</value>
+  </data>
+  <data name="lblProgress.Text" xml:space="preserve">
+    <value>Publishing Package...</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>410, 280</value>
+    <value>410, 138</value>
   </data>
 </root>

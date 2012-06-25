@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Microsoft.UpdateServices.Administration;
 
@@ -16,7 +11,8 @@ namespace Wsus_Package_Publisher
         private string _vendorName;
         private string _productName;
         private string _title;
-        private string _description = "Default description";
+        private string _description;
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateInformationsWizard).Assembly);
 
 
         internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies)
@@ -24,7 +20,7 @@ namespace Wsus_Package_Publisher
             InitializeComponent();
 
             _companies = Companies;
-            cmbBxUpdateClassification.Items.AddRange( Enum.GetNames(typeof(PackageUpdateClassification)));
+            cmbBxUpdateClassification.Items.AddRange(Enum.GetNames(typeof(PackageUpdateClassification)));
             cmbBxUpdateClassification.SelectedItem = PackageUpdateClassification.Updates.ToString();
             cmbBxImpact.Items.AddRange(Enum.GetNames(typeof(InstallationImpact)));
             cmbBxImpact.SelectedItem = InstallationImpact.Normal.ToString();
@@ -33,7 +29,7 @@ namespace Wsus_Package_Publisher
             cmbBxMsrcSeverity.Items.AddRange(Enum.GetNames(typeof(MsrcSeverity)));
             cmbBxMsrcSeverity.SelectedItem = MsrcSeverity.Unspecified.ToString();
             cmbBxVendorName.Select();
-
+            _description = resMan.GetString("NoDescription");
             foreach (string company in Companies.Keys)
             {
                 cmbBxVendorName.Items.Add(company);
@@ -121,8 +117,8 @@ namespace Wsus_Package_Publisher
 
         private void txtBxDescription_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtBxDescription.Text))
-            Description = txtBxDescription.Text;
+            if (txtBxDescription.Text.Trim().Length != 0)
+                Description = txtBxDescription.Text;
             else
                 Description = "Default description";
         }

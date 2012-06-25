@@ -9,23 +9,19 @@ using System.Windows.Forms;
 
 namespace Wsus_Package_Publisher
 {
-    internal partial class RulesGroup : GenericRule
+    internal partial class RulesGroup
     {
+        internal enum GroupLogicalOperator { And, Or, None }
         private Dictionary<Guid, GenericRule> _frmRules = new Dictionary<Guid, GenericRule>();
         private Guid _guid = Guid.NewGuid();
         private GroupLogicalOperator _groupType = GroupLogicalOperator.And;
-
-        internal RulesGroup()
-        {
-            InitializeComponent();
-        }
 
         internal void AddFrm(GenericRule frmToAdd)
         {
             _frmRules.Add(Guid.NewGuid(), frmToAdd);
         }
 
-        internal override string GetXmlFormattedRule()
+        internal string GetXmlFormattedRule()
         {
             string result = "";
 
@@ -81,20 +77,10 @@ namespace Wsus_Package_Publisher
             set { _frmRules = value; }
         }
 
-        internal override GroupLogicalOperator GroupType
+        internal GroupLogicalOperator GroupType
         {
             get {return _groupType;}
             set { _groupType = value; }
-        }
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Group; }
-        }
-
-        internal override string RuleType
-        {
-            get { return ""; }
         }
 
         #endregion

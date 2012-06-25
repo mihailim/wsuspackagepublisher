@@ -58,3 +58,15 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsVersion.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsVersion.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsVersion.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExists.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersion.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsLanguage.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExists.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExists.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersion.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersion.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsLanguage.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsLanguage.fr.resources

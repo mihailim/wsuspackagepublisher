@@ -36,16 +36,16 @@
             this.btnORGrouping = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.rulesViewer1 = new Wsus_Package_Publisher.RulesViewer();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.rulesViewer1 = new Wsus_Package_Publisher.RulesViewer();
             this.SuspendLayout();
             // 
             // cmbBxRules
             // 
             resources.ApplyResources(this.cmbBxRules, "cmbBxRules");
-            this.cmbBxRules.FormattingEnabled = true;
+            this.cmbBxRules.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRules.Name = "cmbBxRules";
             // 
             // label1
@@ -84,11 +84,6 @@
             this.button8.Name = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // rulesViewer1
-            // 
-            resources.ApplyResources(this.rulesViewer1, "rulesViewer1");
-            this.rulesViewer1.Name = "rulesViewer1";
-            // 
             // btnNext
             // 
             resources.ApplyResources(this.btnNext, "btnNext");
@@ -106,6 +101,11 @@
             resources.ApplyResources(this.btnPrevious, "btnPrevious");
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            // 
+            // rulesViewer1
+            // 
+            resources.ApplyResources(this.rulesViewer1, "rulesViewer1");
+            this.rulesViewer1.Name = "rulesViewer1";
             // 
             // FrmUpdateRulesWizard
             // 

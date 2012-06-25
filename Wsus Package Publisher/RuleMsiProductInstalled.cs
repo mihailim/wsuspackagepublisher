@@ -76,7 +76,7 @@ namespace Wsus_Package_Publisher
         System.Text.RegularExpressions.Regex regExp = new System.Text.RegularExpressions.Regex("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$");
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleMsiProductInstalled).Assembly);
 
-        internal RuleMsiProductInstalled()
+        public RuleMsiProductInstalled()
         {
             InitializeComponent();
 
@@ -219,29 +219,18 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        public override string ToString()
+        {
+            return resManager.GetString("MsiProductInstalled");
+        }
+                
         #endregion
 
         #region(Properties - propriétés)
-
+        
         internal Guid GetGuid
         {
             get { return _guid; }
-        }
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "MsiProductInstalled"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
         }
 
         internal Guid MsiProductCode

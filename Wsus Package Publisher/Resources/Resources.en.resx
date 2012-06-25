@@ -132,7 +132,7 @@ Product Name (Required): Name of the upgraded product. For example: Java, Endpoi
 
 Title (Required): It is here that you define the title of the update. For example: Java 6 update 31, Symantec Endpoint Protection 12.1 MP1 RU1, Flash Player 11.2.0.233 ...
 
-Description (Optional): You can specify here information about the update. Such as, improvements, and bug fixes ...
+Description (Required): You can specify here information about the update. Such as, improvements, and bug fixes ...
 
 More Info URL (Optional): Specify here a URL to a web page giving more information about the update.
 
@@ -383,5 +383,11 @@ Language (optional): Language of the file.</value>
 Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
 Path to the file (Required): Full path to the file search (260 characters max.).
 Version (mandatory): File Version.</value>
+  </data>
+  <data name="NoDescription" xml:space="preserve">
+    <value>No description available.</value>
+  </data>
+  <data name="UpdatePublished" xml:space="preserve">
+    <value>The update has been published.</value>
   </data>
 </root>

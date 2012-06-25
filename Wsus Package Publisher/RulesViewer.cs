@@ -63,12 +63,12 @@ namespace Wsus_Package_Publisher
 
             tab += 3;
 
-            foreach (GenericRule rule in group.FormList.Values)
+            foreach (Object rule in group.FormList.Values)
             {
-                if (rule.TypeOfObject == GenericRule.ObjectType.Group)
+                if (typeof(Rule) == typeof(RulesGroup))
                     DisplayGroup((RulesGroup)rule);
                 else
-                    DisplayRule(rule);
+                    DisplayRule((GenericRule)rule);
             }
 
             if (logicalOperator == RulesGroup.GroupLogicalOperator.And)

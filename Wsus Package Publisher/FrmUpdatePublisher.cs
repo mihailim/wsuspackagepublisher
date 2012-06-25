@@ -32,7 +32,7 @@ namespace Wsus_Package_Publisher
         {
             System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdatePublisher).Assembly);
             SoftwareDistributionPackage sdp = new SoftwareDistributionPackage();
-            string tmpFolderPath;
+            string tmpFolderPath;            
 
             prgBrPublishing.Value = 0;
 
@@ -51,9 +51,6 @@ namespace Wsus_Package_Publisher
                     break;
             }
 
-            prgBrPublishing.Value = 25;
-            chkLstBxPublishing.Items.Add(resManager.GetString("PopulatePackage"), true);
-            chkLstBxPublishing.Refresh();
             sdp.Title = _informationsWizard.Title;
             sdp.Description = _informationsWizard.Description;
             sdp.VendorName = _informationsWizard.VendorName;
@@ -73,18 +70,10 @@ namespace Wsus_Package_Publisher
             updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Bin\\" + updateFile.Name);
             
             sdp.Save(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
-            prgBrPublishing.Value = 50;
-            chkLstBxPublishing.Items.Add(resManager.GetString("SavingPackage"), true);
-            chkLstBxPublishing.Refresh();
             IPublisher publisher = _wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
-            prgBrPublishing.Value = 75;
-            chkLstBxPublishing.Items.Add(resManager.GetString("GetPublisher"), true);
-            chkLstBxPublishing.Refresh();
+            publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
             publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
-            prgBrPublishing.Value = 100;
-            chkLstBxPublishing.Items.Add(resManager.GetString("FinishedPublishing"), true);
-            chkLstBxPublishing.Refresh();
-            MessageBox.Show("La mise à jour a été publiée.");
+            MessageBox.Show(resManager.GetString("UpdatePublished"));
             System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
             btnOk.Enabled = true;
         }
@@ -92,6 +81,25 @@ namespace Wsus_Package_Publisher
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void publisher_Progress(object sender, EventArgs e)
+        {
+            PublishingEventArgs eventArgs = (PublishingEventArgs)e;
+
+            if (eventArgs.UpperProgressBound > int.MaxValue)
+            {
+                prgBrPublishing.Maximum = int.MaxValue;
+                prgBrPublishing.Value = (int)(eventArgs.CurrentProgress * (int.MaxValue / eventArgs.CurrentProgress));
+            }
+            else
+            {
+                prgBrPublishing.Maximum = (int)eventArgs.UpperProgressBound;
+                prgBrPublishing.Value = (int)eventArgs.CurrentProgress;
+            }
+            lblProgress.Text = eventArgs.ProgressStep.ToString() + " : " + eventArgs.ProgressInfo;
+            prgBrPublishing.Refresh();
+            lblProgress.Refresh();
         }
     }
 }

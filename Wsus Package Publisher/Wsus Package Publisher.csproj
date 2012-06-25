@@ -124,12 +124,7 @@
     <Compile Include="RuleProcessorArchitecture.Designer.cs">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </Compile>
-    <Compile Include="RulesGroup.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RulesGroup.Designer.cs">
-      <DependentUpon>RulesGroup.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RulesGroup.cs" />
     <Compile Include="FrmUpdateInformationsWizard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,7 +391,6 @@
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

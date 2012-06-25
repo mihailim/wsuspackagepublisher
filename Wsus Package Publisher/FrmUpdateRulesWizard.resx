@@ -130,8 +130,8 @@
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
@@ -151,6 +151,9 @@
   </data>
   <data name="&gt;&gt;rulesViewer1.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;rulesViewer1.Name" xml:space="preserve">
+    <value>rulesViewer1</value>
   </data>
   <data name="&gt;&gt;btnPrevious.Parent" xml:space="preserve">
     <value>$this</value>
@@ -179,11 +182,8 @@
   <data name="&gt;&gt;cmbBxRules.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnAndGrouping.Name" xml:space="preserve">
-    <value>btnAndGrouping</value>
-  </data>
-  <data name="&gt;&gt;cmbBxRules.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAddRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="btnORGrouping.Location" type="System.Drawing.Point, System.Drawing">
     <value>206, 80</value>
@@ -194,7 +194,7 @@
   <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnAndGrouping.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
@@ -219,9 +219,6 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;btnAndGrouping.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
@@ -230,9 +227,6 @@
   </data>
   <data name="&gt;&gt;button7.Name" xml:space="preserve">
     <value>button7</value>
-  </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -267,9 +261,6 @@
   <data name="btnORGrouping.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="button8.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
   <data name="button7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -300,6 +291,9 @@
   <data name="button7.Location" type="System.Drawing.Point, System.Drawing">
     <value>410, 80</value>
   </data>
+  <data name="rulesViewer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>646, 319</value>
+  </data>
   <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -315,8 +309,11 @@
   <data name="&gt;&gt;rulesViewer1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;rulesViewer1.Name" xml:space="preserve">
-    <value>rulesViewer1</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>647, 535</value>
+  </data>
+  <data name="&gt;&gt;btnAndGrouping.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -324,11 +321,14 @@
   <data name="&gt;&gt;btnPrevious.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="button7.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;btnAndGrouping.Name" xml:space="preserve">
+    <value>btnAndGrouping</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -336,8 +336,8 @@
   <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>560, 500</value>
   </data>
-  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cmbBxRules.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmbBxRules.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -384,20 +384,20 @@
   <data name="$this.Text" xml:space="preserve">
     <value>FrmUpdateRulesWizard</value>
   </data>
-  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;button8.Name" xml:space="preserve">
+    <value>button8</value>
   </data>
   <data name="&gt;&gt;btnORGrouping.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="rulesViewer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>646, 319</value>
+  <data name="button8.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;btnAddRule.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>647, 535</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>button2</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -423,13 +423,13 @@
   <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnAddRule.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnAndGrouping.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
 </root>

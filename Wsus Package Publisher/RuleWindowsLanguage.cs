@@ -69,7 +69,7 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleWindowsVersion).Assembly);
 
-        internal RuleWindowsLanguage()
+        public RuleWindowsLanguage()
         {
             InitializeComponent();
 
@@ -78,22 +78,6 @@ namespace Wsus_Package_Publisher
         }
 
         #region (Properties - Propriétés)
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "WindowsLanguage"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
 
         internal string Language
         {
@@ -140,6 +124,11 @@ namespace Wsus_Package_Publisher
         internal override string GetXmlFormattedRule()
         {
             return "<bar:WindowsLanguage Language=\"" + Language + "\"/>\r\n";
+        }
+
+        public override string ToString()
+        {
+            return resManager.GetString("WindowsLanguage");
         }
 
         #endregion

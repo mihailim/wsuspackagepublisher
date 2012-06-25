@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Wsus_Package_Publisher
 {
-    internal partial class GenericRule : UserControl
+    internal abstract partial class GenericRule : UserControl
     {
-        public enum ObjectType { Group, Rule }
-        public enum GroupLogicalOperator {And, Or, None}
-
         internal GenericRule()
         {
             InitializeComponent();
@@ -26,35 +17,10 @@ namespace Wsus_Package_Publisher
             rTxtBx.SelectedText += text;
         }
 
-        internal virtual string GetRtfFormattedRule(string rtf, int tabulation)
-        {
-            return "";
-        }
+        internal abstract string GetRtfFormattedRule(string rtf, int tabulation);
 
-        internal virtual string GetXmlFormattedRule()
-        {
-            return "";
-        }
+        internal abstract string GetXmlFormattedRule();
 
-        #region (Properties - Propriétés)
-
-        internal virtual ObjectType TypeOfObject
-        {
-            get { return ObjectType.Group; }
-        }
-
-        internal virtual string RuleType
-        {
-            get { return ""; }
-        }
-
-        internal virtual GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
-
-        #endregion
-
+        public abstract override string ToString();
     }
 }

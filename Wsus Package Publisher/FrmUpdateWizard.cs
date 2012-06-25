@@ -164,6 +164,7 @@ namespace Wsus_Package_Publisher
             updateIsInstallableRulesWizard.Hide();
             splitContainer1.Panel2.Controls.Clear();
             FrmUpdatePublisher updatePublisher = new FrmUpdatePublisher(_wsus, updateFilesWizard, updateInformationsWizard, updateIsInstalledRulesWizard, updateIsInstallableRulesWizard);
+            updatePublisher.Controls["btnOk"].Click += new EventHandler(this.Close);
             updatePublisher.TopLevel = false;
             splitContainer1.Panel2.Controls.Add(updatePublisher);
             updatePublisher.Show();
@@ -184,6 +185,11 @@ namespace Wsus_Package_Publisher
         {
             updateIsInstallableRulesWizard.Hide();
             InitializeUpdateIsInstalledRulesWizard();
+        }
+
+        private void Close(object sender, EventArgs e)
+        {
+            base.Close();
         }
         
         internal Dictionary<string, Company> Companies

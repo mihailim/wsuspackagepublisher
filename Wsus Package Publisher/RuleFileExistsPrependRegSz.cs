@@ -92,9 +92,9 @@ namespace Wsus_Package_Publisher
             {"WINDOWS", 0x24}
         };
 
-        System.Resources.ResourceManager resMan = new System.Resources.ResourceManager(typeof(RuleFileExistsPrependRegSz));
+        System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileExistsPrependRegSz).Assembly);
 
-        internal RuleFileExistsPrependRegSz()
+        public RuleFileExistsPrependRegSz()
         {
             InitializeComponent();
 
@@ -270,6 +270,11 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        public override string ToString()
+        {
+            return resMan.GetString("FileExistsPrependRegSz");
+        }
+
         /// <summary>
         /// Determines whether or not the string passed in parameters is compliant with the RegExp : "^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}"
         /// </summary>
@@ -306,22 +311,6 @@ namespace Wsus_Package_Publisher
         #endregion
 
         #region {Properties - Propriétés}
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "FileExists"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
 
         /// <summary>
         /// Get or Set the SubKey

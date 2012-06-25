@@ -65,7 +65,7 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileVersion).Assembly);
 
-        internal RuleFileVersion()
+        public RuleFileVersion()
         {
             InitializeComponent();
 
@@ -168,6 +168,11 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        public override string ToString()
+        {
+            return resMan.GetString("FileVersion");
+        }
+
         /// <summary>
         /// Determines whether or not the string passed in parameters is compliant with the RegExp : "^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}"
         /// </summary>
@@ -211,22 +216,6 @@ namespace Wsus_Package_Publisher
         #endregion
 
         #region {Properties - Propriétés}
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "FileVersion"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
        
         /// <summary>
         /// Get or Set the file path.

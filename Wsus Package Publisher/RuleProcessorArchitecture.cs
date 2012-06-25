@@ -15,7 +15,7 @@ namespace Wsus_Package_Publisher
         private bool _reverseRule;
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleProcessorArchitecture).Assembly);
 
-        internal RuleProcessorArchitecture()
+        public RuleProcessorArchitecture()
         {
             InitializeComponent();
             txtBxDescription.Text = resManager.GetString("DescriptionRuleProcessorArchitecture");
@@ -79,25 +79,14 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        public override string ToString()
+        {
+            return resManager.GetString("Processor");
+        }
+
         #endregion
 
         #region Properties - Propriétés
-
-        internal override GenericRule.ObjectType TypeOfObject
-        {
-            get { return GenericRule.ObjectType.Rule; }
-        }
-
-        internal override string RuleType
-        {
-            get { return "RuleProcessorArchitecture"; }
-        }
-
-        internal override GenericRule.GroupLogicalOperator GroupType
-        {
-            get { return GroupLogicalOperator.None; }
-            set { }
-        }
 
         /// <summary>
         /// Get or Set the processor architecture. 0 : x86, 6 : IA64, 9 : x64
