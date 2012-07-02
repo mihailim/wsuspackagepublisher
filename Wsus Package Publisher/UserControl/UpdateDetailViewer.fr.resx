@@ -138,7 +138,7 @@
     <value>105, 133</value>
   </data>
   <data name="txtBxAdditionnalInformationURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 20</value>
+    <value>455, 20</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -156,7 +156,7 @@
     <value>406, 84</value>
   </data>
   <data name="txtBxArrivalDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
+    <value>154, 20</value>
   </data>
   <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
@@ -177,7 +177,7 @@
     <value>105, 6</value>
   </data>
   <data name="txtBxCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 20</value>
+    <value>455, 20</value>
   </data>
   <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
@@ -231,7 +231,7 @@
     <value>105, 32</value>
   </data>
   <data name="txtBxProductTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 20</value>
+    <value>455, 20</value>
   </data>
   <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
@@ -252,13 +252,13 @@
     <value>105, 58</value>
   </data>
   <data name="txtBxTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 20</value>
+    <value>455, 20</value>
   </data>
   <data name="btnApprove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnApprove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 6</value>
+    <value>583, 6</value>
   </data>
   <data name="btnApprove.Text" xml:space="preserve">
     <value>Approuver...</value>
@@ -267,31 +267,25 @@
     <value>NoControl</value>
   </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 93</value>
+    <value>583, 131</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
     <value>Supprimer</value>
-  </data>
-  <data name="btnDecline.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
   </data>
   <data name="btnDecline.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnDecline.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 35</value>
+    <value>583, 35</value>
   </data>
   <data name="btnDecline.Text" xml:space="preserve">
     <value>Refuser</value>
-  </data>
-  <data name="btnExpire.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
   </data>
   <data name="btnExpire.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnExpire.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 64</value>
+    <value>583, 64</value>
   </data>
   <data name="btnExpire.Text" xml:space="preserve">
     <value>Expirer</value>
@@ -308,35 +302,29 @@
   <data name="chkBxIsApproved.Text" xml:space="preserve">
     <value>Est Approuvé</value>
   </data>
-  <data name="chkBxIsExpired.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="chkBxIsDeclined.Location" type="System.Drawing.Point, System.Drawing">
+    <value>406, 110</value>
   </data>
-  <data name="chkBxIsExpired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chkBxIsExpired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 110</value>
-  </data>
-  <data name="chkBxIsExpired.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="chkBxIsDeclined.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
   </data>
-  <data name="chkBxIsExpired.Text" xml:space="preserve">
+  <data name="chkBxIsDeclined.Text" xml:space="preserve">
     <value>Est Refusé</value>
   </data>
   <data name="tabUpdateDetailViewer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 173</value>
-  </data>
-  <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>605, 152</value>
-  </data>
   <data name="tabInformations.Size" type="System.Drawing.Size, System.Drawing">
     <value>692, 331</value>
+  </data>
+  <data name="cmbBxFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 6</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>360, 9</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Filtre : </value>
   </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -351,13 +339,13 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="cmbBxComputerGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 21</value>
+    <value>184, 21</value>
   </data>
   <data name="dgvComputerStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="dgvComputerStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>680, 292</value>
+    <value>674, 286</value>
   </data>
   <data name="tabStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>692, 331</value>
@@ -367,6 +355,34 @@
   </data>
   <data name="tabUpdateDetailViewer.Size" type="System.Drawing.Size, System.Drawing">
     <value>700, 357</value>
+  </data>
+  <data name="chkBxIsExpired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 110</value>
+  </data>
+  <data name="chkBxIsExpired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="chkBxIsExpired.Text" xml:space="preserve">
+    <value>Est Exipré</value>
+  </data>
+  <data name="btnRevise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 93</value>
+  </data>
+  <data name="btnRevise.Text" xml:space="preserve">
+    <value>Réviser</value>
+  </data>
+  <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtBxDescription.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 173</value>
+  </data>
+  <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>577, 124</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>700, 357</value>

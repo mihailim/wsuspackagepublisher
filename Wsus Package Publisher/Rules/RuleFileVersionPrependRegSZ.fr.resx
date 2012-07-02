@@ -117,29 +117,77 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Title.HeaderText" xml:space="preserve">
-    <value>Titre</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Annuler</value>
   </data>
-  <data name="ArrivalDate.HeaderText" xml:space="preserve">
-    <value>Date d'arrivé</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 346</value>
   </data>
-  <data name="CreationDate.HeaderText" xml:space="preserve">
-    <value>Date de Création</value>
+  <data name="nupVersion2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 346</value>
   </data>
-  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>Titre</value>
+  <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 346</value>
   </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Date d'arrivé</value>
+  <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 346</value>
   </data>
-  <data name="dataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
-    <value>Date de Création</value>
+  <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 293</value>
   </data>
-  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
-    <value>UpdateId</value>
+  <data name="cmbBxComparison.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 21</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dataGridViewTextBoxColumn4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Comparaison : </value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Nom du fichier : </value>
+  </data>
+  <data name="txtBxFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 320</value>
+  </data>
+  <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 20</value>
+  </data>
+  <data name="chkBxRegType32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>446, 244</value>
+  </data>
+  <data name="chkBxRegType32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 17</value>
+  </data>
+  <data name="chkBxRegType32.Text" xml:space="preserve">
+    <value>Clé de Registre 32 bits</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Nom de la clé : </value>
+  </data>
+  <data name="txtBxRegistryValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 267</value>
+  </data>
+  <data name="txtBxRegistryValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 20</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Version du fichier : </value>
+  </data>
+  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="chkBxReverseRule.Text" xml:space="preserve">
+    <value>Inversé la règle</value>
   </data>
 </root>

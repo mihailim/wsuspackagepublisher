@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.UpdateServices.Administration;
 
 namespace Wsus_Package_Publisher
 {
     internal class Product
     {
         private string _productName = "";
-        private List<Microsoft.UpdateServices.Administration.IUpdate> _updates = new List<Microsoft.UpdateServices.Administration.IUpdate>();
+        private List<IUpdate> _updates = new List<IUpdate>();
 
         /// <summary>
         /// Get a new instance of Product with the name 'productName'.
@@ -35,37 +36,60 @@ namespace Wsus_Package_Publisher
         /// <summary>
         /// Get the list of all updates for this Product.
         /// </summary>
-        internal List<Microsoft.UpdateServices.Administration.IUpdate> Updates
+        internal List<IUpdate> Updates
         {
-            get {return _updates;}
+            get { return _updates; }
         }
 
         /// <summary>
         /// Add an update to this Product.
         /// </summary>
         /// <param name="update">The update to Add to this Product.</param>
-        internal void AddUpdate(Microsoft.UpdateServices.Administration.IUpdate update)
+        internal void AddUpdate(IUpdate update)
         {
-            if(update != null)
-            _updates.Add(update);
+            if (update != null)
+                _updates.Add(update);
+
+            if (UpdateAdded != null)
+                UpdateAdded(this, update);
+        }
+
+        /// <summary>
+        /// Search for an update with the same UpdateId and replace it by the provided update.
+        /// </summary>
+        /// <param name="newUpdate">New update which replace the old update.</param>
+        internal void RefreshUpdate(IUpdate newUpdate)
+        {
+            for (int i = 0; i < Updates.Count; i++)
+			{
+                if (Updates[i].Id.UpdateId == newUpdate.Id.UpdateId)
+                {
+                    Updates[i] = newUpdate;
+                    break;
+                }
+			} 
         }
 
         /// <summary>Get the number of update for this Product.
         /// </summary>
         /// <returns>Number of updates.</returns>
-        internal int GetUpdatesCount()
+        internal int UpdatesCount
         {
-            return _updates.Count;
+            get { return _updates.Count; }
         }
 
         /// <summary>
         /// Remove an update from the list.
         /// </summary>
         /// <param name="updateToRemove">Update to remove.</param>
-        internal void RemoveUpdate(Microsoft.UpdateServices.Administration.IUpdate updateToRemove)
+        internal void RemoveUpdate(IUpdate updateToRemove)
         {
-            if(updateToRemove != null && _updates.Contains(updateToRemove))
-            _updates.Remove(updateToRemove);
+            if (updateToRemove != null && _updates.Contains(updateToRemove))
+                _updates.Remove(updateToRemove);
+
+            if (UpdatesCount == 0)
+                if (NoMoreUpdatesForThisProduct != null)
+                    NoMoreUpdatesForThisProduct(this);
         }
 
         /// <summary>
@@ -74,6 +98,20 @@ namespace Wsus_Package_Publisher
         internal void ClearUpdateList()
         {
             _updates.Clear();
+
+            if (NoMoreUpdatesForThisProduct != null)
+                NoMoreUpdatesForThisProduct(this);
         }
+
+        public override string ToString()
+        {
+            return ProductName;
+        }
+
+        public delegate void NoMoreUpdatesForThisProductEventHandler(Product productWithoutUpdate);
+        public event NoMoreUpdatesForThisProductEventHandler NoMoreUpdatesForThisProduct;
+
+        public delegate void UpdateAddedEventHandler(Product updatedProduct, IUpdate updateAdded);
+        public event UpdateAddedEventHandler UpdateAdded;
     }
 }

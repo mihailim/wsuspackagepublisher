@@ -25,7 +25,7 @@ namespace Wsus_Package_Publisher
         internal string CompanyName
         {
             get { return _companyName; }
-            set
+            private set
             {
                 if (!string.IsNullOrEmpty(value))
                     _companyName = value;
@@ -47,7 +47,19 @@ namespace Wsus_Package_Publisher
         internal void AddProduct(string productName)
         {
             if (!string.IsNullOrEmpty(productName) && !_products.ContainsKey(productName))
-                _products.Add(productName, new Product(productName));
+            {
+                Product newProductInstance = new Product(productName);
+
+                _products.Add(productName, newProductInstance);
+                if (ProductAdded != null)
+                    ProductAdded(this, newProductInstance);
+                newProductInstance.NoMoreUpdatesForThisProduct += new Product.NoMoreUpdatesForThisProductEventHandler(ProductRunOutofUpdates);
+            }
+        }
+
+        private void ProductRunOutofUpdates(Product productWithoutUpdate)
+        {
+            RemoveProduct(productWithoutUpdate.ProductName);
         }
 
         /// <summary>
@@ -58,8 +70,12 @@ namespace Wsus_Package_Publisher
         {
             if (!string.IsNullOrEmpty(productName) && _products.ContainsKey(productName))
             {
-                _products[productName].ClearUpdateList();
+                Product productToRemove = _products[productName];
                 _products.Remove(productName);
+                if (ProductRemoved != null)
+                    ProductRemoved(this, productToRemove);
+                if (Products.Count == 0 && NoMoreProductsForThisCompany != null)
+                    NoMoreProductsForThisCompany(this);
             }
         }
 
@@ -78,6 +94,22 @@ namespace Wsus_Package_Publisher
         internal void ClearProductsList()
         {
             _products.Clear();
+            if (NoMoreProductsForThisCompany != null)
+                NoMoreProductsForThisCompany(this);
         }
+
+        public override string ToString()
+        {
+            return CompanyName;
+        }
+        
+        public delegate void NoMoreProductsForThisCompanyEventHandler(Company companyWithoutProducts);
+        public event NoMoreProductsForThisCompanyEventHandler NoMoreProductsForThisCompany;
+
+        public delegate void ProductAddedEventHandler(Company company, Product product);
+        public event ProductAddedEventHandler ProductAdded;
+
+        public delegate void ProductRemovedEventHandler(Company company, Product product);
+        public event ProductRemovedEventHandler ProductRemoved;
     }
 }

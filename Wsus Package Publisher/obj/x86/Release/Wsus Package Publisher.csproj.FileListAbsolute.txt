@@ -70,3 +70,6 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersion.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsLanguage.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWindowsLanguage.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.fr.resources

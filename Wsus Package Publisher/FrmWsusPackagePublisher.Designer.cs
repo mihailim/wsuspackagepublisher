@@ -32,7 +32,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnConnectToServer = new System.Windows.Forms.Button();
             this.trvWsus = new System.Windows.Forms.TreeView();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +47,7 @@
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +66,6 @@
             // splitContainer1.Panel2
             // 
             resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             // 
             // btnConnectToServer
             // 
@@ -83,20 +79,6 @@
             resources.ApplyResources(this.trvWsus, "trvWsus");
             this.trvWsus.Name = "trvWsus";
             this.trvWsus.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvWsus_AfterSelect);
-            // 
-            // splitContainer2
-            // 
-            resources.ApplyResources(this.splitContainer2, "splitContainer2");
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
-            // 
-            // splitContainer2.Panel2
-            // 
-            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
             // 
             // menuStrip
             // 
@@ -215,9 +197,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmWsusPackagePublisher";
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -243,7 +223,6 @@
         private System.Windows.Forms.ToolStripMenuItem langagueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem françaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        internal System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }

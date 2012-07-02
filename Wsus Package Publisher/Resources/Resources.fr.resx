@@ -391,4 +391,65 @@ Version (Obligatoire) : Version du fichier.</value>
   <data name="UpdatePublished" xml:space="preserve">
     <value>La mise à jour a été publiée.</value>
   </data>
+  <data name="Decline" xml:space="preserve">
+    <value>Refuser</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="DescriptionFileCreated" xml:space="preserve">
+    <value>à compléter</value>
+  </data>
+  <data name="DescriptionFileVersionPrependRegSz" xml:space="preserve">
+    <value>Indiquez içi les informations concernant le fichier à vérifier et ca version.
+
+Dossier Standard (Optionnel) : Liste de dossier pré-définis dont l'emplacement peut varier d'un OS à l'autre.
+Chemin vers le fichier (Obligatoire) : Chemin complet vers le fichier à rechercher (260 caractères max.).
+Version (Obligatoire) : Version du fichier.</value>
+  </data>
+  <data name="Expire" xml:space="preserve">
+    <value>Expirer</value>
+  </data>
+  <data name="updates" xml:space="preserve">
+    <value>Mises à jour</value>
+  </data>
+  <data name="WsusConnectionException" xml:space="preserve">
+    <value>La connexion au serveur à échoué. Verifiez que le serveur est démarré et que les paramètres de connections sont valide.</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="AllButInstalled" xml:space="preserve">
+    <value>Applicable, mais non installé</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Téléchargée</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Echouée</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>Installée</value>
+  </data>
+  <data name="InstalledPendingReboot" xml:space="preserve">
+    <value>Installée, en attente de redémarrage</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>Non applicable</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Non Approuvé</value>
+  </data>
+  <data name="NotInstalled" xml:space="preserve">
+    <value>Non installée</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Désinstallation</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Inconnu</value>
+  </data>
 </root>

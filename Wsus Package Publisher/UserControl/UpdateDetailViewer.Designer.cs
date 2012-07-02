@@ -47,11 +47,15 @@
             this.btnDecline = new System.Windows.Forms.Button();
             this.btnExpire = new System.Windows.Forms.Button();
             this.chkBxIsApproved = new System.Windows.Forms.CheckBox();
-            this.chkBxIsExpired = new System.Windows.Forms.CheckBox();
+            this.chkBxIsDeclined = new System.Windows.Forms.CheckBox();
             this.tabUpdateDetailViewer = new System.Windows.Forms.TabControl();
             this.tabInformations = new System.Windows.Forms.TabPage();
+            this.chkBxIsExpired = new System.Windows.Forms.CheckBox();
+            this.btnRevise = new System.Windows.Forms.Button();
             this.txtBxDescription = new System.Windows.Forms.TextBox();
             this.tabStatus = new System.Windows.Forms.TabPage();
+            this.cmbBxFilter = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbBxComputerGroup = new System.Windows.Forms.ComboBox();
             this.dgvComputerStatus = new System.Windows.Forms.DataGridView();
@@ -158,6 +162,7 @@
             resources.ApplyResources(this.btnExpire, "btnExpire");
             this.btnExpire.Name = "btnExpire";
             this.btnExpire.UseVisualStyleBackColor = true;
+            this.btnExpire.Click += new System.EventHandler(this.btnExpire_Click);
             // 
             // chkBxIsApproved
             // 
@@ -165,27 +170,28 @@
             this.chkBxIsApproved.Name = "chkBxIsApproved";
             this.chkBxIsApproved.UseVisualStyleBackColor = true;
             // 
-            // chkBxIsExpired
+            // chkBxIsDeclined
             // 
-            resources.ApplyResources(this.chkBxIsExpired, "chkBxIsExpired");
-            this.chkBxIsExpired.Name = "chkBxIsExpired";
-            this.chkBxIsExpired.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.chkBxIsDeclined, "chkBxIsDeclined");
+            this.chkBxIsDeclined.Name = "chkBxIsDeclined";
+            this.chkBxIsDeclined.UseVisualStyleBackColor = true;
             // 
             // tabUpdateDetailViewer
             // 
-            resources.ApplyResources(this.tabUpdateDetailViewer, "tabUpdateDetailViewer");
             this.tabUpdateDetailViewer.Controls.Add(this.tabInformations);
             this.tabUpdateDetailViewer.Controls.Add(this.tabStatus);
+            resources.ApplyResources(this.tabUpdateDetailViewer, "tabUpdateDetailViewer");
             this.tabUpdateDetailViewer.Name = "tabUpdateDetailViewer";
             this.tabUpdateDetailViewer.SelectedIndex = 0;
             // 
             // tabInformations
             // 
-            resources.ApplyResources(this.tabInformations, "tabInformations");
             this.tabInformations.BackColor = System.Drawing.Color.White;
             this.tabInformations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabInformations.Controls.Add(this.txtBxDescription);
             this.tabInformations.Controls.Add(this.chkBxIsExpired);
+            this.tabInformations.Controls.Add(this.btnRevise);
+            this.tabInformations.Controls.Add(this.txtBxDescription);
+            this.tabInformations.Controls.Add(this.chkBxIsDeclined);
             this.tabInformations.Controls.Add(this.label5);
             this.tabInformations.Controls.Add(this.chkBxIsApproved);
             this.tabInformations.Controls.Add(this.btnDelete);
@@ -204,7 +210,21 @@
             this.tabInformations.Controls.Add(this.txtBxArrivalDate);
             this.tabInformations.Controls.Add(this.txtBxCompany);
             this.tabInformations.Controls.Add(this.label3);
+            resources.ApplyResources(this.tabInformations, "tabInformations");
             this.tabInformations.Name = "tabInformations";
+            // 
+            // chkBxIsExpired
+            // 
+            resources.ApplyResources(this.chkBxIsExpired, "chkBxIsExpired");
+            this.chkBxIsExpired.Name = "chkBxIsExpired";
+            this.chkBxIsExpired.UseVisualStyleBackColor = true;
+            // 
+            // btnRevise
+            // 
+            resources.ApplyResources(this.btnRevise, "btnRevise");
+            this.btnRevise.Name = "btnRevise";
+            this.btnRevise.UseVisualStyleBackColor = true;
+            this.btnRevise.Click += new System.EventHandler(this.btnRevise_Click);
             // 
             // txtBxDescription
             // 
@@ -213,13 +233,28 @@
             // 
             // tabStatus
             // 
-            resources.ApplyResources(this.tabStatus, "tabStatus");
             this.tabStatus.BackColor = System.Drawing.Color.White;
             this.tabStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabStatus.Controls.Add(this.cmbBxFilter);
+            this.tabStatus.Controls.Add(this.label9);
             this.tabStatus.Controls.Add(this.label8);
             this.tabStatus.Controls.Add(this.cmbBxComputerGroup);
             this.tabStatus.Controls.Add(this.dgvComputerStatus);
+            resources.ApplyResources(this.tabStatus, "tabStatus");
             this.tabStatus.Name = "tabStatus";
+            // 
+            // cmbBxFilter
+            // 
+            resources.ApplyResources(this.cmbBxFilter, "cmbBxFilter");
+            this.cmbBxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxFilter.FormattingEnabled = true;
+            this.cmbBxFilter.Name = "cmbBxFilter";
+            this.cmbBxFilter.SelectedIndexChanged += new System.EventHandler(this.cmbBxFilter_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
             // 
             // label8
             // 
@@ -228,15 +263,14 @@
             // 
             // cmbBxComputerGroup
             // 
-            resources.ApplyResources(this.cmbBxComputerGroup, "cmbBxComputerGroup");
             this.cmbBxComputerGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxComputerGroup.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxComputerGroup, "cmbBxComputerGroup");
             this.cmbBxComputerGroup.Name = "cmbBxComputerGroup";
             this.cmbBxComputerGroup.SelectedIndexChanged += new System.EventHandler(this.cmbBxComputerGroup_SelectedIndexChanged);
             // 
             // dgvComputerStatus
             // 
-            resources.ApplyResources(this.dgvComputerStatus, "dgvComputerStatus");
             this.dgvComputerStatus.AllowUserToAddRows = false;
             this.dgvComputerStatus.AllowUserToDeleteRows = false;
             this.dgvComputerStatus.AllowUserToOrderColumns = true;
@@ -244,6 +278,7 @@
             this.Computer,
             this.Status,
             this.Approbation});
+            resources.ApplyResources(this.dgvComputerStatus, "dgvComputerStatus");
             this.dgvComputerStatus.Name = "dgvComputerStatus";
             this.dgvComputerStatus.ReadOnly = true;
             // 
@@ -331,7 +366,7 @@
         private System.Windows.Forms.Button btnDecline;
         private System.Windows.Forms.Button btnExpire;
         private System.Windows.Forms.CheckBox chkBxIsApproved;
-        private System.Windows.Forms.CheckBox chkBxIsExpired;
+        private System.Windows.Forms.CheckBox chkBxIsDeclined;
         private System.Windows.Forms.TabControl tabUpdateDetailViewer;
         private System.Windows.Forms.TabPage tabInformations;
         private System.Windows.Forms.TextBox txtBxDescription;
@@ -345,5 +380,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button btnRevise;
+        private System.Windows.Forms.CheckBox chkBxIsExpired;
+        private System.Windows.Forms.ComboBox cmbBxFilter;
+        private System.Windows.Forms.Label label9;
     }
 }

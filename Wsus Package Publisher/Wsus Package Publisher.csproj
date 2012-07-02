@@ -70,16 +70,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Company.cs" />
-    <Compile Include="ComputerDetailViewer.cs">
+    <Compile Include="Exceptions\WsusConnectionException.cs" />
+    <Compile Include="UserControl\ComputerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ComputerDetailViewer.Designer.cs">
+    <Compile Include="UserControl\ComputerControl.Designer.cs">
+      <DependentUpon>ComputerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ComputerDetailViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ComputerDetailViewer.Designer.cs">
       <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComputerListViewer.cs">
+    <Compile Include="UserControl\ComputerListViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ComputerListViewer.Designer.cs">
+    <Compile Include="UserControl\ComputerListViewer.Designer.cs">
       <DependentUpon>ComputerListViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmApprovalSet.cs">
@@ -100,31 +107,43 @@
     <Compile Include="FrmUpdatePublisher.Designer.cs">
       <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleFileExists.cs">
+    <Compile Include="Rules\RuleFileCreated.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleFileExists.Designer.cs">
+    <Compile Include="Rules\RuleFileCreated.Designer.cs">
+      <DependentUpon>RuleFileCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleFileExists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleFileExists.Designer.cs">
       <DependentUpon>RuleFileExists.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleFileExistsPrependRegSz.cs">
+    <Compile Include="Rules\RuleFileExistsPrependRegSz.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleFileExistsPrependRegSz.Designer.cs">
+    <Compile Include="Rules\RuleFileExistsPrependRegSz.Designer.cs">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleFileVersion.cs">
+    <Compile Include="Rules\RuleFileVersion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleFileVersion.Designer.cs">
+    <Compile Include="Rules\RuleFileVersion.Designer.cs">
       <DependentUpon>RuleFileVersion.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleProcessorArchitecture.cs">
+    <Compile Include="Rules\RuleFileVersionPrependRegSZ.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleProcessorArchitecture.Designer.cs">
+    <Compile Include="Rules\RuleFileVersionPrependRegSZ.Designer.cs">
+      <DependentUpon>RuleFileVersionPrependRegSZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleProcessorArchitecture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleProcessorArchitecture.Designer.cs">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </Compile>
-    <Compile Include="RulesGroup.cs" />
+    <Compile Include="Rules\RulesGroup.cs" />
     <Compile Include="FrmUpdateInformationsWizard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,16 +162,16 @@
     <Compile Include="FrmWsusPackagePublisher.Designer.cs">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenericRule.cs">
+    <Compile Include="Rules\GenericRule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GenericRule.Designer.cs">
+    <Compile Include="Rules\GenericRule.Designer.cs">
       <DependentUpon>GenericRule.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleMsiProductInstalled.cs">
+    <Compile Include="Rules\RuleMsiProductInstalled.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleMsiProductInstalled.Designer.cs">
+    <Compile Include="Rules\RuleMsiProductInstalled.Designer.cs">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
@@ -175,47 +194,63 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RulesViewer.cs">
+    <Compile Include="Rules\RulesViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RulesViewer.Designer.cs">
+    <Compile Include="Rules\RulesViewer.Designer.cs">
       <DependentUpon>RulesViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleWindowsLanguage.cs">
+    <Compile Include="Rules\RuleWindowsLanguage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleWindowsLanguage.Designer.cs">
+    <Compile Include="Rules\RuleWindowsLanguage.Designer.cs">
       <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuleWindowsVersion.cs">
+    <Compile Include="Rules\RuleWindowsVersion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RuleWindowsVersion.Designer.cs">
+    <Compile Include="Rules\RuleWindowsVersion.Designer.cs">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="UpdateDetailViewer.cs">
+    <Compile Include="UserControl\UpdateControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UpdateDetailViewer.Designer.cs">
+    <Compile Include="UserControl\UpdateControl.Designer.cs">
+      <DependentUpon>UpdateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UpdateDetailViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UpdateDetailViewer.Designer.cs">
       <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateListViewer.cs">
+    <Compile Include="UserControl\UpdateListViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UpdateListViewer.Designer.cs">
+    <Compile Include="UserControl\UpdateListViewer.Designer.cs">
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ComputerDetailViewer.resx">
+    <Compile Include="WsusWrapper.cs" />
+    <EmbeddedResource Include="UserControl\ComputerControl.resx">
+      <DependentUpon>ComputerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ComputerDetailViewer.en.resx">
       <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComputerListViewer.en.resx">
+    <EmbeddedResource Include="UserControl\ComputerDetailViewer.fr.resx">
+      <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ComputerDetailViewer.resx">
+      <DependentUpon>ComputerDetailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ComputerListViewer.en.resx">
       <DependentUpon>ComputerListViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComputerListViewer.fr.resx">
+    <EmbeddedResource Include="UserControl\ComputerListViewer.fr.resx">
       <DependentUpon>ComputerListViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComputerListViewer.resx">
+    <EmbeddedResource Include="UserControl\ComputerListViewer.resx">
       <DependentUpon>ComputerListViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmApprovalSet.en.resx">
@@ -278,40 +313,58 @@
     <EmbeddedResource Include="FrmWsusPackagePublisher.resx">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExists.en.resx">
+    <EmbeddedResource Include="Rules\RuleFileCreated.en.resx">
+      <DependentUpon>RuleFileCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileCreated.fr.resx">
+      <DependentUpon>RuleFileCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileCreated.resx">
+      <DependentUpon>RuleFileCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileExists.en.resx">
       <DependentUpon>RuleFileExists.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExists.fr.resx">
+    <EmbeddedResource Include="Rules\RuleFileExists.fr.resx">
       <DependentUpon>RuleFileExists.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExists.resx">
+    <EmbeddedResource Include="Rules\RuleFileExists.resx">
       <DependentUpon>RuleFileExists.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExistsPrependRegSz.en.resx">
+    <EmbeddedResource Include="Rules\RuleFileExistsPrependRegSz.en.resx">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExistsPrependRegSz.fr.resx">
+    <EmbeddedResource Include="Rules\RuleFileExistsPrependRegSz.fr.resx">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileExistsPrependRegSz.resx">
+    <EmbeddedResource Include="Rules\RuleFileExistsPrependRegSz.resx">
       <DependentUpon>RuleFileExistsPrependRegSz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileVersion.en.resx">
+    <EmbeddedResource Include="Rules\RuleFileVersion.en.resx">
       <DependentUpon>RuleFileVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileVersion.fr.resx">
+    <EmbeddedResource Include="Rules\RuleFileVersion.fr.resx">
       <DependentUpon>RuleFileVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleFileVersion.resx">
+    <EmbeddedResource Include="Rules\RuleFileVersion.resx">
       <DependentUpon>RuleFileVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleMsiProductInstalled.en.resx">
+    <EmbeddedResource Include="Rules\RuleFileVersionPrependRegSZ.en.resx">
+      <DependentUpon>RuleFileVersionPrependRegSZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileVersionPrependRegSZ.fr.resx">
+      <DependentUpon>RuleFileVersionPrependRegSZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileVersionPrependRegSZ.resx">
+      <DependentUpon>RuleFileVersionPrependRegSZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleMsiProductInstalled.en.resx">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleMsiProductInstalled.fr.resx">
+    <EmbeddedResource Include="Rules\RuleMsiProductInstalled.fr.resx">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleMsiProductInstalled.resx">
+    <EmbeddedResource Include="Rules\RuleMsiProductInstalled.resx">
       <DependentUpon>RuleMsiProductInstalled.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -342,52 +395,55 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleProcessorArchitecture.en.resx">
+    <EmbeddedResource Include="Rules\RuleProcessorArchitecture.en.resx">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleProcessorArchitecture.fr.resx">
+    <EmbeddedResource Include="Rules\RuleProcessorArchitecture.fr.resx">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleProcessorArchitecture.resx">
+    <EmbeddedResource Include="Rules\RuleProcessorArchitecture.resx">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RulesViewer.resx">
+    <EmbeddedResource Include="Rules\RulesViewer.resx">
       <DependentUpon>RulesViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsLanguage.en.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsLanguage.en.resx">
       <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsLanguage.fr.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsLanguage.fr.resx">
       <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsLanguage.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsLanguage.resx">
       <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsVersion.en.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsVersion.en.resx">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsVersion.fr.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsVersion.fr.resx">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RuleWindowsVersion.resx">
+    <EmbeddedResource Include="Rules\RuleWindowsVersion.resx">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateDetailViewer.en.resx">
+    <EmbeddedResource Include="UserControl\UpdateControl.resx">
+      <DependentUpon>UpdateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UpdateDetailViewer.en.resx">
       <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateDetailViewer.fr.resx">
+    <EmbeddedResource Include="UserControl\UpdateDetailViewer.fr.resx">
       <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateDetailViewer.resx">
+    <EmbeddedResource Include="UserControl\UpdateDetailViewer.resx">
       <DependentUpon>UpdateDetailViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateListViewer.en.resx">
+    <EmbeddedResource Include="UserControl\UpdateListViewer.en.resx">
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateListViewer.fr.resx">
+    <EmbeddedResource Include="UserControl\UpdateListViewer.fr.resx">
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateListViewer.resx">
+    <EmbeddedResource Include="UserControl\UpdateListViewer.resx">
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

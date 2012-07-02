@@ -12,7 +12,6 @@ namespace Wsus_Package_Publisher
     internal partial class FrmUpdateWizard : Form
     {
         private Dictionary<string, Company> _companies;
-        private Microsoft.UpdateServices.Administration.IUpdateServer _wsus;
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateWizard).Assembly);
 
         FrmUpdateFilesWizard updateFilesWizard = new FrmUpdateFilesWizard();
@@ -20,12 +19,11 @@ namespace Wsus_Package_Publisher
         FrmUpdateRulesWizard updateIsInstalledRulesWizard = new FrmUpdateRulesWizard();
         FrmUpdateRulesWizard updateIsInstallableRulesWizard = new FrmUpdateRulesWizard();
 
-        internal FrmUpdateWizard(Microsoft.UpdateServices.Administration.IUpdateServer Wsus, Dictionary<string, Company> Companies)
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies)
         {
             InitializeComponent();
 
             this.Companies = Companies;
-            _wsus = Wsus;
             updateInformationsWizard = new FrmUpdateInformationsWizard(this.Companies);
 
             // UpdateFilesWizard :
@@ -53,7 +51,7 @@ namespace Wsus_Package_Publisher
             updateIsInstallableRulesWizard.Controls["btnPrevious"].Click += new EventHandler(updateIsInstallableRulesWizard_btnPrevious_Click);
 
         }
-
+        
         private void InitializeUpdateFilesWizard()
         {
             splitContainer1.Panel2.Controls.Clear();
@@ -163,7 +161,7 @@ namespace Wsus_Package_Publisher
         {
             updateIsInstallableRulesWizard.Hide();
             splitContainer1.Panel2.Controls.Clear();
-            FrmUpdatePublisher updatePublisher = new FrmUpdatePublisher(_wsus, updateFilesWizard, updateInformationsWizard, updateIsInstalledRulesWizard, updateIsInstallableRulesWizard);
+            FrmUpdatePublisher updatePublisher = new FrmUpdatePublisher(updateFilesWizard, updateInformationsWizard, updateIsInstalledRulesWizard, updateIsInstallableRulesWizard);
             updatePublisher.Controls["btnOk"].Click += new EventHandler(this.Close);
             updatePublisher.TopLevel = false;
             splitContainer1.Panel2.Controls.Add(updatePublisher);

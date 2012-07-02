@@ -47,6 +47,7 @@
             resources.ApplyResources(this.cmbBxRules, "cmbBxRules");
             this.cmbBxRules.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRules.Name = "cmbBxRules";
+            this.cmbBxRules.SelectedIndexChanged += new System.EventHandler(this.cmbBxRules_SelectedIndexChanged);
             // 
             // label1
             // 

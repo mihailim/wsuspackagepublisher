@@ -26,6 +26,8 @@ namespace Wsus_Package_Publisher
             cmbBxRules.Items.Add(new RuleFileExists());
             cmbBxRules.Items.Add(new RuleFileExistsPrependRegSz());
             cmbBxRules.Items.Add(new RuleFileVersion());
+            cmbBxRules.Items.Add(new RuleFileVersionPrependRegSZ());
+            cmbBxRules.Items.Add(new RuleFileCreated());
         }
 
         private void btnAddRule_Click(object sender, EventArgs e)
@@ -59,6 +61,11 @@ namespace Wsus_Package_Publisher
         internal string GetXmlFormattedRule()
         {
             return _masterGroup.GetXmlFormattedRule();
+        }
+
+        private void cmbBxRules_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnAddRule.Enabled = (cmbBxRules.SelectedIndex != -1);                
         }
     }
 }

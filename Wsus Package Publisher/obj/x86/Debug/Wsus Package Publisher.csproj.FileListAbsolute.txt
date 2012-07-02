@@ -70,3 +70,13 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\fr\Wsus Package Publisher.resources.dll
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus Package Publisher.exe
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus Package Publisher.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerDetailViewer.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerDetailViewer.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateControl.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerControl.resources

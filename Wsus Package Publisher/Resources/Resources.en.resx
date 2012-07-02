@@ -390,4 +390,65 @@ Version (mandatory): File Version.</value>
   <data name="UpdatePublished" xml:space="preserve">
     <value>The update has been published.</value>
   </data>
+  <data name="Decline" xml:space="preserve">
+    <value>Decline</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DescriptionFileCreated" xml:space="preserve">
+    <value>to be filled</value>
+  </data>
+  <data name="DescriptionFileVersionPrependRegSz" xml:space="preserve">
+    <value>Indicate here the information about the file and verify that version.
+
+Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
+Path to the file (Required): Full path to the file search (260 characters max.).
+Version (mandatory): File Version.</value>
+  </data>
+  <data name="Expire" xml:space="preserve">
+    <value>Expire</value>
+  </data>
+  <data name="updates" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+  <data name="WsusConnectionException" xml:space="preserve">
+    <value>Failed to connect to the server. Verify that the server is started and connection parameters are valid.</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllButInstalled" xml:space="preserve">
+    <value>Applicable, but not installed</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Downloaded</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>Installed</value>
+  </data>
+  <data name="InstalledPendingReboot" xml:space="preserve">
+    <value>Installed, Pending Reboot</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>Not Applicable</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Not Approved</value>
+  </data>
+  <data name="NotInstalled" xml:space="preserve">
+    <value>Not Installed</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
 </root>

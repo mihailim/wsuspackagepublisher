@@ -12,24 +12,22 @@ namespace Wsus_Package_Publisher
 {
     public partial class FrmWsusPackagePublisher : Form
     {
-        private AdminProxy proxy = new AdminProxy();
-        private IUpdateServer wsus;
+        private WsusWrapper wsus = WsusWrapper.GetInstance();
         private Dictionary<string, Guid> computerGroups = new Dictionary<string, Guid>();
         private Dictionary<string, Company> companies = new Dictionary<string, Company>();
-        private ComputerListViewer computerViewer = null;
-        private ComputerDetailViewer computerDetail = null;
-        private UpdateListViewer updateListViewer = null;
+        private UpdateControl updateCtrl = null;
+        private ComputerControl computerCtrl = null;
         private TreeNode serverNode;
         private TreeNode allComputersNode;
         private TreeNode allUpdatesNode;
         private TreeNode allMetaGroupsNode;
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmWsusPackagePublisher).Assembly);
 
         public FrmWsusPackagePublisher()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
 
             InitializeComponent();
-
             if (Properties.Settings.Default.Language == "fr")
             {
                 françaisToolStripMenuItem.Checked = true;
@@ -40,29 +38,11 @@ namespace Wsus_Package_Publisher
                 françaisToolStripMenuItem.Checked = false;
                 englishToolStripMenuItem.Checked = true;
             }
-
-            trvWsus.ExpandAll();
-        }
-
-        internal void DeleteUpdate(Guid updateId, Company company, Product product)
-        {
-            wsus.DeleteUpdate(updateId);
-
-            foreach (IUpdate update in product.Updates)
-            {
-                if (update.Id.UpdateId == updateId)
-                {
-                    product.Updates.Remove(update);
-                    break;
-                }
-            }
-
-            if (product.Updates.Count == 0)
-            {
-                company.Products.Remove(product.ProductName);
-                if (company.Products.Count == 0)
-                    companies.Remove(company.CompanyName);
-            }
+            updateCtrl = new UpdateControl();
+            updateCtrl.Dock = DockStyle.Fill;
+            computerCtrl = new ComputerControl();
+            computerCtrl.Dock = DockStyle.Fill;
+            wsus.UpdatePublished += new WsusWrapper.UpdatePublisedEventHandler(UpdatePublished);
         }
 
         internal void Approve(IUpdate updateToApprove)
@@ -78,24 +58,22 @@ namespace Wsus_Package_Publisher
                     switch (approvals[computerGroup])
                     {
                         case "Approve For Installation":
-                            updateToApprove.Approve(UpdateApprovalAction.Install, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
+                            //updateToApprove.Approve(UpdateApprovalAction.Install, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
                             break;
                         case "Approve For Optionnal Installation":
-                            updateToApprove.ApproveForOptionalInstall(wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
+                            //updateToApprove.ApproveForOptionalInstall(wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
                             break;
                         case "Approve For Desinstallation":
-                            updateToApprove.Approve(UpdateApprovalAction.Uninstall, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
+                            //updateToApprove.Approve(UpdateApprovalAction.Uninstall, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
                             break;
                         case "Not Approve":
-                            updateToApprove.Approve(UpdateApprovalAction.NotApproved, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
+                            //updateToApprove.Approve(UpdateApprovalAction.NotApproved, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
                             break;
                         default:
                             break;
                     }
                 }
             }
-
-            
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,78 +84,128 @@ namespace Wsus_Package_Publisher
         private void btnConnectToServer_Click(object sender, EventArgs e)
         {
             btnConnectToServer.Enabled = false;
-            wsus = proxy.GetRemoteUpdateServerInstance(Properties.Settings.Default.ServerName, Properties.Settings.Default.UseSSL, Properties.Settings.Default.ServerPort);
-            wsus.PreferredCulture = "fr";
+            if (wsus.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.UseSSL, Properties.Settings.Default.ServerPort, Properties.Settings.Default.Language))
+            {
+                string rootComputerGroupName;
+                Guid rootComputerGroupId;
 
-            serverNode = new TreeNode(Properties.Settings.Default.ServerName);
-            trvWsus.Nodes.Add(serverNode);
+                serverNode = new TreeNode(Properties.Settings.Default.ServerName);
+                trvWsus.Nodes.Add(serverNode);
+                rootComputerGroupName = wsus.GetAllComputerTargetGroup().Name;
+                rootComputerGroupId = wsus.GetAllComputerTargetGroup().Id;
 
-            IComputerTargetGroup allComputerGroup = wsus.GetComputerTargetGroup(ComputerTargetGroupId.AllComputers);
-            allComputersNode = new TreeNode(allComputerGroup.Name);
-            serverNode.Nodes.Add(allComputersNode);
+                allComputersNode = new TreeNode(rootComputerGroupName);
+                allComputersNode.Tag = "ComputerGroup";
+                serverNode.Nodes.Add(allComputersNode);
 
-            allComputersNode.Tag = "ComputerGroup";
-            computerGroups.Add(allComputerGroup.Name, allComputerGroup.Id);
-            PopulateTreeviewWithComputerGroups(allComputerGroup, allComputersNode);
+                computerGroups.Add(rootComputerGroupName, rootComputerGroupId);
+                PopulateTreeviewWithComputerGroups(new KeyValuePair<string, Guid>(rootComputerGroupName, rootComputerGroupId), allComputersNode);
 
-            allUpdatesNode = new TreeNode("Mises à jour");
-            serverNode.Nodes.Add(allUpdatesNode);
-            PopulateDictionaries(wsus.GetUpdates());
-            PopulateTreeviewWithUpdates(allUpdatesNode);
-            btnConnectToServer.Enabled = true;
+                allUpdatesNode = new TreeNode(resMan.GetString("updates"));
+                serverNode.Nodes.Add(allUpdatesNode);
+                CollectUpdates();
+                serverNode.Expand();
+                allUpdatesNode.Expand();
+                updateCtrl.SetComputerGroups(computerGroups);
+            }
+            else
+                btnConnectToServer.Enabled = true;
         }
 
-        private void PopulateDictionaries(UpdateCollection updates)
+        private void CollectUpdates()
         {
-            foreach (IUpdate update in updates)
+            string companyName;
+            string productName;
+
+            foreach (IUpdate update in wsus.GetAllUpdates())
             {
                 if (update.CompanyTitles != null && update.CompanyTitles.Count != 0 && update.ProductTitles != null && update.ProductTitles.Count != 0)
                 {
-                    if (!companies.ContainsKey(update.CompanyTitles[0]))
-                        companies.Add(update.CompanyTitles[0], new Company(update.CompanyTitles[0]));
-                    if (!companies[update.CompanyTitles[0]].Products.ContainsKey(update.ProductTitles[0]))
-                        companies[update.CompanyTitles[0]].AddProduct(update.ProductTitles[0]);
-                    companies[update.CompanyTitles[0]].Products[update.ProductTitles[0]].AddUpdate(update);
+                    companyName = update.CompanyTitles[0];
+                    productName = update.ProductTitles[0];
+
+                    if (!companies.ContainsKey(companyName))
+                        CreateNewCompany(companyName);
+
+                    if (!companies[companyName].Products.ContainsKey(productName))
+                        CreateNewProduct(companyName, productName);
+                    companies[companyName].Products[productName].AddUpdate(update);
                 }
             }
         }
 
-        private void PopulateTreeviewWithUpdates(TreeNode treeNode)
+        private void CreateNewCompany(string companyName)
         {
-            foreach (Company company in companies.Values)
-            {
-                TreeNode companyNode = new TreeNode(company.CompanyName);
-                companyNode.Tag = "Company";
-                treeNode.Nodes.Add(companyNode);
+            Company newCompanyInstance = new Company(companyName);
 
-                foreach (Product product in company.Products.Values)
-                {
-                    TreeNode productNode = new TreeNode(product.ProductName);
-                    productNode.Tag = "Product";
-                    companyNode.Nodes.Add(productNode);
-                }
-            }
+            companies.Add(companyName, newCompanyInstance);
+            TreeNode companyNode = new TreeNode(newCompanyInstance.CompanyName);
+            companyNode.Tag = "Company";
+            companyNode.Name = newCompanyInstance.CompanyName;
+            allUpdatesNode.Nodes.Add(companyNode);
+            trvWsus.Refresh();
+
+            newCompanyInstance.NoMoreProductsForThisCompany += new Company.NoMoreProductsForThisCompanyEventHandler(CompanyRunOutofProducts);
+            newCompanyInstance.ProductRemoved += new Company.ProductRemovedEventHandler(Company_ProductRemoved);
+            newCompanyInstance.ProductAdded += new Company.ProductAddedEventHandler(Company_ProductAdded);
         }
 
-        private void PopulateTreeviewWithComputerGroups(IComputerTargetGroup group, TreeNode node)
+        private void CreateNewProduct(string companyName, string productName)
         {
-            ComputerTargetGroupCollection groups = group.GetChildTargetGroups();
+            Company vendor = companies[companyName];
+            vendor.AddProduct(productName);
+        }
 
-            foreach (IComputerTargetGroup childGroup in groups)
+        private void Company_ProductAdded(Company company, Product productAdded)
+        {
+            TreeNode companyNode = allUpdatesNode.Nodes.Find(company.CompanyName, false)[0];
+
+            TreeNode productNode = new TreeNode(productAdded.ProductName);
+            productNode.Tag = "Product";
+            productNode.Name = productAdded.ProductName;
+            companyNode.Nodes.Add(productNode);
+            productAdded.UpdateAdded += new Product.UpdateAddedEventHandler(product_UpdateAdded);
+        }
+
+        private void Company_ProductRemoved(Company company, Product productRemoved)
+        {
+            TreeNode companyNode = allUpdatesNode.Nodes.Find(company.CompanyName, false)[0];
+            TreeNode productNode = companyNode.Nodes.Find(productRemoved.ProductName, false)[0];
+
+            companyNode.Nodes.Remove(productNode);
+            splitContainer1.Panel2.Controls.Clear();
+        }
+
+        private void CompanyRunOutofProducts(Company companyWithoutProducts)
+        {
+            companies.Remove(companyWithoutProducts.CompanyName);
+            trvWsus.SuspendLayout();
+            allUpdatesNode.Nodes.RemoveByKey(companyWithoutProducts.CompanyName);
+            trvWsus.ResumeLayout();
+        }
+
+        private void product_UpdateAdded(Product updatedProduct, IUpdate addedUpdate)
+        {
+            if (updateCtrl.Product == updatedProduct)
+                updateCtrl.RefreshDisplay();
+        }
+
+        private void PopulateTreeviewWithComputerGroups(KeyValuePair<string, Guid> group, TreeNode node)
+        {
+            foreach (KeyValuePair<string, Guid> childGroup in wsus.GetChildComputerTargetGroupNameAndId(group.Value))
             {
-                TreeNode newNode = new TreeNode(childGroup.Name);
+                TreeNode newNode = new TreeNode(childGroup.Key);
 
                 newNode.Tag = "ComputerGroup";
-                computerGroups.Add(childGroup.Name, childGroup.Id);
+                computerGroups.Add(childGroup.Key, childGroup.Value);
                 node.Nodes.Add(newNode);
-                if (childGroup.GetChildTargetGroups().Count != 0)
-                    PopulateTreeviewWithComputerGroups(childGroup, newNode);
+                PopulateTreeviewWithComputerGroups(childGroup, newNode);
             }
         }
 
         private void createUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUpdateWizard updateWizard = new FrmUpdateWizard(wsus, companies);
+            FrmUpdateWizard updateWizard = new FrmUpdateWizard(companies);
             updateWizard.ShowDialog();
         }
 
@@ -186,30 +214,15 @@ namespace Wsus_Package_Publisher
             this.Cursor = Cursors.WaitCursor;
             if (e.Node.Tag != null && e.Node.Tag.ToString() == "ComputerGroup")
             {
-                IComputerTargetGroup computerTargetGroup = wsus.GetComputerTargetGroup(computerGroups[e.Node.Text]);
-                ComputerTargetCollection computerTargets = computerTargetGroup.GetComputerTargets(false);
-
-                if ((splitContainer2.Panel1.Controls.Count == 1) && (splitContainer2.Panel1.Controls[0].GetType() == typeof(ComputerListViewer)))
+                if ((splitContainer1.Panel2.Controls.Count == 1) && (splitContainer1.Panel2.Controls[0].GetType() == typeof(ComputerControl)))
                 {
-                    computerViewer = (ComputerListViewer)splitContainer2.Panel1.Controls[0];
-                    computerDetail = (ComputerDetailViewer)splitContainer2.Panel2.Controls[0];
-                    computerViewer.ComputerCollection = computerTargets;
+                    computerCtrl.Display(computerGroups[e.Node.Text]);
                 }
                 else
                 {
-                    if (splitContainer2.Panel1.Controls.Count == 1)
-                    {
-                        splitContainer2.Panel1.Controls[0].Dispose();
-                        splitContainer2.Panel1.Controls.Clear();
-                        splitContainer2.Panel2.Controls[0].Dispose();
-                        splitContainer2.Panel2.Controls.Clear();
-                    }
-                    computerDetail = new ComputerDetailViewer();
-                    computerViewer = new ComputerListViewer(computerTargets, computerDetail, wsus);
-                    splitContainer2.Panel1.Controls.Add(computerViewer);
-                    computerViewer.Dock = DockStyle.Fill;
-                    splitContainer2.Panel2.Controls.Add(computerDetail);
-                    computerDetail.Dock = DockStyle.Fill;
+                    splitContainer1.Panel2.Controls.Clear();
+                    splitContainer1.Panel2.Controls.Add(computerCtrl);
+                    computerCtrl.Display(computerGroups[e.Node.Text]);
                 }
             }
 
@@ -225,17 +238,14 @@ namespace Wsus_Package_Publisher
                     Company company = companies[e.Node.Parent.Text];
                     if (company.Products.ContainsKey(e.Node.Text))
                     {
-                        Product product = company.Products[e.Node.Text];
-                        updateListViewer = new UpdateListViewer(this, company, product);
-                        splitContainer2.SuspendLayout();
-                        splitContainer2.Panel1.Controls.Clear();
-                        if (updateListViewer.DataGridViewHeight < (splitContainer2.Height / 2))
-                            splitContainer2.SplitterDistance = (int)(updateListViewer.DataGridViewHeight + 0.05 * updateListViewer.DataGridViewHeight);
-                        else
-                            splitContainer2.SplitterDistance = (int)(splitContainer2.Height / 2);
-                        splitContainer2.Panel1.Controls.Add(updateListViewer);
-                        updateListViewer.Dock = DockStyle.Fill;
-                        splitContainer2.ResumeLayout();
+                        if (splitContainer1.Panel2.Controls.Count == 0 || (splitContainer1.Panel2.Controls[0].GetType() != typeof(UpdateControl)))
+                        {
+                            splitContainer1.SuspendLayout();
+                            splitContainer1.Panel2.Controls.Clear();
+                            splitContainer1.Panel2.Controls.Add(updateCtrl);
+                            splitContainer1.ResumeLayout();
+                        }
+                        updateCtrl.Product = company.Products[e.Node.Text];
                     }
                 }
             }
@@ -248,23 +258,13 @@ namespace Wsus_Package_Publisher
         }
 
         /// <summary>
-        /// Return the ComputerTargetGroup which have for name 'targetGroupName'.
+        /// Return the Guid which have for name 'targetGroupName'.
         /// </summary>
         /// <param name="targetGroupName">The name of the group</param>
-        /// <returns>Return the object IComputerTargetGroup corresponding to the group.</returns>
-        internal IComputerTargetGroup GetTargetGroup(string targetGroupName)
+        /// <returns>Return the Guid corresponding to the group.</returns>
+        internal Guid GetTargetGroupId(string targetGroupName)
         {
-            return wsus.GetComputerTargetGroup(computerGroups[targetGroupName]);
-        }
-
-        /// <summary>
-        /// Return the name of a computer.
-        /// </summary>
-        /// <param name="id">Guid of the computer.</param>
-        /// <returns>The name of the computer.</returns>
-        internal string GetComputerName(string id)
-        {
-            return wsus.GetComputerTarget(id).FullDomainName;
+            return computerGroups[targetGroupName];
         }
 
         private void françaisToolStripMenuItem_Click(object sender, EventArgs e)
@@ -293,11 +293,20 @@ namespace Wsus_Package_Publisher
             settings.ShowDialog();
         }
 
-
-        internal void Decline(IUpdate ViewedUpdate)
+        private void UpdatePublished(IUpdate publishedUpdate)
         {
-            ViewedUpdate.Decline();
-        }
+            string companyName = publishedUpdate.CompanyTitles[0];
+            string productName = publishedUpdate.ProductTitles[0];
 
+            if (!companies.ContainsKey(companyName))
+                CreateNewCompany(companyName);
+            Company vendor = companies[companyName];
+
+            if (!vendor.Products.ContainsKey(productName))
+                vendor.AddProduct(productName);
+
+            Product product = vendor.Products[productName];
+            product.AddUpdate(publishedUpdate);
+        }
     }
 }
