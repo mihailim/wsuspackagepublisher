@@ -133,7 +133,7 @@
     <value>482, 174</value>
   </data>
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="cmbBxComparison.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -154,13 +154,13 @@
     <value>False</value>
   </data>
   <data name="nupMajorVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 257</value>
+    <value>105, 267</value>
   </data>
   <data name="nupMajorVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="nupMajorVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="nupMinorVersion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -169,13 +169,13 @@
     <value>False</value>
   </data>
   <data name="nupMinorVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 284</value>
+    <value>105, 294</value>
   </data>
   <data name="nupMinorVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="nupMinorVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="nupBuildNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -184,13 +184,13 @@
     <value>False</value>
   </data>
   <data name="nupBuildNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 257</value>
+    <value>311, 267</value>
   </data>
   <data name="nupBuildNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="nupBuildNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>13</value>
   </data>
   <data name="nupServicePackMinor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -205,7 +205,7 @@
     <value>55, 20</value>
   </data>
   <data name="nupServicePackMinor.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="nupServicePackMajor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -219,9 +219,6 @@
   <data name="nupServicePackMajor.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
-  <data name="nupServicePackMajor.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
   <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -232,7 +229,7 @@
     <value>410, 359</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
@@ -247,13 +244,13 @@
     <value>Server</value>
   </data>
   <data name="cmbBxProductType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 283</value>
+    <value>311, 293</value>
   </data>
   <data name="cmbBxProductType.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 21</value>
   </data>
   <data name="cmbBxProductType.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>15</value>
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -280,7 +277,7 @@
     <value>86, 13</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Easy Selection : </value>
@@ -307,13 +304,13 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxMajorVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 261</value>
+    <value>9, 268</value>
   </data>
   <data name="chkBxMajorVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 17</value>
   </data>
   <data name="chkBxMajorVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="chkBxMajorVersion.Text" xml:space="preserve">
     <value>Major Version</value>
@@ -328,13 +325,13 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxMinorVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 288</value>
+    <value>9, 295</value>
   </data>
   <data name="chkBxMinorVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 17</value>
   </data>
   <data name="chkBxMinorVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="chkBxMinorVersion.Text" xml:space="preserve">
     <value>Minor Version</value>
@@ -355,7 +352,7 @@
     <value>119, 17</value>
   </data>
   <data name="chkBxServicePackMajor.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="chkBxServicePackMajor.Text" xml:space="preserve">
     <value>Service Pack Major</value>
@@ -370,13 +367,13 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxBuildNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 261</value>
+    <value>216, 268</value>
   </data>
   <data name="chkBxBuildNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
   </data>
   <data name="chkBxBuildNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>12</value>
   </data>
   <data name="chkBxBuildNumber.Text" xml:space="preserve">
     <value>Build Number</value>
@@ -391,13 +388,13 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="chkBxProductType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 288</value>
+    <value>215, 295</value>
   </data>
   <data name="chkBxProductType.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 17</value>
   </data>
   <data name="chkBxProductType.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>14</value>
   </data>
   <data name="chkBxProductType.Text" xml:space="preserve">
     <value>Product Type</value>
@@ -418,7 +415,7 @@
     <value>119, 17</value>
   </data>
   <data name="chkBxServicePackMinor.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>10</value>
   </data>
   <data name="chkBxServicePackMinor.Text" xml:space="preserve">
     <value>Service Pack Minor</value>
@@ -443,5 +440,20 @@
   </data>
   <data name="chkBxComparison.Text" xml:space="preserve">
     <value>Comparison</value>
+  </data>
+  <data name="chkBxReverseRule.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 240</value>
+  </data>
+  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 17</value>
+  </data>
+  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="chkBxReverseRule.Text" xml:space="preserve">
+    <value>Reverse Rule</value>
   </data>
 </root>

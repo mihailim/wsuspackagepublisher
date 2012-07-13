@@ -15,10 +15,15 @@ namespace Wsus_Package_Publisher
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateInformationsWizard).Assembly);
 
 
-        internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies)
+        internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
         {
             InitializeComponent();
 
+            InitializeComponent(Companies, SelectedCompany, SelectedProduct);
+        }
+        
+        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+        {
             _companies = Companies;
             cmbBxUpdateClassification.Items.AddRange(Enum.GetNames(typeof(PackageUpdateClassification)));
             cmbBxUpdateClassification.SelectedItem = PackageUpdateClassification.Updates.ToString();
@@ -33,6 +38,17 @@ namespace Wsus_Package_Publisher
             foreach (string company in Companies.Keys)
             {
                 cmbBxVendorName.Items.Add(company);
+            }
+
+            if (SelectedCompany != null)
+            {
+                cmbBxVendorName.SelectedItem = SelectedCompany.CompanyName;
+            }
+
+            if (SelectedProduct != null)
+            {
+                cmbBxVendorName.SelectedItem = SelectedProduct.Vendor.CompanyName;
+                cmbBxProductName.SelectedItem = SelectedProduct.ProductName;
             }
         }
 

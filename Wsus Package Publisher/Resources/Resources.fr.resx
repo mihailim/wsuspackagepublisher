@@ -452,4 +452,13 @@ Version (Obligatoire) : Version du fichier.</value>
   <data name="Unknown" xml:space="preserve">
     <value>Inconnu</value>
   </data>
+  <data name="EditGroupTypeAnd" xml:space="preserve">
+    <value>Voulez-vous liez les règles par l'opérateur logique "Et" ?</value>
+  </data>
+  <data name="EditGroupTypeOr" xml:space="preserve">
+    <value>Voulez-vous liez les règles par l'opérateur logique "Ou" ?</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>P&amp;ublier</value>
+  </data>
 </root>

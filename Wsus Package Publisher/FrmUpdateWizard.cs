@@ -23,8 +23,28 @@ namespace Wsus_Package_Publisher
         {
             InitializeComponent();
 
+            InitializeComponent(Companies, null, null);
+        }
+
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+        {
+            InitializeComponent();
+
+            InitializeComponent(Companies, SelectedCompany, SelectedProduct);
+        }
+
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany)
+        {
+            InitializeComponent();
+
+            InitializeComponent(Companies, SelectedCompany, null);
+        }
+
+        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+        {
+
             this.Companies = Companies;
-            updateInformationsWizard = new FrmUpdateInformationsWizard(this.Companies);
+            updateInformationsWizard = new FrmUpdateInformationsWizard(this.Companies, SelectedCompany, SelectedProduct);
 
             // UpdateFilesWizard :
             updateFilesWizard.TopLevel = false;
@@ -49,8 +69,7 @@ namespace Wsus_Package_Publisher
             updateIsInstallableRulesWizard.Controls["btnNext"].Click += new EventHandler(updateIsInstallableRulesWizard_btnNext_Click);
             updateIsInstallableRulesWizard.Controls["btnCancel"].Click += new EventHandler(updateIsInstallableRulesWizard_btnCancel_Click);
             updateIsInstallableRulesWizard.Controls["btnPrevious"].Click += new EventHandler(updateIsInstallableRulesWizard_btnPrevious_Click);
-
-        }
+        }        
         
         private void InitializeUpdateFilesWizard()
         {
@@ -149,6 +168,7 @@ namespace Wsus_Package_Publisher
             splitContainer1.Panel2.Controls.Clear();
             txtBxDescription.Text = resManager.GetString("DescriptionIsInstallableWizard");
 
+            updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Publish");
             updateIsInstallableRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstallableRulesWizard);
             updateIsInstallableRulesWizard.Show();

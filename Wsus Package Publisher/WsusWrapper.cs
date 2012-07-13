@@ -116,8 +116,7 @@ namespace Wsus_Package_Publisher
 
             return wsus.GetComputerTargetByName(computerName).GetUpdateInstallationInfoPerUpdate(scope);
         }
-
-
+        
         internal UpdateInstallationInfoCollection GetUpdateInstallationInfoPerComputerTarget(Guid groupId, IUpdate update)
         {
             return GetComputerGroup(groupId).GetUpdateInstallationInfoPerComputerTarget(update);
@@ -165,7 +164,7 @@ namespace Wsus_Package_Publisher
             IPublisher publisher = wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
             publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
-            System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
+            //System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
             if (UpdatePublished != null)
                 UpdatePublished(GetUpdate(new UpdateRevisionId(sdp.PackageId)));
         }

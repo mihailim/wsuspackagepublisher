@@ -48,7 +48,7 @@ namespace Wsus_Package_Publisher
         {
             if (!string.IsNullOrEmpty(productName) && !_products.ContainsKey(productName))
             {
-                Product newProductInstance = new Product(productName);
+                Product newProductInstance = new Product(productName, this);
 
                 _products.Add(productName, newProductInstance);
                 if (ProductAdded != null)

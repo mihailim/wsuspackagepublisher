@@ -134,6 +134,9 @@
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>452, 421</value>
   </data>
@@ -198,8 +201,8 @@
   <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;chkBxReverseRule.Name" xml:space="preserve">
+    <value>chkBxReverseRule</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -207,14 +210,17 @@
   <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
+  <data name="&gt;&gt;cmbBxComparison.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="nupVersion4.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 20</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cmbBxComparison.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 318</value>
@@ -246,9 +252,6 @@
   <data name="&gt;&gt;chkBxWellknownDirectory.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtBxFilePath.Name" xml:space="preserve">
-    <value>txtBxFilePath</value>
-  </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -279,11 +282,8 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>
   </data>
-  <data name="&gt;&gt;chkBxReverseRule.Name" xml:space="preserve">
-    <value>chkBxReverseRule</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtBxFilePath.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 258</value>
@@ -315,6 +315,9 @@
   <data name="cmbBxComparison.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="label3.Text" xml:space="preserve">
     <value>File Version : </value>
   </data>
@@ -345,8 +348,8 @@
   <data name="&gt;&gt;nupVersion3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="&gt;&gt;chkBxWellknownDirectory.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -371,9 +374,6 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Fie Path : </value>
-  </data>
-  <data name="txtBxFilePath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -417,8 +417,8 @@
   <data name="&gt;&gt;cmbBxCsidl.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Comparison : </value>
@@ -471,8 +471,8 @@
   <data name="&gt;&gt;nupVersion2.Name" xml:space="preserve">
     <value>nupVersion2</value>
   </data>
-  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="&gt;&gt;txtBxFilePath.Name" xml:space="preserve">
+    <value>txtBxFilePath</value>
   </data>
   <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 311</value>
@@ -516,13 +516,13 @@
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.GenericRule, Wsus Package Publisher, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="txtBxFilePath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
+    <value>fr</value>
   </metadata>
 </root>

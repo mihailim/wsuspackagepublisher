@@ -32,14 +32,13 @@
             this.cmbBxRules = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddRule = new System.Windows.Forms.Button();
-            this.btnAndGrouping = new System.Windows.Forms.Button();
-            this.btnORGrouping = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnAddAndGroup = new System.Windows.Forms.Button();
+            this.btnAddOrGroup = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.rulesViewer1 = new Wsus_Package_Publisher.RulesViewer();
             this.SuspendLayout();
             // 
             // cmbBxRules
@@ -47,7 +46,6 @@
             resources.ApplyResources(this.cmbBxRules, "cmbBxRules");
             this.cmbBxRules.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRules.Name = "cmbBxRules";
-            this.cmbBxRules.SelectedIndexChanged += new System.EventHandler(this.cmbBxRules_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -61,29 +59,33 @@
             this.btnAddRule.UseVisualStyleBackColor = true;
             this.btnAddRule.Click += new System.EventHandler(this.btnAddRule_Click);
             // 
-            // btnAndGrouping
+            // btnAddAndGroup
             // 
-            resources.ApplyResources(this.btnAndGrouping, "btnAndGrouping");
-            this.btnAndGrouping.Name = "btnAndGrouping";
-            this.btnAndGrouping.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnAddAndGroup, "btnAddAndGroup");
+            this.btnAddAndGroup.Name = "btnAddAndGroup";
+            this.btnAddAndGroup.UseVisualStyleBackColor = true;
+            this.btnAddAndGroup.Click += new System.EventHandler(this.btnAddAndGroup_Click);
             // 
-            // btnORGrouping
+            // btnAddOrGroup
             // 
-            resources.ApplyResources(this.btnORGrouping, "btnORGrouping");
-            this.btnORGrouping.Name = "btnORGrouping";
-            this.btnORGrouping.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnAddOrGroup, "btnAddOrGroup");
+            this.btnAddOrGroup.Name = "btnAddOrGroup";
+            this.btnAddOrGroup.UseVisualStyleBackColor = true;
+            this.btnAddOrGroup.Click += new System.EventHandler(this.btnAddOrGroup_Click);
             // 
-            // button7
+            // btnEdit
             // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnEdit, "btnEdit");
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // button8
+            // btnDelete
             // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnDelete, "btnDelete");
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnNext
             // 
@@ -103,23 +105,24 @@
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
-            // rulesViewer1
+            // grpDsp1
             // 
-            resources.ApplyResources(this.rulesViewer1, "rulesViewer1");
-            this.rulesViewer1.Name = "rulesViewer1";
+            grpDsp1 = new GroupDisplayer();
+            resources.ApplyResources(this.grpDsp1, "grpDsp1");
+            this.grpDsp1.Name = "grpDsp1";
             // 
             // FrmUpdateRulesWizard
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.grpDsp1);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.rulesViewer1);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.btnORGrouping);
-            this.Controls.Add(this.btnAndGrouping);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnAddOrGroup);
+            this.Controls.Add(this.btnAddAndGroup);
             this.Controls.Add(this.btnAddRule);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBxRules);
@@ -135,13 +138,13 @@
         private System.Windows.Forms.ComboBox cmbBxRules;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddRule;
-        private System.Windows.Forms.Button btnAndGrouping;
-        private System.Windows.Forms.Button btnORGrouping;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private RulesViewer rulesViewer1;
+        private System.Windows.Forms.Button btnAddAndGroup;
+        private System.Windows.Forms.Button btnAddOrGroup;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPrevious;
+        private GroupDisplayer grpDsp1;
     }
 }

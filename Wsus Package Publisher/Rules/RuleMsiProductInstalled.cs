@@ -67,7 +67,6 @@ namespace Wsus_Package_Publisher
             {31, "Turkish"}
         };
 
-        Guid _guid = Guid.NewGuid();
         Guid _msiCode;
         int _language = -1;
         bool _useVersionMax = false;
@@ -76,7 +75,7 @@ namespace Wsus_Package_Publisher
         System.Text.RegularExpressions.Regex regExp = new System.Text.RegularExpressions.Regex("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$");
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleMsiProductInstalled).Assembly);
 
-        public RuleMsiProductInstalled()
+        public RuleMsiProductInstalled():base()
         {
             InitializeComponent();
 
@@ -97,7 +96,7 @@ namespace Wsus_Package_Publisher
         /// <returns>True if the string match, else false.</returns>
         private bool IsVersionStringCorrectlyformated(string version)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$");
 
             if (regex.IsMatch(version))
                 return true;
@@ -112,7 +111,7 @@ namespace Wsus_Package_Publisher
         /// <returns>Return a Integer corresponding to the sub-version number</returns>
         private int GetVersionNumber(string version, int rank)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"\d{1,5}");
             string number;
             int result;
 
@@ -127,57 +126,56 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length-1, 1);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
             }
             
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<msiar:");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "MsiProductInstalled");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " ProductCode");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"{");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, MsiProductCode.ToString());
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "}\"");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<msiar:");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "MsiProductInstalled");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " ProductCode");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"{");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, MsiProductCode.ToString());
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "}\"");
 
             if (UseVersionMax)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " VersionMax");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, VersionMax);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " VersionMax");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, VersionMax);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
             if (UseVersionMin)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " VersionMin");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, VersionMin);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " VersionMin");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, VersionMin);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
-            if (Language != -1)
+            if (UseLanguage)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Language");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Language.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Language");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Language.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
@@ -204,7 +202,7 @@ namespace Wsus_Package_Publisher
                 result += " VersionMin=\"" + VersionMin + "\"";
             }
 
-            if (Language != -1)
+            if (UseLanguage)
             {
                 result += " Language=\"" + Language.ToString() + "\"";
             }
@@ -219,6 +217,25 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        internal override GenericRule Clone()
+        {
+            RuleMsiProductInstalled clone = new RuleMsiProductInstalled();
+
+            clone.MsiProductCode = this.MsiProductCode;
+            clone.ReverseRule = this.ReverseRule;
+            clone.UseVersionMax = this.UseVersionMax;
+            if (UseVersionMax)
+                clone.VersionMax = this.VersionMax;
+            clone.UseVersionMin = this.UseVersionMin;
+            if (UseVersionMin)
+                clone.VersionMin = this.VersionMin;
+            clone.UseLanguage = this.UseLanguage;
+            if (UseLanguage)
+                clone.Language = this.Language;
+
+            return clone;
+        }
+
         public override string ToString()
         {
             return resManager.GetString("MsiProductInstalled");
@@ -228,15 +245,14 @@ namespace Wsus_Package_Publisher
 
         #region(Properties - propriétés)
         
-        internal Guid GetGuid
-        {
-            get { return _guid; }
-        }
-
         internal Guid MsiProductCode
         {
             get { return _msiCode; }
-            set { _msiCode = value; }
+            set 
+            {
+                _msiCode = value;
+                txtBxMsiCode.Text = value.ToString();
+            }
         }
 
         internal bool ReverseRule
@@ -313,6 +329,12 @@ namespace Wsus_Package_Publisher
             }
         }
 
+        internal bool UseLanguage
+        {
+            get { return chkBxUseLanguage.Checked; }
+            set { chkBxUseLanguage.Checked = value; }
+        }
+
         /// <summary>
         /// Get or set the language of the update.
         /// </summary>
@@ -325,6 +347,7 @@ namespace Wsus_Package_Publisher
                 {
                     _language = value;
                     cmbBxLanguage.SelectedItem = _languaguesByInt[value];
+                    UseLanguage = true;
                 }
 
             }
@@ -384,7 +407,7 @@ namespace Wsus_Package_Publisher
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ParentForm.DialogResult = DialogResult.Abort;
+            ParentForm.DialogResult = DialogResult.Cancel;
         }
 
         private void nupVersionMax1_Enter(object sender, EventArgs e)
@@ -392,7 +415,11 @@ namespace Wsus_Package_Publisher
             (sender as NumericUpDown).Select(0, 5);
         }
 
-        #endregion
+        private void chkBxUseLanguage_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbBxLanguage.Enabled = chkBxUseLanguage.Checked;
+        }
 
+        #endregion
     }
 }

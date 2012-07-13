@@ -83,6 +83,7 @@
             resources.ApplyResources(this.chkBxFileVersion, "chkBxFileVersion");
             this.chkBxFileVersion.Name = "chkBxFileVersion";
             this.chkBxFileVersion.UseVisualStyleBackColor = true;
+            this.chkBxFileVersion.CheckedChanged += new System.EventHandler(this.chkBxFileVersion_CheckedChanged);
             // 
             // nupVersion1
             // 
@@ -93,6 +94,7 @@
             0,
             0});
             this.nupVersion1.Name = "nupVersion1";
+            this.nupVersion1.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion2
             // 
@@ -103,6 +105,7 @@
             0,
             0});
             this.nupVersion2.Name = "nupVersion2";
+            this.nupVersion2.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion3
             // 
@@ -113,6 +116,7 @@
             0,
             0});
             this.nupVersion3.Name = "nupVersion3";
+            this.nupVersion3.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion4
             // 
@@ -123,12 +127,14 @@
             0,
             0});
             this.nupVersion4.Name = "nupVersion4";
+            this.nupVersion4.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // chkBxCreationDate
             // 
             resources.ApplyResources(this.chkBxCreationDate, "chkBxCreationDate");
             this.chkBxCreationDate.Name = "chkBxCreationDate";
             this.chkBxCreationDate.UseVisualStyleBackColor = true;
+            this.chkBxCreationDate.CheckedChanged += new System.EventHandler(this.chkBxCreationDate_CheckedChanged);
             // 
             // dtPCreationDate
             // 
@@ -140,6 +146,7 @@
             resources.ApplyResources(this.chkBxModifiedDate, "chkBxModifiedDate");
             this.chkBxModifiedDate.Name = "chkBxModifiedDate";
             this.chkBxModifiedDate.UseVisualStyleBackColor = true;
+            this.chkBxModifiedDate.CheckedChanged += new System.EventHandler(this.chkBxModifiedDate_CheckedChanged);
             // 
             // dtPModifiedDate
             // 
@@ -151,6 +158,7 @@
             resources.ApplyResources(this.chkBxFileSize, "chkBxFileSize");
             this.chkBxFileSize.Name = "chkBxFileSize";
             this.chkBxFileSize.UseVisualStyleBackColor = true;
+            this.chkBxFileSize.CheckedChanged += new System.EventHandler(this.chkBxFileSize_CheckedChanged);
             // 
             // nupFileSize
             // 
@@ -166,12 +174,14 @@
             0,
             0,
             0});
+            this.nupFileSize.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // chkBxLanguage
             // 
             resources.ApplyResources(this.chkBxLanguage, "chkBxLanguage");
             this.chkBxLanguage.Name = "chkBxLanguage";
             this.chkBxLanguage.UseVisualStyleBackColor = true;
+            this.chkBxLanguage.CheckedChanged += new System.EventHandler(this.chkBxLanguage_CheckedChanged);
             // 
             // cmbBxLanguage
             // 

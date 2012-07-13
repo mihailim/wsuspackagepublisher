@@ -49,6 +49,7 @@
             this.cmbBxLanguage = new System.Windows.Forms.ComboBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chkBxUseLanguage = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersionMax1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersionMax2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersionMax3)).BeginInit();
@@ -223,11 +224,19 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // chkBxUseLanguage
+            // 
+            resources.ApplyResources(this.chkBxUseLanguage, "chkBxUseLanguage");
+            this.chkBxUseLanguage.Name = "chkBxUseLanguage";
+            this.chkBxUseLanguage.UseVisualStyleBackColor = true;
+            this.chkBxUseLanguage.CheckedChanged += new System.EventHandler(this.chkBxUseLanguage_CheckedChanged);
+            // 
             // RuleMsiProductInstalled
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.chkBxUseLanguage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.cmbBxLanguage);
@@ -284,5 +293,6 @@
         private System.Windows.Forms.ComboBox cmbBxLanguage;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chkBxUseLanguage;
     }
 }

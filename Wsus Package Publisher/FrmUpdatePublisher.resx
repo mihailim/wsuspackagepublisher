@@ -170,6 +170,9 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>504, 416</value>
   </data>
+  <data name="&gt;&gt;prgBrPublishing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblProgress.Name" xml:space="preserve">
     <value>lblProgress</value>
   </data>
@@ -179,8 +182,8 @@
   <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;prgBrPublishing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblProgress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 65</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -199,9 +202,6 @@
   </data>
   <data name="prgBrPublishing.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 63</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FrmUpdatePublisher</value>
   </data>
   <data name="prgBrPublishing.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -239,8 +239,8 @@
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lblProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 65</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FrmUpdatePublisher</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>2</value>

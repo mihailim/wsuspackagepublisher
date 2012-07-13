@@ -121,23 +121,42 @@
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>463, 375</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>382, 375</value>
   </data>
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>538, 196</value>
   </data>
+  <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
   <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 333</value>
+  </data>
+  <data name="nupVersion1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="nupVersion2.Location" type="System.Drawing.Point, System.Drawing">
     <value>202, 333</value>
   </data>
+  <data name="nupVersion2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
     <value>294, 333</value>
   </data>
+  <data name="nupVersion3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
     <value>386, 333</value>
+  </data>
+  <data name="nupVersion4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 280</value>
@@ -145,11 +164,20 @@
   <data name="cmbBxComparison.Size" type="System.Drawing.Size, System.Drawing">
     <value>413, 21</value>
   </data>
+  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 283</value>
   </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 310</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="txtBxFilePath.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 307</value>
@@ -157,8 +185,14 @@
   <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
     <value>413, 20</value>
   </data>
+  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 208</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="txtBxSubKey.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 205</value>
@@ -169,8 +203,14 @@
   <data name="chkBxRegType32.Location" type="System.Drawing.Point, System.Drawing">
     <value>404, 231</value>
   </data>
+  <data name="chkBxRegType32.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 257</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="txtBxRegistryValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 254</value>
@@ -178,11 +218,20 @@
   <data name="txtBxRegistryValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>413, 20</value>
   </data>
+  <data name="txtBxRegistryValue.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 335</value>
   </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
   <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 231</value>
+  </data>
+  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>541, 401</value>

@@ -11,23 +11,30 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RulesGroup
     {
-        internal enum GroupLogicalOperator { And, Or, None }
-        private Dictionary<Guid, GenericRule> _frmRules = new Dictionary<Guid, GenericRule>();
+        internal enum GroupLogicalOperator { And, Or}
+        private bool _isSelected = false;
+        private Dictionary<Guid, GenericRule> _innerRules = new Dictionary<Guid, GenericRule>();
+        private Dictionary<Guid, RulesGroup> _innerGroups = new Dictionary<Guid, RulesGroup>();
         private Guid _guid = Guid.NewGuid();
         private GroupLogicalOperator _groupType = GroupLogicalOperator.And;
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RulesGroup).Assembly);
 
-        internal void AddFrm(GenericRule frmToAdd)
+        #region (Methods - méthodes)
+
+        internal void AddRule(GenericRule ruleToAdd)
         {
-            _frmRules.Add(Guid.NewGuid(), frmToAdd);
+                _innerRules.Add(ruleToAdd.Id, ruleToAdd);
+        }
+
+        internal void AddGroup(RulesGroup groupToAdd)
+        {
+            _innerGroups.Add(groupToAdd.Id, groupToAdd);
         }
 
         internal string GetXmlFormattedRule()
         {
             string result = "";
-
-            if (FormList.Count == 0)
-                return result;
-
+            
             switch (GroupType)
             {
                 case GroupLogicalOperator.And:
@@ -36,15 +43,18 @@ namespace Wsus_Package_Publisher
                 case GroupLogicalOperator.Or:
                     result += "<lar:Or>\r\n";
                     break;
-                case GroupLogicalOperator.None:
-                    break;
                 default:
                     break;
             }
 
-            foreach (GenericRule rule in FormList.Values)
+            foreach (GenericRule rule in InnerRules.Values)
             {
                 result += rule.GetXmlFormattedRule();
+            }
+
+            foreach (RulesGroup group in InnerGroups.Values)
+            {
+                result += group.GetXmlFormattedRule();
             }
 
             switch (GroupType)
@@ -55,31 +65,66 @@ namespace Wsus_Package_Publisher
                 case GroupLogicalOperator.Or:
                     result += "</lar:Or>\r\n";
                     break;
-                case GroupLogicalOperator.None:
-                    break;
                 default:
                     break;
             }
 
             return result;
         }
+        
+        internal void Edit()
+        {
+            DialogResult result = DialogResult.No;
 
+            switch (GroupType)
+            {
+                case GroupLogicalOperator.And:
+                    result = MessageBox.Show(resMan.GetString("EditGroupTypeOr"), "", MessageBoxButtons.YesNo);
+                    break;
+                case GroupLogicalOperator.Or:
+                    result = MessageBox.Show(resMan.GetString("EditGroupTypeAnd"), "", MessageBoxButtons.YesNo);
+                    break;
+                default:
+                    break;
+            }
+
+            if (result == DialogResult.Yes)
+                if (GroupType == GroupLogicalOperator.And)
+                    GroupType = GroupLogicalOperator.Or;
+                else
+                    GroupType = GroupLogicalOperator.And;
+        }
+
+        #endregion
+        
         #region (Properties - Propiétés)
 
-        internal Guid GetGuid
+        internal bool IsSelected
+        {
+            get { return _isSelected; }
+            set { _isSelected = value; }
+        }
+
+        internal Guid Id
         {
             get { return _guid; }
         }
 
-        internal Dictionary<Guid, GenericRule> FormList
+        internal Dictionary<Guid, GenericRule> InnerRules
         {
-            get { return _frmRules; }
-            set { _frmRules = value; }
+            get { return _innerRules; }
+            set { _innerRules = value; }
+        }
+
+        internal Dictionary<Guid, RulesGroup> InnerGroups
+        {
+            get { return _innerGroups; }
+            set { _innerGroups = value; }
         }
 
         internal GroupLogicalOperator GroupType
         {
-            get {return _groupType;}
+            get { return _groupType; }
             set { _groupType = value; }
         }
 

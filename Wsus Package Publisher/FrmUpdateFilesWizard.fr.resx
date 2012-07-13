@@ -247,7 +247,7 @@
     <value>548, 387</value>
   </data>
   <data name="btnNext.Text" xml:space="preserve">
-    <value>Suivant &amp;&gt;</value>
+    <value>&amp;Suivant</value>
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>

@@ -117,21 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 13</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>398, 402</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>12</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
@@ -142,9 +139,6 @@
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
-  </data>
-  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
   </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
@@ -157,6 +151,9 @@
   </data>
   <data name="&gt;&gt;nupHour.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="numericUpDown1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -186,6 +183,9 @@
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;numericUpDown3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
@@ -198,8 +198,8 @@
   <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nupSeconde.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
   <data name="&gt;&gt;numericUpDown2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -216,8 +216,8 @@
   <data name="&gt;&gt;bntCancel.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="chkBxUseCsidl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -327,6 +327,9 @@
   <data name="&gt;&gt;nupSeconde.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;chkBxUseCsidl.Name" xml:space="preserve">
     <value>chkBxUseCsidl</value>
   </data>
@@ -342,8 +345,8 @@
   <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>17</value>
+  <data name="nupHour.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
   <data name="chkBxUseCsidl.Text" xml:space="preserve">
     <value>Known Folder : </value>
@@ -351,8 +354,8 @@
   <data name="&gt;&gt;numericUpDown3.Name" xml:space="preserve">
     <value>numericUpDown3</value>
   </data>
-  <data name="&gt;&gt;nupMinute.Name" xml:space="preserve">
-    <value>nupMinute</value>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 375</value>
   </data>
   <data name="&gt;&gt;nupSeconde.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -362,6 +365,9 @@
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;cmbBxCsidl.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="nupSeconde.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 399</value>
@@ -387,14 +393,11 @@
   <data name="&gt;&gt;numericUpDown3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="dtpCreationDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
   <data name="&gt;&gt;cmbBxComparison.Name" xml:space="preserve">
     <value>cmbBxComparison</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 375</value>
+  <data name="nupMinute.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 373</value>
   </data>
   <data name="&gt;&gt;cmbBxCsidl.Name" xml:space="preserve">
     <value>cmbBxCsidl</value>
@@ -420,8 +423,8 @@
   <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 17</value>
   </data>
-  <data name="&gt;&gt;numericUpDown3.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="dtpCreationDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -441,14 +444,17 @@
   <data name="txtBxDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Both</value>
   </data>
-  <data name="&gt;&gt;txtBxFilePath.Name" xml:space="preserve">
-    <value>txtBxFilePath</value>
+  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
+    <value>17</value>
   </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;cmbBxCsidl.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;numericUpDown1.Name" xml:space="preserve">
     <value>numericUpDown1</value>
@@ -468,8 +474,8 @@
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="bntCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;txtBxFilePath.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -531,14 +537,17 @@
   <data name="numericUpDown3.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkBxUseCsidl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="cmbBxComparison.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 21</value>
   </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="bntCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="nupMinute.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>470, 199</value>
@@ -624,8 +633,8 @@
   <data name="dtpCreationDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 321</value>
   </data>
-  <data name="numericUpDown1.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="&gt;&gt;nupMinute.Name" xml:space="preserve">
+    <value>nupMinute</value>
   </data>
   <data name="chkBxReverseRule.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -657,8 +666,8 @@
   <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;txtBxFilePath.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="nupMinute.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -669,8 +678,8 @@
   <data name="numericUpDown2.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="nupMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 373</value>
+  <data name="&gt;&gt;txtBxFilePath.Name" xml:space="preserve">
+    <value>txtBxFilePath</value>
   </data>
   <data name="&gt;&gt;numericUpDown1.Parent" xml:space="preserve">
     <value>$this</value>

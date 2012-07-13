@@ -129,7 +129,7 @@
     <value>Ctrl+Q</value>
   </data>
   <data name="quitterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>162, 30</value>
   </data>
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter</value>

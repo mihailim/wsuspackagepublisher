@@ -26,7 +26,7 @@ namespace Wsus_Package_Publisher
             updateDetailViewer1.ExpireUpdate += new UpdateDetailViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
         }
 
-#region (Properties - Propriétés)
+        #region (Properties - Propriétés)
 
         /// <summary>
         /// Get or Set the product for which updates are display.
@@ -41,9 +41,9 @@ namespace Wsus_Package_Publisher
             }
         }
 
-#endregion
-       
-#region (Methods - Méthodes)
+        #endregion
+
+        #region (Methods - Méthodes)
 
         internal void RefreshDisplay()
         {
@@ -65,10 +65,10 @@ namespace Wsus_Package_Publisher
                 splitContainer1.SplitterDistance = (int)(splitContainer1.Height / 2);
         }
 
-#endregion
+        #endregion
 
-#region (response to events - réponses aux événements)
-        
+        #region (response to events - réponses aux événements)
+
         private void updateListViewer1_UpdateSelectionChanged(DataGridViewSelectedRowCollection selectedRows)
         {
             updateDetailViewer1.UpdateSelectionChanged(selectedRows);
@@ -103,6 +103,6 @@ namespace Wsus_Package_Publisher
             throw new NotImplementedException();
         }
 
-#endregion
+        #endregion
     }
 }

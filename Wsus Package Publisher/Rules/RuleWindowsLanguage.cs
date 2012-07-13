@@ -69,15 +69,25 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleWindowsVersion).Assembly);
 
-        public RuleWindowsLanguage()
+        public RuleWindowsLanguage():base()
         {
             InitializeComponent();
 
+            foreach (string name in _languagesByName.Keys)
+            {
+                cmbBxLanguage.Items.Add(name);
+            }
             txtBxDescription.Text = resManager.GetString("DescriptionWindowsLanguage");
             cmbBxLanguage.Focus();
         }
 
         #region (Properties - Propriétés)
+
+        internal bool ReverseRule
+        {
+            get { return chkBxReverseRule.Checked; }
+            set { chkBxReverseRule.Checked = value; }
+        }
 
         internal string Language
         {
@@ -103,27 +113,64 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length - 1, 1);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<bar:");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "WindowsLanguage");
+            if (ReverseRule)
+            {
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+            }
 
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Language");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Language);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "WindowsLanguage");
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Language");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Language);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
+
+            if (ReverseRule)
+            {
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
+            }
 
             return rTxtBx.Rtf;
         }
 
         internal override string GetXmlFormattedRule()
         {
-            return "<bar:WindowsLanguage Language=\"" + Language + "\"/>\r\n";
+            string result = "";
+
+            if (ReverseRule)
+            {
+                result += "<lar:Not>\r\n";
+            }
+
+            result += "<bar:WindowsLanguage Language=\"" + Language + "\"/>\r\n";
+            
+            if (ReverseRule)
+            {
+                result += "</lar:Not>\r\n";
+            }
+            return result;
+        }
+
+        internal override GenericRule Clone()
+        {
+            RuleWindowsLanguage clone = new RuleWindowsLanguage();
+
+            clone.ReverseRule = this.ReverseRule;
+            clone.Language = this.Language;
+
+            return clone;
         }
 
         public override string ToString()
@@ -154,5 +201,6 @@ namespace Wsus_Package_Publisher
         }
 
         #endregion
+
     }
 }

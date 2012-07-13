@@ -147,6 +147,7 @@
             // cmbBxMsrcSeverity
             // 
             resources.ApplyResources(this.cmbBxMsrcSeverity, "cmbBxMsrcSeverity");
+            this.cmbBxMsrcSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxMsrcSeverity.FormattingEnabled = true;
             this.cmbBxMsrcSeverity.Name = "cmbBxMsrcSeverity";
             // 
@@ -178,6 +179,7 @@
             // cmbBxUpdateClassification
             // 
             resources.ApplyResources(this.cmbBxUpdateClassification, "cmbBxUpdateClassification");
+            this.cmbBxUpdateClassification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxUpdateClassification.FormattingEnabled = true;
             this.cmbBxUpdateClassification.Name = "cmbBxUpdateClassification";
             // 
@@ -201,6 +203,7 @@
             // cmbBxImpact
             // 
             resources.ApplyResources(this.cmbBxImpact, "cmbBxImpact");
+            this.cmbBxImpact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxImpact.FormattingEnabled = true;
             this.cmbBxImpact.Name = "cmbBxImpact";
             // 
@@ -212,6 +215,7 @@
             // cmbBxRebootBehavior
             // 
             resources.ApplyResources(this.cmbBxRebootBehavior, "cmbBxRebootBehavior");
+            this.cmbBxRebootBehavior.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRebootBehavior.FormattingEnabled = true;
             this.cmbBxRebootBehavior.Name = "cmbBxRebootBehavior";
             // 

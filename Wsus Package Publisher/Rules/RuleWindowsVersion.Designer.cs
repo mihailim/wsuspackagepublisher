@@ -48,6 +48,7 @@
             this.chkBxProductType = new System.Windows.Forms.CheckBox();
             this.chkBxServicePackMinor = new System.Windows.Forms.CheckBox();
             this.chkBxComparison = new System.Windows.Forms.CheckBox();
+            this.chkBxReverseRule = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupMajorVersion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMinorVersion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupBuildNumber)).BeginInit();
@@ -73,26 +74,31 @@
             // 
             resources.ApplyResources(this.nupMajorVersion, "nupMajorVersion");
             this.nupMajorVersion.Name = "nupMajorVersion";
+            this.nupMajorVersion.Enter += new System.EventHandler(this.nupMajorVersion_Enter);
             // 
             // nupMinorVersion
             // 
             resources.ApplyResources(this.nupMinorVersion, "nupMinorVersion");
             this.nupMinorVersion.Name = "nupMinorVersion";
+            this.nupMinorVersion.Enter += new System.EventHandler(this.nupMajorVersion_Enter);
             // 
             // nupBuildNumber
             // 
             resources.ApplyResources(this.nupBuildNumber, "nupBuildNumber");
             this.nupBuildNumber.Name = "nupBuildNumber";
+            this.nupBuildNumber.Enter += new System.EventHandler(this.nupMajorVersion_Enter);
             // 
             // nupServicePackMinor
             // 
             resources.ApplyResources(this.nupServicePackMinor, "nupServicePackMinor");
             this.nupServicePackMinor.Name = "nupServicePackMinor";
+            this.nupServicePackMinor.Enter += new System.EventHandler(this.nupMajorVersion_Enter);
             // 
             // nupServicePackMajor
             // 
             resources.ApplyResources(this.nupServicePackMajor, "nupServicePackMajor");
             this.nupServicePackMajor.Name = "nupServicePackMajor";
+            this.nupServicePackMajor.Enter += new System.EventHandler(this.nupMajorVersion_Enter);
             // 
             // btnOk
             // 
@@ -189,10 +195,17 @@
             this.chkBxComparison.Name = "chkBxComparison";
             this.chkBxComparison.UseVisualStyleBackColor = true;
             // 
+            // chkBxReverseRule
+            // 
+            resources.ApplyResources(this.chkBxReverseRule, "chkBxReverseRule");
+            this.chkBxReverseRule.Name = "chkBxReverseRule";
+            this.chkBxReverseRule.UseVisualStyleBackColor = true;
+            // 
             // RuleWindowsVersion
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkBxReverseRule);
             this.Controls.Add(this.chkBxComparison);
             this.Controls.Add(this.chkBxServicePackMinor);
             this.Controls.Add(this.chkBxServicePackMajor);
@@ -245,5 +258,6 @@
         private System.Windows.Forms.CheckBox chkBxProductType;
         private System.Windows.Forms.CheckBox chkBxServicePackMinor;
         private System.Windows.Forms.CheckBox chkBxComparison;
+        private System.Windows.Forms.CheckBox chkBxReverseRule;
     }
 }

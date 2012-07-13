@@ -117,21 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>
+  </data>
+  <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 346</value>
   </data>
+  <data name="nupVersion1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="nupVersion2.Location" type="System.Drawing.Point, System.Drawing">
     <value>219, 346</value>
+  </data>
+  <data name="nupVersion2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
     <value>311, 346</value>
   </data>
+  <data name="nupVersion3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
     <value>403, 346</value>
+  </data>
+  <data name="nupVersion4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 293</value>
@@ -139,14 +158,23 @@
   <data name="cmbBxComparison.Size" type="System.Drawing.Size, System.Drawing">
     <value>451, 21</value>
   </data>
+  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Comparaison : </value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Nom du fichier : </value>
@@ -157,17 +185,29 @@
   <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
     <value>451, 20</value>
   </data>
+  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
   <data name="chkBxRegType32.Location" type="System.Drawing.Point, System.Drawing">
     <value>446, 244</value>
   </data>
   <data name="chkBxRegType32.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 17</value>
   </data>
+  <data name="chkBxRegType32.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="chkBxRegType32.Text" xml:space="preserve">
     <value>Clé de Registre 32 bits</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Nom de la clé : </value>
@@ -178,14 +218,23 @@
   <data name="txtBxRegistryValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>451, 20</value>
   </data>
+  <data name="txtBxRegistryValue.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Version du fichier : </value>
   </data>
   <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 17</value>
+  </data>
+  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="chkBxReverseRule.Text" xml:space="preserve">
     <value>Inversé la règle</value>

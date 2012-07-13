@@ -140,6 +140,9 @@
   <data name="&gt;&gt;txtBxCommandLine.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 98</value>
+  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -759,6 +762,9 @@
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
     <value>btnNext</value>
   </data>
@@ -834,9 +840,6 @@
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
   <data name="&gt;&gt;lstBxAdditionnalFiles.Name" xml:space="preserve">
     <value>lstBxAdditionnalFiles</value>
   </data>
@@ -852,13 +855,10 @@
   <data name="btnNext.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtBxCommandLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 342</value>
-  </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lstBxAdditionnalFiles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="txtBxCommandLine.Size" type="System.Drawing.Size, System.Drawing">
@@ -951,8 +951,8 @@
   <data name="&gt;&gt;btnRemoveAdditionnalFile.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;lstBxAdditionnalFiles.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
@@ -972,8 +972,8 @@
   <data name="btnRemoveAdditionnalFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 98</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRemoveAdditionnalFile.Name" xml:space="preserve">
     <value>btnRemoveAdditionnalFile</value>
@@ -1002,13 +1002,13 @@
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtBxCommandLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 342</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
 </root>

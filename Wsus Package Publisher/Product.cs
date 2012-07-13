@@ -9,15 +9,17 @@ namespace Wsus_Package_Publisher
     internal class Product
     {
         private string _productName = "";
+        private Company _vendor;
         private List<IUpdate> _updates = new List<IUpdate>();
 
         /// <summary>
         /// Get a new instance of Product with the name 'productName'.
         /// </summary>
         /// <param name="productName">Name of the product.</param>
-        public Product(string productName)
+        public Product(string productName, Company company)
         {
             ProductName = productName;
+            Vendor = company;
         }
 
         /// <summary>
@@ -31,6 +33,15 @@ namespace Wsus_Package_Publisher
                 if (!string.IsNullOrEmpty(value))
                     _productName = value;
             }
+        }
+
+        /// <summary>
+        /// Get or Set the name of the Company which own this product.
+        /// </summary>
+        internal Company Vendor
+        {
+            get { return _vendor; }
+            set { _vendor = value; }
         }
 
         /// <summary>

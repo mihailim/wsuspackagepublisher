@@ -98,6 +98,7 @@
             0,
             0});
             this.nupVersion1.Name = "nupVersion1";
+            this.nupVersion1.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion2
             // 
@@ -108,6 +109,7 @@
             0,
             0});
             this.nupVersion2.Name = "nupVersion2";
+            this.nupVersion2.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion3
             // 
@@ -118,6 +120,7 @@
             0,
             0});
             this.nupVersion3.Name = "nupVersion3";
+            this.nupVersion3.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion4
             // 
@@ -128,6 +131,7 @@
             0,
             0});
             this.nupVersion4.Name = "nupVersion4";
+            this.nupVersion4.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // chkBxCreationDate
             // 
@@ -174,6 +178,7 @@
             0,
             0,
             0});
+            this.nupFileSize.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // chkBxLanguage
             // 

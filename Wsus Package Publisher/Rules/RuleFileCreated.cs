@@ -65,7 +65,7 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileCreated).Assembly);
 
-        public RuleFileCreated()
+        public RuleFileCreated():base()
         {
             InitializeComponent();
 
@@ -89,51 +89,50 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length - 1, 1);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
             }
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<bar:");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "FileCreated");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Path");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, FilePath);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "FileCreated");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Path");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, FilePath);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
 
             if (UseCsidl)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Csidl");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Csidl.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Csidl");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Csidl.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Comparison");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Comparison);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Comparison");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Comparison);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
 
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Created");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, GetFormatedDate());
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Created");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, GetFormatedDate());
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
@@ -167,6 +166,22 @@ namespace Wsus_Package_Publisher
             }
 
             return result;
+        }
+
+        internal override GenericRule Clone()
+        {
+            RuleFileCreated clone = new RuleFileCreated();
+
+            clone.UseCsidl = this.UseCsidl;
+            clone.Csidl = this.Csidl;
+            clone.FilePath = this.FilePath;
+            clone.ReverseRule = this.ReverseRule;
+            clone.Comparison = this.Comparison;
+            clone.CreationDate = this.CreationDate;
+            clone.Hour = this.Hour;
+            clone.Minute = this.Minute;
+            clone.Second = this.Second;
+            return clone;
         }
 
         private string GetFormatedDate()
@@ -336,6 +351,12 @@ namespace Wsus_Package_Publisher
             ValidateData();
         }
 
+        private void nupHour_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown nup = (NumericUpDown)sender;
+            nup.Select(0, nup.Value.ToString().Length);
+        }
+
         private void bntCancel_Click(object sender, EventArgs e)
         {
             ParentForm.DialogResult = DialogResult.Cancel;
@@ -347,6 +368,7 @@ namespace Wsus_Package_Publisher
         }
 
         #endregion
+
 
 
     }

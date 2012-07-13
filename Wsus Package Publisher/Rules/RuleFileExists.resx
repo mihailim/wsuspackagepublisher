@@ -136,6 +136,9 @@
   <data name="&gt;&gt;nupVersion3.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;chkBxFileVersion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="dtPCreationDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
@@ -212,8 +215,8 @@
   <data name="&gt;&gt;chkBxReverseRule.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;chkBxCreationDate.Name" xml:space="preserve">
+    <value>chkBxCreationDate</value>
   </data>
   <data name="&gt;&gt;nupVersion1.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -451,7 +454,7 @@
     <value>8</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.GenericRule, Wsus Package Publisher, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>label2</value>
@@ -528,7 +531,7 @@
   <data name="chkBxReverseRule.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;chkBxFileVersion.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtBxDescription.Type" xml:space="preserve">
@@ -554,9 +557,6 @@
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>324, 479</value>
-  </data>
-  <data name="&gt;&gt;chkBxCreationDate.Name" xml:space="preserve">
-    <value>chkBxCreationDate</value>
   </data>
   <data name="&gt;&gt;cmbBxLanguage.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -598,6 +598,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
 </root>

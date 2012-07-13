@@ -142,7 +142,7 @@
     <value>64, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Language : </value>
@@ -178,10 +178,25 @@
     <value>307, 279</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
+  </data>
+  <data name="chkBxReverseRule.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 209</value>
+  </data>
+  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 17</value>
+  </data>
+  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="chkBxReverseRule.Text" xml:space="preserve">
+    <value>Inverse règle</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>403, 305</value>

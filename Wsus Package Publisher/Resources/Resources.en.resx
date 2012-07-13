@@ -451,4 +451,13 @@ Version (mandatory): File Version.</value>
   <data name="Unknown" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="EditGroupTypeAnd" xml:space="preserve">
+    <value>Do you want to link rules by logical operator "And" ?</value>
+  </data>
+  <data name="EditGroupTypeOr" xml:space="preserve">
+    <value>Do you want to link rules by logical operator "Or" ?</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>P&amp;ublish</value>
+  </data>
 </root>

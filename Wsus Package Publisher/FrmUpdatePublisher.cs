@@ -32,7 +32,9 @@ namespace Wsus_Package_Publisher
         {
             System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdatePublisher).Assembly);
 
+            btnOk.Enabled = false;
             prgBrPublishing.Value = 0;
+            this.Refresh();
 
             _wsus.UpdatePublishingProgress += new WsusWrapper.UpdatePublishingProgressEventHandler(publisher_Progress);
             _wsus.PublishUpdate(_filesWizard, _informationsWizard, _isInstalledRulesWizard, _isInstallableRulesWizard);

@@ -20,10 +20,11 @@ namespace Wsus_Package_Publisher
             GreaterThanOrEqualTo,
             GreaterThan
         }
-        
+
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleWindowsVersion).Assembly);
 
         public RuleWindowsVersion()
+            : base()
         {
             InitializeComponent();
 
@@ -39,6 +40,12 @@ namespace Wsus_Package_Publisher
         }
 
         #region (Properties - Propriétés)
+
+        internal bool ReverseRule
+        {
+            get { return chkBxReverseRule.Checked; }
+            set { chkBxReverseRule.Checked = value; }
+        }
 
         internal bool UseComparison
         {
@@ -56,7 +63,20 @@ namespace Wsus_Package_Publisher
                     _comparison = "";
                 return _comparison;
             }
-            set { _comparison = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && Enum.GetNames(typeof(ComparisonType)).Contains(value))
+                {
+                    _comparison = value;
+                    cmbBxComparison.SelectedItem = resManager.GetString("Comparison" + value);
+                    chkBxComparison.Checked = true;
+                }
+                else
+                {
+                    chkBxComparison.Checked = false;
+                    cmbBxComparison.SelectedIndex = -1;
+                }
+            }
         }
 
         internal bool UseMajorVersion
@@ -215,7 +235,7 @@ namespace Wsus_Package_Publisher
         {
             nupBuildNumber.Enabled = chkBxBuildNumber.Checked;
         }
-        
+
         private void chkBxServicePackMajor_CheckedChanged(object sender, EventArgs e)
         {
             nupServicePackMajor.Enabled = chkBxServicePackMajor.Checked;
@@ -235,6 +255,12 @@ namespace Wsus_Package_Publisher
         {
             UseProductType = true;
             UpdateOkBtn();
+        }
+
+        private void nupMajorVersion_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown nup = (NumericUpDown)sender;
+            nup.Select(0, 4);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -274,73 +300,88 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length - 1, 1);
-
+            
             if (UseMajorVersion || UseProductType)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
 
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<bar:");
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "WindowsVersion");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+
+                if (ReverseRule)
+                {
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                }
+
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "WindowsVersion");
 
                 if (UseComparison)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Comparison");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Comparison);
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Comparison");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Comparison);
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
                 if (UseMajorVersion)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " MajorVersion");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, MajorVersion.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
-                }                
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " MajorVersion");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, MajorVersion.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+                }
 
                 if (UseMinorVersion)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " MinorVersion");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, MinorVersion.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " MinorVersion");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, MinorVersion.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
                 if (UseBuildNumber)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " BuildNumber");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, BuildNumber.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " BuildNumber");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, BuildNumber.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
                 if (UseServicePackMajor)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " ServicePackMajor");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, ServicePackMajor.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " ServicePackMajor");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ServicePackMajor.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
                 if (UseServicePackMinor)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " ServicePackMinor");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, ServicePackMinor.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " ServicePackMinor");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ServicePackMinor.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
                 if (UseProductType)
                 {
-                    print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " ProductType");
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                    print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, ProductType.ToString());
-                    print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                    print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " ProductType");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ProductType.ToString());
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
                 }
 
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
+
+                if (ReverseRule)
+                {
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                    print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
+                }
             }
             return rTxtBx.Rtf;
         }
@@ -351,11 +392,14 @@ namespace Wsus_Package_Publisher
 
             if (UseMajorVersion || UseProductType)
             {
+                if (ReverseRule)
+                    result += "<lar:Not>\r\n";
+
                 result += "<bar:WindowsVersion";
 
-                if(UseComparison)
+                if (UseComparison)
                     result += " Comparison=\"" + Comparison + "\"";
-                
+
                 if (UseMajorVersion)
                     result += " MajorVersion=\"" + MajorVersion + "\"";
 
@@ -375,9 +419,42 @@ namespace Wsus_Package_Publisher
                     result += " ProductType=\"" + ProductType + "\"";
 
                 result += "/>\r\n";
+
+                if (ReverseRule)
+                    result += "</lar:Not>\r\n";
             }
 
             return result;
+        }
+
+        internal override GenericRule Clone()
+        {
+            RuleWindowsVersion clone = new RuleWindowsVersion();
+
+            clone.ReverseRule = this.ReverseRule;
+            clone.UseComparison = this.UseComparison;
+            if (UseComparison)
+                clone.Comparison = this.Comparison;
+            clone.UseMajorVersion = this.UseMajorVersion;
+            if (UseMajorVersion)
+                clone.MajorVersion = this.MajorVersion;
+            clone.UseMinorVersion = this.UseMinorVersion;
+            if (UseMinorVersion)
+                clone.MinorVersion = this.MinorVersion;
+            clone.UseBuildNumber = this.UseBuildNumber;
+            if (UseBuildNumber)
+                clone.BuildNumber = this.BuildNumber;
+            clone.UseServicePackMajor = this.UseServicePackMajor;
+            if (UseServicePackMajor)
+                clone.ServicePackMajor = this.ServicePackMajor;
+            clone.UseServicePackMinor = this.UseServicePackMinor;
+            if (UseServicePackMinor)
+                clone.ServicePackMinor = this.ServicePackMinor;
+            clone.UseProductType = this.UseProductType;
+            if (UseProductType)
+                clone.ProductType = this.ProductType;
+
+            return clone;
         }
 
         public override string ToString()
@@ -386,5 +463,6 @@ namespace Wsus_Package_Publisher
         }
 
         #endregion
+
     }
 }

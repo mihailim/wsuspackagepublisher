@@ -16,6 +16,7 @@ namespace Wsus_Package_Publisher
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleProcessorArchitecture).Assembly);
 
         public RuleProcessorArchitecture()
+            : base()
         {
             InitializeComponent();
             txtBxDescription.Text = resManager.GetString("DescriptionRuleProcessorArchitecture");
@@ -28,33 +29,32 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length - 1, 1);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
             }
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<bar:");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "Processor");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Architecture");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, ProcessorArchitecture.ToString());
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
-            
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "Processor");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Architecture");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ProcessorArchitecture.ToString());
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
@@ -79,6 +79,15 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        internal override GenericRule Clone()
+        {
+            RuleProcessorArchitecture clone = new RuleProcessorArchitecture();
+
+            clone.ProcessorArchitecture = this.ProcessorArchitecture;
+            clone.ReverseRule = this.ReverseRule;
+            return clone;
+        }
+
         public override string ToString()
         {
             return resManager.GetString("Processor");
@@ -94,7 +103,24 @@ namespace Wsus_Package_Publisher
         internal ushort ProcessorArchitecture
         {
             get { return _processorArchitecture; }
-            set { _processorArchitecture = value; }
+            set 
+            {
+                _processorArchitecture = value;
+                switch (value)
+                {
+                    case 0:
+                        cmbBxProcessorArchitecture.SelectedIndex = 0;
+                        break;
+                    case 9:
+                        cmbBxProcessorArchitecture.SelectedIndex = 1;
+                        break;
+                    case 6:
+                        cmbBxProcessorArchitecture.SelectedIndex = 2;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -103,7 +129,11 @@ namespace Wsus_Package_Publisher
         internal bool ReverseRule
         {
             get { return _reverseRule; }
-            set { _reverseRule = value; }
+            set 
+            {
+                _reverseRule = value;
+                chkBxInverseRule.Checked = value;
+            }
         }
 
         #endregion

@@ -94,7 +94,7 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileExistsPrependRegSz).Assembly);
 
-        public RuleFileExistsPrependRegSz()
+        public RuleFileExistsPrependRegSz():base()
         {
             InitializeComponent();
 
@@ -123,94 +123,93 @@ namespace Wsus_Package_Publisher
         {
             RichTextBox rTxtBx = new RichTextBox();
             string tab = new string(' ', tabulation);
-            rTxtBx.Rtf += rtf;
-            rTxtBx.Select(rTxtBx.Text.Length - 1, 1);
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
             }
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "<bar:");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.red, "FileExistsPrependRegSz");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Path");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, FilePath);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Key");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "HKEY_LOCAL_MACHINE");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Subkey");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, SubKey);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
-            print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Value");
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-            print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Value);
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "FileExistsPrependRegSz");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Path");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, FilePath);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Key");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "HKEY_LOCAL_MACHINE");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Subkey");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, SubKey);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
+            print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Value");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Value);
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
 
             if (RegType32)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " RegType32");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, RegType32.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " RegType32");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, RegType32.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
 
             if (UseVersion)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Version");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Version);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Version");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Version);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
             if (UseModifiedDate)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Modified");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, ModifiedDate.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Modified");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ModifiedDate.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
             if (UseCreationDate)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Created");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, CreationDate.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Created");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, CreationDate.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
             if (UseSize)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Size");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Size.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Size");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, FileSize.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
             if (UseLanguage)
             {
-                print(rTxtBx, RulesViewer.elementAndAttributeFont, RulesViewer.blue, " Language");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "=\"");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, Language.ToString());
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "\"");
+                print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Language");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Language.ToString());
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
-            print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, "/>\r\n");
+            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
 
             if (ReverseRule)
             {
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.black, tab);
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, "<lar:");
-                print(rTxtBx, RulesViewer.boldFont, RulesViewer.black, "Not");
-                print(rTxtBx, RulesViewer.normalFont, RulesViewer.green, ">\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
@@ -252,7 +251,7 @@ namespace Wsus_Package_Publisher
 
             if (UseSize)
             {
-                result += " Size=\"" + Size.ToString() + "\"";
+                result += " Size=\"" + FileSize.ToString() + "\"";
             }
 
             if (UseLanguage)
@@ -270,6 +269,34 @@ namespace Wsus_Package_Publisher
             return result;
         }
 
+        internal override GenericRule Clone()
+        {
+            RuleFileExistsPrependRegSz clone = new RuleFileExistsPrependRegSz();
+
+            clone.SubKey = this.SubKey;
+            clone.Value = this.Value;
+            clone.RegType32 = this.RegType32;
+            clone.FilePath = this.FilePath;
+            clone.ReverseRule = this.ReverseRule;
+            clone.UseVersion = this.UseVersion;
+            if (UseVersion)
+                clone.Version = this.Version;
+            clone.UseCreationDate = this.UseCreationDate;
+            if (UseCreationDate)
+                clone.CreationDate = this.CreationDate;
+            clone.UseModifiedDate = this.UseModifiedDate;
+            if (UseModifiedDate)
+                clone.ModifiedDate = this.ModifiedDate;
+            clone.UseSize = this.UseSize;
+            if (UseSize)
+                clone.FileSize = this.FileSize;
+            clone.UseLanguage = this.UseLanguage;
+            if (UseLanguage)
+                clone.Language = this.Language;
+
+            return clone;
+        }
+
         public override string ToString()
         {
             return resMan.GetString("FileExistsPrependRegSz");
@@ -282,7 +309,7 @@ namespace Wsus_Package_Publisher
         /// <returns>True if the string match, else false.</returns>
         private bool IsVersionStringCorrectlyformated(string version)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$");
 
             if (regex.IsMatch(version))
                 return true;
@@ -297,7 +324,7 @@ namespace Wsus_Package_Publisher
         /// <returns>Return a Integer corresponding to the sub-version number</returns>
         private int GetVersionNumber(string version, int rank)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{1,5}.\d{1,5}.\d{1,5}.\d{1,5}$}");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"\d{1,5}");
             string number;
             int result;
 
@@ -327,7 +354,7 @@ namespace Wsus_Package_Publisher
         internal string Value
         {
             get { return txtBxValue.Text; }
-            set { txtBxValue.Text = Value; }
+            set { txtBxValue.Text = value; }
         }
 
         /// <summary>
@@ -541,6 +568,14 @@ namespace Wsus_Package_Publisher
             ValidateData();
         }
 
+        private void nupVersion1_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown nup = (NumericUpDown)sender;
+            nup.Select(0, nup.Value.ToString().Length);
+        }
+
         #endregion
+
+
     }
 }

@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>19</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cmbBxKnowFolders.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -151,7 +151,7 @@
     <value>141, 13</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Chemin vers le fichier : </value>
@@ -285,9 +285,6 @@
   <data name="chkBxModifiedDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chkBxModifiedDate.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="chkBxModifiedDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
@@ -391,7 +388,7 @@
     <value>False</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
@@ -400,7 +397,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>

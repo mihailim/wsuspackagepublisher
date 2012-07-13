@@ -106,6 +106,7 @@
             resources.ApplyResources(this.quitterToolStripMenuItem, "quitterToolStripMenuItem");
             this.quitterToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Log_Out_48;
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // outilsToolStripMenuItem
             // 

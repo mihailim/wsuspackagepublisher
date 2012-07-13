@@ -152,6 +152,7 @@
             0,
             0});
             this.nupHour.Name = "nupHour";
+            this.nupHour.Enter += new System.EventHandler(this.nupHour_Enter);
             // 
             // nupMinute
             // 
@@ -162,6 +163,7 @@
             0,
             0});
             this.nupMinute.Name = "nupMinute";
+            this.nupMinute.Enter += new System.EventHandler(this.nupHour_Enter);
             // 
             // nupSeconde
             // 
@@ -172,6 +174,7 @@
             0,
             0});
             this.nupSeconde.Name = "nupSeconde";
+            this.nupSeconde.Enter += new System.EventHandler(this.nupHour_Enter);
             // 
             // RuleFileCreated
             // 

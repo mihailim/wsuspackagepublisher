@@ -194,12 +194,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Rules\RulesViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Rules\RulesViewer.Designer.cs">
-      <DependentUpon>RulesViewer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rules\RuleWindowsLanguage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +207,18 @@
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="UserControl\GroupDisplayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\GroupDisplayer.designer.cs">
+      <DependentUpon>GroupDisplayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\RuleDisplayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\RuleDisplayer.designer.cs">
+      <DependentUpon>RuleDisplayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UpdateControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -404,9 +410,6 @@
     <EmbeddedResource Include="Rules\RuleProcessorArchitecture.resx">
       <DependentUpon>RuleProcessorArchitecture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rules\RulesViewer.resx">
-      <DependentUpon>RulesViewer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rules\RuleWindowsLanguage.en.resx">
       <DependentUpon>RuleWindowsLanguage.cs</DependentUpon>
     </EmbeddedResource>
@@ -424,6 +427,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rules\RuleWindowsVersion.resx">
       <DependentUpon>RuleWindowsVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\GroupDisplayer.resx">
+      <DependentUpon>GroupDisplayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\RuleDisplayer.resx">
+      <DependentUpon>RuleDisplayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UpdateControl.resx">
       <DependentUpon>UpdateControl.cs</DependentUpon>

@@ -118,6 +118,7 @@
             0});
             this.nupVersion1.Name = "nupVersion1";
             this.nupVersion1.ValueChanged += new System.EventHandler(this.nupVersion1_ValueChanged);
+            this.nupVersion1.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // label3
             // 
@@ -134,6 +135,7 @@
             0});
             this.nupVersion2.Name = "nupVersion2";
             this.nupVersion2.ValueChanged += new System.EventHandler(this.nupVersion1_ValueChanged);
+            this.nupVersion2.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion3
             // 
@@ -145,6 +147,7 @@
             0});
             this.nupVersion3.Name = "nupVersion3";
             this.nupVersion3.ValueChanged += new System.EventHandler(this.nupVersion1_ValueChanged);
+            this.nupVersion3.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // nupVersion4
             // 
@@ -156,6 +159,7 @@
             0});
             this.nupVersion4.Name = "nupVersion4";
             this.nupVersion4.ValueChanged += new System.EventHandler(this.nupVersion1_ValueChanged);
+            this.nupVersion4.Enter += new System.EventHandler(this.nupVersion1_Enter);
             // 
             // chkBxReverseRule
             // 

@@ -90,6 +90,7 @@ namespace Wsus_Package_Publisher
                 Guid rootComputerGroupId;
 
                 serverNode = new TreeNode(Properties.Settings.Default.ServerName);
+                serverNode.Tag = "Server";
                 trvWsus.Nodes.Add(serverNode);
                 rootComputerGroupName = wsus.GetAllComputerTargetGroup().Name;
                 rootComputerGroupId = wsus.GetAllComputerTargetGroup().Id;
@@ -102,6 +103,7 @@ namespace Wsus_Package_Publisher
                 PopulateTreeviewWithComputerGroups(new KeyValuePair<string, Guid>(rootComputerGroupName, rootComputerGroupId), allComputersNode);
 
                 allUpdatesNode = new TreeNode(resMan.GetString("updates"));
+                allUpdatesNode.Tag = "Updates";
                 serverNode.Nodes.Add(allUpdatesNode);
                 CollectUpdates();
                 serverNode.Expand();
@@ -205,7 +207,20 @@ namespace Wsus_Package_Publisher
 
         private void createUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUpdateWizard updateWizard = new FrmUpdateWizard(companies);
+            FrmUpdateWizard updateWizard;
+            
+            if (trvWsus.SelectedNode != null)
+            {
+                if (trvWsus.SelectedNode.Tag.ToString() == "Product")
+                    updateWizard = new FrmUpdateWizard(companies, updateCtrl.Product.Vendor, updateCtrl.Product);
+                else
+                    if (trvWsus.SelectedNode.Tag.ToString() == "Company")
+                    updateWizard = new FrmUpdateWizard(companies, companies[trvWsus.SelectedNode.Text]);
+                else
+                updateWizard = new FrmUpdateWizard(companies);
+            }
+            else
+                updateWizard = new FrmUpdateWizard(companies);
             updateWizard.ShowDialog();
         }
 
@@ -307,6 +322,11 @@ namespace Wsus_Package_Publisher
 
             Product product = vendor.Products[productName];
             product.AddUpdate(publishedUpdate);
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
