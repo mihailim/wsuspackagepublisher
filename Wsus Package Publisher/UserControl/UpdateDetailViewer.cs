@@ -259,7 +259,7 @@ namespace Wsus_Package_Publisher
         {
             btnRevise.Enabled = false;
             if (ReviseUpdate != null)
-                ReviseUpdate();
+                ReviseUpdate(ViewedUpdates[0]);
             btnRevise.Enabled = true;
         }
 
@@ -334,7 +334,7 @@ namespace Wsus_Package_Publisher
         public delegate void DeleteUpdateEventHandler(UpdateCollection udpatesToDelete);
         public event DeleteUpdateEventHandler DeleteUpdate;
 
-        public delegate void ReviseUpdateEventHandler();
+        public delegate void ReviseUpdateEventHandler(IUpdate updateToRevise);
         public event ReviseUpdateEventHandler ReviseUpdate;
 
         #endregion

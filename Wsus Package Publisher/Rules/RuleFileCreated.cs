@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -85,18 +86,15 @@ namespace Wsus_Package_Publisher
         
         #region (Methods - Méthodes)
 
-        internal override string GetRtfFormattedRule(string rtf, int tabulation)
+        internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
-            string tab = new string(' ', tabulation);
-
-            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
             }
 
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
@@ -121,7 +119,7 @@ namespace Wsus_Package_Publisher
 
             print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Created");
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
-            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, GetFormatedDate());
+            print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, GetFormatedDate(CreationDate.Date, Hour, Minute, Second));
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
 
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
@@ -129,43 +127,46 @@ namespace Wsus_Package_Publisher
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "</lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
         }
-
-        internal override string GetXmlFormattedRule()
+        
+        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
         {
-            string result = "";
-
-            if (ReverseRule)
+            foreach (KeyValuePair<string,string> pair in attributes)
             {
-                result += "<lar:Not>\r\n";
+                switch (pair.Key)
+                {
+                    case "Path":
+                        this.FilePath = pair.Value;
+                        break;
+                    case "Comparison":
+                        this.Comparison = pair.Value;
+                        break;
+                    case "Created":
+                        DateTime newdate;
+                        if (DateTime.TryParse(pair.Value, out newdate))
+                        {
+                            this.CreationDate = newdate;
+                        }
+                        break;
+                    case "Csidl":
+                        int result = 0;
+                        if (int.TryParse(pair.Value, out result))
+                        {
+                            this.Csidl = result;
+                            this.UseCsidl = true;
+                        }
+                        break;
+                    default:
+                        UnsupportedAttributes.Add(pair.Key, pair.Value);
+                        break;
+                }
             }
-
-            result += "<bar:FileCreated Path=\"" + FilePath + "\"";
-
-            if (UseCsidl)
-            {
-                result += " Csidl=\"" + Csidl.ToString() + "\"";
-            }
-
-            result += " Comparison=\"" + Comparison + "\"";
-
-            result += " Created=\"" + GetFormatedDate() + "\"";
-
-            result += "/>\r\n";
-
-            if (ReverseRule)
-            {
-                result += "</lar:Not>\r\n";
-            }
-
-            return result;
         }
 
         internal override GenericRule Clone()
@@ -184,9 +185,9 @@ namespace Wsus_Package_Publisher
             return clone;
         }
 
-        private string GetFormatedDate()
+        private string GetFormatedDate(DateTime dateToFormat, int hour, int minute, int second)
         {
-            DateTime tempDate = new DateTime(CreationDate.Year, CreationDate.Month, CreationDate.Day, Hour, Minute, Second);
+            DateTime tempDate = new DateTime(dateToFormat.Year, dateToFormat.Month, dateToFormat.Day, hour, minute, second);
 
             return string.Format("{0:s}", tempDate);        
         }
@@ -195,7 +196,7 @@ namespace Wsus_Package_Publisher
         {
             return resMan.GetString("FileCreated");
         }
-        
+                
         private void ValidateData()
         {
             if ((chkBxUseCsidl.Checked == false || (chkBxUseCsidl.Checked && cmbBxCsidl.SelectedIndex != -1)) && !string.IsNullOrEmpty(txtBxFilePath.Text) && cmbBxComparison.SelectedIndex != -1)
@@ -252,7 +253,7 @@ namespace Wsus_Package_Publisher
         /// <summary>
         /// Get or Set if the rule should be reverse.
         /// </summary>
-        internal bool ReverseRule
+        internal override bool ReverseRule
         {
             get { return chkBxReverseRule.Checked; }
             set { chkBxReverseRule.Checked = value; }
@@ -279,7 +280,7 @@ namespace Wsus_Package_Publisher
                 }
             }
             set
-            {
+            {                
                 switch (value)
                 {
                     case "LessThan":
@@ -329,6 +330,11 @@ namespace Wsus_Package_Publisher
         {
             get { return (int)nupSeconde.Value; }
             set { nupSeconde.Value = value; }
+        }
+
+        internal override string XmlElementName
+        {
+            get { return "FileCreated"; }
         }
 
         #endregion

@@ -24,8 +24,9 @@ namespace Wsus_Package_Publisher
             updateDetailViewer1.DeclineUpdate += new UpdateDetailViewer.DeclineUpdateEventHandler(updateDetailViewer1_DeclineUpdate);
             updateDetailViewer1.DeleteUpdate += new UpdateDetailViewer.DeleteUpdateEventHandler(updateDetailViewer1_DeleteUpdate);
             updateDetailViewer1.ExpireUpdate += new UpdateDetailViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
+            updateDetailViewer1.ReviseUpdate += new UpdateDetailViewer.ReviseUpdateEventHandler(updateDetailViewer1_ReviseUpdate);
         }
-
+        
         #region (Properties - Propriétés)
 
         /// <summary>
@@ -40,6 +41,8 @@ namespace Wsus_Package_Publisher
                 updateListViewer1.ViewedProduct = value;
             }
         }
+
+        public Dictionary<string, Company> Companies { get; set; }
 
         #endregion
 
@@ -67,7 +70,7 @@ namespace Wsus_Package_Publisher
 
         #endregion
 
-        #region (response to events - réponses aux événements)
+        #region (responses to events - réponses aux événements)
 
         private void updateListViewer1_UpdateSelectionChanged(DataGridViewSelectedRowCollection selectedRows)
         {
@@ -82,7 +85,7 @@ namespace Wsus_Package_Publisher
             }
         }
 
-        void updateDetailViewer1_DeleteUpdate(UpdateCollection updatesToDelete)
+        private void updateDetailViewer1_DeleteUpdate(UpdateCollection updatesToDelete)
         {
             foreach (IUpdate update in updatesToDelete)
             {
@@ -90,7 +93,7 @@ namespace Wsus_Package_Publisher
             }
         }
 
-        void updateDetailViewer1_DeclineUpdate(UpdateCollection updatesToDecline)
+        private void updateDetailViewer1_DeclineUpdate(UpdateCollection updatesToDecline)
         {
             foreach (IUpdate update in updatesToDecline)
             {
@@ -98,11 +101,18 @@ namespace Wsus_Package_Publisher
             }
         }
 
-        void updateDetailViewer1_ApproveUpdate(UpdateCollection updatesToApprove)
+        private void updateDetailViewer1_ApproveUpdate(UpdateCollection updatesToApprove)
         {
             throw new NotImplementedException();
         }
 
+        private void updateDetailViewer1_ReviseUpdate(IUpdate updateToRevise)
+        {
+            FrmUpdateWizard updateWizard = new FrmUpdateWizard(Companies, _wsus.GetMetaData(updateToRevise));
+            updateWizard.ShowDialog();
+        }
+
         #endregion
+
     }
 }

@@ -54,12 +54,19 @@ namespace Wsus_Package_Publisher
                 if (ProductAdded != null)
                     ProductAdded(this, newProductInstance);
                 newProductInstance.NoMoreUpdatesForThisProduct += new Product.NoMoreUpdatesForThisProductEventHandler(ProductRunOutofUpdates);
+                newProductInstance.UpdateRefeshed += new Product.UpdateRefeshedEventHandler(UpdateRefeshed);
             }
         }
 
         private void ProductRunOutofUpdates(Product productWithoutUpdate)
         {
             RemoveProduct(productWithoutUpdate.ProductName);
+        }
+
+        private void UpdateRefeshed(Product product)
+        {
+            if (ProductRefreshed != null)
+                ProductRefreshed(this, product);
         }
 
         /// <summary>
@@ -111,5 +118,8 @@ namespace Wsus_Package_Publisher
 
         public delegate void ProductRemovedEventHandler(Company company, Product product);
         public event ProductRemovedEventHandler ProductRemoved;
+
+        public delegate void ProductRefreshedEventHandler(Company company, Product product);
+        public event ProductRefreshedEventHandler ProductRefreshed;
     }
 }

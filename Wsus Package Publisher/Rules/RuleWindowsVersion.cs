@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -41,7 +42,7 @@ namespace Wsus_Package_Publisher
 
         #region (Properties - Propriétés)
 
-        internal bool ReverseRule
+        internal override bool ReverseRule
         {
             get { return chkBxReverseRule.Checked; }
             set { chkBxReverseRule.Checked = value; }
@@ -69,11 +70,11 @@ namespace Wsus_Package_Publisher
                 {
                     _comparison = value;
                     cmbBxComparison.SelectedItem = resManager.GetString("Comparison" + value);
-                    chkBxComparison.Checked = true;
+                    UseComparison = true;
                 }
                 else
                 {
-                    chkBxComparison.Checked = false;
+                    UseComparison = false;
                     cmbBxComparison.SelectedIndex = -1;
                 }
             }
@@ -88,7 +89,11 @@ namespace Wsus_Package_Publisher
         internal uint MajorVersion
         {
             get { return (uint)nupMajorVersion.Value; }
-            set { nupMajorVersion.Value = value; }
+            set
+            {
+                nupMajorVersion.Value = value;
+                UseMajorVersion = true;
+            }
         }
 
         internal bool UseMinorVersion
@@ -100,7 +105,9 @@ namespace Wsus_Package_Publisher
         internal uint MinorVersion
         {
             get { return (uint)nupMinorVersion.Value; }
-            set { nupMinorVersion.Value = value; }
+            set { nupMinorVersion.Value = value;
+            UseMinorVersion = true;
+            }
         }
 
         internal bool UseBuildNumber
@@ -112,7 +119,9 @@ namespace Wsus_Package_Publisher
         internal uint BuildNumber
         {
             get { return (uint)nupBuildNumber.Value; }
-            set { nupBuildNumber.Value = value; }
+            set { nupBuildNumber.Value = value;
+            UseBuildNumber = true;
+            }
         }
 
         internal bool UseServicePackMajor
@@ -124,7 +133,9 @@ namespace Wsus_Package_Publisher
         internal ushort ServicePackMajor
         {
             get { return (ushort)nupServicePackMajor.Value; }
-            set { nupServicePackMajor.Value = value; }
+            set { nupServicePackMajor.Value = value;
+            UseServicePackMajor = true;
+            }
         }
 
         internal bool UseServicePackMinor
@@ -136,7 +147,9 @@ namespace Wsus_Package_Publisher
         internal ushort ServicePackMinor
         {
             get { return (ushort)nupServicePackMinor.Value; }
-            set { nupServicePackMinor.Value = value; }
+            set { nupServicePackMinor.Value = value;
+            UseServicePackMinor = true;
+            }
         }
 
         internal bool UseProductType
@@ -178,7 +191,13 @@ namespace Wsus_Package_Publisher
                         UseProductType = false;
                         break;
                 }
+                UseProductType = true;
             }
+        }
+
+        internal override string XmlElementName
+        {
+            get { return "WindowsVersion"; }
         }
 
         #endregion
@@ -296,21 +315,17 @@ namespace Wsus_Package_Publisher
                 btnOk.Enabled = false;
         }
 
-        internal override string GetRtfFormattedRule(string rtf, int tabulation)
+        internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
-            string tab = new string(' ', tabulation);
-            
+
             if (UseMajorVersion || UseProductType)
             {
-
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-
                 if (ReverseRule)
                 {
                     print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
                     print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
-                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
                 }
 
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
@@ -377,54 +392,12 @@ namespace Wsus_Package_Publisher
                 if (ReverseRule)
                 {
                     print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
-                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                    print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "</lar:");
                     print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                     print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
                 }
             }
             return rTxtBx.Rtf;
-        }
-
-        internal override string GetXmlFormattedRule()
-        {
-            string result = "";
-
-            if (UseMajorVersion || UseProductType)
-            {
-                if (ReverseRule)
-                    result += "<lar:Not>\r\n";
-
-                result += "<bar:WindowsVersion";
-
-                if (UseComparison)
-                    result += " Comparison=\"" + Comparison + "\"";
-
-                if (UseMajorVersion)
-                    result += " MajorVersion=\"" + MajorVersion + "\"";
-
-                if (UseMinorVersion)
-                    result += " MinorVersion=\"" + MinorVersion + "\"";
-
-                if (UseBuildNumber)
-                    result += " BuildNumber=\"" + BuildNumber + "\"";
-
-                if (UseServicePackMajor)
-                    result += " ServicePackMajor=\"" + ServicePackMajor + "\"";
-
-                if (UseServicePackMinor)
-                    result += " ServicePackMinor=\"" + ServicePackMinor + "\"";
-
-                if (UseProductType)
-                    result += " ProductType=\"" + ProductType + "\"";
-
-                result += "/>\r\n";
-
-                if (ReverseRule)
-                    result += "</lar:Not>\r\n";
-            }
-
-            return result;
         }
 
         internal override GenericRule Clone()
@@ -460,6 +433,52 @@ namespace Wsus_Package_Publisher
         public override string ToString()
         {
             return resManager.GetString("WindowsVersion");
+        }
+
+        internal override void InitializeWithAttributes(Dictionary<string, string> attributes)
+        {
+            foreach (KeyValuePair<string, string> pair in attributes)
+            {
+                switch (pair.Key)
+                {
+                    case "Comparison":
+                        this.Comparison = pair.Value;
+                        break;
+                    case "MajorVersion":
+                        uint result = 0;
+                        if (uint.TryParse(pair.Value, out result))
+                            this.MajorVersion = result;
+                        break;
+                    case "MinorVersion":
+                        uint result2 = 0;
+                        if (uint.TryParse(pair.Value, out result2))
+                            this.MinorVersion = result2;
+                        break;
+                    case "BuildNumber":
+                        uint result3 = 0;
+                        if (uint.TryParse(pair.Value, out result3))
+                            this.BuildNumber = result3;
+                        break;
+                    case "ServicePackMajor":
+                        ushort result4 = 0;
+                        if (ushort.TryParse(pair.Value, out result4))
+                            this.ServicePackMajor = result4;
+                        break;
+                    case "ServicePackMinor":
+                        ushort result5 = 0;
+                        if (ushort.TryParse(pair.Value, out result5))
+                            this.ServicePackMinor = result5;
+                        break;
+                    case "ProductType":
+                        ushort result6 = 0;
+                        if (ushort.TryParse(pair.Value, out result6))
+                            this.ProductType = result6;
+                        break;
+                    default:
+                        UnsupportedAttributes.Add(pair.Key, pair.Value);
+                        break;
+                }
+            }
         }
 
         #endregion

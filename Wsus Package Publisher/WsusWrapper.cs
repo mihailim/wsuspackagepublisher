@@ -93,13 +93,10 @@ namespace Wsus_Package_Publisher
         /// <summary>
         /// Allow to iterate each udpdate in the server.
         /// </summary>
-        /// <returns>An IUpdate representing an update.</returns>
-        internal IEnumerable<IUpdate> GetAllUpdates()
+        /// <returns>Collection of updates.</returns>
+        internal UpdateCollection GetAllUpdates()
         {
-            foreach (IUpdate update in wsus.GetUpdates())
-            {
-                yield return update;
-            }
+            return wsus.GetUpdates();            
         }
 
         internal IUpdate GetUpdate(UpdateRevisionId updateId)
@@ -116,7 +113,7 @@ namespace Wsus_Package_Publisher
 
             return wsus.GetComputerTargetByName(computerName).GetUpdateInstallationInfoPerUpdate(scope);
         }
-        
+
         internal UpdateInstallationInfoCollection GetUpdateInstallationInfoPerComputerTarget(Guid groupId, IUpdate update)
         {
             return GetComputerGroup(groupId).GetUpdateInstallationInfoPerComputerTarget(update);
@@ -142,19 +139,15 @@ namespace Wsus_Package_Publisher
                     break;
             }
 
-            sdp.Title = informationsWizard.Title;
-            sdp.Description = informationsWizard.Description;
-            sdp.VendorName = informationsWizard.VendorName;
-            sdp.ProductNames.Add(informationsWizard.ProductName);
-            sdp.IsInstalled = isInstalledRulesWizard.GetXmlFormattedRule();
-            sdp.IsInstallable = isInstallableRulesWizard.GetXmlFormattedRule();
-            tmpFolderPath = Environment.GetEnvironmentVariable("Temp") + "\\Wsus Package Publisher\\";
-            if (!System.IO.Directory.Exists(tmpFolderPath))
-                System.IO.Directory.CreateDirectory(tmpFolderPath);
-            if (System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId))
-                System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId);
-            System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId);
-            System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Xml\\");
+            sdp = InitializeSdp(sdp, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
+
+            tmpFolderPath = GetTempFolder();
+
+            if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId))
+                System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId);
+            if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Xml\\"))
+                System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Xml\\");
+            if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Bin\\"))
             System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Bin\\");
 
             System.IO.FileInfo updateFile = new System.IO.FileInfo(filesWizard.updateFileName);
@@ -167,6 +160,78 @@ namespace Wsus_Package_Publisher
             //System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
             if (UpdatePublished != null)
                 UpdatePublished(GetUpdate(new UpdateRevisionId(sdp.PackageId)));
+        }
+
+        private SoftwareDistributionPackage InitializeSdp(SoftwareDistributionPackage sdp, FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard)
+        {
+            sdp.Title = informationsWizard.Title;
+            sdp.Description = informationsWizard.Description;
+            sdp.VendorName = informationsWizard.VendorName;
+            sdp.ProductNames.Clear();
+            sdp.ProductNames.Add(informationsWizard.ProductName);
+            sdp.IsInstalled = isInstalledRulesWizard.GetXmlFormattedRule();
+            sdp.IsInstallable = isInstallableRulesWizard.GetXmlFormattedRule();
+            sdp.InstallableItems[0].InstallBehavior.CanRequestUserInput = informationsWizard.CanRequestUserInput;
+            sdp.InstallableItems[0].InstallBehavior.Impact = informationsWizard.Impact;
+            sdp.InstallableItems[0].InstallBehavior.RebootBehavior = informationsWizard.Behavior;
+            sdp.InstallableItems[0].InstallBehavior.RequiresNetworkConnectivity = informationsWizard.CanRequestNetworkConnectivity;
+
+            if (!string.IsNullOrEmpty(informationsWizard.UrlMoreInfo))
+            {
+                sdp.AdditionalInformationUrls.Clear();
+                sdp.AdditionalInformationUrls.Add(new Uri(informationsWizard.UrlMoreInfo));
+            }
+
+            if (!string.IsNullOrEmpty(informationsWizard.UrlSupport))
+                sdp.SupportUrl = new Uri(informationsWizard.UrlSupport);
+
+            sdp.PackageUpdateClassification = informationsWizard.UpdateClassification;
+
+            if (!string.IsNullOrEmpty(informationsWizard.SecurityBulletinId))
+                sdp.SecurityBulletinId = informationsWizard.SecurityBulletinId;
+
+            sdp.SecurityRating = informationsWizard.Severity;
+
+            if (!string.IsNullOrEmpty(informationsWizard.Cve))
+            {
+                sdp.CommonVulnerabilitiesIds.Clear();
+                sdp.CommonVulnerabilitiesIds.Add(informationsWizard.Cve);
+            }
+
+            if (!string.IsNullOrEmpty(informationsWizard.KbArticle))
+                sdp.KnowledgebaseArticleId = informationsWizard.KbArticle;
+
+            return sdp;
+        }
+
+        internal void ReviseUpate(FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard, SoftwareDistributionPackage sdp)
+        {
+            string tmpFolderPath;
+            IUpdate oldUpdate = GetUpdate(new UpdateRevisionId(sdp.PackageId));
+
+            sdp = InitializeSdp(sdp, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
+
+            tmpFolderPath = GetTempFolder();
+            if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId))
+                System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId);
+            if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Xml\\"))
+                System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Xml\\");
+
+            sdp.Save(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
+            IPublisher publisher = wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
+            publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
+            publisher.RevisePackage();
+            if (UpdateRevised != null)
+                UpdateRevised(oldUpdate, GetUpdate(new UpdateRevisionId(sdp.PackageId)));
+        }
+
+        private string GetTempFolder()
+        {
+            string tmpFolderPath = Environment.GetEnvironmentVariable("Temp") + "\\Wsus Package Publisher\\";
+            if (!System.IO.Directory.Exists(tmpFolderPath))
+                System.IO.Directory.CreateDirectory(tmpFolderPath);
+
+            return tmpFolderPath;
         }
 
         /// <summary>
@@ -203,6 +268,16 @@ namespace Wsus_Package_Publisher
                 UpdateExpired(GetUpdate(updateToExpire.Id));
         }
 
+        internal SoftwareDistributionPackage GetMetaData(IUpdate update)
+        {
+            string tmpFile = GetTempFolder() + update.Id.UpdateId.ToString() + ".xml";
+            wsus.ExportPackageMetadata(update.Id, tmpFile);
+            SoftwareDistributionPackage sdp = new SoftwareDistributionPackage(tmpFile);
+            string installedRule = sdp.IsInstalled;
+
+            return sdp;
+        }
+
         /// <summary>
         /// Return the IComputerTarget of the 'computerName'.
         /// </summary>
@@ -228,7 +303,7 @@ namespace Wsus_Package_Publisher
             if (UpdatePublishingProgress != null)
                 UpdatePublishingProgress(sender, e);
         }
-        
+
         public delegate void UpdateDeclinedEventHandler(IUpdate declinedUpdate);
         public event UpdateDeclinedEventHandler UpdateDeclined;
 
@@ -243,5 +318,8 @@ namespace Wsus_Package_Publisher
 
         public delegate void UpdatePublisedEventHandler(IUpdate PublishedUpdate);
         public event UpdatePublisedEventHandler UpdatePublished;
+
+        public delegate void UpdateRevisedEventHandler(IUpdate oldUpdate, IUpdate RevisedUpdate);
+        public event UpdateRevisedEventHandler UpdateRevised;
     }
 }

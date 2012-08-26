@@ -76,6 +76,8 @@ namespace Wsus_Package_Publisher
                 if (Updates[i].Id.UpdateId == newUpdate.Id.UpdateId)
                 {
                     Updates[i] = newUpdate;
+                    if (UpdateRefeshed != null)
+                        UpdateRefeshed(this);
                     break;
                 }
 			} 
@@ -124,5 +126,8 @@ namespace Wsus_Package_Publisher
 
         public delegate void UpdateAddedEventHandler(Product updatedProduct, IUpdate updateAdded);
         public event UpdateAddedEventHandler UpdateAdded;
+
+        public delegate void UpdateRefeshedEventHandler(Product refreshedProduct);
+        public event UpdateRefeshedEventHandler UpdateRefeshed;
     }
 }

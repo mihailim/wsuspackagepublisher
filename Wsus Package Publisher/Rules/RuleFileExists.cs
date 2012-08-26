@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -119,7 +120,8 @@ namespace Wsus_Package_Publisher
         };
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileExists).Assembly);
 
-        public RuleFileExists():base()
+        public RuleFileExists()
+            : base()
         {
             InitializeComponent();
 
@@ -139,18 +141,15 @@ namespace Wsus_Package_Publisher
 
         #region {Methods - Méthodes}
 
-        internal override string GetRtfFormattedRule(string rtf, int tabulation)
+        internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
-            string tab = new string(' ', tabulation);
-
-            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
             }
 
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
@@ -179,7 +178,7 @@ namespace Wsus_Package_Publisher
             {
                 print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Modified");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
-                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, ModifiedDate.ToString());
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, GetFormatedDate(ModifiedDate.Date , ModifiedDateHour, ModifiedDateMinute, ModifiedDateSecond));
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
@@ -187,7 +186,7 @@ namespace Wsus_Package_Publisher
             {
                 print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Created");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
-                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, CreationDate.ToString());
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, GetFormatedDate(CreationDate.Date, CreationDateHour, CreationDateMinute, CreationDateSecond));
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
@@ -198,7 +197,7 @@ namespace Wsus_Package_Publisher
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, FileSize.ToString());
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
-                        
+
             if (UseLanguage)
             {
                 print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " Language");
@@ -212,8 +211,7 @@ namespace Wsus_Package_Publisher
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "</lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
@@ -221,39 +219,55 @@ namespace Wsus_Package_Publisher
             return rTxtBx.Rtf;
         }
 
-        internal override string GetXmlFormattedRule()
+        internal override void InitializeWithAttributes(Dictionary<string, string> attributes)
         {
-            string result = "";
+            foreach (KeyValuePair<string, string> pair in attributes)
+            {
+                switch (pair.Key)
+                {
+                    case "Path":
+                        this.FilePath = pair.Value;
+                        break;
+                    case "Version":
+                        this.Version = pair.Value;
+                        break;
+                    case "Created":
+                        DateTime createdDate;
+                        if (DateTime.TryParse(pair.Value, out createdDate))
+                            this.CreationDate = createdDate;
+                        break;
+                    case "Csidl":
+                        int result = 0;
+                        if (int.TryParse(pair.Value, out result))
+                            this.Csidl = result;
+                        break;
+                    case "Modified":
+                        DateTime modifiedDate;
+                        if (DateTime.TryParse(pair.Value, out modifiedDate))
+                            this.ModifiedDate = modifiedDate;
+                        break;
+                    case "Size":
+                        int size = 0;
+                        if (int.TryParse(pair.Value, out size))
+                            this.FileSize = size;
+                        break;
+                    case "Language":
+                        int language = 0;
+                        if (int.TryParse(pair.Value, out language))
+                            this.Language = language;
+                        break;
+                    default:
+                        UnsupportedAttributes.Add(pair.Key, pair.Value);
+                        break;
+                }
+            }
+        }
 
-            if (ReverseRule)
-                result += "<lar:Not>\r\n";
+        private string GetFormatedDate(DateTime dateToFormat, int hour, int minute, int second)
+        {
+            DateTime tempDate = new DateTime(dateToFormat.Year, dateToFormat.Month, dateToFormat.Day, hour, minute, second);
 
-            result += "<bar:FileExists Path=\"" + FilePath + "\"";
-
-            if (UseCsidl)
-                result += " Csidl=\"" + Csidl.ToString() + "\"";
-
-            if (UseVersion)
-                result += " Version=\"" + Version + "\"";
-
-            if (UseCreationDate)
-                result += " Created=\"" + CreationDate + "\"";
-
-            if (UseModifiedDate)
-                result += " Modified=\"" + ModifiedDate.ToString() + "\"";
-
-            if (UseSize)
-                result += " Size=\"" + FileSize.ToString() + "\"";
-
-            if (UseLanguage)
-                result += " Language=\"" + Language.ToString() + "\"";
-
-            result += "/>\r\n";
-
-            if (ReverseRule)
-                result += "</lar:Not>\r\n";
-
-            return result;
+            return string.Format("{0:s}", tempDate);
         }
 
         internal override GenericRule Clone()
@@ -361,7 +375,7 @@ namespace Wsus_Package_Publisher
         /// <summary>
         /// Get or Set if the rule should be reverse.
         /// </summary>
-        internal bool ReverseRule
+        internal override bool ReverseRule
         {
             get { return chkBxReverseRule.Checked; }
             set { chkBxReverseRule.Checked = value; }
@@ -457,6 +471,24 @@ namespace Wsus_Package_Publisher
             }
         }
 
+        internal int CreationDateHour
+        {
+            get { return (int)nupCreationDateHour.Value; }
+            set { nupCreationDateHour.Value = value; }
+        }
+
+        internal int CreationDateMinute
+        {
+            get { return (int)nupCreationDateMinute.Value; }
+            set { nupCreationDateMinute.Value = value; }
+        }
+
+        internal int CreationDateSecond
+        {
+            get { return (int)nupCreationDateSecond.Value; }
+            set { nupCreationDateSecond.Value = value; }
+        }
+
         /// <summary>
         /// Get or Set the Modified Date of the file.
         /// </summary>
@@ -469,6 +501,26 @@ namespace Wsus_Package_Publisher
                 chkBxModifiedDate.Checked = true;
             }
         }
+
+        internal int ModifiedDateHour
+        {
+            get { return (int)nupModificationDateHour.Value; }
+            set { nupModificationDateHour.Value = value; }
+        }
+
+        internal int ModifiedDateMinute
+        {
+            get { return (int)nupModificationDateMinute.Value; }
+            set { nupModificationDateMinute.Value = value; }
+        }
+
+        internal int ModifiedDateSecond
+        {
+            get { return (int)nupModificationDateSecond.Value; }
+            set { nupModificationDateSecond.Value = value; }
+        }
+
+
 
         /// <summary>
         /// Get or Set the size of the file.
@@ -489,9 +541,17 @@ namespace Wsus_Package_Publisher
         internal int Language
         {
             get { return _languagesByString[cmbBxLanguage.SelectedItem.ToString()]; }
-            set { cmbBxLanguage.SelectedItem = _languaguesByInt[value]; }
+            set
+            {
+                cmbBxLanguage.SelectedItem = _languaguesByInt[value];
+                UseLanguage = true;
+            }
         }
 
+        internal override string XmlElementName
+        {
+            get { return "FileExists"; }
+        }
 
         #endregion
 
@@ -513,11 +573,17 @@ namespace Wsus_Package_Publisher
         private void chkBxCreationDate_CheckedChanged(object sender, EventArgs e)
         {
             dtPCreationDate.Enabled = chkBxCreationDate.Checked;
+            nupCreationDateHour.Enabled = chkBxCreationDate.Checked;
+            nupCreationDateMinute.Enabled = chkBxCreationDate.Checked;
+            nupCreationDateSecond.Enabled = chkBxCreationDate.Checked;            
         }
 
         private void chkBxModifiedDate_CheckedChanged(object sender, EventArgs e)
         {
             dtPModifiedDate.Enabled = chkBxModifiedDate.Checked;
+            nupModificationDateHour.Enabled = chkBxModifiedDate.Checked;
+            nupModificationDateMinute.Enabled = chkBxModifiedDate.Checked;
+            nupModificationDateSecond.Enabled = chkBxModifiedDate.Checked;        
         }
 
         private void chkBxFileSize_CheckedChanged(object sender, EventArgs e)

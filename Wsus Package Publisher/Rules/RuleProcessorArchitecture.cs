@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -25,18 +26,15 @@ namespace Wsus_Package_Publisher
 
         #region Methods - Méthodes
 
-        internal override string GetRtfFormattedRule(string rtf, int tabulation)
+        internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
-            string tab = new string(' ', tabulation);
-
-            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
             }
 
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<bar:");
@@ -51,32 +49,12 @@ namespace Wsus_Package_Publisher
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "</lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
-        }
-
-        internal override string GetXmlFormattedRule()
-        {
-            string result = "";
-
-            if (ReverseRule)
-            {
-                result += "<lar:Not>\r\n";
-            }
-
-            result += "<bar:Processor Architecture=\"" + ProcessorArchitecture.ToString() + "\"/>\r\n";
-
-            if (ReverseRule)
-            {
-                result += "</lar:Not>\r\n";
-            }
-
-            return result;
         }
 
         internal override GenericRule Clone()
@@ -91,6 +69,24 @@ namespace Wsus_Package_Publisher
         public override string ToString()
         {
             return resManager.GetString("Processor");
+        }
+
+        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
+        {
+           foreach (KeyValuePair<string, string> pair in attributes)
+            {
+                switch (pair.Key)
+                {
+                    case "Architecture":                        
+                        ushort result = 0;
+                        if (ushort.TryParse(pair.Value, out result))
+                            this.ProcessorArchitecture = result;
+                        break;
+                    default:
+                        UnsupportedAttributes.Add(pair.Key, pair.Value);
+                        break;
+                }
+            }
         }
 
         #endregion
@@ -126,7 +122,7 @@ namespace Wsus_Package_Publisher
         /// <summary>
         /// Get or set if the rule is reverse.
         /// </summary>
-        internal bool ReverseRule
+        internal override bool ReverseRule
         {
             get { return _reverseRule; }
             set 
@@ -134,6 +130,11 @@ namespace Wsus_Package_Publisher
                 _reverseRule = value;
                 chkBxInverseRule.Checked = value;
             }
+        }
+
+        internal override string XmlElementName
+        {
+            get { return "ProcessorArchitecture"; }
         }
 
         #endregion

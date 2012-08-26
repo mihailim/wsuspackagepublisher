@@ -15,14 +15,14 @@ namespace Wsus_Package_Publisher
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateInformationsWizard).Assembly);
 
 
-        internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+        internal FrmUpdateInformationsWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct, SoftwareDistributionPackage sdp)
         {
             InitializeComponent();
 
-            InitializeComponent(Companies, SelectedCompany, SelectedProduct);
+            InitializeComponent(Companies, SelectedCompany, SelectedProduct, sdp);
         }
-        
-        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+
+        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct, SoftwareDistributionPackage sdp)
         {
             _companies = Companies;
             cmbBxUpdateClassification.Items.AddRange(Enum.GetNames(typeof(PackageUpdateClassification)));
@@ -31,8 +31,8 @@ namespace Wsus_Package_Publisher
             cmbBxImpact.SelectedItem = InstallationImpact.Normal.ToString();
             cmbBxRebootBehavior.Items.AddRange(Enum.GetNames(typeof(RebootBehavior)));
             cmbBxRebootBehavior.SelectedItem = RebootBehavior.CanRequestReboot.ToString();
-            cmbBxMsrcSeverity.Items.AddRange(Enum.GetNames(typeof(MsrcSeverity)));
-            cmbBxMsrcSeverity.SelectedItem = MsrcSeverity.Unspecified.ToString();
+            cmbBxMsrcSeverity.Items.AddRange(Enum.GetNames(typeof(SecurityRating)));
+            cmbBxMsrcSeverity.SelectedItem = SecurityRating.None.ToString();
             cmbBxVendorName.Select();
             _description = resMan.GetString("NoDescription");
             foreach (string company in Companies.Keys)
@@ -49,6 +49,31 @@ namespace Wsus_Package_Publisher
             {
                 cmbBxVendorName.SelectedItem = SelectedProduct.Vendor.CompanyName;
                 cmbBxProductName.SelectedItem = SelectedProduct.ProductName;
+            }
+
+            if (sdp != null)
+            {
+                txtBxTitle.Text = sdp.Title;
+                txtBxDescription.Text = sdp.Description;
+                if (sdp.AdditionalInformationUrls != null && sdp.AdditionalInformationUrls.Count != 0)
+                    txtBxMoreInfoURL.Text = sdp.AdditionalInformationUrls[0].ToString();
+                if (sdp.SupportUrl != null)
+                    txtBxSupportURL.Text = sdp.SupportUrl.ToString();
+                if (sdp.InstallableItems != null && sdp.InstallableItems.Count != 0)
+                {
+                    chkBxCanREquestUserInput.Checked = sdp.InstallableItems[0].InstallBehavior.CanRequestUserInput;
+                    chkBxRequiresNetworkConnectivity.Checked = sdp.InstallableItems[0].InstallBehavior.RequiresNetworkConnectivity;
+                    cmbBxImpact.SelectedItem = sdp.InstallableItems[0].InstallBehavior.Impact.ToString();
+                    cmbBxRebootBehavior.SelectedItem = sdp.InstallableItems[0].InstallBehavior.RebootBehavior.ToString();
+                }
+                cmbBxUpdateClassification.SelectedItem = sdp.PackageUpdateClassification.ToString();
+                if (!string.IsNullOrEmpty(sdp.SecurityBulletinId))
+                    txtBxSecurityBulletinId.Text = sdp.SecurityBulletinId;
+                cmbBxMsrcSeverity.SelectedItem = sdp.SecurityRating;
+                if (sdp.CommonVulnerabilitiesIds != null && sdp.CommonVulnerabilitiesIds.Count != 0 && !string.IsNullOrEmpty(sdp.CommonVulnerabilitiesIds[0]))
+                    txtBxCVEId.Text = sdp.CommonVulnerabilitiesIds[0];
+                if (!string.IsNullOrEmpty(sdp.KnowledgebaseArticleId))
+                    txtBxKBArticleId.Text = sdp.KnowledgebaseArticleId;
             }
         }
 
@@ -126,6 +151,91 @@ namespace Wsus_Package_Publisher
             private set { _description = value; }
         }
 
+        internal string UrlMoreInfo
+        {
+            get
+            {
+                if (ValidateUrl(txtBxMoreInfoURL.Text))
+                    return txtBxMoreInfoURL.Text;
+                return string.Empty;
+            }
+            set
+            {
+                if (ValidateUrl(value))
+                    txtBxMoreInfoURL.Text = value;
+            }
+        }
+
+        internal string UrlSupport
+        {
+            get
+            {
+                if (ValidateUrl(txtBxSupportURL.Text))
+                    return txtBxSupportURL.Text;
+                return string.Empty;
+            }
+            set
+            {
+                if (ValidateUrl(value))
+                    txtBxSupportURL.Text = value;
+            }
+        }
+
+        internal bool CanRequestUserInput
+        {
+            get { return chkBxCanREquestUserInput.Checked; }
+            set { chkBxCanREquestUserInput.Checked = value; }
+        }
+
+        internal bool CanRequestNetworkConnectivity
+        {
+            get { return chkBxRequiresNetworkConnectivity.Checked; }
+            set { chkBxRequiresNetworkConnectivity.Checked = value; }
+        }
+
+        internal PackageUpdateClassification UpdateClassification
+        {
+            get { return (PackageUpdateClassification)Enum.Parse(typeof(PackageUpdateClassification), cmbBxUpdateClassification.SelectedItem.ToString()); }
+            set { cmbBxUpdateClassification.SelectedItem = value; }
+        }
+
+        internal InstallationImpact Impact
+        {
+            get { return (InstallationImpact)Enum.Parse(typeof(InstallationImpact), cmbBxImpact.SelectedItem.ToString()); }
+            set { cmbBxImpact.SelectedItem = value; }
+        }
+
+        internal RebootBehavior Behavior
+        {
+            get { return (RebootBehavior)Enum.Parse(typeof(RebootBehavior), cmbBxRebootBehavior.SelectedItem.ToString()); }
+            set { cmbBxRebootBehavior.SelectedItem = value; }
+        }
+
+        internal string SecurityBulletinId
+        {
+            get { return txtBxSecurityBulletinId.Text; }
+            set { txtBxSecurityBulletinId.Text = value; }
+        }
+
+        internal SecurityRating Severity
+        {
+            get { return (SecurityRating)Enum.Parse(typeof(SecurityRating), cmbBxMsrcSeverity.SelectedItem.ToString()); }
+            set { cmbBxMsrcSeverity.SelectedItem = value; }
+        }
+
+        internal string Cve
+        {
+            get { return txtBxCVEId.Text; }
+            set { txtBxCVEId.Text = value; }
+        }
+
+        internal string KbArticle
+        {
+            get { return txtBxKBArticleId.Text; }
+            set { txtBxKBArticleId.Text = value; }
+        }
+
+
         private void cmbBxProductName_TextChanged(object sender, EventArgs e)
         {
             ProductName = cmbBxProductName.Text;
@@ -139,5 +249,10 @@ namespace Wsus_Package_Publisher
                 Description = "Default description";
         }
 
+        private bool ValidateUrl(string URLtoValidate)
+        {
+            Uri uriResult;
+            return System.Uri.TryCreate(URLtoValidate, UriKind.RelativeOrAbsolute, out uriResult);
+        }
     }
 }

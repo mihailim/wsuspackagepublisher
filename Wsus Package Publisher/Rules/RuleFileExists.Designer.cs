@@ -50,11 +50,29 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.chkBxKnownFolder = new System.Windows.Forms.CheckBox();
             this.chkBxReverseRule = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nupCreationDateHour = new System.Windows.Forms.NumericUpDown();
+            this.nupCreationDateMinute = new System.Windows.Forms.NumericUpDown();
+            this.nupCreationDateSecond = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nupModificationDateHour = new System.Windows.Forms.NumericUpDown();
+            this.nupModificationDateMinute = new System.Windows.Forms.NumericUpDown();
+            this.nupModificationDateSecond = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupFileSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateHour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateMinute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateSecond)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateHour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateMinute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateSecond)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBxDescription
@@ -221,10 +239,112 @@
             this.chkBxReverseRule.Name = "chkBxReverseRule";
             this.chkBxReverseRule.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // nupCreationDateHour
+            // 
+            resources.ApplyResources(this.nupCreationDateHour, "nupCreationDateHour");
+            this.nupCreationDateHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nupCreationDateHour.Name = "nupCreationDateHour";
+            // 
+            // nupCreationDateMinute
+            // 
+            resources.ApplyResources(this.nupCreationDateMinute, "nupCreationDateMinute");
+            this.nupCreationDateMinute.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nupCreationDateMinute.Name = "nupCreationDateMinute";
+            // 
+            // nupCreationDateSecond
+            // 
+            resources.ApplyResources(this.nupCreationDateSecond, "nupCreationDateSecond");
+            this.nupCreationDateSecond.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nupCreationDateSecond.Name = "nupCreationDateSecond";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // nupModificationDateHour
+            // 
+            resources.ApplyResources(this.nupModificationDateHour, "nupModificationDateHour");
+            this.nupModificationDateHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nupModificationDateHour.Name = "nupModificationDateHour";
+            // 
+            // nupModificationDateMinute
+            // 
+            resources.ApplyResources(this.nupModificationDateMinute, "nupModificationDateMinute");
+            this.nupModificationDateMinute.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nupModificationDateMinute.Name = "nupModificationDateMinute";
+            // 
+            // nupModificationDateSecond
+            // 
+            resources.ApplyResources(this.nupModificationDateSecond, "nupModificationDateSecond");
+            this.nupModificationDateSecond.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nupModificationDateSecond.Name = "nupModificationDateSecond";
+            // 
             // RuleFileExists
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.nupModificationDateSecond);
+            this.Controls.Add(this.nupModificationDateMinute);
+            this.Controls.Add(this.nupCreationDateSecond);
+            this.Controls.Add(this.nupModificationDateHour);
+            this.Controls.Add(this.nupCreationDateMinute);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.nupCreationDateHour);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.chkBxReverseRule);
             this.Controls.Add(this.chkBxKnownFolder);
             this.Controls.Add(this.btnCancel);
@@ -253,6 +373,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVersion4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupFileSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateHour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateMinute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCreationDateSecond)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateHour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateMinute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupModificationDateSecond)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +407,17 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox chkBxKnownFolder;
         private System.Windows.Forms.CheckBox chkBxReverseRule;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nupCreationDateHour;
+        private System.Windows.Forms.NumericUpDown nupCreationDateMinute;
+        private System.Windows.Forms.NumericUpDown nupCreationDateSecond;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown nupModificationDateHour;
+        private System.Windows.Forms.NumericUpDown nupModificationDateMinute;
+        private System.Windows.Forms.NumericUpDown nupModificationDateSecond;
     }
 }

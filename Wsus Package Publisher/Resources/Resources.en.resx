@@ -460,4 +460,10 @@ Version (mandatory): File Version.</value>
   <data name="Publish" xml:space="preserve">
     <value>P&amp;ublish</value>
   </data>
+  <data name="Revise" xml:space="preserve">
+    <value>Revise</value>
+  </data>
+  <data name="UpdateRevised" xml:space="preserve">
+    <value>Update revised.</value>
+  </data>
 </root>

@@ -6,49 +6,61 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.UpdateServices.Administration;
 
 namespace Wsus_Package_Publisher
 {
     internal partial class FrmUpdateWizard : Form
     {
         private Dictionary<string, Company> _companies;
-        System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateWizard).Assembly);
+        private FrmUpdateFilesWizard updateFilesWizard = new FrmUpdateFilesWizard();
+        private FrmUpdateInformationsWizard updateInformationsWizard;
+        private FrmUpdateRulesWizard updateIsInstalledRulesWizard = new FrmUpdateRulesWizard();
+        private FrmUpdateRulesWizard updateIsInstallableRulesWizard = new FrmUpdateRulesWizard();
+        private SoftwareDistributionPackage _sdp;
+        private bool _revising = false;
 
-        FrmUpdateFilesWizard updateFilesWizard = new FrmUpdateFilesWizard();
-        FrmUpdateInformationsWizard updateInformationsWizard;
-        FrmUpdateRulesWizard updateIsInstalledRulesWizard = new FrmUpdateRulesWizard();
-        FrmUpdateRulesWizard updateIsInstallableRulesWizard = new FrmUpdateRulesWizard();
+        private System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateWizard).Assembly);
 
         internal FrmUpdateWizard(Dictionary<string, Company> Companies)
         {
             InitializeComponent();
 
-            InitializeComponent(Companies, null, null);
+            InitializeComponent(Companies, null, null, null);
         }
 
         internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
         {
             InitializeComponent();
 
-            InitializeComponent(Companies, SelectedCompany, SelectedProduct);
+            InitializeComponent(Companies, SelectedCompany, SelectedProduct, null);
         }
 
         internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany)
         {
             InitializeComponent();
 
-            InitializeComponent(Companies, SelectedCompany, null);
+            InitializeComponent(Companies, SelectedCompany, null, null);
         }
 
-        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, SoftwareDistributionPackage sdp)
+        {
+            InitializeComponent();
+            Revising = true;
+            this.Sdp = sdp;
+            this.Companies = Companies;
+            InitializeComponent(this.Companies, Companies[sdp.VendorName], Companies[sdp.VendorName].Products[sdp.ProductNames[0]], sdp);
+
+        }
+
+        private void InitializeComponent(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct, SoftwareDistributionPackage sdp)
         {
 
             this.Companies = Companies;
-            updateInformationsWizard = new FrmUpdateInformationsWizard(this.Companies, SelectedCompany, SelectedProduct);
+            updateInformationsWizard = new FrmUpdateInformationsWizard(this.Companies, SelectedCompany, SelectedProduct, sdp);
 
             // UpdateFilesWizard :
             updateFilesWizard.TopLevel = false;
-            InitializeUpdateFilesWizard();
             updateFilesWizard.Controls["btnNext"].Click += new EventHandler(updateFilesWizard_btnNext_Click);
             updateFilesWizard.Controls["btnCancel"].Click += new EventHandler(updateFilesWizard_btnCancel_Click);
 
@@ -57,6 +69,7 @@ namespace Wsus_Package_Publisher
             updateInformationsWizard.Controls["btnNext"].Click += new EventHandler(updateInformationsWizard_btnNext_Click);
             updateInformationsWizard.Controls["btnCancel"].Click += new EventHandler(updateInformationsWizard_btnCancel_Click);
             updateInformationsWizard.Controls["btnPrevious"].Click += new EventHandler(updateInformationsWizard_btnPrevious_Click);
+
 
             //updateIsInstalledRulesWizard :
             updateIsInstalledRulesWizard.TopLevel = false;
@@ -69,8 +82,13 @@ namespace Wsus_Package_Publisher
             updateIsInstallableRulesWizard.Controls["btnNext"].Click += new EventHandler(updateIsInstallableRulesWizard_btnNext_Click);
             updateIsInstallableRulesWizard.Controls["btnCancel"].Click += new EventHandler(updateIsInstallableRulesWizard_btnCancel_Click);
             updateIsInstallableRulesWizard.Controls["btnPrevious"].Click += new EventHandler(updateIsInstallableRulesWizard_btnPrevious_Click);
-        }        
-        
+
+            if (Revising)
+                InitializeInformationsWizard();
+            else
+                InitializeUpdateFilesWizard();
+        }
+
         private void InitializeUpdateFilesWizard()
         {
             splitContainer1.Panel2.Controls.Clear();
@@ -99,6 +117,8 @@ namespace Wsus_Package_Publisher
 
         private void InitializeInformationsWizard()
         {
+            if (Revising)
+                updateInformationsWizard.Controls["btnPrevious"].Enabled = false;
             splitContainer1.Panel2.Controls.Clear();
             txtBxDescription.Text = resManager.GetString("DescriptionInformationsWizard");
 
@@ -138,6 +158,8 @@ namespace Wsus_Package_Publisher
 
             updateIsInstalledRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstalledRulesWizard);
+            if (Revising)
+                updateIsInstalledRulesWizard.InitializeFromXml(Sdp.IsInstalled);
             updateIsInstalledRulesWizard.Show();
             this.Size = new System.Drawing.Size(updateIsInstalledRulesWizard.Width + 20, txtBxDescription.Height + updateIsInstalledRulesWizard.Height + 2 * SystemInformation.CaptionHeight);
             updateIsInstalledRulesWizard.Dock = DockStyle.Fill;
@@ -168,7 +190,13 @@ namespace Wsus_Package_Publisher
             splitContainer1.Panel2.Controls.Clear();
             txtBxDescription.Text = resManager.GetString("DescriptionIsInstallableWizard");
 
-            updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Publish");
+            if (!Revising)
+                updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Publish");
+            else
+            {
+                updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Revise");
+                updateIsInstallableRulesWizard.InitializeFromXml(Sdp.IsInstallable);
+            }
             updateIsInstallableRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstallableRulesWizard);
             updateIsInstallableRulesWizard.Show();
@@ -189,7 +217,10 @@ namespace Wsus_Package_Publisher
             this.Size = new System.Drawing.Size(updateIsInstalledRulesWizard.Width + 20, txtBxDescription.Height + updateIsInstalledRulesWizard.Height + 2 * SystemInformation.CaptionHeight);
             updatePublisher.Dock = DockStyle.Fill;
             updatePublisher.Select();
-            updatePublisher.Publish();
+            if (Revising)
+                updatePublisher.Revise(this.Sdp);
+            else
+                updatePublisher.Publish();
         }
 
         private void updateIsInstallableRulesWizard_btnCancel_Click(object sender, EventArgs e)
@@ -209,11 +240,23 @@ namespace Wsus_Package_Publisher
         {
             base.Close();
         }
-        
+
         internal Dictionary<string, Company> Companies
         {
             get { return _companies; }
             set { _companies = value; }
+        }
+
+        private bool Revising
+        {
+            get { return _revising; }
+            set { _revising = value; }
+        }
+
+        private SoftwareDistributionPackage Sdp
+        {
+            get { return _sdp; }
+            set { _sdp = value; }
         }
 
     }

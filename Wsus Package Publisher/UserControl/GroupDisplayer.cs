@@ -83,17 +83,20 @@ namespace Wsus_Package_Publisher
             rtbxStart.Text = "";
             rtbxEnd.Text = "";
 
-            if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
+            if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
             {
-                print(rtbxStart, normalFont, green, resMan.GetString("GroupStart"));
-                print(rtbxStart, boldFont, black, resMan.GetString("RuleAnd"));
-                print(rtbxStart, normalFont, green, ">");
-            }
-            else
-            {
-                print(rtbxStart, normalFont, green, resMan.GetString("GroupStart"));
-                print(rtbxStart, boldFont, black, resMan.GetString("RuleOR"));
-                print(rtbxStart, normalFont, green, ">");
+                if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
+                {
+                    print(rtbxStart, normalFont, green, resMan.GetString("GroupStart"));
+                    print(rtbxStart, boldFont, black, resMan.GetString("RuleAnd"));
+                    print(rtbxStart, normalFont, green, ">");
+                }
+                else
+                {
+                    print(rtbxStart, normalFont, green, resMan.GetString("GroupStart"));
+                    print(rtbxStart, boldFont, black, resMan.GetString("RuleOR"));
+                    print(rtbxStart, normalFont, green, ">");
+                }
             }
 
             foreach (GenericRule rule in InnerGroup.InnerRules.Values)
@@ -114,17 +117,20 @@ namespace Wsus_Package_Publisher
                 grpDisplayer.Initialize(group);
             }
 
-            if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
+            if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
             {
-                print(rtbxEnd, normalFont, green, resMan.GetString("GroupEnd"));
-                print(rtbxEnd, boldFont, black, resMan.GetString("RuleAnd"));
-                print(rtbxEnd, normalFont, green, ">");
-            }
-            else
-            {
-                print(rtbxEnd, normalFont, green, resMan.GetString("GroupEnd"));
-                print(rtbxEnd, boldFont, black, resMan.GetString("RuleOR"));
-                print(rtbxEnd, normalFont, green, ">");
+                if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
+                {
+                    print(rtbxEnd, normalFont, green, resMan.GetString("GroupEnd"));
+                    print(rtbxEnd, boldFont, black, resMan.GetString("RuleAnd"));
+                    print(rtbxEnd, normalFont, green, ">");
+                }
+                else
+                {
+                    print(rtbxEnd, normalFont, green, resMan.GetString("GroupEnd"));
+                    print(rtbxEnd, boldFont, black, resMan.GetString("RuleOR"));
+                    print(rtbxEnd, normalFont, green, ">");
+                }
             }
             tlpRulesAndGroups.Refresh();
         }

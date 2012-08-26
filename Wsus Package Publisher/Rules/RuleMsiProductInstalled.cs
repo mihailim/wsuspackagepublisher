@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -122,18 +123,15 @@ namespace Wsus_Package_Publisher
                 return 0;
         }
 
-        internal override string GetRtfFormattedRule(string rtf, int tabulation)
+        internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
-            string tab = new string(' ', tabulation);
-
-            print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
 
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n" + tab + tab);
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
             }
             
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<msiar:");
@@ -172,49 +170,12 @@ namespace Wsus_Package_Publisher
             if (ReverseRule)
             {
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\r\n");
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, tab);
-                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "<lar:");
+                print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, "</lar:");
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">");
             }
 
             return rTxtBx.Rtf;
-        }
-
-        internal override string GetXmlFormattedRule()
-        {
-            string result = "";
-
-            if (ReverseRule)
-            {
-                result += "<lar:Not>\r\n";
-            }
-
-            result += "<msiar:MsiProductInstalled ProductCode=\"{" + MsiProductCode.ToString() + "}\"";
-
-            if (UseVersionMax)
-            {
-                result += " VersionMax=\"" + VersionMax + "\"";
-            }
-
-            if (UseVersionMin)
-            {
-                result += " VersionMin=\"" + VersionMin + "\"";
-            }
-
-            if (UseLanguage)
-            {
-                result += " Language=\"" + Language.ToString() + "\"";
-            }
-
-            result += "/>\r\n";
-
-            if (ReverseRule)
-            {
-                result += "</lar:Not>\r\n";
-            }
-
-            return result;
         }
 
         internal override GenericRule Clone()
@@ -240,6 +201,33 @@ namespace Wsus_Package_Publisher
         {
             return resManager.GetString("MsiProductInstalled");
         }
+
+        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
+        {
+            foreach (KeyValuePair<string, string> pair in attributes)
+            {
+                switch (pair.Key)
+                {
+                    case "ProductCode":
+                        this.MsiProductCode = new Guid(pair.Value);
+                        break;
+                    case "VersionMax":
+                        this.VersionMax = pair.Value;
+                        break;
+                    case "VersionMin":
+                        this.VersionMin = pair.Value;
+                        break;
+                    case "Language":
+                        int result = 0;
+                        if (int.TryParse(pair.Value, out result))
+                            this.Language = result;
+                        break;
+                    default:
+                        UnsupportedAttributes.Add(pair.Key, pair.Value);
+                        break;
+                }
+            }
+        }
                 
         #endregion
 
@@ -255,7 +243,7 @@ namespace Wsus_Package_Publisher
             }
         }
 
-        internal bool ReverseRule
+        internal override bool ReverseRule
         {
             get { return _reversRule; }
             set
@@ -276,10 +264,11 @@ namespace Wsus_Package_Publisher
                     nupVersionMax2.Value = GetVersionNumber(value, 1);
                     nupVersionMax3.Value = GetVersionNumber(value, 2);
                     nupVersionMax4.Value = GetVersionNumber(value, 3);
+                    UseVersionMax = true;
                 }
                 else
                 {
-                    chkBxIncludeMaxVersion.Checked = false;
+                    UseVersionMax = false;
                 }
             }
         }
@@ -295,10 +284,11 @@ namespace Wsus_Package_Publisher
                     nupVersionMin2.Value = GetVersionNumber(value, 1);
                     nupVersionMin3.Value = GetVersionNumber(value, 2);
                     nupVersionMin4.Value = GetVersionNumber(value, 3);
+                    UseVersionMin = true;
                 }
                 else
                 {
-                    chkBxIncludeMinVersion.Checked = false;
+                    UseVersionMin = false;
                 }
             }
         }
@@ -351,6 +341,11 @@ namespace Wsus_Package_Publisher
                 }
 
             }
+        }
+
+        internal override string XmlElementName
+        {
+            get { return "MsiProductInstalled"; }
         }
 
         #endregion

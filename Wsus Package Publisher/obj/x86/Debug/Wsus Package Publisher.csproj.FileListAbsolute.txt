@@ -1,0 +1,83 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\Wsus Package Publisher.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\Wsus Package Publisher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\Wsus Package Publisher.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerControl.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerDetailViewer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerListViewer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmApprovalSet.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmSettings.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateInformationsWizard.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdatePublisher.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateRulesWizard.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmWsusPackagePublisher.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExists.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersion.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleMsiProductInstalled.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.Properties.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateFilesWizard.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateWizard.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.Resources.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleProcessorArchitecture.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsLanguage.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsVersion.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.GroupDisplayer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleDisplayer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateControl.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateDetailViewer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateListViewer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerDetailViewer.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerDetailViewer.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerListViewer.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.ComputerListViewer.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmApprovalSet.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmApprovalSet.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmSettings.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmSettings.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateInformationsWizard.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateInformationsWizard.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdatePublisher.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdatePublisher.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateRulesWizard.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateRulesWizard.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateWizard.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateWizard.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmWsusPackagePublisher.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmWsusPackagePublisher.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileCreated.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExists.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExists.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileExistsPrependRegSz.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersion.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersion.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleFileVersionPrependRegSZ.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleMsiProductInstalled.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleMsiProductInstalled.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateFilesWizard.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateFilesWizard.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.Resources.Resources.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.Resources.Resources.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleProcessorArchitecture.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleProcessorArchitecture.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsLanguage.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsLanguage.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsVersion.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.RuleWindowsVersion.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateDetailViewer.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateDetailViewer.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateListViewer.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.UpdateListViewer.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\ResGen.read.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\ResGen.write.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus Package Publisher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus Package Publisher.pdb

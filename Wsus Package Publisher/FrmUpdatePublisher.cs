@@ -43,6 +43,21 @@ namespace Wsus_Package_Publisher
             btnOk.Enabled = true;
         }
 
+        internal void Revise(SoftwareDistributionPackage sdp)
+        {
+            System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdatePublisher).Assembly);
+
+            btnOk.Enabled = false;
+            prgBrPublishing.Value = 0;
+            this.Refresh();
+
+            _wsus.UpdatePublishingProgress += new WsusWrapper.UpdatePublishingProgressEventHandler(publisher_Progress);
+            _wsus.ReviseUpate(_informationsWizard, _isInstalledRulesWizard, _isInstallableRulesWizard, sdp);
+
+            MessageBox.Show(resManager.GetString("UpdateRevised"));
+            btnOk.Enabled = true;
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Close();

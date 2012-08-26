@@ -32,19 +32,14 @@ namespace Wsus_Package_Publisher
         {
             if (ViewedProduct != null)
             {
-                UpdateCollection updateCollection = GetDisplayedUpdates();
-                bool changed = false;
+                ClearDisplay();
                 dgvUpdateList.SuspendLayout();
 
                 foreach (IUpdate update in ViewedProduct.Updates)
                 {
-                    if (!updateCollection.Contains(update))
-                    {
-                        dgvUpdateList.Rows.Add(update.Title, update.ArrivalDate, update.CreationDate, update);
-                        changed = true;
-                    }
+                    dgvUpdateList.Rows.Add(update.Title, update.ArrivalDate, update.CreationDate, update);
                 }
-                if (changed && ContentChanged != null)
+                if (ContentChanged != null)
                     ContentChanged();
                 dgvUpdateList.ResumeLayout();
             }

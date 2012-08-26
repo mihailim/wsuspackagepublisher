@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -13,6 +14,7 @@ namespace Wsus_Package_Publisher
     {
         RulesGroup _masterGroup = new RulesGroup();
         RulesGroup _currentGroup;
+        List<GenericRule> _allSupportedRules = new List<GenericRule>();
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateRulesWizard).Assembly);
 
         internal FrmUpdateRulesWizard()
@@ -22,21 +24,104 @@ namespace Wsus_Package_Publisher
             grpDsp1.EditionRequest += new GroupDisplayer.EditionRequestEventHandler(grpDsp1_EditionRequest);
             grpDsp1.RuleEditionRequest += new GroupDisplayer.RuleEditionRequestEventHandler(grpDsp1_RuleEditionRequest);
             _currentGroup = _masterGroup;
-            cmbBxRules.Items.Add(new RuleMsiProductInstalled());
-            cmbBxRules.Items.Add(new RuleProcessorArchitecture());
-            cmbBxRules.Items.Add(new RuleWindowsVersion());
-            cmbBxRules.Items.Add(new RuleWindowsLanguage());
-            cmbBxRules.Items.Add(new RuleFileExists());
-            cmbBxRules.Items.Add(new RuleFileExistsPrependRegSz());
-            cmbBxRules.Items.Add(new RuleFileVersion());
-            cmbBxRules.Items.Add(new RuleFileVersionPrependRegSZ());
-            cmbBxRules.Items.Add(new RuleFileCreated());
-            cmbBxRules.Items.Add(new RuleFileCreated());
+            _allSupportedRules.Add(new RuleMsiProductInstalled());
+            _allSupportedRules.Add(new RuleProcessorArchitecture());
+            _allSupportedRules.Add(new RuleWindowsVersion());
+            _allSupportedRules.Add(new RuleWindowsLanguage());
+            _allSupportedRules.Add(new RuleFileExists());
+            _allSupportedRules.Add(new RuleFileExistsPrependRegSz());
+            _allSupportedRules.Add(new RuleFileVersion());
+            _allSupportedRules.Add(new RuleFileVersionPrependRegSZ());
+            _allSupportedRules.Add(new RuleFileCreated());
+
+            foreach (GenericRule rule in _allSupportedRules)
+            {
+                cmbBxRules.Items.Add(rule);
+            }
+
             cmbBxRules.SelectedIndex = 0;
             cmbBxRules.Focus();
 
             _masterGroup.IsSelected = true;
             grpDsp1.Initialize(_masterGroup);
+        }
+
+        internal void InitializeFromXml(string xml)
+        {
+            _masterGroup = new RulesGroup();
+            _currentGroup = _masterGroup;
+
+            _masterGroup = ParseXml(_masterGroup, xml);
+
+            grpDsp1.Initialize(_masterGroup);
+        }
+
+        private RulesGroup ParseXml(RulesGroup group, string xml)
+        {
+            bool reverseRule = false;
+            XmlNamespaceManager namespaceMng = new XmlNamespaceManager(new System.Xml.NameTable());
+            namespaceMng.AddNamespace("lar", "http://schemas.microsoft.com/wsus/2005/04/CorporatePublishing/LogicalApplicabilityRules.xsd");
+            namespaceMng.AddNamespace("bar", "http://schemas.microsoft.com/wsus/2005/04/CorporatePublishing/BaseApplicabilityRules.xsd");
+            namespaceMng.AddNamespace("msiar", "http://schemas.microsoft.com/wsus/2005/04/CorporatePublishing/MsiApplicabilityRules.xsd");
+
+            XmlParserContext context = new XmlParserContext(null, namespaceMng, null, XmlSpace.Default);
+            XmlTextReader xmlReader = new XmlTextReader(xml, XmlNodeType.Element, context);
+
+            xmlReader.WhitespaceHandling = WhitespaceHandling.None;
+            while (!xmlReader.EOF)
+            {
+                xmlReader.Read();
+                switch (xmlReader.Prefix)
+                {
+                    case "lar":
+                        if (xmlReader.LocalName == "Not")
+                            reverseRule = (xmlReader.NodeType != XmlNodeType.EndElement);
+                        else
+                            if (xmlReader.LocalName == "And")
+                            {
+                                RulesGroup tempGroup = new RulesGroup();
+                                group.InnerGroups.Add(Guid.NewGuid(), ParseXml(tempGroup, xmlReader.ReadInnerXml()));
+                            }
+                            else
+                                if (xmlReader.LocalName == "Or")
+                                {
+                                    RulesGroup tempGroup = new RulesGroup();
+                                    tempGroup.GroupType = RulesGroup.GroupLogicalOperator.Or;
+                                    group.InnerGroups.Add(Guid.NewGuid(), ParseXml(tempGroup, xmlReader.ReadInnerXml()));
+                                }
+                        break;
+                    case "bar":
+                    case "msiar":
+                        foreach (GenericRule rule in _allSupportedRules)
+                        {
+                            if (xmlReader.LocalName == rule.XmlElementName)
+                            {
+                                GenericRule tempRule = GetSelectedForm(rule);
+                                tempRule.ReverseRule = reverseRule;
+                                tempRule.InitializeWithAttributes(GetAttributes(xmlReader));
+                                group.InnerRules.Add(Guid.NewGuid(), tempRule);
+                                break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return group;
+        }
+
+        private Dictionary<string, string> GetAttributes(XmlTextReader reader)
+        {
+            Dictionary<string, string> attributes = new Dictionary<string, string>();
+
+            while (reader.MoveToNextAttribute())
+            {
+                if (!reader.Name.StartsWith("xmlns:"))
+                    attributes.Add(reader.Name, reader.Value);
+            }
+
+            return attributes;
         }
 
         void grpDsp1_RuleEditionRequest(GenericRule ResquestingRule)
@@ -71,7 +156,7 @@ namespace Wsus_Package_Publisher
                 btnAddRule.Enabled = false;
             }
         }
-        
+
         private void btnAddRule_Click(object sender, EventArgs e)
         {
             GenericRule frmRule;
@@ -131,7 +216,7 @@ namespace Wsus_Package_Publisher
         {
             if (groupToSearchInto.InnerRules.ContainsKey(editedRule.Id))
             {
-                groupToSearchInto.InnerRules.Remove(editedRule.Id);                
+                groupToSearchInto.InnerRules.Remove(editedRule.Id);
                 groupToSearchInto.AddRule(backupRule);
                 grpDsp1.Initialize(_masterGroup);
                 return true;
@@ -144,7 +229,7 @@ namespace Wsus_Package_Publisher
                 }
             return true;
         }
-        
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             List<GenericRule> selectedRules = grpDsp1.SelectedRules;
@@ -196,7 +281,7 @@ namespace Wsus_Package_Publisher
         {
             RulesGroup addedGroup = new RulesGroup();
 
-            _currentGroup.IsSelected = false;            
+            _currentGroup.IsSelected = false;
             addedGroup.GroupType = RulesGroup.GroupLogicalOperator.And;
             addedGroup.IsSelected = true;
             _currentGroup.AddGroup(addedGroup);

@@ -43,6 +43,7 @@ namespace Wsus_Package_Publisher
             computerCtrl = new ComputerControl();
             computerCtrl.Dock = DockStyle.Fill;
             wsus.UpdatePublished += new WsusWrapper.UpdatePublisedEventHandler(UpdatePublished);
+            wsus.UpdateRevised += new WsusWrapper.UpdateRevisedEventHandler(UpdateRevised);
         }
 
         internal void Approve(IUpdate updateToApprove)
@@ -146,16 +147,23 @@ namespace Wsus_Package_Publisher
             companyNode.Name = newCompanyInstance.CompanyName;
             allUpdatesNode.Nodes.Add(companyNode);
             trvWsus.Refresh();
+            updateCtrl.Companies = companies;
 
             newCompanyInstance.NoMoreProductsForThisCompany += new Company.NoMoreProductsForThisCompanyEventHandler(CompanyRunOutofProducts);
             newCompanyInstance.ProductRemoved += new Company.ProductRemovedEventHandler(Company_ProductRemoved);
             newCompanyInstance.ProductAdded += new Company.ProductAddedEventHandler(Company_ProductAdded);
+            newCompanyInstance.ProductRefreshed += new Company.ProductRefreshedEventHandler(Company_ProductRefreshed);
         }
 
         private void CreateNewProduct(string companyName, string productName)
         {
             Company vendor = companies[companyName];
             vendor.AddProduct(productName);
+        }
+
+        private void Company_ProductRefreshed(Company company, Product refreshedProduct)
+        {
+                updateCtrl.RefreshDisplay();
         }
 
         private void Company_ProductAdded(Company company, Product productAdded)
@@ -322,6 +330,32 @@ namespace Wsus_Package_Publisher
 
             Product product = vendor.Products[productName];
             product.AddUpdate(publishedUpdate);
+        }
+
+        private void UpdateRevised(IUpdate oldUpdate, IUpdate revisedUpdate)
+        {
+            string oldCompanyName = oldUpdate.CompanyTitles[0];
+            string oldProductName = oldUpdate.ProductTitles[0];
+            string newCompanyName = revisedUpdate.CompanyTitles[0];
+            string newProductName = revisedUpdate.ProductTitles[0];
+
+            if (!companies.ContainsKey(newCompanyName))
+                CreateNewCompany(newCompanyName);
+            Company vendor = companies[newCompanyName];
+
+            if (!vendor.Products.ContainsKey(newProductName))
+            {
+                vendor.AddProduct(newProductName);
+            }
+            Product product = vendor.Products[newProductName];
+
+            if ((oldCompanyName != newCompanyName) || (oldProductName != newProductName))
+            {
+                companies[oldCompanyName].Products[oldProductName].RemoveUpdate(oldUpdate);
+                companies[newCompanyName].Products[newProductName].AddUpdate(revisedUpdate);
+            }
+            
+            product.RefreshUpdate(revisedUpdate);
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

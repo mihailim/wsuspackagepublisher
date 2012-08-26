@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
@@ -7,6 +9,7 @@ namespace Wsus_Package_Publisher
     {
         private bool _isSelected = false;
         private System.Guid _guid;
+        private Dictionary<string, string> _unsupportedAttributes = new Dictionary<string, string>();
 
         internal GenericRule()
         {
@@ -27,7 +30,21 @@ namespace Wsus_Package_Publisher
             get { return _guid; }
         }
 
+        internal abstract bool ReverseRule { get; set; }
+
+        internal abstract string XmlElementName
+        {
+            get;
+        }
+
+        internal Dictionary<string, string> UnsupportedAttributes
+        {
+            get { return _unsupportedAttributes; }
+        }
+
         #endregion
+
+        #region (Methods - Méthodes)
 
         internal void print(RichTextBox rTxtBx, System.Drawing.Font font, Color color, string text)
         {
@@ -36,13 +53,22 @@ namespace Wsus_Package_Publisher
             rTxtBx.SelectedText += text;
         }
 
-        internal abstract string GetRtfFormattedRule(string rtf, int tabulation);
+        internal abstract string GetRtfFormattedRule();
 
-        internal abstract string GetXmlFormattedRule();
+        internal string GetXmlFormattedRule()
+        {
+            RichTextBox rTxtBxTemp = new RichTextBox();
+            rTxtBxTemp.Rtf = GetRtfFormattedRule();
+            return rTxtBxTemp.Text;
+        }
+
+        internal abstract void InitializeWithAttributes(Dictionary<string, string> attributes);
 
         internal abstract GenericRule Clone();
 
         public abstract override string ToString();
+
+        #endregion
 
 
     }

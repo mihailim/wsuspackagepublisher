@@ -33,40 +33,42 @@ namespace Wsus_Package_Publisher
 
         internal string GetXmlFormattedRule()
         {
-            string result = "";
-            
-            switch (GroupType)
+            string result = string.Empty;
+
+            if ((InnerRules.Count + InnerGroups.Count) > 1)
             {
-                case GroupLogicalOperator.And:
-                    result += "<lar:And>\r\n";
-                    break;
-                case GroupLogicalOperator.Or:
-                    result += "<lar:Or>\r\n";
-                    break;
-                default:
-                    break;
+                switch (GroupType)
+                {
+                    case GroupLogicalOperator.And:
+                        result += "<lar:And>\r\n";
+                        break;
+                    case GroupLogicalOperator.Or:
+                        result += "<lar:Or>\r\n";
+                        break;
+                    default:
+                        break;
+                }
             }
 
             foreach (GenericRule rule in InnerRules.Values)
-            {
                 result += rule.GetXmlFormattedRule();
-            }
 
             foreach (RulesGroup group in InnerGroups.Values)
-            {
                 result += group.GetXmlFormattedRule();
-            }
 
-            switch (GroupType)
+            if ((InnerRules.Count + InnerGroups.Count) > 1)
             {
-                case GroupLogicalOperator.And:
-                    result += "</lar:And>\r\n";
-                    break;
-                case GroupLogicalOperator.Or:
-                    result += "</lar:Or>\r\n";
-                    break;
-                default:
-                    break;
+                switch (GroupType)
+                {
+                    case GroupLogicalOperator.And:
+                        result += "</lar:And>\r\n";
+                        break;
+                    case GroupLogicalOperator.Or:
+                        result += "</lar:Or>\r\n";
+                        break;
+                    default:
+                        break;
+                }
             }
 
             return result;

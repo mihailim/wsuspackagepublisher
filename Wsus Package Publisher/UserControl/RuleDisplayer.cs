@@ -50,7 +50,7 @@ namespace Wsus_Package_Publisher
         internal new void Refresh()
         {
             this.Clear();
-            this.Rtf = _DisplayedRule.GetRtfFormattedRule(this.Rtf, 0);
+            this.Rtf = _DisplayedRule.GetRtfFormattedRule();
             AdjustHeigth();
             AdjustBackColor();
             base.Refresh();
