@@ -6,311 +6,173 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.UpdateServices.Administration;
 
 namespace Wsus_Package_Publisher
 {
     internal partial class FrmApprovalSet : Form
     {
         private Dictionary<string, Guid> _computersGroup;
-        private Dictionary<string, string> _approval = new Dictionary<string, string>();
+        private List<ApprovalObject> _approval = new List<ApprovalObject>();
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmApprovalSet).Assembly);
+        private WsusWrapper _wsus;
 
-        internal FrmApprovalSet(Dictionary<string, Guid> computersGroup)
+        internal FrmApprovalSet(Dictionary<string, Guid> computersGroup, UpdateCollection updatesToApprove)
         {
             InitializeComponent();
 
+            _wsus = WsusWrapper.GetInstance();
             _computersGroup = computersGroup;
-            FillDataGridView();
+            dtDeadLine.Value = DateTime.Now.AddDays(7);
+            FillDataGridView(updatesToApprove);
         }
 
-        private void FillDataGridView()
+        private void FillDataGridView(UpdateCollection updatesToApprove)
         {
-            CalendarColumn calendar = new CalendarColumn();
+            object[] approvalsObj = new object[]
+            { resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString()), 
+              resMan.GetString(ApprovalObject.Approvals.ApproveForInstallation.ToString()),
+              resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()),
+              resMan.GetString(ApprovalObject.Approvals.ApproveForUninstallation.ToString()),
+              resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString())
+            };
+            DateTime noDeadLineSet = new DateTime(3155378975999999999);
 
-            calendar.HeaderText = "Dead Line";
-            calendar.ReadOnly = false;
-            calendar.Resizable = DataGridViewTriState.True;
-            calendar.Name = "DeadLine";
-            calendar.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            calendar.FillWeight = 25;
-
-            dgvTargetGroup.Columns.Add(calendar);
+            dgvTargetGroup.SuspendLayout();
+            DataGridViewComboBoxColumn approvalColumn = (DataGridViewComboBoxColumn)dgvTargetGroup.Columns[1];
+            approvalColumn.Items.AddRange(approvalsObj);
+            cmbBxApproval.Items.AddRange(approvalsObj);
+            cmbBxApproval.SelectedIndex = 0;
 
             foreach (string group in _computersGroup.Keys)
             {
                 dgvTargetGroup.Rows.Add(group);
             }
-        }
-
-        private void dgvTargetGroup_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            foreach (DataGridViewRow row in dgvTargetGroup.Rows)
             {
-                CalendarEditingControl ctrl = dgvTargetGroup.EditingControl as CalendarEditingControl;
-                DateTime date1 = ctrl.Value;
-                ctrl.ResetText();
-                DateTime date2 = ctrl.Value;
+                if (updatesToApprove.Count == 1)
+                {
+                    UpdateApprovalCollection approvals = _wsus.GetUpdateApprovalStatus(_computersGroup[row.Cells[0].Value.ToString()], updatesToApprove[0]);
+                    if (approvals.Count != 0)
+                    {
+                        switch (approvals[0].Action)
+                        {
+                            case UpdateApprovalAction.All:
+                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                                break;
+                            case UpdateApprovalAction.Install:
+                                if (approvals[0].IsOptional)
+                                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString());
+                                else
+                                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForInstallation.ToString());
+                                if (approvals[0].Deadline != noDeadLineSet)
+                                    row.Cells[2].Value = approvals[0].Deadline;
+                                break;
+                            case UpdateApprovalAction.NotApproved:
+                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString());
+                                break;
+                            case UpdateApprovalAction.Uninstall:
+                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForUninstallation.ToString());
+                                if (approvals[0].Deadline != noDeadLineSet)
+                                    row.Cells[2].Value = approvals[0].Deadline;
+                                break;
+                            default:
+                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                                break;
+                        }
+                    }
+                    else
+                        row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                }
+                else
+                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
             }
+            dgvTargetGroup.ResumeLayout();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            ApprovalObject.Approvals[] approvalsArray = new ApprovalObject.Approvals[]
+            { ApprovalObject.Approvals.Unchanged, 
+              ApprovalObject.Approvals.ApproveForInstallation,
+              ApprovalObject.Approvals.ApproveForOptionalInstallation,
+              ApprovalObject.Approvals.ApproveForUninstallation,
+              ApprovalObject.Approvals.NotApproved
+            };
+
             _approval.Clear();
 
             foreach (DataGridViewRow row in dgvTargetGroup.Rows)
             {
                 if (row.Cells[1].Value != null && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
-                    _approval.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                {
+                    ApprovalObject.Approvals approval = GetApproval(row.Cells[1].Value.ToString());
+                    if (approval != ApprovalObject.Approvals.Unchanged)
+                    {
+                        if (row.Cells[2].Value != null)
+                        {
+                            DateTime deadLine;
+                            if (DateTime.TryParse(row.Cells[2].Value.ToString(), out deadLine))
+                                _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval, deadLine));
+                            else
+                                _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval));
+                        }
+                        else
+                            _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval));
+                    }
+
+                }
             }
             DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
-        internal Dictionary<string, string> Approvals
+        private ApprovalObject.Approvals GetApproval(string searchValue)
+        {
+            foreach (ApprovalObject.Approvals approval in Enum.GetValues(typeof(ApprovalObject.Approvals)))
+            {
+                if (resMan.GetString(approval.ToString()) == searchValue)
+                    return approval;
+            }
+            return ApprovalObject.Approvals.Unchanged;
+        }
+
+        internal List<ApprovalObject> Approvals
         {
             get { return _approval; }
         }
-    }
 
-    internal class CalendarColumn : DataGridViewColumn
-    {
-        public CalendarColumn()
-            : base(new CalendarCell())
+        private void btnSetDeadLine_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dgvTargetGroup.SelectedRows)
+            {
+                if (row.Cells[1].Value != null && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()) &&
+                    row.Cells[1].Value.ToString() != resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()) &&
+                    row.Cells[1].Value.ToString() != resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()))
+                    row.Cells[2].Value = new System.DateTime(dtDeadLine.Value.Year, dtDeadLine.Value.Month, dtDeadLine.Value.Day, (int)nupHour.Value, (int)nupMinute.Value, 0);
+            }
         }
 
-        public override DataGridViewCell CellTemplate
+        private void btnSetApproval_Click(object sender, EventArgs e)
         {
-            get
+            if (cmbBxApproval.SelectedItem != null)
             {
-                return base.CellTemplate;
-            }
-            set
-            {
-                // Ensure that the cell used for the template is a CalendarCell.
-                if (value != null && !value.GetType().IsAssignableFrom(typeof(CalendarCell)))
+                foreach (DataGridViewRow row in dgvTargetGroup.SelectedRows)
                 {
-                    throw new InvalidCastException("Must be a CalendarCell");
-                }
-                base.CellTemplate = value;
-            }
-        }
-    }
-
-    internal class CalendarCell : DataGridViewTextBoxCell
-    {
-
-        public CalendarCell()
-            : base()
-        {
-            // Use the short date format.
-            this.Style.Format = "d";
-        }
-
-        public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
-        {
-            // Set the value of the editing control to the current cell value.
-            base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
-            CalendarEditingControl ctl = DataGridView.EditingControl as CalendarEditingControl;
-            // Use the default row value when Value property is null.
-            if (this.Value == null)
-            {
-                ctl.Value = (DateTime)this.DefaultNewRowValue;
-            }
-            else
-            {
-                ctl.Value = (DateTime)this.Value;
-            }
-        }
-
-        public override Type EditType
-        {
-            get
-            {
-                // Return the type of the editing control that CalendarCell uses.
-                return typeof(CalendarEditingControl);
-            }
-        }
-
-        public override Type ValueType
-        {
-            get
-            {
-                // Return the type of the value that CalendarCell contains.
-
-                return typeof(DateTime);
-            }
-        }
-
-        public override object DefaultNewRowValue
-        {
-            get
-            {
-                // Use the current date and time as the default value.
-                return DateTime.Now;
-            }
-        }
-    }
-
-    internal class CalendarEditingControl : DateTimePicker, IDataGridViewEditingControl
-    {
-        DataGridView dataGridView;
-        private bool valueChanged = false;
-        int rowIndex;
-
-        public CalendarEditingControl()
-        {
-            this.Format = DateTimePickerFormat.Short;
-            this.ShowCheckBox = true;
-        }
-
-        // Implements the IDataGridViewEditingControl.EditingControlFormattedValue 
-        // property.
-        public object EditingControlFormattedValue
-        {
-            get
-            {
-                return this.Value.ToShortDateString();
-            }
-            set
-            {
-                if (value is String)
-                {
-                    try
-                    {
-                        // This will throw an exception of the string is 
-                        // null, empty, or not in the format of a date.
-                        this.Value = DateTime.Parse((String)value);
-                    }
-                    catch
-                    {
-                        // In the case of an exception, just use the 
-                        // default value so we're not left with a null
-                        // value.
-                        this.Value = DateTime.Now;
-                    }
+                    row.Cells[1].Value = cmbBxApproval.SelectedItem;
+                    if (cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()) ||
+                        cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()))
+                        row.Cells[2].Value = null;
                 }
             }
         }
 
-        // Implements the 
-        // IDataGridViewEditingControl.GetEditingControlFormattedValue method.
-        public object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
+        private void dgvTargetGroup_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            return EditingControlFormattedValue;
-        }
-
-        // Implements the 
-        // IDataGridViewEditingControl.ApplyCellStyleToEditingControl method.
-        public void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
-        {
-            this.Font = dataGridViewCellStyle.Font;
-            this.CalendarForeColor = dataGridViewCellStyle.ForeColor;
-            this.CalendarMonthBackground = dataGridViewCellStyle.BackColor;
-        }
-
-        // Implements the IDataGridViewEditingControl.EditingControlRowIndex 
-        // property.
-        public int EditingControlRowIndex
-        {
-            get
+            foreach (DataGridViewRow row in dgvTargetGroup.SelectedRows)
             {
-                return rowIndex;
+                if (row.Cells[1].Value != null && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+                    row.Cells[2].Value = null;
             }
-            set
-            {
-                rowIndex = value;
-            }
-        }
-
-        // Implements the IDataGridViewEditingControl.EditingControlWantsInputKey 
-        // method.
-        public bool EditingControlWantsInputKey(Keys key, bool dataGridViewWantsInputKey)
-        {
-            // Let the DateTimePicker handle the keys listed.
-            switch (key & Keys.KeyCode)
-            {
-                case Keys.Left:
-                case Keys.Up:
-                case Keys.Down:
-                case Keys.Right:
-                case Keys.Home:
-                case Keys.End:
-                case Keys.PageDown:
-                case Keys.PageUp:
-                    return true;
-                default:
-                    return !dataGridViewWantsInputKey;
-            }
-        }
-
-        // Implements the IDataGridViewEditingControl.PrepareEditingControlForEdit 
-        // method.
-        public void PrepareEditingControlForEdit(bool selectAll)
-        {
-            // No preparation needs to be done.
-        }
-
-        // Implements the IDataGridViewEditingControl
-        // .RepositionEditingControlOnValueChange property.
-        public bool RepositionEditingControlOnValueChange
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        // Implements the IDataGridViewEditingControl
-        // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView
-        {
-            get
-            {
-                return dataGridView;
-            }
-            set
-            {
-                dataGridView = value;
-            }
-        }
-
-        // Implements the IDataGridViewEditingControl
-        // .EditingControlValueChanged property.
-        public bool EditingControlValueChanged
-        {
-            get
-            {
-                return valueChanged;
-            }
-            set
-            {
-                valueChanged = value;
-            }
-        }
-
-        // Implements the IDataGridViewEditingControl
-        // .EditingPanelCursor property.
-        public Cursor EditingPanelCursor
-        {
-            get
-            {
-                return base.Cursor;
-            }
-        }
-
-        protected override void OnValueChanged(EventArgs eventargs)
-        {
-            // Notify the DataGridView that the contents of the cell
-            // have changed.
-            valueChanged = true;
-            this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
-            base.OnValueChanged(eventargs);
-        }
-
-        public bool Checked
-        {
-            get { return base.Checked; }
-            set { base.Checked = value; }
         }
     }
-
 }

@@ -31,6 +31,16 @@ namespace Wsus_Package_Publisher
             _innerGroups.Add(groupToAdd.Id, groupToAdd);
         }
 
+        /// <summary>
+        /// Clear Inner rules and Inner Groups. Set Group Type to 'And'.
+        /// </summary>
+        internal void Reset()
+        {
+            _innerRules.Clear();
+            _innerGroups.Clear();
+            GroupType = GroupLogicalOperator.And;
+        }
+
         internal string GetXmlFormattedRule()
         {
             string result = string.Empty;

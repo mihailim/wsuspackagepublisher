@@ -466,4 +466,16 @@ Version (mandatory): File Version.</value>
   <data name="UpdateRevised" xml:space="preserve">
     <value>Update revised.</value>
   </data>
+  <data name="ApproveForUninstallation" xml:space="preserve">
+    <value>Approval For Desinstallation</value>
+  </data>
+  <data name="ApproveForInstallation" xml:space="preserve">
+    <value>Approve For Installation</value>
+  </data>
+  <data name="ApproveForOptionalInstallation" xml:space="preserve">
+    <value>Approve For Optionnal Installation</value>
+  </data>
+  <data name="Unchanged" xml:space="preserve">
+    <value>Unchanged</value>
+  </data>
 </root>

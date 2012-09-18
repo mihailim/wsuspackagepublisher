@@ -14,6 +14,7 @@ namespace Wsus_Package_Publisher
     {
         WsusWrapper _wsus = WsusWrapper.GetInstance();
         Product _product;
+        Dictionary<string, Guid> _computerGroups;
 
         internal UpdateControl()
         {
@@ -26,7 +27,7 @@ namespace Wsus_Package_Publisher
             updateDetailViewer1.ExpireUpdate += new UpdateDetailViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
             updateDetailViewer1.ReviseUpdate += new UpdateDetailViewer.ReviseUpdateEventHandler(updateDetailViewer1_ReviseUpdate);
         }
-        
+
         #region (Properties - Propriétés)
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace Wsus_Package_Publisher
 
         internal void SetComputerGroups(Dictionary<string, Guid> computerGroups)
         {
+            _computerGroups = computerGroups;
             updateDetailViewer1.SetComputerGroups(computerGroups);
         }
 
@@ -103,7 +105,44 @@ namespace Wsus_Package_Publisher
 
         private void updateDetailViewer1_ApproveUpdate(UpdateCollection updatesToApprove)
         {
-            throw new NotImplementedException();
+            FrmApprovalSet approvalForm = new FrmApprovalSet(_computerGroups, updatesToApprove);
+
+            approvalForm.ShowDialog(this);
+            if (approvalForm.DialogResult == DialogResult.OK)
+            {
+                foreach (IUpdate updateToApprove in updateDetailViewer1.ViewedUpdates)
+                {
+                    foreach (ApprovalObject approval in approvalForm.Approvals)
+                    {
+                        switch (approval.Approval)
+                        {
+                            case ApprovalObject.Approvals.ApproveForInstallation:
+                                if (approval.HasDeadLine && !updateToApprove.InstallationBehavior.CanRequestUserInput)
+                                    _wsus.ApproveUpdateForInstallation(approval.GroupId, updateToApprove, approval.DeadLine);
+                                else
+                                    _wsus.ApproveUpdateForInstallation(approval.GroupId, updateToApprove);
+                                    break;
+                            case ApprovalObject.Approvals.ApproveForOptionalInstallation:
+                                        _wsus.ApproveUpdateForOptionalInstallation(approval.GroupId, updateToApprove);
+                                break;
+                            case ApprovalObject.Approvals.ApproveForUninstallation:
+                                if (approval.HasDeadLine && !updateToApprove.InstallationBehavior.CanRequestUserInput)
+                                    _wsus.ApproveUpdateForUninstallation(approval.GroupId, updateToApprove, approval.DeadLine);
+                                else
+                                    _wsus.ApproveUpdateForUninstallation(approval.GroupId, updateToApprove);
+                                break;
+                            case ApprovalObject.Approvals.NotApproved:
+                                _wsus.DisapproveUpdate(approval.GroupId, updateToApprove);
+                                break;
+                            case ApprovalObject.Approvals.Unchanged:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                
+            }
         }
 
         private void updateDetailViewer1_ReviseUpdate(IUpdate updateToRevise)

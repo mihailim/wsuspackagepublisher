@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Wsus_Package_Publisher
 {
-    internal partial class GroupDisplayer : UserControl
+    public partial class GroupDisplayer : UserControl
     {
 
         internal static Font normalFont = new Font("Arial", 8, FontStyle.Regular);
@@ -26,7 +26,7 @@ namespace Wsus_Package_Publisher
         private List<GroupDisplayer> _innerGroupDisplayers = new List<GroupDisplayer>();
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(GroupDisplayer).Assembly);
 
-        internal GroupDisplayer()
+        public GroupDisplayer()
         {
             InitializeComponent();
         }
@@ -83,8 +83,8 @@ namespace Wsus_Package_Publisher
             rtbxStart.Text = "";
             rtbxEnd.Text = "";
 
-            if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
-            {
+            //if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
+            //{
                 if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
                 {
                     print(rtbxStart, normalFont, green, resMan.GetString("GroupStart"));
@@ -97,7 +97,7 @@ namespace Wsus_Package_Publisher
                     print(rtbxStart, boldFont, black, resMan.GetString("RuleOR"));
                     print(rtbxStart, normalFont, green, ">");
                 }
-            }
+            //}
 
             foreach (GenericRule rule in InnerGroup.InnerRules.Values)
             {
@@ -117,8 +117,8 @@ namespace Wsus_Package_Publisher
                 grpDisplayer.Initialize(group);
             }
 
-            if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
-            {
+            //if ((InnerGroup.InnerRules.Count + InnerGroup.InnerGroups.Count) > 1)
+            //{
                 if (InnerGroup.GroupType == RulesGroup.GroupLogicalOperator.And)
                 {
                     print(rtbxEnd, normalFont, green, resMan.GetString("GroupEnd"));
@@ -131,7 +131,7 @@ namespace Wsus_Package_Publisher
                     print(rtbxEnd, boldFont, black, resMan.GetString("RuleOR"));
                     print(rtbxEnd, normalFont, green, ">");
                 }
-            }
+            //}
             tlpRulesAndGroups.Refresh();
         }
         

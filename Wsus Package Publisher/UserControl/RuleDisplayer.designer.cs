@@ -42,6 +42,7 @@
             this.DoubleClick += new System.EventHandler(this.RuleDisplayer_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.RuleDisplayer_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.RuleDisplayer_MouseLeave);
+            this.ParentChanged += new System.EventHandler(this.RuleDisplayer_ParentChanged);
             this.ResumeLayout(false);
 
         }

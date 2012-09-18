@@ -39,11 +39,15 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.grpDsp1 = new Wsus_Package_Publisher.GroupDisplayer();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbBxRules
             // 
             resources.ApplyResources(this.cmbBxRules, "cmbBxRules");
+            this.tableLayoutPanel1.SetColumnSpan(this.cmbBxRules, 2);
             this.cmbBxRules.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRules.Name = "cmbBxRules";
             // 
@@ -105,31 +109,38 @@
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.btnAddRule, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grpDsp1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBxRules, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnPrevious, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnAddAndGroup, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnNext, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnAddOrGroup, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 2, 1);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
             // grpDsp1
             // 
-            grpDsp1 = new GroupDisplayer();
             resources.ApplyResources(this.grpDsp1, "grpDsp1");
+            this.tableLayoutPanel1.SetColumnSpan(this.grpDsp1, 4);
             this.grpDsp1.Name = "grpDsp1";
             // 
             // FrmUpdateRulesWizard
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.grpDsp1);
-            this.Controls.Add(this.btnPrevious);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAddOrGroup);
-            this.Controls.Add(this.btnAddAndGroup);
-            this.Controls.Add(this.btnAddRule);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbBxRules);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUpdateRulesWizard";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPrevious;
         private GroupDisplayer grpDsp1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

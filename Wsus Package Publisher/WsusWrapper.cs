@@ -256,9 +256,34 @@ namespace Wsus_Package_Publisher
                 UpdateDeclined(GetUpdate(updateToDecline.Id));
         }
 
-        internal void ApproveUpdate(IUpdate updateToApprove)
+        internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove, DateTime deadLine)
         {
+            updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId) , deadLine);
+        }
 
+        internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove)
+        {
+            updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId));
+        }
+
+        internal void ApproveUpdateForUninstallation(Guid computerGroupId, IUpdate updateToApprove, DateTime deadLine)
+        {
+            updateToApprove.Approve(UpdateApprovalAction.Uninstall, GetComputerGroup(computerGroupId), deadLine);
+        }
+
+        internal void ApproveUpdateForUninstallation(Guid computerGroupId, IUpdate updateToApprove)
+        {
+            updateToApprove.Approve(UpdateApprovalAction.Uninstall, GetComputerGroup(computerGroupId));
+        }
+
+        internal void ApproveUpdateForOptionalInstallation(Guid computerGroupId, IUpdate updateToApprove)
+        {
+            updateToApprove.ApproveForOptionalInstall(GetComputerGroup(computerGroupId));
+        }
+
+        internal void DisapproveUpdate(Guid computerGroupId, IUpdate udpateToDisapprove)
+        {
+            udpateToDisapprove.Approve(UpdateApprovalAction.NotApproved, GetComputerGroup(computerGroupId));
         }
 
         internal void ExpireUpdate(IUpdate updateToExpire)
@@ -266,6 +291,11 @@ namespace Wsus_Package_Publisher
             updateToExpire.ExpirePackage();
             if (UpdateExpired != null)
                 UpdateExpired(GetUpdate(updateToExpire.Id));
+        }
+
+        internal UpdateApprovalCollection GetUpdateApprovalStatus(Guid groupId, IUpdate update)
+        {
+            return update.GetUpdateApprovals(GetComputerGroup(groupId));
         }
 
         internal SoftwareDistributionPackage GetMetaData(IUpdate update)

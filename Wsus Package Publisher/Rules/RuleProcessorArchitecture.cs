@@ -134,7 +134,7 @@ namespace Wsus_Package_Publisher
 
         internal override string XmlElementName
         {
-            get { return "ProcessorArchitecture"; }
+            get { return "Processor"; }
         }
 
         #endregion

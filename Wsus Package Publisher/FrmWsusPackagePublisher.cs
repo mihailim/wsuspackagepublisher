@@ -45,38 +45,7 @@ namespace Wsus_Package_Publisher
             wsus.UpdatePublished += new WsusWrapper.UpdatePublisedEventHandler(UpdatePublished);
             wsus.UpdateRevised += new WsusWrapper.UpdateRevisedEventHandler(UpdateRevised);
         }
-
-        internal void Approve(IUpdate updateToApprove)
-        {
-            FrmApprovalSet approvalSet = new FrmApprovalSet(computerGroups);
-
-            if (approvalSet.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Dictionary<string, string> approvals = approvalSet.Approvals;
-
-                foreach (string computerGroup in approvals.Keys)
-                {
-                    switch (approvals[computerGroup])
-                    {
-                        case "Approve For Installation":
-                            //updateToApprove.Approve(UpdateApprovalAction.Install, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
-                            break;
-                        case "Approve For Optionnal Installation":
-                            //updateToApprove.ApproveForOptionalInstall(wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
-                            break;
-                        case "Approve For Desinstallation":
-                            //updateToApprove.Approve(UpdateApprovalAction.Uninstall, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
-                            break;
-                        case "Not Approve":
-                            //updateToApprove.Approve(UpdateApprovalAction.NotApproved, wsus.GetComputerTargetGroup(computerGroups[computerGroup]));
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-        }
-
+        
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Version 0.1.0.0");

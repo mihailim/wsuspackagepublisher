@@ -60,11 +60,18 @@ namespace Wsus_Package_Publisher
         {
             if (this.Lines.Length > 0)
             {
+                int totalHeight = 1;
+                float rtfWidth = this.Width;
+                Graphics g = CreateGraphics();
+                
                 foreach (string line in this.Lines)
                 {
-
+                    float widthLine = g.MeasureString(line, this.Font).Width;
+                    
+                    int numberOfLine = (int)(Math.Ceiling(widthLine / rtfWidth));
+                    totalHeight += numberOfLine;
                 }
-                this.Height = (this.Lines.Length + 1) * this.FontHeight;
+                this.Height = totalHeight * this.FontHeight;
             }
         }
 
@@ -119,6 +126,16 @@ namespace Wsus_Package_Publisher
                 this.BackColor = Color.Gainsboro;
         }
 
+        private void RuleDisplayer_ParentChanged(object sender, EventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                this.Dock = DockStyle.Fill;
+                this.Width = this.Parent.Width;
+                AdjustHeigth();
+            }
+        }
+
         #endregion
 
         #region (Inner Events - événements internes)
@@ -130,6 +147,8 @@ namespace Wsus_Package_Publisher
         public event EditionRequestedEventHandler EditionRequested;
 
         #endregion
+
+        
 
     }
 }

@@ -117,85 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnAddRule.Text" xml:space="preserve">
+    <value>&amp;Add Rule...</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnPrevious.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cmbBxRules.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 12</value>
+  <data name="btnPrevious.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 509</value>
   </data>
-  <data name="cmbBxRules.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 21</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 13</value>
+  <data name="btnPrevious.Text" xml:space="preserve">
+    <value>&lt;&amp;Previous</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Rule type : </value>
   </data>
-  <data name="btnAddRule.Text" xml:space="preserve">
-    <value>&amp;Add Rule...</value>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 509</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnAddAndGroup.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="btnAddAndGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 80</value>
-  </data>
-  <data name="btnAddAndGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 23</value>
-  </data>
   <data name="btnAddAndGroup.Text" xml:space="preserve">
     <value>Add a "AND" Group</value>
+  </data>
+  <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 509</value>
+  </data>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>&amp;Next&gt;</value>
   </data>
   <data name="btnAddOrGroup.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="btnAddOrGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 80</value>
-  </data>
-  <data name="btnAddOrGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 23</value>
-  </data>
   <data name="btnAddOrGroup.Text" xml:space="preserve">
     <value>Add a "OR" Group</value>
+  </data>
+  <data name="btnDelete.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="btnEdit.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="btnEdit.Text" xml:space="preserve">
     <value>Edit</value>
-  </data>
-  <data name="btnDelete.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 80</value>
-  </data>
-  <data name="btnDelete.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnNext.Text" xml:space="preserve">
-    <value>&amp;Next&gt;</value>
-  </data>
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="btnPrevious.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnPrevious.Text" xml:space="preserve">
-    <value>&lt;&amp;Previous</value>
-  </data>
-  <data name="rulesViewer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 109</value>
-  </data>
-  <data name="rulesViewer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>646, 385</value>
   </data>
 </root>

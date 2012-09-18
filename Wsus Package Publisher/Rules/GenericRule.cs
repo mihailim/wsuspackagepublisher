@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
-    internal abstract partial class GenericRule : UserControl
+    public abstract partial class GenericRule : UserControl
     {
         private bool _isSelected = false;
         private System.Guid _guid;

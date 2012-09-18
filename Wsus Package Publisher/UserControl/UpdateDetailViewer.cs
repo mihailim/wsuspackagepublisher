@@ -10,7 +10,7 @@ using Microsoft.UpdateServices.Administration;
 
 namespace Wsus_Package_Publisher
 {
-    internal partial class UpdateDetailViewer : UserControl
+    public partial class UpdateDetailViewer : UserControl
     {
         private UpdateCollection _update;
         private WsusWrapper _wsus;

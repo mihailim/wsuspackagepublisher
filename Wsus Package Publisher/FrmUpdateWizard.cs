@@ -73,15 +73,15 @@ namespace Wsus_Package_Publisher
 
             //updateIsInstalledRulesWizard :
             updateIsInstalledRulesWizard.TopLevel = false;
-            updateIsInstalledRulesWizard.Controls["btnNext"].Click += new EventHandler(updateIsInstalledRulesWizard_btnNext_Click);
-            updateIsInstalledRulesWizard.Controls["btnCancel"].Click += new EventHandler(updateIsInstalledRulesWizard_btnCancel_Click);
-            updateIsInstalledRulesWizard.Controls["btnPrevious"].Click += new EventHandler(updateIsInstalledRulesWizard_btnPrevious_Click);
+            updateIsInstalledRulesWizard.Controls["tableLayoutPanel1"].Controls["btnNext"].Click += new EventHandler(updateIsInstalledRulesWizard_btnNext_Click);
+            updateIsInstalledRulesWizard.Controls["tableLayoutPanel1"].Controls["btnCancel"].Click += new EventHandler(updateIsInstalledRulesWizard_btnCancel_Click);
+            updateIsInstalledRulesWizard.Controls["tableLayoutPanel1"].Controls["btnPrevious"].Click += new EventHandler(updateIsInstalledRulesWizard_btnPrevious_Click);
 
             //updateIsInstallableRulesWizard :
             updateIsInstallableRulesWizard.TopLevel = false;
-            updateIsInstallableRulesWizard.Controls["btnNext"].Click += new EventHandler(updateIsInstallableRulesWizard_btnNext_Click);
-            updateIsInstallableRulesWizard.Controls["btnCancel"].Click += new EventHandler(updateIsInstallableRulesWizard_btnCancel_Click);
-            updateIsInstallableRulesWizard.Controls["btnPrevious"].Click += new EventHandler(updateIsInstallableRulesWizard_btnPrevious_Click);
+            updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnNext"].Click += new EventHandler(updateIsInstallableRulesWizard_btnNext_Click);
+            updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnCancel"].Click += new EventHandler(updateIsInstallableRulesWizard_btnCancel_Click);
+            updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnPrevious"].Click += new EventHandler(updateIsInstallableRulesWizard_btnPrevious_Click);
 
             if (Revising)
                 InitializeInformationsWizard();
@@ -191,10 +191,10 @@ namespace Wsus_Package_Publisher
             txtBxDescription.Text = resManager.GetString("DescriptionIsInstallableWizard");
 
             if (!Revising)
-                updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Publish");
+                updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnNext"].Text = resManager.GetString("Publish");
             else
             {
-                updateIsInstallableRulesWizard.Controls["btnNext"].Text = resManager.GetString("Revise");
+                updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnNext"].Text = resManager.GetString("Revise");
                 updateIsInstallableRulesWizard.InitializeFromXml(Sdp.IsInstallable);
             }
             updateIsInstallableRulesWizard.Dock = DockStyle.None;

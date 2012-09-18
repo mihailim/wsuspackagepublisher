@@ -48,15 +48,13 @@ namespace Wsus_Package_Publisher
 
         internal void InitializeFromXml(string xml)
         {
-            _masterGroup = new RulesGroup();
-            _currentGroup = _masterGroup;
-
-            _masterGroup = ParseXml(_masterGroup, xml);
+            _masterGroup.Reset();
+            _masterGroup = ParseXml(_masterGroup, xml, true);
 
             grpDsp1.Initialize(_masterGroup);
         }
 
-        private RulesGroup ParseXml(RulesGroup group, string xml)
+        private RulesGroup ParseXml(RulesGroup group, string xml, bool topGroup)
         {
             bool reverseRule = false;
             XmlNamespaceManager namespaceMng = new XmlNamespaceManager(new System.Xml.NameTable());
@@ -78,17 +76,23 @@ namespace Wsus_Package_Publisher
                             reverseRule = (xmlReader.NodeType != XmlNodeType.EndElement);
                         else
                             if (xmlReader.LocalName == "And")
-                            {
-                                RulesGroup tempGroup = new RulesGroup();
-                                group.InnerGroups.Add(Guid.NewGuid(), ParseXml(tempGroup, xmlReader.ReadInnerXml()));
-                            }
-                            else
-                                if (xmlReader.LocalName == "Or")
+                                if (!topGroup)
                                 {
                                     RulesGroup tempGroup = new RulesGroup();
-                                    tempGroup.GroupType = RulesGroup.GroupLogicalOperator.Or;
-                                    group.InnerGroups.Add(Guid.NewGuid(), ParseXml(tempGroup, xmlReader.ReadInnerXml()));
+                                    group.AddGroup(ParseXml(tempGroup, xmlReader.ReadInnerXml(), false));
                                 }
+                                else
+                                    topGroup = false;
+                            else
+                                if (xmlReader.LocalName == "Or")
+                                    if (!topGroup)
+                                    {
+                                        RulesGroup tempGroup = new RulesGroup();
+                                        tempGroup.GroupType = RulesGroup.GroupLogicalOperator.Or;
+                                        group.AddGroup(ParseXml(tempGroup, xmlReader.ReadInnerXml(), false));
+                                    }
+                                    else
+                                        topGroup = false;
                         break;
                     case "bar":
                     case "msiar":
@@ -99,7 +103,7 @@ namespace Wsus_Package_Publisher
                                 GenericRule tempRule = GetSelectedForm(rule);
                                 tempRule.ReverseRule = reverseRule;
                                 tempRule.InitializeWithAttributes(GetAttributes(xmlReader));
-                                group.InnerRules.Add(Guid.NewGuid(), tempRule);
+                                group.AddRule(tempRule);
                                 break;
                             }
                         }
@@ -298,6 +302,5 @@ namespace Wsus_Package_Publisher
             _currentGroup.AddGroup(addedGroup);
             grpDsp1.Initialize(_masterGroup);
         }
-
     }
 }
