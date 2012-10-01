@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTargetGroup = new System.Windows.Forms.DataGridView();
+            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Approvval = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DeadLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dtDeadLine = new System.Windows.Forms.DateTimePicker();
@@ -41,9 +44,6 @@
             this.btnSetApproval = new System.Windows.Forms.Button();
             this.nupHour = new System.Windows.Forms.NumericUpDown();
             this.nupMinute = new System.Windows.Forms.NumericUpDown();
-            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Approvval = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DeadLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTargetGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMinute)).BeginInit();
@@ -51,9 +51,9 @@
             // 
             // dgvTargetGroup
             // 
+            resources.ApplyResources(this.dgvTargetGroup, "dgvTargetGroup");
             this.dgvTargetGroup.AllowUserToAddRows = false;
             this.dgvTargetGroup.AllowUserToDeleteRows = false;
-            resources.ApplyResources(this.dgvTargetGroup, "dgvTargetGroup");
             this.dgvTargetGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTargetGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Group,
@@ -69,7 +69,38 @@
             this.dgvTargetGroup.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTargetGroup.Name = "dgvTargetGroup";
             this.dgvTargetGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTargetGroup.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTargetGroup_CellEndEdit);
             this.dgvTargetGroup.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTargetGroup_CellMouseDoubleClick);
+            this.dgvTargetGroup.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvTargetGroup_EditingControlShowing);
+            // 
+            // Group
+            // 
+            this.Group.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Group.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Group.FillWeight = 30F;
+            resources.ApplyResources(this.Group, "Group");
+            this.Group.Name = "Group";
+            this.Group.ReadOnly = true;
+            // 
+            // Approvval
+            // 
+            this.Approvval.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Approvval.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Approvval.FillWeight = 40F;
+            resources.ApplyResources(this.Approvval, "Approvval");
+            this.Approvval.Name = "Approvval";
+            this.Approvval.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Approvval.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DeadLine
+            // 
+            this.DeadLine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DeadLine.FillWeight = 20F;
+            resources.ApplyResources(this.DeadLine, "DeadLine");
+            this.DeadLine.Name = "DeadLine";
+            this.DeadLine.ReadOnly = true;
             // 
             // btnOk
             // 
@@ -140,35 +171,6 @@
             0,
             0,
             0});
-            // 
-            // Group
-            // 
-            this.Group.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Group.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Group.FillWeight = 30F;
-            resources.ApplyResources(this.Group, "Group");
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
-            // 
-            // Approvval
-            // 
-            this.Approvval.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Approvval.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Approvval.FillWeight = 40F;
-            resources.ApplyResources(this.Approvval, "Approvval");
-            this.Approvval.Name = "Approvval";
-            this.Approvval.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Approvval.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // DeadLine
-            // 
-            this.DeadLine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DeadLine.FillWeight = 20F;
-            resources.ApplyResources(this.DeadLine, "DeadLine");
-            this.DeadLine.Name = "DeadLine";
-            this.DeadLine.ReadOnly = true;
             // 
             // FrmApprovalSet
             // 

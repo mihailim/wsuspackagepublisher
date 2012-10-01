@@ -21,6 +21,10 @@ namespace Wsus_Package_Publisher
         private TreeNode allComputersNode;
         private TreeNode allUpdatesNode;
         private TreeNode allMetaGroupsNode;
+        private FrmWaiting _waitingForm;
+        private System.Threading.Thread _waitingThread;
+        private List<WsusServer> serverList = new List<WsusServer>();
+        private FrmSettings settings = new FrmSettings();
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmWsusPackagePublisher).Assembly);
 
         public FrmWsusPackagePublisher()
@@ -38,28 +42,32 @@ namespace Wsus_Package_Publisher
                 françaisToolStripMenuItem.Checked = false;
                 englishToolStripMenuItem.Checked = true;
             }
-            updateCtrl = new UpdateControl();
-            updateCtrl.Dock = DockStyle.Fill;
-            computerCtrl = new ComputerControl();
-            computerCtrl.Dock = DockStyle.Fill;
+            ClearBeforeConnecting();
             wsus.UpdatePublished += new WsusWrapper.UpdatePublisedEventHandler(UpdatePublished);
             wsus.UpdateRevised += new WsusWrapper.UpdateRevisedEventHandler(UpdateRevised);
         }
-        
+
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Version 0.1.0.0");
+            Version ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            MessageBox.Show("Version " + ver.ToString());
         }
 
         private void btnConnectToServer_Click(object sender, EventArgs e)
         {
             btnConnectToServer.Enabled = false;
-            if (wsus.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.UseSSL, Properties.Settings.Default.ServerPort, Properties.Settings.Default.Language))
+            WsusServer serverWsus = (WsusServer)cmbBxServerList.SelectedItem;
+            StartWaitingForm(resMan.GetString("connecting"));
+            if (wsus.Connect(serverWsus, Properties.Settings.Default.Language))
             {
                 string rootComputerGroupName;
                 Guid rootComputerGroupId;
+                ClearBeforeConnecting();
 
-                serverNode = new TreeNode(Properties.Settings.Default.ServerName);
+                if (wsus.IsReplica)
+                    serverNode = new TreeNode(serverWsus.Name + " (" + resMan.GetString("ReplicaServer") + ")");
+                else
+                    serverNode = new TreeNode(serverWsus.Name);
                 serverNode.Tag = "Server";
                 trvWsus.Nodes.Add(serverNode);
                 rootComputerGroupName = wsus.GetAllComputerTargetGroup().Name;
@@ -79,9 +87,68 @@ namespace Wsus_Package_Publisher
                 serverNode.Expand();
                 allUpdatesNode.Expand();
                 updateCtrl.SetComputerGroups(computerGroups);
+                certificateToolStripMenuItem.Enabled = true;
+                if (wsus.IsReplica)
+                {
+                    createUpdateToolStripMenuItem.Enabled = false;
+                    certificateToolStripMenuItem.Enabled = false;
+                    updateCtrl.LockFunctionnalities(true);
+                }
+                else
+                {
+                    createUpdateToolStripMenuItem.Enabled = true;
+                    certificateToolStripMenuItem.Enabled = true;
+                    updateCtrl.LockFunctionnalities(false);
+                }
             }
             else
+            {
                 btnConnectToServer.Enabled = true;
+                StopWaitingForm();
+                MessageBox.Show(this, resMan.GetString("FailToConnectToServer"));
+                return;
+            }
+            StopWaitingForm();
+        }
+
+        private void ClearBeforeConnecting()
+        {
+            computerGroups.Clear();
+            companies.Clear();
+            splitContainer1.Panel2.Controls.Clear();
+            updateCtrl = null;
+            computerCtrl = null;
+            updateCtrl = new UpdateControl();
+            updateCtrl.Dock = DockStyle.Fill;
+            computerCtrl = new ComputerControl();
+            computerCtrl.Dock = DockStyle.Fill;
+            serverNode = null;
+            allComputersNode = null;
+            allUpdatesNode = null;
+            allMetaGroupsNode = null;
+            trvWsus.Nodes.Clear();
+        }
+
+        private void StartWaitingForm(string description)
+        {
+            _waitingForm = new FrmWaiting();
+            _waitingForm.Description = description;
+            _waitingForm.GoOn = true;
+            System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.BelowNormal;
+            _waitingThread = new System.Threading.Thread(new System.Threading.ThreadStart(_waitingForm.ShowForm));
+            _waitingThread.Priority = System.Threading.ThreadPriority.AboveNormal;
+            _waitingThread.Start();
+            this.Refresh();
+            System.Threading.Thread.Sleep(200);
+        }
+
+        private void StopWaitingForm()
+        {
+            _waitingForm.GoOn = false;
+            _waitingThread.Join(900);
+            _waitingThread = null;
+            System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Normal;
+            this.Focus();
         }
 
         private void CollectUpdates()
@@ -132,7 +199,7 @@ namespace Wsus_Package_Publisher
 
         private void Company_ProductRefreshed(Company company, Product refreshedProduct)
         {
-                updateCtrl.RefreshDisplay();
+            updateCtrl.RefreshDisplay();
         }
 
         private void Company_ProductAdded(Company company, Product productAdded)
@@ -185,16 +252,16 @@ namespace Wsus_Package_Publisher
         private void createUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmUpdateWizard updateWizard;
-            
+
             if (trvWsus.SelectedNode != null)
             {
                 if (trvWsus.SelectedNode.Tag.ToString() == "Product")
                     updateWizard = new FrmUpdateWizard(companies, updateCtrl.Product.Vendor, updateCtrl.Product);
                 else
                     if (trvWsus.SelectedNode.Tag.ToString() == "Company")
-                    updateWizard = new FrmUpdateWizard(companies, companies[trvWsus.SelectedNode.Text]);
-                else
-                updateWizard = new FrmUpdateWizard(companies);
+                        updateWizard = new FrmUpdateWizard(companies, companies[trvWsus.SelectedNode.Text]);
+                    else
+                        updateWizard = new FrmUpdateWizard(companies);
             }
             else
                 updateWizard = new FrmUpdateWizard(companies);
@@ -281,8 +348,20 @@ namespace Wsus_Package_Publisher
 
         private void paramètresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSettings settings = new FrmSettings();
             settings.ShowDialog();
+            FillServerList();
+        }
+
+        private void FillServerList()
+        {
+            serverList = settings.LoadServerSettings();
+            cmbBxServerList.Items.Clear();
+            foreach (WsusServer server in serverList)
+            {
+                cmbBxServerList.Items.Add(server);
+            }
+            if (cmbBxServerList.Items.Count != 0)
+                cmbBxServerList.SelectedIndex = 0;
         }
 
         private void UpdatePublished(IUpdate publishedUpdate)
@@ -323,13 +402,42 @@ namespace Wsus_Package_Publisher
                 companies[oldCompanyName].Products[oldProductName].RemoveUpdate(oldUpdate);
                 companies[newCompanyName].Products[newProductName].AddUpdate(revisedUpdate);
             }
-            
+
             product.RefreshUpdate(revisedUpdate);
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmWsusPackagePublisher_Shown(object sender, EventArgs e)
+        {
+            FillServerList();
+        }
+
+        private void cmbBxServerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBxServerList.SelectedItem != null && cmbBxServerList.SelectedItem.GetType() == typeof(WsusServer) && (cmbBxServerList.SelectedItem as WsusServer) != wsus.Server )
+                btnConnectToServer.Enabled = true;
+            else
+                btnConnectToServer.Enabled = false;
+        }
+
+        private void certificatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wsus.IsConnected)
+            {
+                FrmCertificateManagement certificateMgmt = new FrmCertificateManagement();
+
+                certificateMgmt.StartPosition = FormStartPosition.CenterParent;
+                certificateMgmt.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show(resMan.GetString("ConnectToWsusFirst"));
+                certificateToolStripMenuItem.Enabled = false;
+            }
         }
     }
 }

@@ -1,0 +1,1 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x64\Debug\Wsus Package Publisher.exe.config

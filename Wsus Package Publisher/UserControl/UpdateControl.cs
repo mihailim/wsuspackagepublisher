@@ -21,11 +21,23 @@ namespace Wsus_Package_Publisher
             InitializeComponent();
             updateListViewer1.ContentChanged += new UpdateListViewer.ContentChangedEventHandler(AdjustSplitterDistance);
             updateListViewer1.UpdateSelectionChanged += new UpdateListViewer.UpdateSelectionChangedEventHandler(updateListViewer1_UpdateSelectionChanged);
+            updateListViewer1.ApproveUpdate += new UpdateListViewer.ApproveUpdateEventHandler(updateDetailViewer1_ApproveUpdate);
+            updateListViewer1.DeclineUpdate += new UpdateListViewer.DeclineUpdateEventHandler(updateDetailViewer1_DeclineUpdate);
+            updateListViewer1.DeleteUpdate += new UpdateListViewer.DeleteUpdateEventHandler(updateDetailViewer1_DeleteUpdate);
+            updateListViewer1.ExpireUpdate += new UpdateListViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
+            updateListViewer1.ReviseUpdate += new UpdateListViewer.ReviseUpdateEventHandler(updateDetailViewer1_ReviseUpdate);
+            updateListViewer1.ResignUpdate += new UpdateListViewer.ResignUpdateEventHandler(updateListViewer1_ResignUpdate);
+
             updateDetailViewer1.ApproveUpdate += new UpdateDetailViewer.ApproveUpdateEventHandler(updateDetailViewer1_ApproveUpdate);
             updateDetailViewer1.DeclineUpdate += new UpdateDetailViewer.DeclineUpdateEventHandler(updateDetailViewer1_DeclineUpdate);
             updateDetailViewer1.DeleteUpdate += new UpdateDetailViewer.DeleteUpdateEventHandler(updateDetailViewer1_DeleteUpdate);
             updateDetailViewer1.ExpireUpdate += new UpdateDetailViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
             updateDetailViewer1.ReviseUpdate += new UpdateDetailViewer.ReviseUpdateEventHandler(updateDetailViewer1_ReviseUpdate);
+        }
+
+        void updateListViewer1_DeclineUpdate(UpdateCollection udpatesToDecline)
+        {
+            throw new NotImplementedException();
         }
 
         #region (Properties - Propriétés)
@@ -58,6 +70,11 @@ namespace Wsus_Package_Publisher
         {
             _computerGroups = computerGroups;
             updateDetailViewer1.SetComputerGroups(computerGroups);
+        }
+
+        internal void LockFunctionnalities(bool isLock)
+        {
+            updateDetailViewer1.LockFunctionnalities(isLock);
         }
 
         private void AdjustSplitterDistance()
@@ -121,9 +138,9 @@ namespace Wsus_Package_Publisher
                                     _wsus.ApproveUpdateForInstallation(approval.GroupId, updateToApprove, approval.DeadLine);
                                 else
                                     _wsus.ApproveUpdateForInstallation(approval.GroupId, updateToApprove);
-                                    break;
+                                break;
                             case ApprovalObject.Approvals.ApproveForOptionalInstallation:
-                                        _wsus.ApproveUpdateForOptionalInstallation(approval.GroupId, updateToApprove);
+                                _wsus.ApproveUpdateForOptionalInstallation(approval.GroupId, updateToApprove);
                                 break;
                             case ApprovalObject.Approvals.ApproveForUninstallation:
                                 if (approval.HasDeadLine && !updateToApprove.InstallationBehavior.CanRequestUserInput)
@@ -141,7 +158,7 @@ namespace Wsus_Package_Publisher
                         }
                     }
                 }
-                
+
             }
         }
 
@@ -149,6 +166,14 @@ namespace Wsus_Package_Publisher
         {
             FrmUpdateWizard updateWizard = new FrmUpdateWizard(Companies, _wsus.GetMetaData(updateToRevise));
             updateWizard.ShowDialog();
+        }
+
+        private void updateListViewer1_ResignUpdate(UpdateCollection updates)
+        {
+            foreach (IUpdate updateToResign in updates)
+            {
+                MessageBox.Show(_wsus.ResignPackage(updateToResign));
+            }
         }
 
         #endregion

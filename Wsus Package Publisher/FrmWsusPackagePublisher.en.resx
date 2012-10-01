@@ -124,29 +124,50 @@
   <data name="btnConnectToServer.Text" xml:space="preserve">
     <value>Connect to Server</value>
   </data>
+  <data name="FichierStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 23</value>
+  </data>
+  <data name="FichierStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="certificateToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Certificate...</value>
+  </data>
+  <data name="paramètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 30</value>
+  </data>
+  <data name="paramètresToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Settings...</value>
+  </data>
+  <data name="langagueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 30</value>
+  </data>
+  <data name="langagueToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Language</value>
+  </data>
+  <data name="outilsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 23</value>
+  </data>
+  <data name="outilsToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="misesÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 23</value>
+  </data>
+  <data name="misesÀJourToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Updates</value>
+  </data>
+  <data name="aideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 23</value>
+  </data>
+  <data name="aideToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
   <data name="quitterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 22</value>
   </data>
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quit</value>
-  </data>
-  <data name="FichierStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="FichierStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="certificatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
-  </data>
-  <data name="certificatToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Certificat...</value>
-  </data>
-  <data name="paramètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
-  </data>
-  <data name="paramètresToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Settings...</value>
   </data>
   <data name="françaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 22</value>
@@ -160,41 +181,11 @@
   <data name="englishToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;English</value>
   </data>
-  <data name="langagueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
-  </data>
-  <data name="langagueToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Language</value>
-  </data>
-  <data name="outilsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="outilsToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Tools</value>
-  </data>
-  <data name="créerUneMiseÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
-  </data>
-  <data name="créerUneMiseÀJourToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Create Update...</value>
-  </data>
-  <data name="misesÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="misesÀJourToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Updates</value>
-  </data>
   <data name="aProposToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="aProposToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;About...</value>
-  </data>
-  <data name="aideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="aideToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Help</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

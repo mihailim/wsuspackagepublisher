@@ -467,15 +467,63 @@ Version (mandatory): File Version.</value>
     <value>Update revised.</value>
   </data>
   <data name="ApproveForUninstallation" xml:space="preserve">
-    <value>Approval For Desinstallation</value>
+    <value>Approval For Uninstallation</value>
   </data>
   <data name="ApproveForInstallation" xml:space="preserve">
     <value>Approve For Installation</value>
   </data>
   <data name="ApproveForOptionalInstallation" xml:space="preserve">
-    <value>Approve For Optionnal Installation</value>
+    <value>Approve For Optional Installation</value>
   </data>
   <data name="Unchanged" xml:space="preserve">
     <value>Unchanged</value>
+  </data>
+  <data name="NeedServerSettings" xml:space="preserve">
+    <value>You need to provide settings for, at least, one server.</value>
+  </data>
+  <data name="CertificateSuccessfullyGenerate" xml:space="preserve">
+    <value>The certificate has been successfully generated.</value>
+  </data>
+  <data name="CertificateSuccessfullyLoaded" xml:space="preserve">
+    <value>The certificate has been successfully loaded.</value>
+  </data>
+  <data name="CertificateSuccessfullySaved" xml:space="preserve">
+    <value>The certificate has been successfully saved.</value>
+  </data>
+  <data name="ConnectToWsusFirst" xml:space="preserve">
+    <value>Connect to Wsus server first.</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approuved</value>
+  </data>
+  <data name="Declined" xml:space="preserve">
+    <value>Declined</value>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>Resign</value>
+  </data>
+  <data name="ResignPackageFailed" xml:space="preserve">
+    <value>Resign package failed with error</value>
+  </data>
+  <data name="SuccessfullyResignPackage" xml:space="preserve">
+    <value>Package successfully resigned.</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Superseded</value>
+  </data>
+  <data name="ReplicaServer" xml:space="preserve">
+    <value>Replica</value>
+  </data>
+  <data name="connecting" xml:space="preserve">
+    <value>Connecting...</value>
+  </data>
+  <data name="FailToConnectToServer" xml:space="preserve">
+    <value>Fail to connect to the server.</value>
   </data>
 </root>

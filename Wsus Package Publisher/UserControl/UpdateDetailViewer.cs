@@ -33,6 +33,8 @@ namespace Wsus_Package_Publisher
             cmbBxFilter.Items.Add(resMan.GetString("NotInstalled"));
             cmbBxFilter.Items.Add(resMan.GetString("Unknown"));
             cmbBxFilter.SelectedIndex = 0;
+
+            LockFunctionnalities(_wsus.IsReplica);
         }
 
         #region (Methods - Méthodes)
@@ -52,12 +54,7 @@ namespace Wsus_Package_Publisher
             ClearDisplay();
 
             // Informations Tab
-
-            btnApprove.Enabled = true;
-            btnDecline.Enabled = true;
-            btnExpire.Enabled = true;
-            btnRevise.Enabled = true;
-
+                        
             if (updates != null && updates.Count != 0)
             {
                 IUpdate update = updates[0];
@@ -86,8 +83,8 @@ namespace Wsus_Package_Publisher
                         txtBxCreationDate.Text = update.CreationDate.ToString();
                     if (update.ArrivalDate != null)
                         txtBxArrivalDate.Text = update.ArrivalDate.ToString();
-                    btnDecline.Enabled = !update.IsDeclined;
-                    btnExpire.Enabled = (update.PublicationState != PublicationState.Expired);
+                    btnDecline.Enabled = !update.IsDeclined && !_wsus.IsReplica;
+                    btnExpire.Enabled = (update.PublicationState != PublicationState.Expired && !_wsus.IsReplica);
 
                     if ((update.AdditionalInformationUrls.Count != 0) && (!string.IsNullOrEmpty(update.AdditionalInformationUrls[0].ToString())))
                         txtBxAdditionnalInformationURL.Text = update.AdditionalInformationUrls[0].ToString();
@@ -143,6 +140,15 @@ namespace Wsus_Package_Publisher
             }
 
             ViewedUpdates = updates;
+        }
+
+        internal void LockFunctionnalities(bool isLock)
+        {
+            btnApprove.Enabled = !isLock;
+            btnDecline.Enabled = !isLock;
+            btnDelete.Enabled = !isLock;
+            btnExpire.Enabled = !isLock;
+            btnRevise.Enabled = !isLock;
         }
 
         private System.Windows.Forms.CheckState GetApproveState(UpdateCollection updates)
@@ -236,7 +242,7 @@ namespace Wsus_Package_Publisher
             btnApprove.Enabled = false;
             if (ApproveUpdate != null)
                 ApproveUpdate(ViewedUpdates);
-            btnApprove.Enabled = true;
+            btnApprove.Enabled = !_wsus.IsReplica;
         }
 
         private void btnDecline_Click(object sender, EventArgs e)
@@ -244,7 +250,7 @@ namespace Wsus_Package_Publisher
             btnDecline.Enabled = false;
             if (DeclineUpdate != null)
                 DeclineUpdate(ViewedUpdates);
-            btnDecline.Enabled = true;
+            btnDecline.Enabled = !_wsus.IsReplica;
         }
 
         private void btnExpire_Click(object sender, EventArgs e)
@@ -252,7 +258,7 @@ namespace Wsus_Package_Publisher
             btnExpire.Enabled = false;
             if (ExpireUpdate != null)
                 ExpireUpdate(ViewedUpdates);
-            btnExpire.Enabled = true;
+            btnExpire.Enabled = !_wsus.IsReplica;
         }
 
         private void btnRevise_Click(object sender, EventArgs e)
@@ -260,7 +266,7 @@ namespace Wsus_Package_Publisher
             btnRevise.Enabled = false;
             if (ReviseUpdate != null)
                 ReviseUpdate(ViewedUpdates[0]);
-            btnRevise.Enabled = true;
+            btnRevise.Enabled = !_wsus.IsReplica;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -268,7 +274,7 @@ namespace Wsus_Package_Publisher
             btnDelete.Enabled = false;
             if (DeleteUpdate != null)
                 DeleteUpdate(ViewedUpdates);
-            btnDelete.Enabled = true;
+            btnDelete.Enabled = !_wsus.IsReplica;
         }
 
         private void cmbBxFilter_SelectedIndexChanged(object sender, EventArgs e)

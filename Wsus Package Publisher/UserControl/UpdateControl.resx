@@ -145,7 +145,7 @@
     <value>updateListViewer1</value>
   </data>
   <data name="&gt;&gt;updateListViewer1.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.UpdateListViewer, Wsus Package Publisher, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Wsus_Package_Publisher.UpdateListViewer, Wsus Package Publisher, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;updateListViewer1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -172,7 +172,7 @@
     <value>0, 0</value>
   </data>
   <data name="updateDetailViewer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>781, 344</value>
+    <value>781, 340</value>
   </data>
   <data name="updateDetailViewer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -181,7 +181,7 @@
     <value>updateDetailViewer1</value>
   </data>
   <data name="&gt;&gt;updateDetailViewer1.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.UpdateDetailViewer, Wsus Package Publisher, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Wsus_Package_Publisher.UpdateDetailViewer, Wsus Package Publisher, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;updateDetailViewer1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -206,6 +206,9 @@
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>389</value>
+  </data>
+  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

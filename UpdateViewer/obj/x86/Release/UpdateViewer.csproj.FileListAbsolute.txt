@@ -1,9 +1,0 @@
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\bin\Release\UpdateViewer.exe
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\bin\Release\UpdateViewer.pdb
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\ResolveAssemblyReference.cache
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\UpdateViewer.FrmUpdateViewer.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\UpdateViewer.Properties.Resources.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\ResGen.read.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\ResGen.write.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\UpdateViewer.exe
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\UpdateViewer\obj\x86\Release\UpdateViewer.pdb

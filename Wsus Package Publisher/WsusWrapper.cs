@@ -8,11 +8,20 @@ namespace Wsus_Package_Publisher
 {
     internal sealed class WsusWrapper
     {
-        private AdminProxy proxy = new AdminProxy();
         private IUpdateServer wsus;
         private static WsusWrapper instance;
+        private WsusServer _wsusServer;
+        private System.Windows.Forms.Timer _timer;
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(WsusWrapper).Assembly);
 
-        private WsusWrapper() { }
+        private WsusWrapper()
+        {
+            _timer = new System.Windows.Forms.Timer();
+        }
+
+        internal bool IsConnected {get; private set;}
+
+        internal bool IsReplica { get; private set; }
 
         /// <summary>
         /// Allow to always get the same instance of this Class.
@@ -33,20 +42,48 @@ namespace Wsus_Package_Publisher
         /// <param name="serverPort">Communication port to use (80, 443, 8530, 8531)</param>
         /// <param name="preferredCulture">Culture to use for displaying computer group name.</param>
         /// <returns></returns>
-        internal bool Connect(string serverName, bool useSSL, int serverPort, string preferredCulture)
+        internal bool Connect(WsusServer serverToConnect, string preferredCulture)
         {
             try
             {
-                wsus = AdminProxy.GetUpdateServer(serverName, useSSL, serverPort);
-                //wsus = proxy.GetRemoteUpdateServerInstance(serverName, useSSL, serverPort);
+                if (serverToConnect.IsLocal)
+                    wsus = AdminProxy.GetUpdateServer();
+                else
+                {
+#if DEBUG
+                    System.Windows.Forms.MessageBox.Show("Connecting to remote server : " + serverToConnect);
+#endif
+                    wsus = AdminProxy.GetUpdateServer(serverToConnect.Name, serverToConnect.UseSSL, serverToConnect.Port);
+                    _timer.Interval = 10000;
+                    _timer.Tick += new EventHandler(_timer_Tick);
+                    _timer.Start();
+                }
                 wsus.PreferredCulture = preferredCulture;
+                _wsusServer = serverToConnect;
             }
-            catch (WsusConnectionException ex)
+            catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+#if DEBUG
+                System.Windows.Forms.MessageBox.Show("Connection failed : \r\n" + ex.Message);
+#endif
                 return false;
             }
+            IsConnected = true;
+            IsReplica = wsus.GetConfiguration().IsReplicaServer;
+
             return true;
+        }
+
+        void _timer_Tick(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            GetAllComputerTargetGroup();
+            _timer.Start();
+        }
+
+        internal WsusServer Server
+        {
+            get { return _wsusServer; }
         }
 
         /// <summary>
@@ -96,11 +133,11 @@ namespace Wsus_Package_Publisher
         /// <returns>Collection of updates.</returns>
         internal UpdateCollection GetAllUpdates()
         {
-            return wsus.GetUpdates();            
+            return wsus.GetUpdates();
         }
 
         internal IUpdate GetUpdate(UpdateRevisionId updateId)
-        {
+        {            
             return wsus.GetUpdate(updateId);
         }
 
@@ -121,6 +158,8 @@ namespace Wsus_Package_Publisher
 
         internal void PublishUpdate(FrmUpdateFilesWizard filesWizard, FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard)
         {
+            if (!_wsusServer.IsLocal)
+                _timer.Stop();
             SoftwareDistributionPackage sdp = new SoftwareDistributionPackage();
             string tmpFolderPath;
 
@@ -148,7 +187,7 @@ namespace Wsus_Package_Publisher
             if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Xml\\"))
                 System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Xml\\");
             if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Bin\\"))
-            System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Bin\\");
+                System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Bin\\");
 
             System.IO.FileInfo updateFile = new System.IO.FileInfo(filesWizard.updateFileName);
             updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Bin\\" + updateFile.Name);
@@ -158,6 +197,8 @@ namespace Wsus_Package_Publisher
             publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
             publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
             //System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
+            if (!_wsusServer.IsLocal)
+                _timer.Start();
             if (UpdatePublished != null)
                 UpdatePublished(GetUpdate(new UpdateRevisionId(sdp.PackageId)));
         }
@@ -206,6 +247,8 @@ namespace Wsus_Package_Publisher
 
         internal void ReviseUpate(FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard, SoftwareDistributionPackage sdp)
         {
+            if (!_wsusServer.IsLocal)
+                _timer.Stop();
             string tmpFolderPath;
             IUpdate oldUpdate = GetUpdate(new UpdateRevisionId(sdp.PackageId));
 
@@ -221,8 +264,31 @@ namespace Wsus_Package_Publisher
             IPublisher publisher = wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
             publisher.RevisePackage();
+            if (!_wsusServer.IsLocal)
+                _timer.Start();
             if (UpdateRevised != null)
                 UpdateRevised(oldUpdate, GetUpdate(new UpdateRevisionId(sdp.PackageId)));
+        }
+
+        internal string ResignPackage(IUpdate update)
+        {
+            string result = resMan.GetString("SuccessfullyResignPackage");
+
+            try
+            {
+                string tmpFile = GetTempFolder() + update.Id.UpdateId.ToString() + ".xml";
+                wsus.ExportPackageMetadata(update.Id, tmpFile);
+                SoftwareDistributionPackage sdp = new SoftwareDistributionPackage(tmpFile);
+                IPublisher publisher = wsus.GetPublisher(tmpFile);
+                publisher.ResignPackage();
+                System.IO.File.Delete(tmpFile);
+            }
+            catch (Exception ex)
+            {
+                result = resMan.GetString("ResignPackageFailed" + " : " + ex.Message);
+            }
+
+            return result;
         }
 
         private string GetTempFolder()
@@ -258,7 +324,7 @@ namespace Wsus_Package_Publisher
 
         internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove, DateTime deadLine)
         {
-            updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId) , deadLine);
+            updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId), deadLine);
         }
 
         internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove)
@@ -289,8 +355,9 @@ namespace Wsus_Package_Publisher
         internal void ExpireUpdate(IUpdate updateToExpire)
         {
             updateToExpire.ExpirePackage();
+            UpdateRevisionId id = new UpdateRevisionId(updateToExpire.Id.UpdateId, ++updateToExpire.Id.RevisionNumber);
             if (UpdateExpired != null)
-                UpdateExpired(GetUpdate(updateToExpire.Id));
+                UpdateExpired(GetUpdate(id));
         }
 
         internal UpdateApprovalCollection GetUpdateApprovalStatus(Guid groupId, IUpdate update)
@@ -328,10 +395,41 @@ namespace Wsus_Package_Publisher
             return wsus.GetComputerTargetGroup(groupId);
         }
 
+        internal void GenerateSelfSignedCertificate()
+        {
+            Microsoft.UpdateServices.Administration.IUpdateServerConfiguration wsusConfiguration = wsus.GetConfiguration();
+
+            wsusConfiguration.SetSigningCertificate();
+            wsusConfiguration.Save();
+        }
+
+        internal void UseExistingCertificate(string filePath, string password)
+        {
+            Microsoft.UpdateServices.Administration.IUpdateServerConfiguration wsusConfiguration = wsus.GetConfiguration();
+
+            wsusConfiguration.SetSigningCertificate(filePath, password);
+            wsusConfiguration.Save();
+        }
+
+        internal void SaveCertificate(string filePath)
+        {
+            Microsoft.UpdateServices.Administration.IUpdateServerConfiguration wsusConfiguration = wsus.GetConfiguration();
+
+            wsusConfiguration.GetSigningCertificate(filePath);
+        }
+
         private void publisher_Progress(object sender, EventArgs e)
         {
             if (UpdatePublishingProgress != null)
                 UpdatePublishingProgress(sender, e);
+        }
+
+
+
+        ~WsusWrapper()
+        {
+            _timer.Stop();
+            _timer = null;
         }
 
         public delegate void UpdateDeclinedEventHandler(IUpdate declinedUpdate);

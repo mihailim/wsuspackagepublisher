@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="Language" Type="System.String" Scope="User">
-      <Value Profile="(Default)">en</Value>
+      <Value Profile="(Default)">fr</Value>
     </Setting>
-    <Setting Name="ServerName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Credential" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SameAsApplication</Value>
     </Setting>
-    <Setting Name="ServerPort" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">80</Value>
+    <Setting Name="Login" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Administrateur</Value>
     </Setting>
-    <Setting Name="UseSSL" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Password</Value>
     </Setting>
   </Settings>
 </SettingsFile>

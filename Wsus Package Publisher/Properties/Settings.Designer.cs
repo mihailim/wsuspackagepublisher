@@ -25,7 +25,7 @@ namespace Wsus_Package_Publisher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fr")]
         public string Language {
             get {
                 return ((string)(this["Language"]));
@@ -37,37 +37,37 @@ namespace Wsus_Package_Publisher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ServerName {
+        [global::System.Configuration.DefaultSettingValueAttribute("SameAsApplication")]
+        public string Credential {
             get {
-                return ((string)(this["ServerName"]));
+                return ((string)(this["Credential"]));
             }
             set {
-                this["ServerName"] = value;
+                this["Credential"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("80")]
-        public int ServerPort {
+        [global::System.Configuration.DefaultSettingValueAttribute("Administrateur")]
+        public string Login {
             get {
-                return ((int)(this["ServerPort"]));
+                return ((string)(this["Login"]));
             }
             set {
-                this["ServerPort"] = value;
+                this["Login"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseSSL {
+        [global::System.Configuration.DefaultSettingValueAttribute("Password")]
+        public string Password {
             get {
-                return ((bool)(this["UseSSL"]));
+                return ((string)(this["Password"]));
             }
             set {
-                this["UseSSL"] = value;
+                this["Password"] = value;
             }
         }
     }

@@ -140,9 +140,6 @@
   <data name="&gt;&gt;txtBxCommandLine.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 98</value>
-  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -170,6 +167,9 @@
   <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -178,6 +178,9 @@
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 369</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
@@ -190,6 +193,9 @@
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
+  </data>
+  <data name="btnRemoveAdditionnalFile.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -759,11 +765,11 @@
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
+  <data name="btnRemoveAdditionnalFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 122</value>
+  </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
     <value>btnNext</value>
@@ -777,14 +783,14 @@
   <data name="&gt;&gt;txtBxCommandLine.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lstBxAdditionnalFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>635, 422</value>
   </data>
   <data name="txtBxCommandLine.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -810,11 +816,11 @@
   <data name="&gt;&gt;btnAddAdditonnalFiles.Name" xml:space="preserve">
     <value>btnAddAdditonnalFiles</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 387</value>
   </data>
   <data name="&gt;&gt;btnBrowseUpdateFile.Parent" xml:space="preserve">
     <value>$this</value>
@@ -831,9 +837,6 @@
   <data name="label3.Text" xml:space="preserve">
     <value>label3</value>
   </data>
-  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 387</value>
-  </data>
   <data name="&gt;&gt;btnAddAdditonnalFiles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -846,8 +849,8 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="btnRemoveAdditionnalFile.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>435, 387</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -858,7 +861,7 @@
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;lstBxAdditionnalFiles.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="txtBxCommandLine.Size" type="System.Drawing.Size, System.Drawing">
@@ -879,20 +882,26 @@
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 387</value>
   </data>
   <data name="&gt;&gt;btnRemoveAdditionnalFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>label6</value>
+  </data>
   <data name="label5.Text" xml:space="preserve">
     <value>label5</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;txtBxUpdateFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lstBxAdditionnalFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lstBxAdditionnalFiles.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnAddAdditonnalFiles.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -915,11 +924,8 @@
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnRemoveAdditionnalFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>504, 122</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 98</value>
   </data>
   <data name="txtBxUpdateFile.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -927,23 +933,14 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 39</value>
   </data>
-  <data name="lstBxAdditionnalFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
-  </data>
-  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="btnBrowseUpdateFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <data name="btnBrowseUpdateFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>504, 10</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveAdditionnalFile.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="txtBxUpdateFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 12</value>
@@ -957,8 +954,8 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
+  <data name="lstBxAdditionnalFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -968,6 +965,9 @@
   </data>
   <data name="btnAddAdditonnalFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>504, 93</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>635, 422</value>
   </data>
   <data name="btnRemoveAdditionnalFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -990,11 +990,11 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;btnRemoveAdditionnalFile.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtBxUpdateFile.Parent" xml:space="preserve">
     <value>$this</value>

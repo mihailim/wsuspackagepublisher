@@ -60,7 +60,7 @@ namespace Wsus_Package_Publisher
 
         internal void Display(Guid computerGroupId)
         {
-           ComputerCollection = _wsus.GetComputerTargets(computerGroupId);
+            ComputerCollection = _wsus.GetComputerTargets(computerGroupId);
         }
 
         private void dGVComputer_SelectionChanged(object sender, EventArgs e)
@@ -69,11 +69,72 @@ namespace Wsus_Package_Publisher
                 SelectionChanged(dGVComputer.SelectedRows);
         }
 
-#region (Event Delegates - événements)
+        private void dGVComputer_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs mouse = (MouseEventArgs)e;
+            if (mouse.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (dGVComputer.SelectedRows.Count != 0)
+                    ctxMnuComputer.Show(this, new Point(mouse.X, mouse.Y));
+            }
+        }
+
+        private void ctxMnuComputer_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            List<string> targetComputers = new List<string>();
+            string login = null;
+            string password = null;
+            FrmRemoteExecution remoteExecution = new FrmRemoteExecution();
+
+            foreach (DataGridViewRow row in dGVComputer.SelectedRows)
+            {
+                targetComputers.Add(row.Cells[0].Value.ToString());
+            }
+            ctxMnuComputer.Hide();
+            switch (Properties.Settings.Default.Credential)
+            {
+                case "Ask":
+                    Credentials cred = new Credentials();
+                    if (cred.ShowDialog() == DialogResult.OK)
+                    {
+                        login = cred.Login;
+                        password = cred.Password;
+                    }
+                    break;
+                case "Specified":
+                    login = Properties.Settings.Default.Login;
+                    password = Properties.Settings.Default.Password;
+                    break;
+                default:
+                    break;
+            }
+            remoteExecution.Show();
+            switch (e.ClickedItem.Name)
+            {
+                case "DetectNow":
+                    remoteExecution.SendDetectNow(targetComputers, login, password);
+                    break;
+                case "ReportNow":
+                    remoteExecution.SendReportNow(targetComputers, login, password);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+
+
+        #region (Event Delegates - événements)
 
         public delegate void SelectionChangedEventHandler(DataGridViewSelectedRowCollection rows);
         public event SelectionChangedEventHandler SelectionChanged;
 
-#endregion
+        #endregion
+
+
+
+
+
     }
 }

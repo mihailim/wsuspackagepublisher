@@ -130,27 +130,24 @@
   <data name="trvWsus.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer2</value>
-  </data>
   <data name="françaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
   </data>
-  <data name="&gt;&gt;paramètresToolStripMenuItem.Name" xml:space="preserve">
-    <value>paramètresToolStripMenuItem</value>
+  <data name="&gt;&gt;createUpdateToolStripMenuItem.Name" xml:space="preserve">
+    <value>createUpdateToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Name" xml:space="preserve">
-    <value>splitContainer2</value>
+  <data name="createUpdateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 22</value>
   </data>
   <data name="&gt;&gt;quitterToolStripMenuItem.Name" xml:space="preserve">
     <value>quitterToolStripMenuItem</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmWsusPackagePublisher</value>
+  <data name="&gt;&gt;btnConnectToServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -165,9 +162,6 @@
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer2</value>
-  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -178,31 +172,22 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="outilsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 20</value>
+    <value>12, 23</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.Name" xml:space="preserve">
-    <value>splitContainer2.Panel1</value>
+  <data name="&gt;&gt;langagueToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;françaisToolStripMenuItem.Name" xml:space="preserve">
     <value>françaisToolStripMenuItem</value>
   </data>
   <data name="FichierStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 20</value>
-  </data>
-  <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
-    <value>298</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>12, 23</value>
   </data>
   <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -213,14 +198,11 @@
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
-  <data name="&gt;&gt;btnConnectToServer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="trvWsus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 479</value>
   </data>
   <data name="trvWsus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>697, 518</value>
   </data>
   <data name="&gt;&gt;langagueToolStripMenuItem.Name" xml:space="preserve">
     <value>langagueToolStripMenuItem</value>
@@ -228,23 +210,14 @@
   <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
     <value>splitContainer1</value>
   </data>
-  <data name="toolStripComboBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;trvWsus.Name" xml:space="preserve">
     <value>trvWsus</value>
   </data>
-  <data name="&gt;&gt;toolStripComboBox1.Name" xml:space="preserve">
-    <value>toolStripComboBox1</value>
+  <data name="&gt;&gt;paramètresToolStripMenuItem.Name" xml:space="preserve">
+    <value>paramètresToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;btnConnectToServer.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+  <data name="splitContainer1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
     <value>englishToolStripMenuItem</value>
@@ -252,23 +225,23 @@
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1019, 520</value>
   </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
   <data name="paramètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
-  </data>
-  <data name="splitContainer2.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
   </data>
   <data name="&gt;&gt;menuStrip.Name" xml:space="preserve">
     <value>menuStrip</value>
   </data>
-  <data name="&gt;&gt;créerUneMiseÀJourToolStripMenuItem.Name" xml:space="preserve">
-    <value>créerUneMiseÀJourToolStripMenuItem</value>
-  </data>
   <data name="&gt;&gt;aideToolStripMenuItem.Name" xml:space="preserve">
     <value>aideToolStripMenuItem</value>
   </data>
-  <data name="trvWsus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 479</value>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnConnectToServer.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -288,47 +261,29 @@
   <data name="&gt;&gt;aProposToolStripMenuItem.Name" xml:space="preserve">
     <value>aProposToolStripMenuItem</value>
   </data>
-  <data name="splitContainer2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="splitContainer1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="&gt;&gt;misesÀJourToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbBxServerList.Name" xml:space="preserve">
+    <value>cmbBxServerList</value>
   </data>
-  <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1019, 24</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.Name" xml:space="preserve">
-    <value>splitContainer2.Panel2</value>
-  </data>
-  <data name="&gt;&gt;toolStripComboBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="certificateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 30</value>
   </data>
   <data name="&gt;&gt;aProposToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;FichierStripMenuItem.Name" xml:space="preserve">
-    <value>FichierStripMenuItem</value>
+  <data name="cmbBxServerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="trvWsus.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
     <value>splitContainer1</value>
   </data>
   <data name="&gt;&gt;menuStrip.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="créerUneMiseÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 22</value>
   </data>
   <data name="&gt;&gt;menuStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2008,8 +1963,11 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1019, 27</value>
+  </data>
   <data name="misesÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 20</value>
+    <value>12, 23</value>
   </data>
   <data name="aProposToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
@@ -2017,14 +1975,17 @@
   <data name="&gt;&gt;outilsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;certificateToolStripMenuItem.Name" xml:space="preserve">
+    <value>certificateToolStripMenuItem</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Wsus Package Publisher</value>
   </data>
+  <data name="&gt;&gt;certificateToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="trvWsus.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -2035,23 +1996,17 @@
   <data name="&gt;&gt;trvWsus.Type" xml:space="preserve">
     <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;langagueToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="splitContainer2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <data name="&gt;&gt;certificatToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbBxServerList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnConnectToServer.Name" xml:space="preserve">
     <value>btnConnectToServer</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="aideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 20</value>
+    <value>12, 23</value>
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2065,10 +2020,10 @@
   <data name="btnConnectToServer.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnConnectToServer.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
   </data>
-  <data name="&gt;&gt;créerUneMiseÀJourToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;createUpdateToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
@@ -2089,8 +2044,14 @@
   <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
     <value>splitContainer1</value>
   </data>
+  <data name="&gt;&gt;FichierStripMenuItem.Name" xml:space="preserve">
+    <value>FichierStripMenuItem</value>
+  </data>
   <data name="certificatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmWsusPackagePublisher</value>
   </data>
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
     <value>1</value>

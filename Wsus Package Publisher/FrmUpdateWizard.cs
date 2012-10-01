@@ -105,6 +105,18 @@ namespace Wsus_Package_Publisher
         private void updateFilesWizard_btnNext_Click(object sender, EventArgs e)
         {
             updateFilesWizard.Hide();
+            if (updateFilesWizard.FileType == FrmUpdateFilesWizard.UpdateType.WindowsInstaller)
+            {
+                MsiReader.MsiReader msiReader = new MsiReader.MsiReader();
+                string msiCode = msiReader.GetProductCode(updateFilesWizard.updateFileName);
+                updateIsInstalledRulesWizard.InitializeFromXml("<msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/>");
+                updateIsInstallableRulesWizard.InitializeFromXml("<lar:Not><msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/></lar:Not>");
+            }
+            else
+            {
+                updateIsInstalledRulesWizard.InitializeFromXml("");
+                updateIsInstallableRulesWizard.InitializeFromXml("");
+            }
             InitializeInformationsWizard();
         }
 

@@ -217,10 +217,10 @@
     <value>110, 291</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 13</value>
+    <value>271, 13</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Optionnal : Select Additionnal Files like configuration files.</value>
+    <value>Optional : Select Additionnal Files like configuration files.</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
@@ -229,10 +229,10 @@
     <value>110, 365</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 13</value>
+    <value>257, 13</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>Optionnal : Provide Command Line like /q, /s, /silent...</value>
+    <value>Optional : Provide Command Line like /q, /s, /silent...</value>
   </data>
   <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>

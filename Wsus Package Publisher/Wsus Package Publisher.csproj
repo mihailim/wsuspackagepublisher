@@ -53,13 +53,32 @@
   <PropertyGroup>
     <StartupObject>Wsus_Package_Publisher.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'All|x86'">
+    <OutputPath>bin\x86\All\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'All|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\All\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.UpdateServices.Administration, Version=3.1.6001.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Update Services\Api\Microsoft.UpdateServices.Administration.dll</HintPath>
     </Reference>
+    <Reference Include="MsiReader">
+      <HintPath>C:\Users\Courtel\Documents\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\Release\MsiReader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -71,7 +90,31 @@
   <ItemGroup>
     <Compile Include="ApprovalObject.cs" />
     <Compile Include="Company.cs" />
+    <Compile Include="Credentials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Credentials.Designer.cs">
+      <DependentUpon>Credentials.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions\WsusConnectionException.cs" />
+    <Compile Include="FrmCertificateManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCertificateManagement.Designer.cs">
+      <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWaiting.Designer.cs">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRemoteExecution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRemoteExecution.Designer.cs">
+      <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ComputerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,7 +281,39 @@
     <Compile Include="UserControl\UpdateListViewer.Designer.cs">
       <DependentUpon>UpdateListViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="WsusServer.cs" />
     <Compile Include="WsusWrapper.cs" />
+    <EmbeddedResource Include="Credentials.fr.resx">
+      <DependentUpon>Credentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Credentials.resx">
+      <DependentUpon>Credentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCertificateManagement.en.resx">
+      <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCertificateManagement.fr.resx">
+      <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCertificateManagement.resx">
+      <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemoteExecution.fr.resx">
+      <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWaiting.en.resx">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWaiting.fr.resx">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWaiting.resx">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemoteExecution.resx">
+      <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ComputerControl.resx">
       <DependentUpon>ComputerControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,12 +346,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.en.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.fr.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateInformationsWizard.en.resx">
       <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
@@ -386,6 +464,7 @@
     </Compile>
     <EmbeddedResource Include="FrmUpdateFilesWizard.en.resx">
       <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateFilesWizard.fr.resx">
       <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
@@ -474,7 +553,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Options.xml" />
     <Content Include="Package Publisher-64.ico" />
+    <None Include="Resources\certificat-icone-4129.ico" />
+    <None Include="Resources\Certificate.ico" />
     <None Include="Resources\Valider-64.png" />
     <None Include="Resources\Settings-64.png" />
     <None Include="Resources\Server-64.png" />

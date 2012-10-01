@@ -120,6 +120,9 @@
   <data name="Title.HeaderText" xml:space="preserve">
     <value>Titre</value>
   </data>
+  <data name="UpdateStatus.HeaderText" xml:space="preserve">
+    <value>Statut</value>
+  </data>
   <data name="ArrivalDate.HeaderText" xml:space="preserve">
     <value>Date d'arrivé</value>
   </data>

@@ -36,16 +36,16 @@
             this.FichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.certificatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.certificateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paramètresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.langagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.françaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.misesÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.créerUneMiseÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.cmbBxServerList = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -90,7 +90,7 @@
             this.outilsToolStripMenuItem,
             this.misesÀJourToolStripMenuItem,
             this.aideToolStripMenuItem,
-            this.toolStripComboBox1});
+            this.cmbBxServerList});
             this.menuStrip.Name = "menuStrip";
             // 
             // FichierStripMenuItem
@@ -112,17 +112,18 @@
             // 
             resources.ApplyResources(this.outilsToolStripMenuItem, "outilsToolStripMenuItem");
             this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.certificatToolStripMenuItem,
+            this.certificateToolStripMenuItem,
             this.paramètresToolStripMenuItem,
             this.langagueToolStripMenuItem});
             this.outilsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
             // 
-            // certificatToolStripMenuItem
+            // certificateToolStripMenuItem
             // 
-            resources.ApplyResources(this.certificatToolStripMenuItem, "certificatToolStripMenuItem");
-            this.certificatToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Certificate_64;
-            this.certificatToolStripMenuItem.Name = "certificatToolStripMenuItem";
+            resources.ApplyResources(this.certificateToolStripMenuItem, "certificateToolStripMenuItem");
+            this.certificateToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Certificate_64;
+            this.certificateToolStripMenuItem.Name = "certificateToolStripMenuItem";
+            this.certificateToolStripMenuItem.Click += new System.EventHandler(this.certificatToolStripMenuItem_Click);
             // 
             // paramètresToolStripMenuItem
             // 
@@ -158,16 +159,16 @@
             // 
             resources.ApplyResources(this.misesÀJourToolStripMenuItem, "misesÀJourToolStripMenuItem");
             this.misesÀJourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.créerUneMiseÀJourToolStripMenuItem});
+            this.createUpdateToolStripMenuItem});
             this.misesÀJourToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.misesÀJourToolStripMenuItem.Name = "misesÀJourToolStripMenuItem";
             // 
-            // créerUneMiseÀJourToolStripMenuItem
+            // createUpdateToolStripMenuItem
             // 
-            resources.ApplyResources(this.créerUneMiseÀJourToolStripMenuItem, "créerUneMiseÀJourToolStripMenuItem");
-            this.créerUneMiseÀJourToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Add_Files_To_Archive_Blue_64;
-            this.créerUneMiseÀJourToolStripMenuItem.Name = "créerUneMiseÀJourToolStripMenuItem";
-            this.créerUneMiseÀJourToolStripMenuItem.Click += new System.EventHandler(this.createUpdateToolStripMenuItem_Click);
+            resources.ApplyResources(this.createUpdateToolStripMenuItem, "createUpdateToolStripMenuItem");
+            this.createUpdateToolStripMenuItem.Image = global::Wsus_Package_Publisher.Properties.Resources.Add_Files_To_Archive_Blue_64;
+            this.createUpdateToolStripMenuItem.Name = "createUpdateToolStripMenuItem";
+            this.createUpdateToolStripMenuItem.Click += new System.EventHandler(this.createUpdateToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -184,10 +185,12 @@
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
-            // toolStripComboBox1
+            // cmbBxServerList
             // 
-            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            resources.ApplyResources(this.cmbBxServerList, "cmbBxServerList");
+            this.cmbBxServerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxServerList.Name = "cmbBxServerList";
+            this.cmbBxServerList.SelectedIndexChanged += new System.EventHandler(this.cmbBxServerList_SelectedIndexChanged);
             // 
             // FrmWsusPackagePublisher
             // 
@@ -197,6 +200,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmWsusPackagePublisher";
+            this.Shown += new System.EventHandler(this.FrmWsusPackagePublisher_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
@@ -218,12 +222,12 @@
         private System.Windows.Forms.TreeView trvWsus;
         private System.Windows.Forms.Button btnConnectToServer;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ToolStripMenuItem certificatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem certificateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paramètresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem créerUneMiseÀJourToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem langagueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem françaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox cmbBxServerList;
     }
 }

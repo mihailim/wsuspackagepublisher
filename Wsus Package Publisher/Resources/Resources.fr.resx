@@ -338,9 +338,6 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
   <data name="ComparisonLessThan" xml:space="preserve">
     <value>Inférieur à</value>
   </data>
-  <data name="ComparisonLessThanOrEqualTo" xml:space="preserve">
-    <value>Inférieur ou égal à</value>
-  </data>
   <data name="DescriptionRuleWindowsVersion" xml:space="preserve">
     <value>Indiquez la version de Windows sur laquelle le produit peut-être installé.
 
@@ -478,5 +475,56 @@ Version (Obligatoire) : Version du fichier.</value>
   </data>
   <data name="Unchanged" xml:space="preserve">
     <value>Inchangé</value>
+  </data>
+  <data name="NeedServerSettings" xml:space="preserve">
+    <value>Vous devez fournir des paramètre pour, au moins un, serveur.</value>
+  </data>
+  <data name="CertificateSuccessfullyGenerate" xml:space="preserve">
+    <value>Le certificat a été généré avec succès.</value>
+  </data>
+  <data name="CertificateSuccessfullyLoaded" xml:space="preserve">
+    <value>Le certificat a été chargé avec succès.</value>
+  </data>
+  <data name="CertificateSuccessfullySaved" xml:space="preserve">
+    <value>Le certificat a été sauvegardé avec succès.</value>
+  </data>
+  <data name="ConnectToWsusFirst" xml:space="preserve">
+    <value>Connectez vous d'abord au serveur Wsus.</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approuver</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approuvé</value>
+  </data>
+  <data name="Declined" xml:space="preserve">
+    <value>Refusé</value>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expiré</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>Re-signer</value>
+  </data>
+  <data name="ResignPackageFailed" xml:space="preserve">
+    <value>Erreur lors de la re-signature de la mise à jour. Erreure </value>
+  </data>
+  <data name="SuccessfullyResignPackage" xml:space="preserve">
+    <value>Mise à jour re-signée avec succès.</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Remplacé</value>
+  </data>
+  <data name="ReplicaServer" xml:space="preserve">
+    <value>Replica</value>
+  </data>
+  <data name="ComparisonLessThanOrEqualTo" xml:space="preserve">
+    <value>Inférieur ou égal à</value>
+  </data>
+  <data name="connecting" xml:space="preserve">
+    <value>Connexion...</value>
+  </data>
+  <data name="FailToConnectToServer" xml:space="preserve">
+    <value>Echec de connexion au serveur.</value>
   </data>
 </root>
