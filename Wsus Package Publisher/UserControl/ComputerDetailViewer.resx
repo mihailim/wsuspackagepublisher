@@ -138,11 +138,17 @@
   <data name="txtBxDetail.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="txtBxDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 62</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpInstalledBefore.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="dtpInstalledAfter.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -180,9 +186,6 @@
   <data name="&gt;&gt;btnRefresh.Name" xml:space="preserve">
     <value>btnRefresh</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Show installed updates After : </value>
-  </data>
   <data name="&gt;&gt;dtpInstalledAfter.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -192,14 +195,8 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;btnRefresh.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="btnRefresh.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>581, 297</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -237,9 +234,6 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dtpInstalledBefore.Name" xml:space="preserve">
-    <value>dtpInstalledBefore</value>
-  </data>
   <data name="btnRefresh.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
@@ -249,14 +243,17 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 13</value>
   </data>
-  <data name="&gt;&gt;dtpInstalledBefore.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Show installed updates After : </value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="dtpInstalledBefore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 29</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -273,19 +270,22 @@
   <data name="txtBxDetail.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;dtpInstalledBefore.Name" xml:space="preserve">
+    <value>dtpInstalledBefore</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 297</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="dtpInstalledBefore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 29</value>
+  <data name="&gt;&gt;btnRefresh.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
+    <value>fr</value>
   </metadata>
 </root>

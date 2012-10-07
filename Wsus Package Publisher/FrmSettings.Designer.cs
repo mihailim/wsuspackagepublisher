@@ -70,14 +70,15 @@
             // 
             // tabSettings
             // 
+            resources.ApplyResources(this.tabSettings, "tabSettings");
             this.tabSettings.Controls.Add(this.tabServer);
             this.tabSettings.Controls.Add(this.tabCommonSettings);
-            resources.ApplyResources(this.tabSettings, "tabSettings");
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.SelectedIndex = 0;
             // 
             // tabServer
             // 
+            resources.ApplyResources(this.tabServer, "tabServer");
             this.tabServer.Controls.Add(this.chkBxConnectToLocalServer);
             this.tabServer.Controls.Add(this.btnEditServer);
             this.tabServer.Controls.Add(this.nupDeadLineMinute);
@@ -94,7 +95,6 @@
             this.tabServer.Controls.Add(this.label2);
             this.tabServer.Controls.Add(this.txtBxServerName);
             this.tabServer.Controls.Add(this.label1);
-            resources.ApplyResources(this.tabServer, "tabServer");
             this.tabServer.Name = "tabServer";
             this.tabServer.UseVisualStyleBackColor = true;
             // 
@@ -230,9 +230,9 @@
             // 
             // tabCommonSettings
             // 
+            resources.ApplyResources(this.tabCommonSettings, "tabCommonSettings");
             this.tabCommonSettings.Controls.Add(this.groupBox1);
             this.tabCommonSettings.Controls.Add(this.label6);
-            resources.ApplyResources(this.tabCommonSettings, "tabCommonSettings");
             this.tabCommonSettings.Name = "tabCommonSettings";
             this.tabCommonSettings.UseVisualStyleBackColor = true;
             // 

@@ -183,6 +183,6 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmRemoteExecution.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmWaiting.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmWaiting.fr.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\GenerateResource-ResGen.read.5.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Debug\en-IN\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\Wsus_Package_Publisher.FrmUpdateFilesWizard.en-IN.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Debug\en-IN\Wsus Package Publisher.resources.dll

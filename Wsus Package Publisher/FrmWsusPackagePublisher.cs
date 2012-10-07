@@ -55,6 +55,7 @@ namespace Wsus_Package_Publisher
 
         private void btnConnectToServer_Click(object sender, EventArgs e)
         {
+            IComputerTargetGroup allComputerTargetGroup;
             btnConnectToServer.Enabled = false;
             WsusServer serverWsus = (WsusServer)cmbBxServerList.SelectedItem;
             StartWaitingForm(resMan.GetString("connecting"));
@@ -70,15 +71,16 @@ namespace Wsus_Package_Publisher
                     serverNode = new TreeNode(serverWsus.Name);
                 serverNode.Tag = "Server";
                 trvWsus.Nodes.Add(serverNode);
-                rootComputerGroupName = wsus.GetAllComputerTargetGroup().Name;
-                rootComputerGroupId = wsus.GetAllComputerTargetGroup().Id;
+                allComputerTargetGroup = wsus.GetAllComputerTargetGroup();
+                rootComputerGroupName = allComputerTargetGroup.Name;
+                rootComputerGroupId = allComputerTargetGroup.Id;
 
                 allComputersNode = new TreeNode(rootComputerGroupName);
                 allComputersNode.Tag = "ComputerGroup";
                 serverNode.Nodes.Add(allComputersNode);
 
                 computerGroups.Add(rootComputerGroupName, rootComputerGroupId);
-                PopulateTreeviewWithComputerGroups(new KeyValuePair<string, Guid>(rootComputerGroupName, rootComputerGroupId), allComputersNode);
+                PopulateTreeviewWithComputerGroups(allComputerTargetGroup, allComputersNode);
 
                 allUpdatesNode = new TreeNode(resMan.GetString("updates"));
                 allUpdatesNode.Tag = "Updates";
@@ -236,14 +238,14 @@ namespace Wsus_Package_Publisher
                 updateCtrl.RefreshDisplay();
         }
 
-        private void PopulateTreeviewWithComputerGroups(KeyValuePair<string, Guid> group, TreeNode node)
+        private void PopulateTreeviewWithComputerGroups(IComputerTargetGroup group, TreeNode node)
         {
-            foreach (KeyValuePair<string, Guid> childGroup in wsus.GetChildComputerTargetGroupNameAndId(group.Value))
+            foreach (IComputerTargetGroup childGroup in wsus.GetChildComputerTargetGroupNameAndId(group.Id))
             {
-                TreeNode newNode = new TreeNode(childGroup.Key);
+                TreeNode newNode = new TreeNode(childGroup.Name);
 
                 newNode.Tag = "ComputerGroup";
-                computerGroups.Add(childGroup.Key, childGroup.Value);
+                computerGroups.Add(childGroup.Name, childGroup.Id);
                 node.Nodes.Add(newNode);
                 PopulateTreeviewWithComputerGroups(childGroup, newNode);
             }

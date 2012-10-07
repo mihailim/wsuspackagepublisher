@@ -121,6 +121,9 @@
     <value>&amp;Add Rule...</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="grpDsp1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="btnPrevious.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -169,12 +172,12 @@
     <value>False</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>&amp;Delete</value>
   </data>
   <data name="btnEdit.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="btnEdit.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>&amp;Edit</value>
   </data>
 </root>

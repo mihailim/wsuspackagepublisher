@@ -178,14 +178,15 @@
             // 
             // tabUpdateDetailViewer
             // 
+            resources.ApplyResources(this.tabUpdateDetailViewer, "tabUpdateDetailViewer");
             this.tabUpdateDetailViewer.Controls.Add(this.tabInformations);
             this.tabUpdateDetailViewer.Controls.Add(this.tabStatus);
-            resources.ApplyResources(this.tabUpdateDetailViewer, "tabUpdateDetailViewer");
             this.tabUpdateDetailViewer.Name = "tabUpdateDetailViewer";
             this.tabUpdateDetailViewer.SelectedIndex = 0;
             // 
             // tabInformations
             // 
+            resources.ApplyResources(this.tabInformations, "tabInformations");
             this.tabInformations.BackColor = System.Drawing.Color.White;
             this.tabInformations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabInformations.Controls.Add(this.chkBxIsExpired);
@@ -210,7 +211,6 @@
             this.tabInformations.Controls.Add(this.txtBxArrivalDate);
             this.tabInformations.Controls.Add(this.txtBxCompany);
             this.tabInformations.Controls.Add(this.label3);
-            resources.ApplyResources(this.tabInformations, "tabInformations");
             this.tabInformations.Name = "tabInformations";
             // 
             // chkBxIsExpired
@@ -233,6 +233,7 @@
             // 
             // tabStatus
             // 
+            resources.ApplyResources(this.tabStatus, "tabStatus");
             this.tabStatus.BackColor = System.Drawing.Color.White;
             this.tabStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabStatus.Controls.Add(this.cmbBxFilter);
@@ -240,7 +241,6 @@
             this.tabStatus.Controls.Add(this.label8);
             this.tabStatus.Controls.Add(this.cmbBxComputerGroup);
             this.tabStatus.Controls.Add(this.dgvComputerStatus);
-            resources.ApplyResources(this.tabStatus, "tabStatus");
             this.tabStatus.Name = "tabStatus";
             // 
             // cmbBxFilter
@@ -263,14 +263,15 @@
             // 
             // cmbBxComputerGroup
             // 
+            resources.ApplyResources(this.cmbBxComputerGroup, "cmbBxComputerGroup");
             this.cmbBxComputerGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxComputerGroup.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbBxComputerGroup, "cmbBxComputerGroup");
             this.cmbBxComputerGroup.Name = "cmbBxComputerGroup";
             this.cmbBxComputerGroup.SelectedIndexChanged += new System.EventHandler(this.cmbBxComputerGroup_SelectedIndexChanged);
             // 
             // dgvComputerStatus
             // 
+            resources.ApplyResources(this.dgvComputerStatus, "dgvComputerStatus");
             this.dgvComputerStatus.AllowUserToAddRows = false;
             this.dgvComputerStatus.AllowUserToDeleteRows = false;
             this.dgvComputerStatus.AllowUserToOrderColumns = true;
@@ -278,7 +279,6 @@
             this.Computer,
             this.Status,
             this.Approbation});
-            resources.ApplyResources(this.dgvComputerStatus, "dgvComputerStatus");
             this.dgvComputerStatus.Name = "dgvComputerStatus";
             this.dgvComputerStatus.ReadOnly = true;
             // 

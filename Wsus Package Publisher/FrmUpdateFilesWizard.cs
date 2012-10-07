@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Microsoft.UpdateServices.Administration;
 
 namespace Wsus_Package_Publisher
 {
@@ -14,9 +10,10 @@ namespace Wsus_Package_Publisher
         public enum UpdateType
         {
             WindowsInstaller,
-        WindowsInstallerPatch,
-        Executable
+            WindowsInstallerPatch,
+            Executable
         }
+        private List<ReturnCode> _returnCodes = new List<ReturnCode>();
 
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateFilesWizard).Assembly);
 
@@ -28,6 +25,11 @@ namespace Wsus_Package_Publisher
         public FrmUpdateFilesWizard()
         {
             InitializeComponent();
+            DataGridViewComboBoxColumn column = (DataGridViewComboBoxColumn)dtgrvReturnCodes.Columns["Result"];
+            column.Items.Add(resManager.GetString("Failed"));
+            column.Items.Add(resManager.GetString("Succeeded"));
+            column.Items.Add(resManager.GetString("Cancelled"));
+
             txtBxUpdateFile.Select();
         }
 
@@ -57,8 +59,51 @@ namespace Wsus_Package_Publisher
             get { return _commandLine; }
             private set
             {
-                    _commandLine = value;
+                _commandLine = value;
             }
+        }
+
+        internal List<ReturnCode> ReturnCodes
+        {
+            get
+            {
+                _returnCodes.Clear();
+
+                foreach (DataGridViewRow row in dtgrvReturnCodes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        ReturnCode currentReturnCode = new ReturnCode();
+
+                        currentReturnCode.ReturnCodeValue = GetReturnCodeValue(row.Cells["Value"].Value.ToString());
+                        currentReturnCode.InstallationResult = GetInstallationResult(row.Cells["Result"].Value.ToString());
+                        if (row.Cells["NeedReboot"].Value != null)
+                            currentReturnCode.IsRebootRequired = (bool)row.Cells["NeedReboot"].Value;
+
+                        _returnCodes.Add(currentReturnCode);
+                    }
+                }
+                return _returnCodes;
+            }
+        }
+
+        private InstallationResult GetInstallationResult(string p)
+        {
+            if (p == resManager.GetString("Failed"))
+                return InstallationResult.Failed;
+            if (p == resManager.GetString("Succeeded"))
+                return InstallationResult.Succeeded;
+            if (p == resManager.GetString("Cancelled"))
+                return InstallationResult.Cancelled;
+
+            return InstallationResult.Failed;
+        }
+
+        private int GetReturnCodeValue(string p)
+        {
+            int result;
+            int.TryParse(p, out result);
+            return result;
         }
 
         internal UpdateType FileType

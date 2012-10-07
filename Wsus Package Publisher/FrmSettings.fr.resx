@@ -148,7 +148,7 @@
     <value>10</value>
   </data>
   <data name="btnEditServer.Text" xml:space="preserve">
-    <value>Modif. Serveur</value>
+    <value>&amp;Modif. Serveur</value>
   </data>
   <data name="nupDeadLineMinute.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 212</value>
@@ -195,9 +195,6 @@
   <data name="nupDeadLineDaysSpan.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="btnRemoveServer.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="btnRemoveServer.Location" type="System.Drawing.Point, System.Drawing">
     <value>449, 18</value>
   </data>
@@ -205,7 +202,7 @@
     <value>109, 23</value>
   </data>
   <data name="btnRemoveServer.Text" xml:space="preserve">
-    <value>Supprimer Serveur</value>
+    <value>&amp;Supprimer Serveur</value>
   </data>
   <data name="cmbBxServerList.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 18</value>
@@ -216,9 +213,6 @@
   <data name="btnAddServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="btnAddServer.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="btnAddServer.Location" type="System.Drawing.Point, System.Drawing">
     <value>449, 77</value>
   </data>
@@ -226,7 +220,7 @@
     <value>109, 23</value>
   </data>
   <data name="btnAddServer.Text" xml:space="preserve">
-    <value>Ajouter Serveur</value>
+    <value>&amp;Ajouter Serveur</value>
   </data>
   <data name="chkBxUseSSL.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>

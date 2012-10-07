@@ -199,8 +199,9 @@ Additional files (Optional): Select a file or files needed for the application o
 
 Command line (Optional): Indicate one or more parameters for the file update. Eg /q /s or /silent. For Msi file it is not necessary to specify the option to make the installation silent. Wsus does it automatically.
 
+Return codes (Optional) : Only for .EXE files. Meaning of the code return at the end of the installation.
 
- Click 'Next' to proceed to the next step.</value>
+Click 'Next' to proceed to the next step.</value>
   </data>
   <data name="FileCreated" xml:space="preserve">
     <value>File Created Date</value>
@@ -364,12 +365,12 @@ Service Pack Major: Major service pack version.
 Service Pack Minor: Minor service pack version.</value>
   </data>
   <data name="DescriptionWindowsLanguage" xml:space="preserve">
-    <value>Select the language in which Windows must be installed.
+    <value>Rule based on the Windows installation language. Select the language in which Windows must be installed.
 
 Warning : In case of a multilanguage installation of Windows, this rule will always be evaluated to 'True'.</value>
   </data>
   <data name="DescriptionFileExists" xml:space="preserve">
-    <value>Knwon folder (Optional): List of predefined folder whose location may vary from one OS to another.
+    <value>Known folder (Optional): List of predefined folder whose location may vary from one OS to another.
 File Path (Required): Full path to the file search (260 characters max.).
 File Version (optional): File Version.
 Creation Date (Optional): Creation date of the file.
@@ -397,7 +398,10 @@ Version (mandatory): File Version.</value>
     <value>Delete</value>
   </data>
   <data name="DescriptionFileCreated" xml:space="preserve">
-    <value>to be filled</value>
+    <value>Indicate here the information about the file and verify that creation date.
+
+Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
+Path to the file (Required): Full path to the file search (260 characters max.).</value>
   </data>
   <data name="DescriptionFileVersionPrependRegSz" xml:space="preserve">
     <value>Indicate here the information about the file and verify that version.
@@ -525,5 +529,36 @@ Version (mandatory): File Version.</value>
   </data>
   <data name="FailToConnectToServer" xml:space="preserve">
     <value>Fail to connect to the server.</value>
+  </data>
+  <data name="CommandSended" xml:space="preserve">
+    <value>Command sended.</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>Error.</value>
+  </data>
+  <data name="Noping" xml:space="preserve">
+    <value>No Ping.</value>
+  </data>
+  <data name="Pinging" xml:space="preserve">
+    <value>Pinging</value>
+  </data>
+  <data name="SendingCommand" xml:space="preserve">
+    <value>Sending Command...</value>
+  </data>
+  <data name="DescriptionFileExistsPrependRegSz" xml:space="preserve">
+    <value>Hkey_Local_Machine (Mandatory) : Hive of the registry where is the name of the directory.
+Value (Mandatory): Name of the registry key where is the name of th directory.
+File Name (Mandatory) : Name of the file to search for (260 char. max.).
+File Version (Optional) : Version of the file.
+Creation Date (Optional) : Creation date of the file.
+Modified Date (Optional) : Modification date of the file.
+Size (Optional) : Size of the file (bytes).
+Language (Optional) : Language of the file.</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Succeeded" xml:space="preserve">
+    <value>Succeeded</value>
   </data>
 </root>

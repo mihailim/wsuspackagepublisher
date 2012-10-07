@@ -301,6 +301,9 @@
     <EmbeddedResource Include="FrmRemoteExecution.fr.resx">
       <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateFilesWizard.en-IN.resx">
+      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmWaiting.en.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
     </EmbeddedResource>

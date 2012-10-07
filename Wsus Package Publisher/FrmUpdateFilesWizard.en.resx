@@ -183,6 +183,9 @@
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 241</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
   </data>
@@ -193,7 +196,7 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="txtBxCommandLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 342</value>
+    <value>113, 238</value>
   </data>
   <data name="txtBxCommandLine.Size" type="System.Drawing.Size, System.Drawing">
     <value>385, 20</value>
@@ -214,7 +217,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 291</value>
+    <value>110, 204</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 13</value>
@@ -226,7 +229,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 365</value>
+    <value>110, 261</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 13</value>
@@ -237,6 +240,9 @@
   <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 463</value>
+  </data>
   <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>435, 463</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -256,10 +265,22 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="lstBxAdditionnalFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 98</value>
+    <value>113, 93</value>
   </data>
   <data name="lstBxAdditionnalFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 186</value>
+    <value>385, 108</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 302</value>
+  </data>
+  <data name="dtgrvReturnCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 302</value>
+  </data>
+  <data name="dtgrvReturnCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 155</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>635, 498</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

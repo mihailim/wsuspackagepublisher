@@ -124,20 +124,14 @@
   <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="txtBxFolderPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 258</value>
+  <data name="&gt;&gt;cmbBxKnowFolders.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="&gt;&gt;chkBxKnownFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Hour : </value>
   </data>
   <data name="&gt;&gt;nupFileSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -153,14 +147,8 @@
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
   <data name="&gt;&gt;nupModificationDateHour.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtBxFolderPath.Name" xml:space="preserve">
-    <value>txtBxFolderPath</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -174,6 +162,9 @@
   <data name="&gt;&gt;nupVersion3.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;chkBxFileVersion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;txtBxFolderPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -183,17 +174,14 @@
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="nupCreationDateSecond.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>RuleFileExists</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Minute : </value>
   </data>
-  <data name="chkBxReverseRule.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtBxDescription.ZOrder" xml:space="preserve">
     <value>32</value>
@@ -209,9 +197,6 @@
   </data>
   <data name="cmbBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
-  </data>
-  <data name="&gt;&gt;nupCreationDateMinute.Name" xml:space="preserve">
-    <value>nupCreationDateMinute</value>
   </data>
   <data name="nupVersion4.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
@@ -231,11 +216,14 @@
   <data name="&gt;&gt;dtPModifiedDate.Name" xml:space="preserve">
     <value>dtPModifiedDate</value>
   </data>
-  <data name="chkBxCreationDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 335</value>
+  <data name="&gt;&gt;dtPCreationDate.Name" xml:space="preserve">
+    <value>dtPCreationDate</value>
   </data>
   <data name="&gt;&gt;chkBxCreationDate.ZOrder" xml:space="preserve">
     <value>23</value>
+  </data>
+  <data name="nupModificationDateHour.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 450</value>
   </data>
   <data name="cmbBxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -254,6 +242,9 @@
   </data>
   <data name="nupVersion2.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
+  </data>
+  <data name="txtBxDescription.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="cmbBxLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>145, 504</value>
@@ -276,9 +267,6 @@
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;txtBxDescription.Name" xml:space="preserve">
-    <value>txtBxDescription</value>
-  </data>
   <data name="dtPModifiedDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
@@ -288,8 +276,8 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;dtPCreationDate.ZOrder" xml:space="preserve">
-    <value>22</value>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -306,8 +294,8 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="&gt;&gt;dtPCreationDate.Name" xml:space="preserve">
-    <value>dtPCreationDate</value>
+  <data name="nupCreationDateHour.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 378</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -318,8 +306,11 @@
   <data name="&gt;&gt;nupModificationDateMinute.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;cmbBxKnowFolders.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;chkBxCreationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 13</value>
@@ -351,6 +342,12 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;nupVersion3.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
   <data name="&gt;&gt;nupCreationDateSecond.Name" xml:space="preserve">
     <value>nupCreationDateSecond</value>
   </data>
@@ -363,26 +360,29 @@
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;chkBxReverseRule.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
   <data name="cmbBxKnowFolders.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
   <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="chkBxModifiedDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 404</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;chkBxFileSize.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="nupCreationDateMinute.Location" type="System.Drawing.Point, System.Drawing">
     <value>263, 378</value>
   </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;nupModificationDateSecond.Name" xml:space="preserve">
     <value>nupModificationDateSecond</value>
   </data>
-  <data name="&gt;&gt;chkBxFileSize.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;dtPCreationDate.ZOrder" xml:space="preserve">
+    <value>22</value>
   </data>
   <data name="nupModificationDateMinute.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
@@ -435,8 +435,8 @@
   <data name="&gt;&gt;cmbBxKnowFolders.Name" xml:space="preserve">
     <value>cmbBxKnowFolders</value>
   </data>
-  <data name="&gt;&gt;nupModificationDateSecond.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;nupFileSize.ZOrder" xml:space="preserve">
+    <value>18</value>
   </data>
   <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -471,8 +471,8 @@
   <data name="dtPModifiedDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>145, 408</value>
   </data>
-  <data name="&gt;&gt;dtPCreationDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nupCreationDateSecond.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
   <data name="chkBxCreationDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
@@ -480,8 +480,8 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;nupVersion2.Name" xml:space="preserve">
-    <value>nupVersion2</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;chkBxModifiedDate.Name" xml:space="preserve">
     <value>chkBxModifiedDate</value>
@@ -492,23 +492,23 @@
   <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
     <value>btnOk</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;dtPCreationDate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>79, 443</value>
   </data>
+  <data name="&gt;&gt;chkBxLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 577</value>
-  </data>
-  <data name="&gt;&gt;chkBxFileSize.Name" xml:space="preserve">
-    <value>chkBxFileSize</value>
   </data>
   <data name="&gt;&gt;nupVersion2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -537,8 +537,8 @@
   <data name="nupVersion3.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;nupModificationDateSecond.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -561,20 +561,20 @@
   <data name="chkBxLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 506</value>
   </data>
-  <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 302</value>
-  </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
-  <data name="&gt;&gt;chkBxFileVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkBxModifiedDate.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;nupVersion3.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="chkBxModifiedDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 404</value>
   </data>
   <data name="&gt;&gt;chkBxModifiedDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -594,11 +594,11 @@
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>214, 368</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="txtBxFolderPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 258</value>
   </data>
-  <data name="&gt;&gt;nupVersion3.ZOrder" xml:space="preserve">
-    <value>25</value>
+  <data name="chkBxCreationDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 335</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -609,8 +609,11 @@
   <data name="chkBxModifiedDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
   </data>
-  <data name="&gt;&gt;chkBxFileVersion.ZOrder" xml:space="preserve">
-    <value>28</value>
+  <data name="&gt;&gt;chkBxCreationDate.Name" xml:space="preserve">
+    <value>chkBxCreationDate</value>
+  </data>
+  <data name="&gt;&gt;nupVersion2.Name" xml:space="preserve">
+    <value>nupVersion2</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>483, 603</value>
@@ -618,11 +621,14 @@
   <data name="txtBxDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Both</value>
   </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Second :</value>
+  </data>
   <data name="&gt;&gt;txtBxFolderPath.ZOrder" xml:space="preserve">
     <value>29</value>
   </data>
-  <data name="&gt;&gt;nupCreationDateSecond.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;nupCreationDateHour.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;nupModificationDateSecond.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -630,14 +636,14 @@
   <data name="&gt;&gt;chkBxModifiedDate.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;nupVersion1.Name" xml:space="preserve">
+    <value>nupVersion1</value>
+  </data>
+  <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 302</value>
   </data>
   <data name="&gt;&gt;nupModificationDateMinute.Name" xml:space="preserve">
     <value>nupModificationDateMinute</value>
-  </data>
-  <data name="&gt;&gt;dtPModifiedDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkBxFileSize.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -648,17 +654,20 @@
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;chkBxFileVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
+  <data name="&gt;&gt;nupVersion4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="&gt;&gt;nupVersion3.Name" xml:space="preserve">
     <value>nupVersion3</value>
@@ -683,9 +692,6 @@
   </data>
   <data name="chkBxCreationDate.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;txtBxDescription.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;chkBxLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -717,17 +723,14 @@
   <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
     <value>145, 302</value>
   </data>
-  <data name="nupCreationDateMinute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
-  </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkBxLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Hour : </value>
   </data>
   <data name="nupVersion2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -738,11 +741,14 @@
   <data name="&gt;&gt;chkBxFileSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;dtPCreationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="chkBxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;cmbBxKnowFolders.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -750,17 +756,11 @@
   <data name="&gt;&gt;nupModificationDateMinute.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dtPCreationDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 328</value>
+  <data name="&gt;&gt;dtPModifiedDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dtPCreationDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 13</value>
   </data>
   <data name="&gt;&gt;chkBxReverseRule.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -774,6 +774,9 @@
   <data name="chkBxKnownFolder.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 222</value>
   </data>
+  <data name="&gt;&gt;chkBxFileVersion.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -786,19 +789,16 @@
   <data name="&gt;&gt;chkBxKnownFolder.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nupVersion1.Name" xml:space="preserve">
-    <value>nupVersion1</value>
+  <data name="nupCreationDateMinute.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 577</value>
-  </data>
-  <data name="&gt;&gt;chkBxReverseRule.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="chkBxReverseRule.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
   </data>
-  <data name="&gt;&gt;chkBxFileVersion.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nupCreationDateHour.ZOrder" xml:space="preserve">
@@ -807,8 +807,8 @@
   <data name="&gt;&gt;txtBxDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;nupCreationDateMinute.Name" xml:space="preserve">
+    <value>nupCreationDateMinute</value>
   </data>
   <data name="chkBxFileVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
@@ -819,20 +819,20 @@
   <data name="chkBxKnownFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
   </data>
-  <data name="nupCreationDateHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 378</value>
-  </data>
-  <data name="&gt;&gt;nupVersion4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtBxDescription.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkBxFileSize.Name" xml:space="preserve">
+    <value>chkBxFileSize</value>
   </data>
   <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;nupCreationDateHour.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;chkBxCreationDate.Name" xml:space="preserve">
-    <value>chkBxCreationDate</value>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 577</value>
   </data>
   <data name="nupModificationDateMinute.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -843,14 +843,14 @@
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="chkBxModifiedDate.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="&gt;&gt;nupCreationDateSecond.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="chkBxKnownFolder.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;chkBxCreationDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbBxKnowFolders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkBxReverseRule.Name" xml:space="preserve">
     <value>chkBxReverseRule</value>
@@ -861,14 +861,14 @@
   <data name="dtPCreationDate.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="txtBxDescription.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 13</value>
   </data>
   <data name="&gt;&gt;nupFileSize.Name" xml:space="preserve">
     <value>nupFileSize</value>
   </data>
-  <data name="nupModificationDateHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 450</value>
+  <data name="&gt;&gt;txtBxFolderPath.Name" xml:space="preserve">
+    <value>txtBxFolderPath</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -879,14 +879,14 @@
   <data name="&gt;&gt;nupVersion2.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nupFileSize.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="&gt;&gt;txtBxDescription.Name" xml:space="preserve">
+    <value>txtBxDescription</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Second :</value>
+  <data name="dtPCreationDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 328</value>
   </data>
   <data name="chkBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
@@ -901,6 +901,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
 </root>

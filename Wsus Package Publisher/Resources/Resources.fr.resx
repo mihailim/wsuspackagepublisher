@@ -162,6 +162,7 @@ Fichiers additionnels (Facultatif) : Sélectionnez un ou plusieurs fichiers néc
 
 Ligne de commande (Facultatif) : Indiquez un ou plusieurs paramètres pour le fichier de mise à jour. Par exemple /q, /s ou /silent. Pour les fichiers .msi il n'est pas nécessaire de préciser d'option pour rendre l'installation silencieuse. Wsus le fait automatiquement.
 
+Codes de retour (Facultatif) : Uniquement pour les fichiers .EXE. Signification du code renvoyé à la fin de l'installation.
 
 Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   </data>
@@ -362,7 +363,7 @@ Service Pack Majeur : Version majeur du service pack.
 Service Pack Mineur : Version mineur du service pack.</value>
   </data>
   <data name="DescriptionWindowsLanguage" xml:space="preserve">
-    <value>Sélectionnez la langue dans laquelle Windows doit-être installé.
+    <value>Règle basé sur la langue d'installation de Windows. Sélectionnez la langue dans laquelle Windows doit-être installé.
 
 Attention : Dans le cas d'une version multilangue de Windows, cette règle sera toujours évalué à 'Vrai'.</value>
   </data>
@@ -395,7 +396,10 @@ Version (Obligatoire) : Version du fichier.</value>
     <value>Supprimer</value>
   </data>
   <data name="DescriptionFileCreated" xml:space="preserve">
-    <value>à compléter</value>
+    <value>Indiquez içi les informations concernant le fichier à vérifier et ca date de création.
+
+Dossier Standard (Optionnel) : Liste de dossier pré-définis dont l'emplacement peut varier d'un OS à l'autre.
+Chemin vers le fichier (Obligatoire) : Chemin complet vers le fichier à rechercher (260 caractères max.).</value>
   </data>
   <data name="DescriptionFileVersionPrependRegSz" xml:space="preserve">
     <value>Indiquez içi les informations concernant le fichier à vérifier et ca version.
@@ -526,5 +530,36 @@ Version (Obligatoire) : Version du fichier.</value>
   </data>
   <data name="FailToConnectToServer" xml:space="preserve">
     <value>Echec de connexion au serveur.</value>
+  </data>
+  <data name="CommandSended" xml:space="preserve">
+    <value>Commande envoyée.</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>Erreur.</value>
+  </data>
+  <data name="Noping" xml:space="preserve">
+    <value>Pas de Ping.</value>
+  </data>
+  <data name="Pinging" xml:space="preserve">
+    <value>Ping</value>
+  </data>
+  <data name="SendingCommand" xml:space="preserve">
+    <value>Envois de la commande...</value>
+  </data>
+  <data name="DescriptionFileExistsPrependRegSz" xml:space="preserve">
+    <value>Hkey_Local_Machine (Obligatoire) : Ruche de la base de régistre où se trouve le nom du répertoire.
+Valeur (Obligatoire): Nom de la clé de registre où se trouve le nom du répertoire.
+Nom du fichier (Obligatoire) : Nom du fichier à rechercher (260 caractères max.).
+Version (Optionnel) : Version du fichier.
+Date de Création (Optionnel) : Date de création du fichier.
+Date de Modification (Optionnel) : Date de modification du fichier.
+Taille (Optionnel) : Taille en octet du fichier.
+Language (Optionnel) : Language du fichier.</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Succeeded" xml:space="preserve">
+    <value>Succès</value>
   </data>
 </root>

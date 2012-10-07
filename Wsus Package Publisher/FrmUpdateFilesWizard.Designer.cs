@@ -43,6 +43,12 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lstBxAdditionnalFiles = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtgrvReturnCodes = new System.Windows.Forms.DataGridView();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NeedReboot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrvReturnCodes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,12 +134,47 @@
             this.lstBxAdditionnalFiles.Name = "lstBxAdditionnalFiles";
             this.lstBxAdditionnalFiles.SelectedIndexChanged += new System.EventHandler(this.lstBxAdditionnalFiles_SelectedIndexChanged);
             // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // dtgrvReturnCodes
+            // 
+            resources.ApplyResources(this.dtgrvReturnCodes, "dtgrvReturnCodes");
+            this.dtgrvReturnCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrvReturnCodes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Value,
+            this.Result,
+            this.NeedReboot});
+            this.dtgrvReturnCodes.Name = "dtgrvReturnCodes";
+            // 
+            // Value
+            // 
+            resources.ApplyResources(this.Value, "Value");
+            this.Value.Name = "Value";
+            // 
+            // Result
+            // 
+            resources.ApplyResources(this.Result, "Result");
+            this.Result.Name = "Result";
+            this.Result.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Result.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // NeedReboot
+            // 
+            this.NeedReboot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            resources.ApplyResources(this.NeedReboot, "NeedReboot");
+            this.NeedReboot.Name = "NeedReboot";
+            // 
             // FrmUpdateFilesWizard
             // 
             this.AcceptButton = this.btnNext;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.dtgrvReturnCodes);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lstBxAdditionnalFiles);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
@@ -150,6 +191,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUpdateFilesWizard";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrvReturnCodes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +213,10 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListBox lstBxAdditionnalFiles;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dtgrvReturnCodes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Result;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NeedReboot;
     }
 }

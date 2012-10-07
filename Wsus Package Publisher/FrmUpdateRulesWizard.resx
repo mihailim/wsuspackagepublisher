@@ -134,9 +134,6 @@
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>button2</value>
-  </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -201,6 +198,9 @@
   <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 23</value>
   </data>
+  <data name="btnAddRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 23</value>
+  </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -209,6 +209,9 @@
   </data>
   <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="btnAddOrGroup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 3, 15, 3</value>
   </data>
   <data name="&gt;&gt;btnAddAndGroup.Name" xml:space="preserve">
     <value>btnAddAndGroup</value>
@@ -393,9 +396,6 @@
   <data name="&gt;&gt;cmbBxRules.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="btnPrevious.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>15, 3, 15, 3</value>
   </data>
@@ -405,17 +405,14 @@
   <data name="btnEdit.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="btnAddOrGroup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>15, 3, 15, 3</value>
+  <data name="btnAddRule.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 10</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmUpdateRulesWizard</value>
-  </data>
-  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
-    <value>btnEdit</value>
   </data>
   <data name="cmbBxRules.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -430,7 +427,7 @@
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnAddRule" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="grpDsp1" Row="2" RowSpan="1" Column="0" ColumnSpan="4" /&gt;&lt;Control Name="cmbBxRules" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnPrevious" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnCancel" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnAddAndGroup" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnNext" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnAddOrGroup" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnDelete" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnEdit" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Percent,100,Absolute,35" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;grpDsp1.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.GroupDisplayer, Wsus Package Publisher, Version=0.0.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Wsus_Package_Publisher.GroupDisplayer, Wsus Package Publisher, Version=1.1.0.4, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="grpDsp1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -450,6 +447,9 @@
   <data name="&gt;&gt;grpDsp1.Name" xml:space="preserve">
     <value>grpDsp1</value>
   </data>
+  <data name="&gt;&gt;btnPrevious.Name" xml:space="preserve">
+    <value>btnPrevious</value>
+  </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -462,11 +462,11 @@
   <data name="btnAddOrGroup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;btnPrevious.Name" xml:space="preserve">
-    <value>btnPrevious</value>
+  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="btnAddRule.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>647, 535</value>
@@ -498,8 +498,8 @@
   <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="btnAddRule.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 23</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>button2</value>
   </data>
   <data name="grpDsp1.Size" type="System.Drawing.Size, System.Drawing">
     <value>641, 70</value>
@@ -511,6 +511,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
 </root>

@@ -13,6 +13,7 @@ namespace Wsus_Package_Publisher
     public partial class FrmRemoteExecution : Form
     {
         System.Net.NetworkInformation.Ping ping = new System.Net.NetworkInformation.Ping();
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmRemoteExecution).Assembly);
 
         public FrmRemoteExecution()
         {
@@ -49,12 +50,12 @@ namespace Wsus_Package_Publisher
             DataGridViewRow row = dtgvRemoteExecution.Rows[index];
             try
             {
-                row.Cells["Result"].Value = "Pinging";
+                row.Cells["Result"].Value = resMan.GetString("Pinging");
                 dtgvRemoteExecution.Refresh();
                 System.Net.NetworkInformation.PingReply reply = ping.Send(targetComputer, 200);
                 if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
                 {
-                    row.Cells["Result"].Value = "Sending Command";
+                    row.Cells["Result"].Value = resMan.GetString("SendingCommand");
                     dtgvRemoteExecution.Refresh();
                     ConnectionOptions connOptions = new ConnectionOptions();
                     connOptions.Impersonation = ImpersonationLevel.Impersonate;
@@ -73,14 +74,14 @@ namespace Wsus_Package_Publisher
 
                     inParams["CommandLine"] = commandLine;
                     processClass.InvokeMethod("Create", inParams, null);
-                    row.Cells["Result"].Value = "Command Sended";
+                    row.Cells["Result"].Value = resMan.GetString("CommandSended");
                     row.Cells["Result"].Style.BackColor = Color.LightGreen;
                     dtgvRemoteExecution.Refresh();
                     return true;
                 }
                 else
                 {
-                    row.Cells["Result"].Value = "No ping";
+                    row.Cells["Result"].Value = resMan.GetString("Noping");
                     row.Cells["Result"].Style.BackColor = Color.Silver;
                     dtgvRemoteExecution.Refresh();
                     return false;
@@ -91,7 +92,7 @@ namespace Wsus_Package_Publisher
 #if DEBUG
                 System.Windows.Forms.MessageBox.Show("Fail to send command : " + ex.Message);
 #endif
-                row.Cells["Result"].Value = "Exception";
+                row.Cells["Result"].Value = resMan.GetString("Exception");
                 row.Cells["Result"].Style.BackColor = Color.Silver;
                 dtgvRemoteExecution.Refresh();
                 return false;

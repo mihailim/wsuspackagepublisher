@@ -69,9 +69,7 @@
             this.dgvTargetGroup.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTargetGroup.Name = "dgvTargetGroup";
             this.dgvTargetGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTargetGroup.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTargetGroup_CellEndEdit);
             this.dgvTargetGroup.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTargetGroup_CellMouseDoubleClick);
-            this.dgvTargetGroup.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvTargetGroup_EditingControlShowing);
             // 
             // Group
             // 

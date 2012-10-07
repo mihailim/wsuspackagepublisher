@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRemoteExecution));
             this.dtgvRemoteExecution = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.Computer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRemoteExecution)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgvRemoteExecution
             // 
+            resources.ApplyResources(this.dtgvRemoteExecution, "dtgvRemoteExecution");
             this.dtgvRemoteExecution.AllowUserToAddRows = false;
             this.dtgvRemoteExecution.AllowUserToDeleteRows = false;
             this.dtgvRemoteExecution.AllowUserToOrderColumns = true;
-            resources.ApplyResources(this.dtgvRemoteExecution, "dtgvRemoteExecution");
             this.dtgvRemoteExecution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvRemoteExecution.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Computer,
@@ -49,13 +49,6 @@
             this.dtgvRemoteExecution.Name = "dtgvRemoteExecution";
             this.dtgvRemoteExecution.ReadOnly = true;
             this.dtgvRemoteExecution.ShowEditingIcon = false;
-            // 
-            // btnClose
-            // 
-            resources.ApplyResources(this.btnClose, "btnClose");
-            this.btnClose.Name = "btnClose";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // Computer
             // 
@@ -72,6 +65,13 @@
             resources.ApplyResources(this.Result, "Result");
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
+            // 
+            // btnClose
+            // 
+            resources.ApplyResources(this.btnClose, "btnClose");
+            this.btnClose.Name = "btnClose";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmRemoteExecution
             // 

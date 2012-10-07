@@ -131,6 +131,9 @@
   <data name="btnEditServer.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
+  <data name="btnEditServer.Text" xml:space="preserve">
+    <value>&amp;Edit Server</value>
+  </data>
   <data name="nupDeadLineMinute.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 190</value>
   </data>
@@ -152,6 +155,9 @@
   <data name="btnRemoveServer.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 16</value>
   </data>
+  <data name="btnRemoveServer.Text" xml:space="preserve">
+    <value>&amp;Remove Server</value>
+  </data>
   <data name="cmbBxServerList.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
   </data>
@@ -164,6 +170,9 @@
   </data>
   <data name="btnAddServer.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 59</value>
+  </data>
+  <data name="btnAddServer.Text" xml:space="preserve">
+    <value>&amp;Add Server</value>
   </data>
   <data name="chkBxUseSSL.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

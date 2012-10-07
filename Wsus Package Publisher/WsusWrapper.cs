@@ -19,7 +19,7 @@ namespace Wsus_Package_Publisher
             _timer = new System.Windows.Forms.Timer();
         }
 
-        internal bool IsConnected {get; private set;}
+        internal bool IsConnected { get; private set; }
 
         internal bool IsReplica { get; private set; }
 
@@ -109,12 +109,9 @@ namespace Wsus_Package_Publisher
         /// Allow to iterate each child computer Target Group of a Computer Target Group.
         /// </summary>
         /// <returns>A KeyValue pair which represent the Name and the Id of a child group.</returns>
-        internal IEnumerable<KeyValuePair<string, Guid>> GetChildComputerTargetGroupNameAndId(Guid id)
+        internal ComputerTargetGroupCollection GetChildComputerTargetGroupNameAndId(Guid id)
         {
-            foreach (IComputerTargetGroup group in wsus.GetComputerTargetGroup(id).GetChildTargetGroups())
-            {
-                yield return new KeyValuePair<string, Guid>(group.Name, group.Id);
-            }
+            return wsus.GetComputerTargetGroup(id).GetChildTargetGroups();
         }
 
         /// <summary>
@@ -137,7 +134,7 @@ namespace Wsus_Package_Publisher
         }
 
         internal IUpdate GetUpdate(UpdateRevisionId updateId)
-        {            
+        {
             return wsus.GetUpdate(updateId);
         }
 
@@ -178,7 +175,7 @@ namespace Wsus_Package_Publisher
                     break;
             }
 
-            sdp = InitializeSdp(sdp, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
+            sdp = InitializeSdp(sdp, filesWizard, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
 
             tmpFolderPath = GetTempFolder();
 
@@ -192,18 +189,34 @@ namespace Wsus_Package_Publisher
             System.IO.FileInfo updateFile = new System.IO.FileInfo(filesWizard.updateFileName);
             updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Bin\\" + updateFile.Name);
 
+            if (filesWizard.AdditionnalFileName.Count != 0)
+            {
+                if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Add\\"))
+                    System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Add\\");
+                foreach (string file in filesWizard.AdditionnalFileName)
+                {
+                    System.IO.FileInfo additionalUpdateFile = new System.IO.FileInfo(file);
+                    updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Add\\" + additionalUpdateFile.Name);
+                }
+            }
+
             sdp.Save(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             IPublisher publisher = wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
-            publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
-            //System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
+            if (filesWizard.AdditionnalFileName.Count != 0)
+                publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", tmpFolderPath + sdp.PackageId + "\\Add\\", null);
+            else
+                publisher.PublishPackage(tmpFolderPath + sdp.PackageId + "\\Bin\\", null);
+#if !DEBUG
+            System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
+#endif
             if (!_wsusServer.IsLocal)
                 _timer.Start();
             if (UpdatePublished != null)
                 UpdatePublished(GetUpdate(new UpdateRevisionId(sdp.PackageId)));
         }
 
-        private SoftwareDistributionPackage InitializeSdp(SoftwareDistributionPackage sdp, FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard)
+        private SoftwareDistributionPackage InitializeSdp(SoftwareDistributionPackage sdp, FrmUpdateFilesWizard filesWizard, FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard)
         {
             sdp.Title = informationsWizard.Title;
             sdp.Description = informationsWizard.Description;
@@ -216,6 +229,33 @@ namespace Wsus_Package_Publisher
             sdp.InstallableItems[0].InstallBehavior.Impact = informationsWizard.Impact;
             sdp.InstallableItems[0].InstallBehavior.RebootBehavior = informationsWizard.Behavior;
             sdp.InstallableItems[0].InstallBehavior.RequiresNetworkConnectivity = informationsWizard.CanRequestNetworkConnectivity;
+
+            if (filesWizard != null)
+            {
+                if (!string.IsNullOrEmpty(filesWizard.CommandLine))
+                    switch (filesWizard.FileType)
+                    {
+                        case FrmUpdateFilesWizard.UpdateType.WindowsInstaller:
+                            (sdp.InstallableItems[0] as WindowsInstallerItem).InstallCommandLine = filesWizard.CommandLine;
+                            break;
+                        case FrmUpdateFilesWizard.UpdateType.WindowsInstallerPatch:
+                            (sdp.InstallableItems[0] as WindowsInstallerPatchItem).InstallCommandLine = filesWizard.CommandLine;
+                            break;
+                        case FrmUpdateFilesWizard.UpdateType.Executable:
+                            (sdp.InstallableItems[0] as CommandLineItem).Arguments = filesWizard.CommandLine;
+                            break;
+                        default:
+                            break;
+                    }
+                if (filesWizard.FileType == FrmUpdateFilesWizard.UpdateType.Executable && filesWizard.ReturnCodes.Count != 0)
+                {
+                    (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Clear();
+                    foreach (ReturnCode code in filesWizard.ReturnCodes)
+                    {
+                        (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Add(code);
+                    }
+                }
+            }
 
             if (!string.IsNullOrEmpty(informationsWizard.UrlMoreInfo))
             {
@@ -252,7 +292,7 @@ namespace Wsus_Package_Publisher
             string tmpFolderPath;
             IUpdate oldUpdate = GetUpdate(new UpdateRevisionId(sdp.PackageId));
 
-            sdp = InitializeSdp(sdp, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
+            sdp = InitializeSdp(sdp, null, informationsWizard, isInstalledRulesWizard, isInstallableRulesWizard);
 
             tmpFolderPath = GetTempFolder();
             if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId))
@@ -264,6 +304,9 @@ namespace Wsus_Package_Publisher
             IPublisher publisher = wsus.GetPublisher(tmpFolderPath + sdp.PackageId + "\\Xml\\" + sdp.PackageId.ToString() + ".xml");
             publisher.ProgressHandler += new EventHandler<PublishingEventArgs>(publisher_Progress);
             publisher.RevisePackage();
+#if !DEBUG
+            System.IO.Directory.Delete(tmpFolderPath + sdp.PackageId, true);
+#endif
             if (!_wsusServer.IsLocal)
                 _timer.Start();
             if (UpdateRevised != null)

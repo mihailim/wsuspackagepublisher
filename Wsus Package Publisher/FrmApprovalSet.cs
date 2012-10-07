@@ -176,24 +176,6 @@ namespace Wsus_Package_Publisher
                     row.Cells[2].Value = null;
             }
         }
-
-        private void dgvTargetGroup_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            //foreach (DataGridViewRow row in dgvTargetGroup.Rows)
-            //{
-            //    string approval = row.Cells[1].Value.ToString();
-            //    if (approval == resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()) ||
-            //        approval == resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()))
-            //        row.Cells[2].Value = null;
-            //}
-        }
-
-        private void dgvTargetGroup_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (e.Control.GetType() == typeof(DataGridViewComboBoxCell))
-            {
-
-            }
-        }
+                
     }
 }

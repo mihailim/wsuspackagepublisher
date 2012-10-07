@@ -165,6 +165,7 @@ namespace Wsus_Package_Publisher
         {
             btnAddServer.Enabled = (!string.IsNullOrEmpty(txtBxServerName.Text) && cmbBxConnectionPort.SelectedItem != null);
             btnEditServer.Enabled = btnAddServer.Enabled;
+            btnRemoveServer.Enabled = (cmbBxServerList.Items.Count != 0 && cmbBxServerList.SelectedItem != null && !string.IsNullOrEmpty(cmbBxServerList.SelectedItem.ToString()));
             btnOk.Enabled = (cmbBxServerList.Items.Count != 0);
         }
 
@@ -177,6 +178,8 @@ namespace Wsus_Package_Publisher
                 {
                     ServerList.Remove(serverToRemove);
                     cmbBxServerList.Items.Remove(serverToRemove);
+                    if (cmbBxServerList.Items.Count != 0)
+                        cmbBxServerList.SelectedIndex = 0;
                     ValidateData();
                 }
             }
@@ -189,6 +192,7 @@ namespace Wsus_Package_Publisher
             WsusServer serverToAdd = new WsusServer(txtBxServerName.Text, chkBxConnectToLocalServer.Checked, port, chkBxUseSSL.Checked, (int)nupDeadLineDaysSpan.Value, (int)nupDeadLineHour.Value, (int)nupDeadLineMinute.Value);
             cmbBxServerList.Items.Add(serverToAdd);
             cmbBxServerList.SelectedIndex = cmbBxServerList.Items.Count - 1;
+            ServerList.Add(serverToAdd);
             ValidateData();
         }
 
@@ -199,19 +203,22 @@ namespace Wsus_Package_Publisher
 
         private void cmbBxConnectionPort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cmbBxConnectionPort.SelectedItem.ToString())
+            if (cmbBxConnectionPort.SelectedItem != null)
             {
-                case "80":
-                case "8530":
-                    chkBxUseSSL.Checked = false;
-                    break;
-                case "443":
-                case "8531":
-                    chkBxUseSSL.Checked = true;
-                    break;
-                default:
-                    chkBxUseSSL.Checked = false;
-                    break;
+                switch (cmbBxConnectionPort.SelectedItem.ToString())
+                {
+                    case "80":
+                    case "8530":
+                        chkBxUseSSL.Checked = false;
+                        break;
+                    case "443":
+                    case "8531":
+                        chkBxUseSSL.Checked = true;
+                        break;
+                    default:
+                        chkBxUseSSL.Checked = false;
+                        break;
+                }
             }
             ValidateData();
         }

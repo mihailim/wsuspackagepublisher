@@ -170,14 +170,26 @@
   <data name="btnApprove.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 6</value>
   </data>
+  <data name="btnApprove.Text" xml:space="preserve">
+    <value>&amp;Approve...</value>
+  </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 129</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Dele&amp;te</value>
   </data>
   <data name="btnDecline.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 37</value>
   </data>
+  <data name="btnDecline.Text" xml:space="preserve">
+    <value>&amp;Decline</value>
+  </data>
   <data name="btnExpire.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 66</value>
+  </data>
+  <data name="btnExpire.Text" xml:space="preserve">
+    <value>&amp;Expire</value>
   </data>
   <data name="chkBxIsDeclined.Location" type="System.Drawing.Point, System.Drawing">
     <value>377, 115</value>
@@ -190,6 +202,9 @@
   </data>
   <data name="btnRevise.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 95</value>
+  </data>
+  <data name="btnRevise.Text" xml:space="preserve">
+    <value>&amp;Revise</value>
   </data>
   <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -206,12 +221,6 @@
   </data>
   <data name="tabInformations.Size" type="System.Drawing.Size, System.Drawing">
     <value>659, 385</value>
-  </data>
-  <data name="cmbBxFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 6</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 9</value>
   </data>
   <data name="cmbBxComputerGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>

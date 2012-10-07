@@ -1,7 +1,17 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\en-IN\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Interop.WindowsInstaller.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.pdb
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResolveAssemblyReference.cache
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Credentials.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerControl.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerDetailViewer.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerListViewer.resources
@@ -32,6 +42,8 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Credentials.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmUpdateFilesWizard.en-IN.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerDetailViewer.en.resources
@@ -82,17 +94,8 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateListViewer.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResGen.read.1.tlog
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResGen.write.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.fr.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe.config
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.pdb
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\fr\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\en\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Interop.WindowsInstaller.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.pdb
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\fr\Wsus Package Publisher.resources.dll
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\en-IN\Wsus Package Publisher.resources.dll
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus Package Publisher.exe
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus Package Publisher.pdb

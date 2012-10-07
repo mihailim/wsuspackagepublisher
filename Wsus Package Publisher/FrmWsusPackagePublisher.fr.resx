@@ -122,7 +122,7 @@
     <value>124, 23</value>
   </data>
   <data name="btnConnectToServer.Text" xml:space="preserve">
-    <value>Connexion au Serveur</value>
+    <value>&amp;Connexion au Serveur</value>
   </data>
   <data name="trvWsus.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 479</value>
@@ -136,7 +136,7 @@
     <value>Ctrl+Q</value>
   </data>
   <data name="quitterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>162, 30</value>
   </data>
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter</value>
@@ -147,11 +147,17 @@
   <data name="FichierStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Fichier</value>
   </data>
+  <data name="certificateToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="certificateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
   <data name="certificateToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Certificat...</value>
   </data>
   <data name="paramètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 30</value>
+    <value>142, 22</value>
   </data>
   <data name="paramètresToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Paramètres...</value>
@@ -169,7 +175,7 @@
     <value>&amp;English</value>
   </data>
   <data name="langagueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 30</value>
+    <value>142, 22</value>
   </data>
   <data name="langagueToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Langague</value>
@@ -184,7 +190,7 @@
     <value>False</value>
   </data>
   <data name="createUpdateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
+    <value>194, 30</value>
   </data>
   <data name="createUpdateToolStripMenuItem.Text" xml:space="preserve">
     <value>Créer une &amp;Mise à jour</value>
