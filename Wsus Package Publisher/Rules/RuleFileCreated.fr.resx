@@ -117,13 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="bntCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
   <data name="bntCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
@@ -134,17 +127,8 @@
   <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
     <value>314, 20</value>
   </data>
-  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="chkBxUseCsidl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
   <data name="chkBxUseCsidl.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 17</value>
-  </data>
-  <data name="chkBxUseCsidl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="chkBxUseCsidl.Text" xml:space="preserve">
     <value>Dossier Standard : </value>
@@ -155,12 +139,10 @@
   <data name="cmbBxCsidl.Size" type="System.Drawing.Size, System.Drawing">
     <value>314, 21</value>
   </data>
-  <data name="cmbBxCsidl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -170,14 +152,8 @@
   <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 288</value>
   </data>
-  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="dtpCreationDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 315</value>
-  </data>
-  <data name="dtpCreationDate.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 261</value>
@@ -185,11 +161,12 @@
   <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 17</value>
   </data>
-  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="chkBxReverseRule.Text" xml:space="preserve">
     <value>Inverser règle</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtBxDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
   </data>
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -239,13 +216,22 @@
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="nupHour.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="nupHour.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 347</value>
   </data>
-  <data name="nupMinute.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="nupHour.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
   </data>
-  <data name="nupSeconde.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="nupMinute.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 373</value>
+  </data>
+  <data name="nupMinute.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="nupSeconde.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 399</value>
+  </data>
+  <data name="nupSeconde.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
   </data>
 </root>

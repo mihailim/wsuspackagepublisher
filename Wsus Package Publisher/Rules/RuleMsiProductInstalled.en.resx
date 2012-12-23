@@ -117,26 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtBxDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtBxDescription.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="txtBxDescription.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 200</value>
+    <value>442, 200</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 13</value>
@@ -147,47 +134,17 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Msi Product Code : </value>
   </data>
-  <data name="txtBxMsiCode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="txtBxMsiCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 209</value>
   </data>
   <data name="txtBxMsiCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>321, 20</value>
-  </data>
-  <data name="txtBxMsiCode.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>310, 20</value>
   </data>
   <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 235</value>
   </data>
-  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="chkBxReverseRule.Text" xml:space="preserve">
-    <value>Reverse Rule</value>
-  </data>
-  <data name="chkBxIncludeMaxVersion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="chkBxIncludeMaxVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
   <data name="chkBxIncludeMaxVersion.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 286</value>
-  </data>
-  <data name="chkBxIncludeMaxVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 17</value>
-  </data>
-  <data name="chkBxIncludeMaxVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="chkBxIncludeMaxVersion.Text" xml:space="preserve">
-    <value>Include Version Max.</value>
-  </data>
-  <data name="nupVersionMax1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="nupVersionMax1.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -198,12 +155,6 @@
   <data name="nupVersionMax1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="nupVersionMax1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="nupVersionMax2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="nupVersionMax2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -212,12 +163,6 @@
   </data>
   <data name="nupVersionMax2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
-  </data>
-  <data name="nupVersionMax2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="nupVersionMax3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="nupVersionMax3.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -228,12 +173,6 @@
   <data name="nupVersionMax3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="nupVersionMax3.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="nupVersionMax4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="nupVersionMax4.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -242,15 +181,6 @@
   </data>
   <data name="nupVersionMax4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
-  </data>
-  <data name="nupVersionMax4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 311</value>
@@ -261,26 +191,8 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Version Max. : </value>
   </data>
-  <data name="chkBxIncludeMinVersion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="chkBxIncludeMinVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
   <data name="chkBxIncludeMinVersion.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 342</value>
-  </data>
-  <data name="chkBxIncludeMinVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 17</value>
-  </data>
-  <data name="chkBxIncludeMinVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="chkBxIncludeMinVersion.Text" xml:space="preserve">
-    <value>Include Version Min.</value>
-  </data>
-  <data name="nupVersionMin1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="nupVersionMin1.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -291,12 +203,6 @@
   <data name="nupVersionMin1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="nupVersionMin1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="nupVersionMin2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="nupVersionMin2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -305,12 +211,6 @@
   </data>
   <data name="nupVersionMin2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
-  </data>
-  <data name="nupVersionMin2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="nupVersionMin3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="nupVersionMin3.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -321,12 +221,6 @@
   <data name="nupVersionMin3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="nupVersionMin3.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="nupVersionMin4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="nupVersionMin4.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -335,15 +229,6 @@
   </data>
   <data name="nupVersionMin4.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
-  </data>
-  <data name="nupVersionMin4.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 367</value>
@@ -354,73 +239,31 @@
   <data name="label3.Text" xml:space="preserve">
     <value>Version Min. : </value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 427</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Language : </value>
-  </data>
-  <data name="cmbBxLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>3, 422</value>
   </data>
   <data name="cmbBxLanguage.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="cmbBxLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 424</value>
+    <value>80, 419</value>
   </data>
   <data name="cmbBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 21</value>
   </data>
-  <data name="cmbBxLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnOk.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 422</value>
-  </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="btnOk.Text" xml:space="preserve">
-    <value>&amp;Ok</value>
-  </data>
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>363, 417</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 422</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>282, 417</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="chkBxUseLanguage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
   <data name="chkBxUseLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 401</value>
-  </data>
-  <data name="chkBxUseLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>80, 396</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>452, 454</value>
+    <value>442, 444</value>
   </data>
 </root>

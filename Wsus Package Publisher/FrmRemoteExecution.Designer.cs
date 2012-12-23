@@ -33,6 +33,8 @@
             this.Computer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lblSummary = new System.Windows.Forms.Label();
+            this.prgBarSendCommand = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRemoteExecution)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +67,7 @@
             resources.ApplyResources(this.Result, "Result");
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
+            this.Result.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // btnClose
             // 
@@ -73,16 +76,30 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // lblSummary
+            // 
+            resources.ApplyResources(this.lblSummary, "lblSummary");
+            this.lblSummary.Name = "lblSummary";
+            // 
+            // prgBarSendCommand
+            // 
+            resources.ApplyResources(this.prgBarSendCommand, "prgBarSendCommand");
+            this.prgBarSendCommand.Name = "prgBarSendCommand";
+            this.prgBarSendCommand.Step = 1;
+            // 
             // FrmRemoteExecution
             // 
             this.AcceptButton = this.btnClose;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.prgBarSendCommand);
+            this.Controls.Add(this.lblSummary);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dtgvRemoteExecution);
             this.Name = "FrmRemoteExecution";
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRemoteExecution)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -90,6 +107,8 @@
 
         private System.Windows.Forms.DataGridView dtgvRemoteExecution;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblSummary;
+        private System.Windows.Forms.ProgressBar prgBarSendCommand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Computer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
     }

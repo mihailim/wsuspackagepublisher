@@ -112,35 +112,32 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Group.HeaderText" xml:space="preserve">
     <value>Groupe</value>
   </data>
-  <data name="Approvval.HeaderText" xml:space="preserve">
-    <value>Approbation</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgvTargetGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>605, 440</value>
+    <value>605, 492</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>542, 488</value>
+    <value>542, 696</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 487</value>
+    <value>461, 695</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
   <data name="dtDeadLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 491</value>
+    <value>12, 699</value>
   </data>
   <data name="btnSetDeadLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 488</value>
+    <value>314, 696</value>
   </data>
   <data name="btnSetDeadLine.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 23</value>
@@ -149,13 +146,10 @@
     <value>Définir &amp;Date Limite</value>
   </data>
   <data name="cmbBxApproval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 458</value>
-  </data>
-  <data name="cmbBxApproval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 21</value>
+    <value>12, 666</value>
   </data>
   <data name="btnSetApproval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 458</value>
+    <value>314, 666</value>
   </data>
   <data name="btnSetApproval.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 23</value>
@@ -164,13 +158,28 @@
     <value>Définir &amp;Approbation</value>
   </data>
   <data name="nupHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 491</value>
+    <value>218, 699</value>
   </data>
   <data name="nupMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 491</value>
+    <value>266, 699</value>
+  </data>
+  <data name="dtGrdVwMetaGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 137</value>
+  </data>
+  <data name="MetaGroup.HeaderText" xml:space="preserve">
+    <value>MetaGroupe</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 650</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Vous ne pourrez pas associer "Non approuvé" au groupe "Tous les Ordinateurs".</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>629, 522</value>
+    <value>629, 730</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

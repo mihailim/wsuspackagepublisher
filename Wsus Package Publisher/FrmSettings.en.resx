@@ -125,8 +125,12 @@
   <data name="chkBxConnectToLocalServer.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnEditServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="btnEditServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 88</value>
+    <value>371, 101</value>
   </data>
   <data name="btnEditServer.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -135,22 +139,22 @@
     <value>&amp;Edit Server</value>
   </data>
   <data name="nupDeadLineMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 190</value>
+    <value>126, 203</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 192</value>
+    <value>6, 205</value>
   </data>
   <data name="nupDeadLineHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 164</value>
+    <value>126, 177</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 166</value>
+    <value>6, 179</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 140</value>
+    <value>6, 153</value>
   </data>
   <data name="nupDeadLineDaysSpan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 138</value>
+    <value>126, 151</value>
   </data>
   <data name="btnRemoveServer.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 16</value>
@@ -164,12 +168,11 @@
   <data name="cmbBxServerList.Size" type="System.Drawing.Size, System.Drawing">
     <value>362, 21</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnAddServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="btnAddServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 59</value>
+    <value>371, 72</value>
   </data>
   <data name="btnAddServer.Text" xml:space="preserve">
     <value>&amp;Add Server</value>
@@ -181,7 +184,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="chkBxUseSSL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 113</value>
+    <value>227, 126</value>
   </data>
   <data name="chkBxUseSSL.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 17</value>
@@ -190,28 +193,31 @@
     <value>8</value>
   </data>
   <data name="cmbBxConnectionPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 111</value>
+    <value>126, 124</value>
   </data>
   <data name="cmbBxConnectionPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 21</value>
+    <value>95, 21</value>
   </data>
   <data name="cmbBxConnectionPort.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 114</value>
+    <value>8, 127</value>
   </data>
   <data name="txtBxServerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 62</value>
+    <value>126, 75</value>
   </data>
   <data name="txtBxServerName.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 20</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>6, 78</value>
   </data>
   <data name="tabServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 220</value>
+    <value>475, 233</value>
+  </data>
+  <data name="txtBxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
   </data>
   <data name="txtBxPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 20</value>
@@ -232,34 +238,34 @@
     <value>1</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>459, 151</value>
+    <value>459, 164</value>
   </data>
   <data name="tabCommonSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 220</value>
+    <value>475, 233</value>
+  </data>
+  <data name="btnResetToDefault.Location" type="System.Drawing.Point, System.Drawing">
+    <value>360, 204</value>
+  </data>
+  <data name="tabColors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 233</value>
   </data>
   <data name="tabSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 246</value>
+    <value>483, 259</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 252</value>
+    <value>315, 265</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>396, 252</value>
+    <value>396, 265</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="btnOk.Text" xml:space="preserve">
-    <value>&amp;Ok</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>483, 287</value>
+    <value>483, 300</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

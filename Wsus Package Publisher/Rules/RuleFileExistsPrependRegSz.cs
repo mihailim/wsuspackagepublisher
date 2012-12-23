@@ -12,61 +12,6 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleFileExistsPrependRegSz : GenericRule
     {
-        private Dictionary<string, int> _languagesByString = new Dictionary<string, int>
-        {   {"Arabic", 1},
-            {"Chinese_HK_SAR", 3076},
-            {"Chinese_simplified", 4},
-            {"Chinese_traditional",31748},
-            {"Czech", 5},
-            {"Danish", 6}, 
-            {"Dutch", 19},
-            {"English", 9},
-            {"Finnish", 11}, 
-            {"French", 12},    
-            {"German", 7},   
-            {"Greek", 8},   
-            {"Hebrew", 13},            
-            {"Hungarian", 14},   
-            {"Italian", 16},              
-            {"Japanese", 17},   
-            {"Korean", 18}, 
-            {"Norwegian", 20},
-            {"Polish", 21},
-            {"Portugese", 22}, 
-            {"Portugese_Brazil", 1046}, 
-            {"Russian", 25},
-            {"Spanish", 10}, 
-            {"Swedish", 29}, 
-            {"Turkish" , 31}
-        };
-        private Dictionary<int, string> _languaguesByInt = new Dictionary<int, string>
-        {
-            {1, "Arabic"},
-            {3076, "Chinese_HK_SAR"},
-            {4, "Chinese_simplified"},
-            {31748, "Chinese_traditional"},
-            {5, "Czech"},
-            {6, "Danish"}, 
-            {19, "Dutch"},
-            {9, "English"},
-            {11, "Finnish"}, 
-            {12, "French"},    
-            {7, "German"},   
-            {8, "Greek"},   
-            {13, "Hebrew"},            
-            {14, "Hungarian"},   
-            {16, "Italian"},              
-            {17, "Japanese"},   
-            {18, "Korean"}, 
-            {20, "Norwegian"},
-            {21, "Polish"},
-            {22, "Portugese"}, 
-            {1046, "Portugese_Brazil"}, 
-            {25, "Russian"},
-            {10, "Spanish"}, 
-            {29, "Swedish"}, 
-            {31, "Turkish"}
-        };
         private Dictionary<string, int> _csidlByName = new Dictionary<string, int>()
         {
             {"COMMON_ADMINTOOLS" , 0x2F},
@@ -101,9 +46,9 @@ namespace Wsus_Package_Publisher
             InitializeComponent();
 
             nupFileSize.Maximum = long.MaxValue;
-            foreach (string language in _languagesByString.Keys)
+            foreach (KeyValuePair<string, string> pair in Languages.AllLanguagues)
             {
-                cmbBxLanguage.Items.Add(language);
+                cmbBxLanguage.Items.Add(pair.Key);
             }
 
             txtBxDescription.Text = resMan.GetString("DescriptionFileExistsPrependRegSz");
@@ -118,7 +63,8 @@ namespace Wsus_Package_Publisher
 
             if (!string.IsNullOrEmpty(txtBxSubKey.Text) && !string.IsNullOrEmpty(txtBxValue.Text) && !string.IsNullOrEmpty(txtBxFolderPath.Text))
                 if (txtBxSubKey.Text.Length >= 1 && txtBxSubKey.Text.Length <= 255 && txtBxValue.Text.Length >= 0 && txtBxValue.Text.Length <= 16383)
-                    btnOk.Enabled = true;
+                    if (!UseLanguage || (UseLanguage && cmbBxLanguage.SelectedIndex != -1))
+                        btnOk.Enabled = true;
         }
 
         internal override string GetRtfFormattedRule()
@@ -155,7 +101,7 @@ namespace Wsus_Package_Publisher
             {
                 print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " RegType32");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
-                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, RegType32.ToString());
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, RegType32.ToString().ToLower());
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
@@ -494,8 +440,8 @@ namespace Wsus_Package_Publisher
         /// </summary>
         internal int Language
         {
-            get { return _languagesByString[cmbBxLanguage.SelectedItem.ToString()]; }
-            set { cmbBxLanguage.SelectedItem = _languaguesByInt[value]; }
+            get { return Languages.GetLanguageMSICode(cmbBxLanguage.SelectedItem.ToString()); }
+            set { cmbBxLanguage.SelectedItem = Languages.GetLanguageName(value); UseLanguage = true; }
         }
 
         internal override string XmlElementName
@@ -533,6 +479,7 @@ namespace Wsus_Package_Publisher
         private void chkBxLanguage_CheckedChanged(object sender, EventArgs e)
         {
             cmbBxLanguage.Enabled = chkBxLanguage.Checked;
+            ValidateData();
         }
 
         private void txtBxFolderPath_TextChanged(object sender, EventArgs e)
@@ -573,6 +520,11 @@ namespace Wsus_Package_Publisher
         {
             NumericUpDown nup = (NumericUpDown)sender;
             nup.Select(0, nup.Value.ToString().Length);
+        }
+
+        private void cmbBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateData();
         }
 
         #endregion

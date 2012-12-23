@@ -28,13 +28,34 @@ namespace Wsus_Package_Publisher
                     txtBxLogin.Text = Properties.Settings.Default.Login;
                     txtBxPassword.Text = Properties.Settings.Default.Password;
                     break;
-                case " Ask":
+                case "Ask":
                     rdBtnAsk.Checked = true;
                     break;
                 default:
                     rdBtnSameAsApplication.Checked = true;
                     break;
             }
+            lblDownloaded.Text = resMan.GetString("Downloaded");
+            lblDownloaded.BackColor = Properties.Settings.Default.DownloadedColor;
+
+            lblFailed.Text = resMan.GetString("Failed");
+            lblFailed.BackColor = Properties.Settings.Default.FailedColor;
+
+            lblInstalled.Text = resMan.GetString("Installed");
+            lblInstalled.BackColor = Properties.Settings.Default.InstalledColor;
+
+            lblInstalledPendingReboot.Text = resMan.GetString("InstalledPendingReboot");
+            lblInstalledPendingReboot.BackColor = Properties.Settings.Default.InstalledPendingRebootColor;
+
+            lblNotInstalled.Text = resMan.GetString("NotInstalled");
+            lblNotInstalled.BackColor = Properties.Settings.Default.NotInstalledColor;
+
+            lblUnknown.Text = resMan.GetString("Unknown");
+            lblUnknown.BackColor = Properties.Settings.Default.UnknownColor;
+
+            lblNotApplicable.Text = resMan.GetString("NotApplicable");
+            lblNotApplicable.BackColor = Properties.Settings.Default.NotApplicableColor;
+
         }
 
         internal List<WsusServer> ServerList
@@ -95,6 +116,9 @@ namespace Wsus_Package_Publisher
                                     if (int.TryParse(childNode.InnerText, out minute))
                                         serverWsus.DeadLineMinute = minute;
                                     break;
+                                case "MetaGroup":
+                                    serverWsus.MetaGroups.Add(GetMetaGroupFromXml(childNode));
+                                    break;
                                 default:
                                     break;
                             }
@@ -111,6 +135,81 @@ namespace Wsus_Package_Publisher
                 this.ShowDialog();
 
             return ServerList;
+        }
+
+        private MetaGroup GetMetaGroupFromXml(System.Xml.XmlNode node)
+        {
+            MetaGroup newMetaGroup = new MetaGroup();
+
+            foreach (System.Xml.XmlNode childNode in node.ChildNodes)
+            {
+                switch (childNode.Name)
+                {
+                    case "Name":
+                        newMetaGroup.Name = childNode.InnerText;
+                        break;
+                    case "InnerMetaGroup":
+                        MetaGroup innerMetaGroup = new MetaGroup();
+                        innerMetaGroup.Name = childNode.InnerText;
+                        newMetaGroup.InnerMetaGroups.Add(innerMetaGroup);
+                        break;
+                    case "InnerComputerGroup":
+                        newMetaGroup.InnerComputerGroups.Add(new ComputerGroup(childNode.InnerText, Guid.NewGuid()));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return newMetaGroup;
+        }
+
+        internal void SaveSettings(List<WsusServer> wsusServers)
+        {
+            if (System.IO.File.Exists("Options.xml"))
+                System.IO.File.Move("Options.xml", "Options.xml.bak");
+
+            System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+            System.Xml.XmlElement rootElement = (System.Xml.XmlElement)xmlDoc.AppendChild(xmlDoc.CreateElement("WsusPackagePublisher"));
+
+            foreach (WsusServer server in wsusServers)
+            {
+                System.Xml.XmlElement serverElement = (System.Xml.XmlElement)rootElement.AppendChild(xmlDoc.CreateElement("Server"));
+                serverElement.AppendChild(xmlDoc.CreateElement("Name")).InnerText = server.Name;
+                serverElement.AppendChild(xmlDoc.CreateElement("IsLocal")).InnerText = server.IsLocal.ToString();
+                serverElement.AppendChild(xmlDoc.CreateElement("Port")).InnerText = server.Port.ToString();
+                serverElement.AppendChild(xmlDoc.CreateElement("UseSSL")).InnerText = server.UseSSL.ToString();
+                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineDaysSpan")).InnerText = server.DeadLineDaysSpan.ToString();
+                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineHour")).InnerText = server.DeadLineHour.ToString();
+                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineMinute")).InnerText = server.DeadLineMinute.ToString();
+                if (server.MetaGroups.Count != 0)
+                    SaveMetaGroup(xmlDoc, server, serverElement);
+            }
+
+            xmlDoc.Save("Options.xml");
+
+            if (System.IO.File.Exists("Options.xml.bak"))
+                System.IO.File.Delete("Options.xml.bak");
+        }
+
+        private void SaveMetaGroup(System.Xml.XmlDocument xmlDoc, WsusServer server, System.Xml.XmlElement serverElement)
+        {
+            foreach (MetaGroup metaGroup in server.MetaGroups)
+            {
+                System.Xml.XmlElement metaGroupElement = xmlDoc.CreateElement("MetaGroup");
+                metaGroupElement.AppendChild(xmlDoc.CreateElement("Name")).InnerText = metaGroup.Name;
+                foreach (MetaGroup innerMetaGroup in metaGroup.InnerMetaGroups)
+                    metaGroupElement.AppendChild(xmlDoc.CreateElement("InnerMetaGroup")).InnerText = innerMetaGroup.Name;
+                foreach (ComputerGroup innerComputerGroup in metaGroup.InnerComputerGroups)
+                    metaGroupElement.AppendChild(xmlDoc.CreateElement("InnerComputerGroup")).InnerText = innerComputerGroup.Name;
+
+                serverElement.AppendChild(metaGroupElement);
+            }
+        }
+
+        private void SaveSettings()
+        {
+            SaveSettings(ServerList);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -132,33 +231,17 @@ namespace Wsus_Package_Publisher
             }
             if (rdBtnAsk.Checked)
                 Properties.Settings.Default.Credential = "Ask";
+
+            Properties.Settings.Default.DownloadedColor = lblDownloaded.BackColor;
+            Properties.Settings.Default.FailedColor = lblFailed.BackColor;
+            Properties.Settings.Default.InstalledColor = lblInstalled.BackColor;
+            Properties.Settings.Default.InstalledPendingRebootColor = lblInstalledPendingReboot.BackColor;
+            Properties.Settings.Default.NotInstalledColor = lblNotInstalled.BackColor;
+            Properties.Settings.Default.UnknownColor = lblUnknown.BackColor;
+            Properties.Settings.Default.NotApplicableColor = lblNotApplicable.BackColor;
+
+            Properties.Settings.Default.Save();
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
-        }
-
-        private void SaveSettings()
-        {
-            if (System.IO.File.Exists("Options.xml"))
-                System.IO.File.Move("Options.xml", "Options.xml.bak");
-
-            System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
-            System.Xml.XmlElement rootElement = (System.Xml.XmlElement)xmlDoc.AppendChild(xmlDoc.CreateElement("WsusPackagePublisher"));
-
-            foreach (WsusServer server in ServerList)
-            {
-                System.Xml.XmlElement serverElement = (System.Xml.XmlElement)rootElement.AppendChild(xmlDoc.CreateElement("Server"));
-                serverElement.AppendChild(xmlDoc.CreateElement("Name")).InnerText = server.Name;
-                serverElement.AppendChild(xmlDoc.CreateElement("IsLocal")).InnerText = server.IsLocal.ToString();
-                serverElement.AppendChild(xmlDoc.CreateElement("Port")).InnerText = server.Port.ToString();
-                serverElement.AppendChild(xmlDoc.CreateElement("UseSSL")).InnerText = server.UseSSL.ToString();
-                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineDaysSpan")).InnerText = server.DeadLineDaysSpan.ToString();
-                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineHour")).InnerText = server.DeadLineHour.ToString();
-                serverElement.AppendChild(xmlDoc.CreateElement("DeadLineMinute")).InnerText = server.DeadLineMinute.ToString();
-            }
-
-            xmlDoc.Save("Options.xml");
-
-            if (System.IO.File.Exists("Options.xml.bak"))
-                System.IO.File.Delete("Options.xml.bak");
         }
 
         private void ValidateData()
@@ -296,6 +379,24 @@ namespace Wsus_Package_Publisher
         {
             txtBxLogin.Enabled = rdBtnSpecified.Checked;
             txtBxPassword.Enabled = rdBtnSpecified.Checked;
+        }
+
+        private void lblInstalled_DoubleClick(object sender, EventArgs e)
+        {
+            Label editingLabel = (Label)sender;
+            if (colorDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                editingLabel.BackColor = colorDialog1.Color;
+        }
+
+        private void btnResetToDefault_Click(object sender, EventArgs e)
+        {
+            lblDownloaded.BackColor = Color.GreenYellow ;
+            lblFailed.BackColor = Color.OrangeRed ;
+            lblInstalled.BackColor = Color.Lime ;
+            lblInstalledPendingReboot.BackColor = Color.LawnGreen ;
+            lblNotInstalled.BackColor = Color.Orange ;
+            lblUnknown.BackColor = Color.DarkOrange ;
+            lblNotApplicable.BackColor = Color.DeepSkyBlue;
         }
     }
 }

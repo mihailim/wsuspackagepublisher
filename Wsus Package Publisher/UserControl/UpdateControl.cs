@@ -14,14 +14,22 @@ namespace Wsus_Package_Publisher
     {
         WsusWrapper _wsus = WsusWrapper.GetInstance();
         Product _product;
-        Dictionary<string, Guid> _computerGroups;
+        private UpdateDetailViewer updateDetailViewer1;
+        ComputerGroup _computerGroups;
+        List<MetaGroup> _metaGroups;
+        TreeNode _allComputersNode;
 
         internal UpdateControl()
         {
             InitializeComponent();
+            updateDetailViewer1 = new UpdateDetailViewer();
+            this.splitContainer1.Panel2.Controls.Add(this.updateDetailViewer1);
+            updateDetailViewer1.Dock = DockStyle.Fill;
+
             updateListViewer1.ContentChanged += new UpdateListViewer.ContentChangedEventHandler(AdjustSplitterDistance);
             updateListViewer1.UpdateSelectionChanged += new UpdateListViewer.UpdateSelectionChangedEventHandler(updateListViewer1_UpdateSelectionChanged);
             updateListViewer1.ApproveUpdate += new UpdateListViewer.ApproveUpdateEventHandler(updateDetailViewer1_ApproveUpdate);
+            updateListViewer1.QuicklyApproveUpdate += new UpdateListViewer.QuicklyApproveUpdateEventHandler(updateListViewer1_QuicklyApproveUpdate);
             updateListViewer1.DeclineUpdate += new UpdateListViewer.DeclineUpdateEventHandler(updateDetailViewer1_DeclineUpdate);
             updateListViewer1.DeleteUpdate += new UpdateListViewer.DeleteUpdateEventHandler(updateDetailViewer1_DeleteUpdate);
             updateListViewer1.ExpireUpdate += new UpdateListViewer.ExpireUpdateEventHandler(updateDetailViewer1_ExpireUpdate);
@@ -35,9 +43,10 @@ namespace Wsus_Package_Publisher
             updateDetailViewer1.ReviseUpdate += new UpdateDetailViewer.ReviseUpdateEventHandler(updateDetailViewer1_ReviseUpdate);
         }
 
-        void updateListViewer1_DeclineUpdate(UpdateCollection udpatesToDecline)
+        internal new void Dispose()
         {
-            throw new NotImplementedException();
+            updateDetailViewer1.Dispose();
+            updateListViewer1.Dispose();
         }
 
         #region (Properties - Propriétés)
@@ -66,15 +75,29 @@ namespace Wsus_Package_Publisher
             updateListViewer1.UpdateDisplay();
         }
 
-        internal void SetComputerGroups(Dictionary<string, Guid> computerGroups)
+        internal void SetComputerGroups(ComputerGroup computerGroups, TreeNode allComputersNode)
         {
             _computerGroups = computerGroups;
-            updateDetailViewer1.SetComputerGroups(computerGroups);
+            _allComputersNode = allComputersNode;
+            updateDetailViewer1.SetComputerGroups(computerGroups, allComputersNode);
+        }
+
+        internal void SetMetaGroups(List<MetaGroup> metaGroups)
+        {
+            _metaGroups = metaGroups;
+            updateListViewer1.SetMetaGroups(metaGroups);
         }
 
         internal void LockFunctionnalities(bool isLock)
         {
             updateDetailViewer1.LockFunctionnalities(isLock);
+            updateListViewer1.LockFunctionnalities(isLock);
+        }
+
+        internal void ClearDisplay()
+        {
+            updateListViewer1.ClearDisplay();
+            updateDetailViewer1.ResetControl();
         }
 
         private void AdjustSplitterDistance()
@@ -98,35 +121,61 @@ namespace Wsus_Package_Publisher
 
         private void updateDetailViewer1_ExpireUpdate(UpdateCollection updatesToExpire)
         {
+            updateDetailViewer1.RunningLongOperation(true);
+            updateListViewer1.RunningLongOperation(true);
             foreach (IUpdate update in updatesToExpire)
             {
                 _wsus.ExpireUpdate(update);
+                updateDetailViewer1.Refresh();
+                updateListViewer1.Refresh();
+                this.Refresh();
+                System.Threading.Thread.Sleep(50);
             }
+            updateDetailViewer1.RunningLongOperation(false);
+            updateListViewer1.RunningLongOperation(false);
         }
 
         private void updateDetailViewer1_DeleteUpdate(UpdateCollection updatesToDelete)
         {
+            updateDetailViewer1.RunningLongOperation(true);
+            updateListViewer1.RunningLongOperation(true);
             foreach (IUpdate update in updatesToDelete)
             {
                 _wsus.DeleteUpdate(update);
+                updateDetailViewer1.Refresh();
+                updateListViewer1.Refresh();
+                this.Refresh();
+                System.Threading.Thread.Sleep(50);
             }
+            updateDetailViewer1.RunningLongOperation(false);
+            updateListViewer1.RunningLongOperation(false);
         }
 
         private void updateDetailViewer1_DeclineUpdate(UpdateCollection updatesToDecline)
         {
+            updateDetailViewer1.RunningLongOperation(true);
+            updateListViewer1.RunningLongOperation(true);
             foreach (IUpdate update in updatesToDecline)
             {
                 _wsus.DeclineUpdate(update);
+                updateDetailViewer1.Refresh();
+                updateListViewer1.Refresh();
+                this.Refresh();
+                System.Threading.Thread.Sleep(50);
             }
+            updateDetailViewer1.RunningLongOperation(false);
+            updateListViewer1.RunningLongOperation(false);
         }
 
         private void updateDetailViewer1_ApproveUpdate(UpdateCollection updatesToApprove)
         {
-            FrmApprovalSet approvalForm = new FrmApprovalSet(_computerGroups, updatesToApprove);
+            FrmApprovalSet approvalForm = new FrmApprovalSet(_metaGroups, _computerGroups, updatesToApprove);
 
             approvalForm.ShowDialog(this);
             if (approvalForm.DialogResult == DialogResult.OK)
             {
+                updateDetailViewer1.RunningLongOperation(true);
+                updateListViewer1.RunningLongOperation(true);
                 foreach (IUpdate updateToApprove in updateDetailViewer1.ViewedUpdates)
                 {
                     foreach (ApprovalObject approval in approvalForm.Approvals)
@@ -156,10 +205,37 @@ namespace Wsus_Package_Publisher
                             default:
                                 break;
                         }
+                        updateDetailViewer1.Refresh();
+                        updateListViewer1.Refresh();
+                        this.Refresh();
+                        System.Threading.Thread.Sleep(50);
                     }
                 }
-
+                updateDetailViewer1.RunningLongOperation(false);
+                updateListViewer1.RunningLongOperation(false);
             }
+        }
+
+        void updateListViewer1_QuicklyApproveUpdate(UpdateCollection udpatesToApprove, MetaGroup metaGroup)
+        {
+            FrmApprovalSet approvalForm = new FrmApprovalSet(_metaGroups, _computerGroups, udpatesToApprove);
+            approvalForm.QuicklyApprove(metaGroup);
+            updateDetailViewer1.RunningLongOperation(true);
+            updateListViewer1.RunningLongOperation(true);
+            foreach (IUpdate updateToApprove in updateDetailViewer1.ViewedUpdates)
+            {
+                foreach (ApprovalObject approval in approvalForm.Approvals)
+                {
+                    _wsus.ApproveUpdateForInstallation(approval.GroupId, updateToApprove);
+
+                    updateDetailViewer1.Refresh();
+                    updateListViewer1.Refresh();
+                    this.Refresh();
+                    System.Threading.Thread.Sleep(50);
+                }
+            }
+            updateDetailViewer1.RunningLongOperation(false);
+            updateListViewer1.RunningLongOperation(false);
         }
 
         private void updateDetailViewer1_ReviseUpdate(IUpdate updateToRevise)
@@ -174,6 +250,11 @@ namespace Wsus_Package_Publisher
             {
                 MessageBox.Show(_wsus.ResignPackage(updateToResign));
             }
+        }
+
+        private void UpdateControl_SizeChanged(object sender, EventArgs e)
+        {
+            AdjustSplitterDistance();
         }
 
         #endregion

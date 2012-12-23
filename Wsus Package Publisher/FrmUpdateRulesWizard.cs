@@ -33,6 +33,18 @@ namespace Wsus_Package_Publisher
             _allSupportedRules.Add(new RuleFileVersion());
             _allSupportedRules.Add(new RuleFileVersionPrependRegSZ());
             _allSupportedRules.Add(new RuleFileCreated());
+            _allSupportedRules.Add(new RuleFileCreatedPrependRegSz());
+            _allSupportedRules.Add(new RuleFileModified());
+            _allSupportedRules.Add(new RuleFileSize());
+            _allSupportedRules.Add(new RuleRegKeyExists());
+            _allSupportedRules.Add(new RuleRegValueExists());
+            _allSupportedRules.Add(new RuleRegDword());
+            _allSupportedRules.Add(new RuleRegExpandSz());
+            _allSupportedRules.Add(new RuleRegSz());
+            _allSupportedRules.Add(new RuleRegSzToVersion());
+            _allSupportedRules.Add(new RuleWmiQuery());
+            _allSupportedRules.Add(new RuleMsiPatchInstalledForProduct());
+
 
             foreach (GenericRule rule in _allSupportedRules)
             {
@@ -49,14 +61,22 @@ namespace Wsus_Package_Publisher
         internal void InitializeFromXml(string xml)
         {
             _masterGroup.Reset();
-            _masterGroup = ParseXml(_masterGroup, xml, true);
+            _masterGroup = ParseXml(_masterGroup, xml);
 
             grpDsp1.Initialize(_masterGroup);
         }
 
-        private RulesGroup ParseXml(RulesGroup group, string xml, bool topGroup)
+        internal bool EmptyRuleAtPackageLevel
+        {
+            get { return chkBxEmptyInstallableItemRule.Checked; }
+        }
+
+        internal bool IsAllReadyInitialized { get; set; }
+
+        private RulesGroup ParseXml(RulesGroup group, string xml)
         {
             bool reverseRule = false;
+            bool thisGroup = true;
             XmlNamespaceManager namespaceMng = new XmlNamespaceManager(new System.Xml.NameTable());
             namespaceMng.AddNamespace("lar", "http://schemas.microsoft.com/wsus/2005/04/CorporatePublishing/LogicalApplicabilityRules.xsd");
             namespaceMng.AddNamespace("bar", "http://schemas.microsoft.com/wsus/2005/04/CorporatePublishing/BaseApplicabilityRules.xsd");
@@ -66,33 +86,60 @@ namespace Wsus_Package_Publisher
             XmlTextReader xmlReader = new XmlTextReader(xml, XmlNodeType.Element, context);
 
             xmlReader.WhitespaceHandling = WhitespaceHandling.None;
+            xmlReader.Read();
             while (!xmlReader.EOF)
             {
-                xmlReader.Read();
                 switch (xmlReader.Prefix)
                 {
                     case "lar":
-                        if (xmlReader.LocalName == "Not")
-                            reverseRule = (xmlReader.NodeType != XmlNodeType.EndElement);
-                        else
-                            if (xmlReader.LocalName == "And")
-                                if (!topGroup)
+                        switch (xmlReader.LocalName)
+                        {
+                            case "Not":
+                                reverseRule = (xmlReader.NodeType != XmlNodeType.EndElement);
+                                xmlReader.Read();
+                                break;
+                            case "And":
+                                if (xmlReader.NodeType == XmlNodeType.Element)
                                 {
-                                    RulesGroup tempGroup = new RulesGroup();
-                                    group.AddGroup(ParseXml(tempGroup, xmlReader.ReadInnerXml(), false));
-                                }
-                                else
-                                    topGroup = false;
-                            else
-                                if (xmlReader.LocalName == "Or")
-                                    if (!topGroup)
+                                    if (thisGroup)
                                     {
-                                        RulesGroup tempGroup = new RulesGroup();
-                                        tempGroup.GroupType = RulesGroup.GroupLogicalOperator.Or;
-                                        group.AddGroup(ParseXml(tempGroup, xmlReader.ReadInnerXml(), false));
+                                        group.GroupType = RulesGroup.GroupLogicalOperator.And;
+                                        thisGroup = false;
+                                        xmlReader.Read();
                                     }
                                     else
-                                        topGroup = false;
+                                    {
+                                        RulesGroup tempGroup = new RulesGroup();
+                                        group.AddGroup(ParseXml(tempGroup, xmlReader.ReadOuterXml()));
+                                    }
+                                }
+                                else
+                                    if (xmlReader.NodeType == XmlNodeType.EndElement)
+                                        return group;
+                                break;
+                            case "Or":
+                                if (xmlReader.NodeType == XmlNodeType.Element)
+                                {
+                                    if (thisGroup)
+                                    {
+                                        group.GroupType = RulesGroup.GroupLogicalOperator.Or;
+                                        thisGroup = false;
+                                        xmlReader.Read();
+                                    }
+                                    else
+                                    {
+                                        RulesGroup tempGroup = new RulesGroup();
+                                        group.AddGroup(ParseXml(tempGroup, xmlReader.ReadOuterXml()));
+                                    }
+                                }
+                                else
+                                    if (xmlReader.NodeType == XmlNodeType.EndElement)
+                                        return group;
+                                break;
+                            default:
+                                xmlReader.Read();
+                                break;
+                        }
                         break;
                     case "bar":
                     case "msiar":
@@ -107,8 +154,10 @@ namespace Wsus_Package_Publisher
                                 break;
                             }
                         }
+                        xmlReader.Read();
                         break;
                     default:
+                        xmlReader.Read();
                         break;
                 }
             }
@@ -128,18 +177,18 @@ namespace Wsus_Package_Publisher
             return attributes;
         }
 
-        void grpDsp1_RuleEditionRequest(GenericRule ResquestingRule)
+        private void grpDsp1_RuleEditionRequest(GenericRule ResquestingRule)
         {
             EditRule(ResquestingRule);
         }
 
-        void grpDsp1_EditionRequest(GroupDisplayer sender)
+        private void grpDsp1_EditionRequest(GroupDisplayer sender)
         {
             sender.InnerGroup.Edit();
             grpDsp1.Initialize(_masterGroup);
         }
 
-        void grpDsp1_SelectionChange(GroupDisplayer sender)
+        private void grpDsp1_SelectionChange(GroupDisplayer sender)
         {
             int total = sender.SelectedRules.Count + sender.SelectedGroups.Count;
 
@@ -167,6 +216,8 @@ namespace Wsus_Package_Publisher
 
             frmRule = GetSelectedForm(cmbBxRules.SelectedItem);
             Form frm = new Form();
+            frm.KeyPreview = true;
+            frm.KeyDown += new KeyEventHandler(frm_KeyDown);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Controls.Add(frmRule);
             frm.Size = new Size(frmRule.Width + 20, frmRule.Height + 2 * SystemInformation.CaptionHeight);
@@ -177,6 +228,7 @@ namespace Wsus_Package_Publisher
             }
 
             frm.Hide();
+            frm.KeyDown -= new KeyEventHandler(frm_KeyDown);
             frm = null;
             grpDsp1.Initialize(_masterGroup);
         }
@@ -206,6 +258,8 @@ namespace Wsus_Package_Publisher
         {
             GenericRule backup = editedRule.Clone();
             Form frm = new Form();
+            frm.KeyPreview = true;
+            frm.KeyDown += new KeyEventHandler(frm_KeyDown);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Size = new Size(editedRule.Width + 20, editedRule.Height + 2 * SystemInformation.CaptionHeight);
             editedRule.Dock = DockStyle.Fill;
@@ -213,8 +267,27 @@ namespace Wsus_Package_Publisher
             if (frm.ShowDialog() == DialogResult.Cancel)
                 ReplaceRule(editedRule, backup, _masterGroup);
             frm.Hide();
+            frm.KeyDown -= new KeyEventHandler(frm_KeyDown);
             frm = null;
         }
+
+        void frm_KeyDown(object sender, KeyEventArgs e)
+        {
+            Form ruleForm = (Form)sender;
+
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    if (ruleForm.Controls[0].Controls["btnOk"].Enabled)
+                        (ruleForm.Controls[0].Controls["btnOk"] as Button).PerformClick();
+                    break;
+                case Keys.Escape:
+                    (ruleForm.Controls[0].Controls["btnCancel"] as Button).PerformClick();
+                    break;
+                default:
+                    break;
+            }
+        }        
 
         private bool ReplaceRule(GenericRule editedRule, GenericRule backupRule, RulesGroup groupToSearchInto)
         {

@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DescriptionInformationsWizard" xml:space="preserve">
     <value>Indiquez içi les informations concernant la mise à jour. Les champs en caractères gras sont obligatoires.
@@ -150,6 +150,10 @@ Id CVE (Facultatif) : Précisez le code CVE fournis par l'éditeur.
 
 Id de l'article KB (Facultatif) : Précisez le numéro de KB de l'article.
 
+Ligne de commande (Facultatif) : Indiquez un ou plusieurs paramètres pour le fichier de mise à jour. Par exemple /q, /s ou /silent. Pour les fichiers .msi il n'est pas nécessaire de préciser d'option pour rendre l'installation silencieuse. Wsus le fait automatiquement.
+
+Codes de retour (Facultatif) : Uniquement pour les fichiers .EXE. Signification du code renvoyé à la fin de l'installation.
+
 
 Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   </data>
@@ -160,9 +164,7 @@ Fichier de mise à jour (Obligatoire) : Sélectionnez un fichier msi, msp ou exe
 
 Fichiers additionnels (Facultatif) : Sélectionnez un ou plusieurs fichiers nécessaire à l'application de la mise à jour. Par exemple des fichiers de configuration ou fichier de réponses.
 
-Ligne de commande (Facultatif) : Indiquez un ou plusieurs paramètres pour le fichier de mise à jour. Par exemple /q, /s ou /silent. Pour les fichiers .msi il n'est pas nécessaire de préciser d'option pour rendre l'installation silencieuse. Wsus le fait automatiquement.
 
-Codes de retour (Facultatif) : Uniquement pour les fichiers .EXE. Signification du code renvoyé à la fin de l'installation.
 
 Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   </data>
@@ -198,6 +200,8 @@ Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
 
 
 
+* Supprimer les règles au niveau Package : Permet de faire en sorte que seul les règles que vous définissez içi s'applique. Recommendé dans le cas de règles personnalisées. Si vous utilisez uniquement les règles prédéfinies par un package MSI ou MSP,  laissez décoché.
+
 Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   </data>
   <data name="DescriptionIsInstalledWizard" xml:space="preserve">
@@ -207,6 +211,8 @@ Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
 - Architecture du Processeur : Détermine si le processeur est de type x86, x64 ou IA64.
 
 
+
+* Supprimer les règles au niveau Package : Permet de faire en sorte que seul les règles que vous définissez içi s'applique. Recommendé dans le cas de règles personnalisées. Si vous utilisez uniquement les règles prédéfinies par un package MSI ou MSP,  laissez décoché.
 
 Cliquez sur 'Suivant' pour passer à la prochaine étape.</value>
   </data>
@@ -226,7 +232,7 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
     <value>Date de création du fichier</value>
   </data>
   <data name="FileCreatedPrependRegSz" xml:space="preserve">
-    <value>Date de création du fichier préfixer par Registre</value>
+    <value>Date de création du fichier préfixé par Registre</value>
   </data>
   <data name="FileExists" xml:space="preserve">
     <value>Fichier existe</value>
@@ -238,19 +244,19 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
     <value>Date de modification du fichier</value>
   </data>
   <data name="FileModifiedPrependRegSz" xml:space="preserve">
-    <value>Date de modification du fichier préfixer par Registre</value>
+    <value>Date de modification du fichier préfixé par Registre</value>
   </data>
   <data name="FileSize" xml:space="preserve">
     <value>Taille du fichier</value>
   </data>
   <data name="FileSizePrependRegSz" xml:space="preserve">
-    <value>Taille du fichier préfixer par Registre</value>
+    <value>Taille du fichier préfixé par Registre</value>
   </data>
   <data name="FileVersion" xml:space="preserve">
     <value>Version du fichier</value>
   </data>
   <data name="FileVersionPrependRegSz" xml:space="preserve">
-    <value>Version du fichier préfixer par Registre</value>
+    <value>Version du fichier préfixé par Registre</value>
   </data>
   <data name="FinishedPublishing" xml:space="preserve">
     <value>Publication terminée</value>
@@ -300,8 +306,8 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
   <data name="RegDword" xml:space="preserve">
     <value>Valeur Dword du Registre</value>
   </data>
-  <data name="RegExpendSz" xml:space="preserve">
-    <value>Valeur de la chaine extensible du Registre</value>
+  <data name="RegExpandSz" xml:space="preserve">
+    <value>Valeur Reg_Expand_Sz du Registre</value>
   </data>
   <data name="RegKeyExists" xml:space="preserve">
     <value>Clé de Registre existe</value>
@@ -310,10 +316,10 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
     <value>Valeur de toutes les sous clés</value>
   </data>
   <data name="RegSz" xml:space="preserve">
-    <value>Valeur de la chaine du Registre</value>
+    <value>Valeur Reg_Sz du Registre</value>
   </data>
   <data name="RegSzToVersion" xml:space="preserve">
-    <value>Valeur de la chaine du Registre en tant que version</value>
+    <value>Valeur Reg_Sz du Registre en tant que version</value>
   </data>
   <data name="SavingPackage" xml:space="preserve">
     <value>Sauvegarde du package</value>
@@ -325,7 +331,7 @@ Language (Facultatif) : Spécifie la langue dans la quelle le produit doit être
     <value>Version de Windows</value>
   </data>
   <data name="WmiQuery" xml:space="preserve">
-    <value>Requette Wmi</value>
+    <value>Requete Wmi</value>
   </data>
   <data name="ComparisonEqualTo" xml:space="preserve">
     <value>Egal à</value>
@@ -417,12 +423,6 @@ Version (Obligatoire) : Version du fichier.</value>
   <data name="WsusConnectionException" xml:space="preserve">
     <value>La connexion au serveur à échoué. Verifiez que le serveur est démarré et que les paramètres de connections sont valide.</value>
   </data>
-  <data name="All" xml:space="preserve">
-    <value>Tous</value>
-  </data>
-  <data name="AllButInstalled" xml:space="preserve">
-    <value>Applicable, mais non installé</value>
-  </data>
   <data name="Downloaded" xml:space="preserve">
     <value>Téléchargée</value>
   </data>
@@ -451,7 +451,7 @@ Version (Obligatoire) : Version du fichier.</value>
     <value>Désinstallation</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Inconnu</value>
+    <value>Inconnue</value>
   </data>
   <data name="EditGroupTypeAnd" xml:space="preserve">
     <value>Voulez-vous liez les règles par l'opérateur logique "Et" ?</value>
@@ -460,10 +460,10 @@ Version (Obligatoire) : Version du fichier.</value>
     <value>Voulez-vous liez les règles par l'opérateur logique "Ou" ?</value>
   </data>
   <data name="Publish" xml:space="preserve">
-    <value>P&amp;ublier</value>
+    <value>Pu&amp;blier</value>
   </data>
   <data name="Revise" xml:space="preserve">
-    <value>Réviser</value>
+    <value>&amp;Réviser</value>
   </data>
   <data name="UpdateRevised" xml:space="preserve">
     <value>Mise à jour révisée.</value>
@@ -511,7 +511,7 @@ Version (Obligatoire) : Version du fichier.</value>
     <value>Re-signer</value>
   </data>
   <data name="ResignPackageFailed" xml:space="preserve">
-    <value>Erreur lors de la re-signature de la mise à jour. Erreure </value>
+    <value>Erreur lors de la re-signature de la mise à jour. Erreur </value>
   </data>
   <data name="SuccessfullyResignPackage" xml:space="preserve">
     <value>Mise à jour re-signée avec succès.</value>
@@ -561,5 +561,192 @@ Language (Optionnel) : Language du fichier.</value>
   </data>
   <data name="Succeeded" xml:space="preserve">
     <value>Succès</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Sur</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Résumé</value>
+  </data>
+  <data name="SendDetectNow" xml:space="preserve">
+    <value>Envoyer "Detect Now"</value>
+  </data>
+  <data name="SendReportNow" xml:space="preserve">
+    <value>Envoyer "Report Now"</value>
+  </data>
+  <data name="NeededButNotInstalled" xml:space="preserve">
+    <value>Nécessaire mais non installé</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groupes</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="DescriptionRegKeyExists" xml:space="preserve">
+    <value>Vérifie l'éxistence d'une clé de registre spécifique.
+
+Par exemple : Software\Microsoft\Windows dans HKEY_LOCAL_MACHINE
+
+Si vous souhaitez tester l'éxistence d'une valeur tel que :
+SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{23170F69-40C1-2702-0920-000001000000}\DisplayName dans HKEY_LOCAL_MACHINE
+Alors utilisez la règle : "Valeur de Registre Existe".</value>
+  </data>
+  <data name="DescriptionRegValueExists" xml:space="preserve">
+    <value>Vérifie l'existence de la valeur de registre spécifiée.
+Vérifie l'existence de la valeur par défaut pour la sous-clé quand aucune valeur n'est spécifiée.
+Vérifie que la valeur est d'un type spécifique quand un type est spécifié. Le type doit être REG_SZ si une valeur n'est pas spécifiée.</value>
+  </data>
+  <data name="RegValueExists" xml:space="preserve">
+    <value>Valeur de Registre Existe</value>
+  </data>
+  <data name="DescriptionRuleRegDword" xml:space="preserve">
+    <value>Compare un REG_DWORD spécifique de registre avec le nombre spéficié.
+
+SubKey : Une sous clé du registre, telle que "Software\Microsoft\Windows". Doit avoir entre 1 et 255 caractères.
+
+Valeur : Nom d'une valeur du registre, tel que "CurrentBuildNumber". Doit avoir entre 0 et 16383 caractères.
+
+Donnée : Une valeur du registre de type REG_DWORD. Doit être compris entre 0 et uint.Maximum.</value>
+  </data>
+  <data name="ComparisonBeginsWith" xml:space="preserve">
+    <value>Commence par</value>
+  </data>
+  <data name="ComparisonContains" xml:space="preserve">
+    <value>Contient</value>
+  </data>
+  <data name="ComparisonEndsWith" xml:space="preserve">
+    <value>Fini par</value>
+  </data>
+  <data name="DescriptionRuleRegExpandSz" xml:space="preserve">
+    <value>Compare un REG_EXPAND_SZ spécifique du registre avec la chaine de caractères spécifiée.
+
+SubKey : Une sous clé de registre, telle que "Software\Microsoft\Windows". Doit avoir entre 1 et 255 caractères.
+
+Valeur : Nom d'une valeur de registre, tel que "CurrentBuildNumber". Doit avoir entre 0 et 16383 caractères.
+
+Donnée : Une valeur de registre de type REG_EXPAND_SZ . Doit avoir entre 1 et 16383 caractères.</value>
+  </data>
+  <data name="DescriptionRuleRegSz" xml:space="preserve">
+    <value>Compare un REG_SZ spécifique du registre avec la chaine de caractères spécifiée.
+
+SubKey : Une sous clé de registre, telle que "Software\Microsoft\Windows". Doit avoir entre 1 et 255 caractères.
+
+Valeur : Nom d'une valeur de registre, tel que "CurrentBuildNumber". Doit avoir entre 0 et 16383 caractères.
+
+Donnée : Une valeur de registre de type REG_SZ. Doit avoir entre 1 et 16383 caractères.</value>
+  </data>
+  <data name="DescriptionRuleRegSzToVersion" xml:space="preserve">
+    <value>Compare un REG_SZ spécifique du registre avec la chaine de caractères en quatre parties spécifiée.
+
+SubKey : Une sous clé de registre, telle que "Software\Microsoft\Windows". Doit avoir entre 1 et 255 caractères.
+
+Valeur : Nom d'une valeur de registre, tel que "CurrentBuildNumber". Doit avoir entre 0 et 16383 caractères.
+
+Donnée : Une valeur de registre de type REG_SZ. Doit correspondre au motif 0...99999, 0...99999, 0...99999, 0...99999</value>
+  </data>
+  <data name="DescriptionRuleWmiQuery" xml:space="preserve">
+    <value>Exécute la requete WMI spécifiée et renvois vraie si un ou plusieurs résultat sont retournés, sinon faux.
+
+Espace de nom (Optionel) : L'espace de nom de la requete WMI.
+
+Requete WQL (Requis) : La requete WMI WQL.</value>
+  </data>
+  <data name="DescriptionRuleMsiFeatureInstalledForProduct" xml:space="preserve">
+    <value>Checks that the specified feature(s) are installed for one (optionally all) of the specified products.</value>
+  </data>
+  <data name="DescriptionRuleMsiPatchInstalledForProduct" xml:space="preserve">
+    <value>Vérifie qu'un patch spécifique est installé pour le produit spécifié.
+
+Code MSP (Obligatoire) : Code du patch MSP dont le status doit être vérifié. Format 12345678-1234-1234-1234-123456789012
+
+Code Produit (Obligatoire) : Code MSI du produit qui doit être vérifié. Format 12345678-1234-1234-1234-123456789012
+
+Inverser la règle : Si cochée, évalue la règle puis inverse la résultat.
+
+Version Max (Optionnel) : Si présente, spécifie la version Max du produit.
+
+Version Min (Optionnel) : Si présente, spécifie la version Min du produit.
+
+Language (Optionnel) : Si présente, spécifie le language sur lequel filtrer.</value>
+  </data>
+  <data name="SendRebootNow" xml:space="preserve">
+    <value>Redémarrer le/les ordinateur(s) distant(s)</value>
+  </data>
+  <data name="DescriptionFileCreatedPrependRegSz" xml:space="preserve">
+    <value>Comme 'Date de Création du Fichier' mais le nom du fichier est préfixé par la valeur du clé de registre.
+
+Hkey_Local_Machine (Obligatoire) : Ruche du registre où se trouve la valeur qui contient le préfixe.
+Valeur (Obligatoire) : Valeur du registre où se trouve le préfixe..
+Répertoire (Obligatoire) : Nom du fichier (Max 260 caractères).
+Date de création (Obligatoire) : Date de création du fichier.</value>
+  </data>
+  <data name="DescriptionFileModified" xml:space="preserve">
+    <value>Compare la date de modification du fichier spécifié à la valeur fournie. Si 'Répertoire prédéfini' est spécifié, le client appel Win32 SHGetFolderPath afin de retrouver le nom du répertoire et l'ajouter au début du 'Chemin' fourni.
+
+- Répertoire Prédéfini (Optionnel) : Permet de désigner un répertoire par ca variable d'environnement.
+
+- Chemin (Obligatoire) : Chemin vers le fichier.
+
+- Comparaison (Obligatoire) : L'opérateur de comparaison.
+
+- Date de modification (Obligatoire) : Date de modification.</value>
+  </data>
+  <data name="DescriptionFileSize" xml:space="preserve">
+    <value>Compare la taille du fichier spécifié à la valeur fournie. Si 'Répertoire prédéfini' est spécifié, le client appel Win32 SHGetFolderPath afin de retrouver le nom du répertoire et l'ajouter au début du 'Chemin' fourni.
+
+- Répertoire Prédéfini (Optionnel) : Permet de désigner un répertoire par ca variable d'environnement.
+
+- Chemin (Obligatoire) : Chemin vers le fichier.
+
+- Comparaison (Obligatoire) : L'opérateur de comparaison.
+
+- Taille du Fichier (Obligatoire) : Taille du fichier, en octets, pour la comparaison.</value>
+  </data>
+  <data name="MetaGroup" xml:space="preserve">
+    <value>MetaGroupe</value>
+  </data>
+  <data name="ComputerGroupName" xml:space="preserve">
+    <value>Nom du Groupe d'Ordinateur</value>
+  </data>
+  <data name="CreateMetaGroup" xml:space="preserve">
+    <value>&amp;Créer un MetaGroupe</value>
+  </data>
+  <data name="DeleteMetaGroup" xml:space="preserve">
+    <value>&amp;Supprimer un MetaGroupe</value>
+  </data>
+  <data name="EditMetaGroup" xml:space="preserve">
+    <value>&amp;Modifier un MetaGroupe</value>
+  </data>
+  <data name="MetaGroupName" xml:space="preserve">
+    <value>Nom du MetaGroupe</value>
+  </data>
+  <data name="DeleteThisMetaGroup" xml:space="preserve">
+    <value>Supprimer ce MetaGroupe</value>
+  </data>
+  <data name="ManageMetaGroups" xml:space="preserve">
+    <value>Gérer les MetaGroupes...</value>
+  </data>
+  <data name="ManageThisMetaGroup" xml:space="preserve">
+    <value>Gérer ce MetaGroupe...</value>
+  </data>
+  <data name="CreateUpdate" xml:space="preserve">
+    <value>Créer une mise à jour...</value>
+  </data>
+  <data name="QuickApproval" xml:space="preserve">
+    <value>Approbation Rapide</value>
+  </data>
+  <data name="CredentialFailed" xml:space="preserve">
+    <value>Echec de connexion avec les informations de compte fournis.
+Voulez-vous continuer d'utiliser ces informations de connexion (risque de verrouillage du compte) ?</value>
+  </data>
+  <data name="FailToConnect" xml:space="preserve">
+    <value>Echec de connexion.</value>
+  </data>
+  <data name="CleanUpdateServicesPackagesFolder" xml:space="preserve">
+    <value>Nettoyer le répertoire UpdateServicesPackages...</value>
+  </data>
+  <data name="InstalledOrNotApplicable" xml:space="preserve">
+    <value>Installée ou non Applicable</value>
   </data>
 </root>

@@ -57,8 +57,19 @@
             this.rdBtnSpecified = new System.Windows.Forms.RadioButton();
             this.rdBtnSameAsApplication = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabColors = new System.Windows.Forms.TabPage();
+            this.btnResetToDefault = new System.Windows.Forms.Button();
+            this.lblFailed = new System.Windows.Forms.Label();
+            this.lblUnknown = new System.Windows.Forms.Label();
+            this.lblNotInstalled = new System.Windows.Forms.Label();
+            this.lblNotApplicable = new System.Windows.Forms.Label();
+            this.lblDownloaded = new System.Windows.Forms.Label();
+            this.lblInstalledPendingReboot = new System.Windows.Forms.Label();
+            this.lblInstalled = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabSettings.SuspendLayout();
             this.tabServer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupDeadLineMinute)).BeginInit();
@@ -66,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDeadLineDaysSpan)).BeginInit();
             this.tabCommonSettings.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabColors.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSettings
@@ -73,12 +85,12 @@
             resources.ApplyResources(this.tabSettings, "tabSettings");
             this.tabSettings.Controls.Add(this.tabServer);
             this.tabSettings.Controls.Add(this.tabCommonSettings);
+            this.tabSettings.Controls.Add(this.tabColors);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.SelectedIndex = 0;
             // 
             // tabServer
             // 
-            resources.ApplyResources(this.tabServer, "tabServer");
             this.tabServer.Controls.Add(this.chkBxConnectToLocalServer);
             this.tabServer.Controls.Add(this.btnEditServer);
             this.tabServer.Controls.Add(this.nupDeadLineMinute);
@@ -95,6 +107,7 @@
             this.tabServer.Controls.Add(this.label2);
             this.tabServer.Controls.Add(this.txtBxServerName);
             this.tabServer.Controls.Add(this.label1);
+            resources.ApplyResources(this.tabServer, "tabServer");
             this.tabServer.Name = "tabServer";
             this.tabServer.UseVisualStyleBackColor = true;
             // 
@@ -230,9 +243,9 @@
             // 
             // tabCommonSettings
             // 
-            resources.ApplyResources(this.tabCommonSettings, "tabCommonSettings");
             this.tabCommonSettings.Controls.Add(this.groupBox1);
             this.tabCommonSettings.Controls.Add(this.label6);
+            resources.ApplyResources(this.tabCommonSettings, "tabCommonSettings");
             this.tabCommonSettings.Name = "tabCommonSettings";
             this.tabCommonSettings.UseVisualStyleBackColor = true;
             // 
@@ -253,6 +266,7 @@
             // 
             resources.ApplyResources(this.txtBxPassword, "txtBxPassword");
             this.txtBxPassword.Name = "txtBxPassword";
+            this.txtBxPassword.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -297,6 +311,75 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
+            // tabColors
+            // 
+            this.tabColors.Controls.Add(this.btnResetToDefault);
+            this.tabColors.Controls.Add(this.lblFailed);
+            this.tabColors.Controls.Add(this.lblUnknown);
+            this.tabColors.Controls.Add(this.lblNotInstalled);
+            this.tabColors.Controls.Add(this.lblNotApplicable);
+            this.tabColors.Controls.Add(this.lblDownloaded);
+            this.tabColors.Controls.Add(this.lblInstalledPendingReboot);
+            this.tabColors.Controls.Add(this.lblInstalled);
+            this.tabColors.Controls.Add(this.label9);
+            resources.ApplyResources(this.tabColors, "tabColors");
+            this.tabColors.Name = "tabColors";
+            this.tabColors.UseVisualStyleBackColor = true;
+            // 
+            // btnResetToDefault
+            // 
+            resources.ApplyResources(this.btnResetToDefault, "btnResetToDefault");
+            this.btnResetToDefault.Name = "btnResetToDefault";
+            this.btnResetToDefault.UseVisualStyleBackColor = true;
+            this.btnResetToDefault.Click += new System.EventHandler(this.btnResetToDefault_Click);
+            // 
+            // lblFailed
+            // 
+            resources.ApplyResources(this.lblFailed, "lblFailed");
+            this.lblFailed.Name = "lblFailed";
+            this.lblFailed.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblUnknown
+            // 
+            resources.ApplyResources(this.lblUnknown, "lblUnknown");
+            this.lblUnknown.Name = "lblUnknown";
+            this.lblUnknown.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblNotInstalled
+            // 
+            resources.ApplyResources(this.lblNotInstalled, "lblNotInstalled");
+            this.lblNotInstalled.Name = "lblNotInstalled";
+            this.lblNotInstalled.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblNotApplicable
+            // 
+            resources.ApplyResources(this.lblNotApplicable, "lblNotApplicable");
+            this.lblNotApplicable.Name = "lblNotApplicable";
+            this.lblNotApplicable.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblDownloaded
+            // 
+            resources.ApplyResources(this.lblDownloaded, "lblDownloaded");
+            this.lblDownloaded.Name = "lblDownloaded";
+            this.lblDownloaded.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblInstalledPendingReboot
+            // 
+            resources.ApplyResources(this.lblInstalledPendingReboot, "lblInstalledPendingReboot");
+            this.lblInstalledPendingReboot.Name = "lblInstalledPendingReboot";
+            this.lblInstalledPendingReboot.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // lblInstalled
+            // 
+            resources.ApplyResources(this.lblInstalled, "lblInstalled");
+            this.lblInstalled.Name = "lblInstalled";
+            this.lblInstalled.DoubleClick += new System.EventHandler(this.lblInstalled_DoubleClick);
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
             // btnCancel
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
@@ -336,6 +419,8 @@
             this.tabCommonSettings.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabColors.ResumeLayout(false);
+            this.tabColors.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +457,16 @@
         private System.Windows.Forms.RadioButton rdBtnSpecified;
         private System.Windows.Forms.RadioButton rdBtnSameAsApplication;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabColors;
+        private System.Windows.Forms.Label lblInstalledPendingReboot;
+        private System.Windows.Forms.Label lblInstalled;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label lblFailed;
+        private System.Windows.Forms.Label lblUnknown;
+        private System.Windows.Forms.Label lblNotInstalled;
+        private System.Windows.Forms.Label lblNotApplicable;
+        private System.Windows.Forms.Label lblDownloaded;
+        private System.Windows.Forms.Button btnResetToDefault;
     }
 }

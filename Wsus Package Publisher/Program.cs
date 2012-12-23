@@ -15,7 +15,19 @@ namespace Wsus_Package_Publisher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+#if !DEBUG
+            try
+            {
+                Application.Run(new FrmWsusPackagePublisher());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
+#else
             Application.Run(new FrmWsusPackagePublisher());
+#endif
+
         }
     }
 }

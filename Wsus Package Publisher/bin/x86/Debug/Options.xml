@@ -1,0 +1,29 @@
+<WsusPackagePublisher>
+  <Server>
+    <Name>wsus01</Name>
+    <IsLocal>False</IsLocal>
+    <Port>443</Port>
+    <UseSSL>True</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+  </Server>
+  <Server>
+    <Name>wsus02</Name>
+    <IsLocal>False</IsLocal>
+    <Port>8530</Port>
+    <UseSSL>False</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+  </Server>
+  <Server>
+    <Name>win2k3</Name>
+    <IsLocal>False</IsLocal>
+    <Port>80</Port>
+    <UseSSL>False</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+  </Server>
+</WsusPackagePublisher>

@@ -50,6 +50,7 @@
             // 
             resources.ApplyResources(this.txtBxPassword, "txtBxPassword");
             this.txtBxPassword.Name = "txtBxPassword";
+            this.txtBxPassword.UseSystemPasswordChar = true;
             // 
             // txtBxLogin
             // 

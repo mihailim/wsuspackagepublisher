@@ -10,9 +10,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Wsus_Package_Publisher</RootNamespace>
     <AssemblyName>Wsus Package Publisher</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -33,19 +34,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\x86\Debug\Wsus Package Publisher.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\x86\Release\Wsus Package Publisher.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Package Publisher-64.ico</ApplicationIcon>
@@ -53,28 +57,32 @@
   <PropertyGroup>
     <StartupObject>Wsus_Package_Publisher.Program</StartupObject>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'All|x86'">
-    <OutputPath>bin\x86\All\</OutputPath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>bin\x64\Debug\Wsus Package Publisher.XML</DocumentationFile>
+    <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'All|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>bin\x64\All\</OutputPath>
+    <Optimize>false</Optimize>
+    <DocumentationFile>bin\x64\Release\Wsus Package Publisher.XML</DocumentationFile>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CheckComboBox, Version=1.1.1212.22, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CheckedComboBox\ClassLibrary1\bin\x64\Release\CheckComboBox.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.UpdateServices.Administration, Version=3.1.6001.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Update Services\Api\Microsoft.UpdateServices.Administration.dll</HintPath>
     </Reference>
-    <Reference Include="MsiReader">
-      <HintPath>C:\Users\Courtel\Documents\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\Release\MsiReader.dll</HintPath>
+    <Reference Include="MsiReader, Version=1.2.1212.8, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WindowsInstallerReader\MsiReader\bin\x64\Debug\MsiReader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,6 +98,7 @@
   <ItemGroup>
     <Compile Include="ApprovalObject.cs" />
     <Compile Include="Company.cs" />
+    <Compile Include="ComputerGroup.cs" />
     <Compile Include="Credentials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +106,43 @@
       <DependentUpon>Credentials.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\WsusConnectionException.cs" />
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCertificateManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCertificateManagement.Designer.cs">
       <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeleteObsoleteFolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteObsoleteFolders.Designer.cs">
+      <DependentUpon>FrmDeleteObsoleteFolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMetaGroupCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMetaGroupCreation.Designer.cs">
+      <DependentUpon>frmMetaGroupCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMetaGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMetaGroups.Designer.cs">
+      <DependentUpon>frmMetaGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetaGroup.cs" />
+    <Compile Include="MSIPropertyReader\Column.cs" />
+    <Compile Include="MSIPropertyReader\FrmMSIPropertyReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MSIPropertyReader\FrmMSIPropertyReader.Designer.cs">
+      <DependentUpon>FrmMSIPropertyReader.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmWaiting.cs">
       <SubType>Form</SubType>
@@ -114,6 +155,90 @@
     </Compile>
     <Compile Include="FrmRemoteExecution.Designer.cs">
       <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MSIPropertyReader\Table.cs" />
+    <Compile Include="Rules\FrmFeatureForProduct.cs" />
+    <Compile Include="Rules\FrmFeatureForProduct.Designer.cs">
+      <DependentUpon>FrmFeatureForProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Languages.cs" />
+    <Compile Include="Rules\MsiFeatureInstalledForProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\MsiFeatureInstalledForProduct.Designer.cs">
+      <DependentUpon>MsiFeatureInstalledForProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleFileCreatedPrependRegSz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleFileCreatedPrependRegSz.Designer.cs">
+      <DependentUpon>RuleFileCreatedPrependRegSz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleFileModified.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleFileModified.Designer.cs">
+      <DependentUpon>RuleFileModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleFileSize.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleFileSize.Designer.cs">
+      <DependentUpon>RuleFileSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleMsiPatchInstalledForProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleMsiPatchInstalledForProduct.Designer.cs">
+      <DependentUpon>RuleMsiPatchInstalledForProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegDword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegDword.Designer.cs">
+      <DependentUpon>RuleRegDword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegExpandSz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegExpandSz.Designer.cs">
+      <DependentUpon>RuleRegExpandSz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegKeyExists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegKeyExists.Designer.cs">
+      <DependentUpon>RuleRegKeyExists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegKeyLoop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegKeyLoop.Designer.cs">
+      <DependentUpon>RuleRegKeyLoop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegSz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegSz.Designer.cs">
+      <DependentUpon>RuleRegSz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegSzToVersion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegSzToVersion.Designer.cs">
+      <DependentUpon>RuleRegSzToVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleRegValueExists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleRegValueExists.Designer.cs">
+      <DependentUpon>RuleRegValueExists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\RuleWmiQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rules\RuleWmiQuery.Designer.cs">
+      <DependentUpon>RuleWmiQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ComputerControl.cs">
       <SubType>UserControl</SubType>
@@ -283,11 +408,23 @@
     </Compile>
     <Compile Include="WsusServer.cs" />
     <Compile Include="WsusWrapper.cs" />
+    <EmbeddedResource Include="Credentials.en.resx">
+      <DependentUpon>Credentials.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Credentials.fr.resx">
       <DependentUpon>Credentials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Credentials.resx">
       <DependentUpon>Credentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.en.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.fr.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCertificateManagement.en.resx">
       <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
@@ -298,11 +435,48 @@
     <EmbeddedResource Include="FrmCertificateManagement.resx">
       <DependentUpon>FrmCertificateManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRemoteExecution.fr.resx">
+    <EmbeddedResource Include="FrmDeleteObsoleteFolders.en.resx">
+      <DependentUpon>FrmDeleteObsoleteFolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeleteObsoleteFolders.fr.resx">
+      <DependentUpon>FrmDeleteObsoleteFolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeleteObsoleteFolders.resx">
+      <DependentUpon>FrmDeleteObsoleteFolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroupCreation.en.resx">
+      <DependentUpon>frmMetaGroupCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroupCreation.fr.resx">
+      <DependentUpon>frmMetaGroupCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroupCreation.resx">
+      <DependentUpon>frmMetaGroupCreation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroups.en.resx">
+      <DependentUpon>frmMetaGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroups.fr.resx">
+      <DependentUpon>frmMetaGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetaGroups.resx">
+      <DependentUpon>frmMetaGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSIPropertyReader\FrmMSIPropertyReader.en.resx">
+      <DependentUpon>FrmMSIPropertyReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSIPropertyReader\FrmMSIPropertyReader.fr.resx">
+      <DependentUpon>FrmMSIPropertyReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSIPropertyReader\FrmMSIPropertyReader.resx">
+      <DependentUpon>FrmMSIPropertyReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemoteExecution.en.resx">
       <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUpdateFilesWizard.en-IN.resx">
-      <DependentUpon>FrmUpdateFilesWizard.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRemoteExecution.fr.resx">
+      <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWaiting.en.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
@@ -316,6 +490,135 @@
     <EmbeddedResource Include="FrmRemoteExecution.resx">
       <DependentUpon>FrmRemoteExecution.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\FrmFeatureForProduct.en.resx">
+      <DependentUpon>FrmFeatureForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\FrmFeatureForProduct.fr.resx">
+      <DependentUpon>FrmFeatureForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\FrmFeatureForProduct.resx">
+      <DependentUpon>FrmFeatureForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\GenericRule.resx">
+      <DependentUpon>GenericRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\MsiFeatureInstalledForProduct.en.resx">
+      <DependentUpon>MsiFeatureInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\MsiFeatureInstalledForProduct.fr.resx">
+      <DependentUpon>MsiFeatureInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\MsiFeatureInstalledForProduct.resx">
+      <DependentUpon>MsiFeatureInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileCreatedPrependRegSz.en.resx">
+      <DependentUpon>RuleFileCreatedPrependRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileCreatedPrependRegSz.fr.resx">
+      <DependentUpon>RuleFileCreatedPrependRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileCreatedPrependRegSz.resx">
+      <DependentUpon>RuleFileCreatedPrependRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileModified.fr.resx">
+      <DependentUpon>RuleFileModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileModified.resx">
+      <DependentUpon>RuleFileModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileSize.en.resx">
+      <DependentUpon>RuleFileSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileSize.fr.resx">
+      <DependentUpon>RuleFileSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleFileSize.resx">
+      <DependentUpon>RuleFileSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleMsiPatchInstalledForProduct.en.resx">
+      <DependentUpon>RuleMsiPatchInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleMsiPatchInstalledForProduct.fr.resx">
+      <DependentUpon>RuleMsiPatchInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleMsiPatchInstalledForProduct.resx">
+      <DependentUpon>RuleMsiPatchInstalledForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegDword.en.resx">
+      <DependentUpon>RuleRegDword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegDword.fr.resx">
+      <DependentUpon>RuleRegDword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegDword.resx">
+      <DependentUpon>RuleRegDword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegExpandSz.en.resx">
+      <DependentUpon>RuleRegExpandSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegExpandSz.fr.resx">
+      <DependentUpon>RuleRegExpandSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegExpandSz.resx">
+      <DependentUpon>RuleRegExpandSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyExists.en.resx">
+      <DependentUpon>RuleRegKeyExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyExists.fr.resx">
+      <DependentUpon>RuleRegKeyExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyExists.resx">
+      <DependentUpon>RuleRegKeyExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyLoop.en.resx">
+      <DependentUpon>RuleRegKeyLoop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyLoop.fr.resx">
+      <DependentUpon>RuleRegKeyLoop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegKeyLoop.resx">
+      <DependentUpon>RuleRegKeyLoop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSz.en.resx">
+      <DependentUpon>RuleRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSz.fr.resx">
+      <DependentUpon>RuleRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSz.resx">
+      <DependentUpon>RuleRegSz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSzToVersion.en.resx">
+      <DependentUpon>RuleRegSzToVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSzToVersion.fr.resx">
+      <DependentUpon>RuleRegSzToVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegSzToVersion.resx">
+      <DependentUpon>RuleRegSzToVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegValueExists.en.resx">
+      <DependentUpon>RuleRegValueExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegValueExists.fr.resx">
+      <DependentUpon>RuleRegValueExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleRegValueExists.resx">
+      <DependentUpon>RuleRegValueExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleWmiQuery.en.resx">
+      <DependentUpon>RuleWmiQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleWmiQuery.fr.resx">
+      <DependentUpon>RuleWmiQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rules\RuleWmiQuery.resx">
+      <DependentUpon>RuleWmiQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ComputerControl.fr.resx">
+      <DependentUpon>ComputerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ComputerControl.resx">
       <DependentUpon>ComputerControl.cs</DependentUpon>
@@ -361,12 +664,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateInformationsWizard.en.resx">
       <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateInformationsWizard.fr.resx">
       <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateInformationsWizard.resx">
       <DependentUpon>FrmUpdateInformationsWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdatePublisher.en.resx">
       <DependentUpon>FrmUpdatePublisher.cs</DependentUpon>
@@ -394,12 +700,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWsusPackagePublisher.en.resx">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWsusPackagePublisher.fr.resx">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWsusPackagePublisher.resx">
       <DependentUpon>FrmWsusPackagePublisher.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Rules\RuleFileCreated.en.resx">
       <DependentUpon>RuleFileCreated.cs</DependentUpon>
@@ -558,6 +866,11 @@
   <ItemGroup>
     <Content Include="Options.xml" />
     <Content Include="Package Publisher-64.ico" />
+    <None Include="Resources\UpStream.png" />
+    <None Include="Resources\DownStream.png" />
+    <None Include="Resources\drapeau-grande-bretagne.png" />
+    <None Include="Resources\drapeau-france.png" />
+    <None Include="Resources\Drapeau_Bleu.png" />
     <None Include="Resources\certificat-icone-4129.ico" />
     <None Include="Resources\Certificate.ico" />
     <None Include="Resources\Valider-64.png" />

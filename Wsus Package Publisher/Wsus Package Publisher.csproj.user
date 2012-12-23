@@ -10,4 +10,7 @@
     <FallbackCulture>fr-FR</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>Z:\Visual Studio 2010\Projects\CheckedComboBox\ClassLibrary1\bin\x86\Release\;Z:\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\x86\Release\;Z:\Visual Studio 2010\Projects\CheckedComboBox\ClassLibrary1\bin\x64\Release\;Z:\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\x64\Release\;Z:\Visual Studio 2010\Projects\CheckedComboBox\ClassLibrary1\bin\x64\Debug\;Z:\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\x64\Debug\;Z:\Visual Studio 2010\Projects\CheckedComboBox\ClassLibrary1\bin\x86\Debug\;Z:\Visual Studio 2010\Projects\WindowsInstallerReader\MsiReader\bin\x86\Debug\</ReferencePath>
+  </PropertyGroup>
 </Project>

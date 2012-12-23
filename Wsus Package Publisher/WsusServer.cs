@@ -14,6 +14,7 @@ namespace Wsus_Package_Publisher
         private int _deadLineDaysSpan = 7;
         private int _deadLineHour = 16;
         private int _deadLineMinute = 31;
+        private List<MetaGroup> _metaGroups = new List<MetaGroup>();
 
         internal WsusServer()
         { }
@@ -109,14 +110,17 @@ namespace Wsus_Package_Publisher
             }
         }
 
+        internal List<MetaGroup> MetaGroups
+        {
+            get { return _metaGroups; }
+        }
+
         internal bool IsValid()
         {
-            if (!String.IsNullOrEmpty(Name) && Port > 0 && Port < 65536 &&
+            return (!String.IsNullOrEmpty(Name) && Port > 0 && Port < 65536 &&
                 DeadLineDaysSpan >= 0 && DeadLineDaysSpan <= 365 &&
                 DeadLineHour >= 0 && DeadLineHour <= 23 &&
-                DeadLineMinute >= 0 && DeadLineMinute <= 59)
-                return true;
-            return false;
+                DeadLineMinute >= 0 && DeadLineMinute <= 59);
         }
 
         public override string ToString()

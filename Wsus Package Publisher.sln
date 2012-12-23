@@ -3,20 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wsus Package Publisher", "Wsus Package Publisher\Wsus Package Publisher.csproj", "{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLauncher", "ScriptLauncher\ScriptLauncher.csproj", "{51061651-23F6-45FF-86EE-38E94EC1EBEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		All|x64 = All|x64
-		All|x86 = All|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.All|x64.ActiveCfg = All|x64
-		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.All|x64.Build.0 = All|x64
-		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.All|x86.ActiveCfg = All|x86
-		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.All|x86.Build.0 = All|x86
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Debug|x64.ActiveCfg = Debug|x64
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Debug|x64.Build.0 = Debug|x64
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Debug|x86.ActiveCfg = Debug|x86
@@ -25,6 +21,13 @@ Global
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Release|x64.Build.0 = Release|x64
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Release|x86.ActiveCfg = Release|x86
 		{187DE5B0-710A-4CC7-88CA-CCE67D8D3D2D}.Release|x86.Build.0 = Release|x86
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Debug|x64.ActiveCfg = Debug|x64
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Debug|x64.Build.0 = Debug|x64
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Debug|x86.ActiveCfg = Debug|x86
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Debug|x86.Build.0 = Debug|x86
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Release|x64.ActiveCfg = Release|x64
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Release|x64.Build.0 = Release|x64
+		{51061651-23F6-45FF-86EE-38E94EC1EBEF}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

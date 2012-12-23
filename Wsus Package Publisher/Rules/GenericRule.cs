@@ -11,7 +11,7 @@ namespace Wsus_Package_Publisher
         private System.Guid _guid;
         private Dictionary<string, string> _unsupportedAttributes = new Dictionary<string, string>();
 
-        internal GenericRule()
+        internal GenericRule():base()
         {
             InitializeComponent();
             _guid = System.Guid.NewGuid();
@@ -69,7 +69,6 @@ namespace Wsus_Package_Publisher
         public abstract override string ToString();
 
         #endregion
-
 
     }
 }

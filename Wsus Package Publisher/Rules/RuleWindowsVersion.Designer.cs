@@ -143,7 +143,9 @@
             resources.GetString("cmbBxOperatingSystem.Items3"),
             resources.GetString("cmbBxOperatingSystem.Items4"),
             resources.GetString("cmbBxOperatingSystem.Items5"),
-            resources.GetString("cmbBxOperatingSystem.Items6")});
+            resources.GetString("cmbBxOperatingSystem.Items6"),
+            resources.GetString("cmbBxOperatingSystem.Items7"),
+            resources.GetString("cmbBxOperatingSystem.Items8")});
             this.cmbBxOperatingSystem.Name = "cmbBxOperatingSystem";
             this.cmbBxOperatingSystem.SelectedIndexChanged += new System.EventHandler(this.cmbBxOperatingSystem_SelectedIndexChanged);
             // 
@@ -194,6 +196,7 @@
             resources.ApplyResources(this.chkBxComparison, "chkBxComparison");
             this.chkBxComparison.Name = "chkBxComparison";
             this.chkBxComparison.UseVisualStyleBackColor = true;
+            this.chkBxComparison.CheckedChanged += new System.EventHandler(this.chkBxComparison_CheckedChanged);
             // 
             // chkBxReverseRule
             // 

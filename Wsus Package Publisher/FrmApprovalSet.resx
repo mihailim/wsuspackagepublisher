@@ -112,62 +112,68 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="nupHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 480</value>
+    <value>218, 716</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>You will NOT BE ABLE to set a "Not Approve" approval to the "All Computer" group.</value>
   </data>
   <data name="&gt;&gt;cmbBxApproval.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Selected.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="dtDeadLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 480</value>
+  <data name="btnSetApproval.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 684</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>542, 477</value>
+    <value>558, 713</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Approval.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnSetApproval.Text" xml:space="preserve">
-    <value>button1</value>
+    <value>Set &amp;Approval</value>
   </data>
   <data name="DeadLine.HeaderText" xml:space="preserve">
     <value>Date Limite</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmApprovalSet</value>
+  <data name="&gt;&gt;Selected.Name" xml:space="preserve">
+    <value>Selected</value>
   </data>
-  <data name="&gt;&gt;nupHour.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbBxApproval.Name" xml:space="preserve">
+    <value>cmbBxApproval</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cmbBxApproval.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;dtDeadLine.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;btnSetApproval.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnSetApproval.Name" xml:space="preserve">
+    <value>btnSetApproval</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -175,19 +181,28 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSetDeadLine.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetApproval.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="Approvval.HeaderText" xml:space="preserve">
-    <value>Approval</value>
+  <data name="&gt;&gt;nupHour.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;nupMinute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSetApproval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 448</value>
+  <data name="Approval.HeaderText" xml:space="preserve">
+    <value>Approval</value>
+  </data>
+  <data name="MetaGroup.HeaderText" xml:space="preserve">
+    <value>MetaGroup</value>
+  </data>
+  <data name="&gt;&gt;dgvTargetGroup.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="cmbBxApproval.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -195,38 +210,50 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
-  <data name="dgvTargetGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>605, 430</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSetApproval.Name" xml:space="preserve">
-    <value>btnSetApproval</value>
+  <data name="dgvTargetGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 510</value>
   </data>
   <data name="&gt;&gt;Group.Name" xml:space="preserve">
     <value>Group</value>
   </data>
-  <data name="btnSetApproval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 23</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="cmbBxApproval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="Selected.HeaderText" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="dtGrdVwMetaGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 13</value>
   </data>
   <data name="&gt;&gt;btnSetDeadLine.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSetDeadLine.Name" xml:space="preserve">
-    <value>btnSetDeadLine</value>
+  <data name="&gt;&gt;nupHour.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbBxApproval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 21</value>
   </data>
   <data name="&gt;&gt;Group.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MetaGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dtDeadLine.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="btnSetDeadLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 477</value>
+    <value>314, 713</value>
   </data>
   <data name="Group.HeaderText" xml:space="preserve">
     <value>Group</value>
@@ -234,23 +261,17 @@
   <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="&gt;&gt;Approvval.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;nupMinute.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnSetDeadLine.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="dtDeadLine.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
+  <data name="&gt;&gt;dtGrdVwMetaGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;dgvTargetGroup.Name" xml:space="preserve">
     <value>dgvTargetGroup</value>
-  </data>
-  <data name="btnSetApproval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="dgvTargetGroup.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -264,23 +285,44 @@
   <data name="&gt;&gt;dgvTargetGroup.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 477</value>
+  <data name="&gt;&gt;dtGrdVwMetaGroup.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSetApproval.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nupHour.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmApprovalSet</value>
+  </data>
+  <data name="dtDeadLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 716</value>
+  </data>
+  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;nupMinute.Name" xml:space="preserve">
+    <value>nupMinute</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 713</value>
+  </data>
+  <data name="&gt;&gt;DeadLine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dtDeadLine.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="nupHour.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="btnSetDeadLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 23</value>
   </data>
-  <data name="&gt;&gt;cmbBxApproval.Name" xml:space="preserve">
-    <value>cmbBxApproval</value>
+  <data name="&gt;&gt;dtGrdVwMetaGroup.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="btnSetDeadLine.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -288,20 +330,26 @@
   <data name="&gt;&gt;nupHour.Name" xml:space="preserve">
     <value>nupHour</value>
   </data>
-  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="nupHour.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
+  </data>
+  <data name="dtGrdVwMetaGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;dgvTargetGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nupHour.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;btnSetDeadLine.Name" xml:space="preserve">
+    <value>btnSetDeadLine</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -559,59 +607,83 @@
         AACPAwAA/4EAAP/hAAD/8QAA//8AAP//AAA=
 </value>
   </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
   <data name="btnSetApproval.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="nupHour.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;btnSetDeadLine.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="nupMinute.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;dtDeadLine.Name" xml:space="preserve">
-    <value>dtDeadLine</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 668</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Approvals</value>
+  <data name="btnSetApproval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="cmbBxApproval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 21</value>
+  <data name="dgvTargetGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 155</value>
+  </data>
+  <data name="&gt;&gt;MetaGroup.Name" xml:space="preserve">
+    <value>MetaGroup</value>
   </data>
   <data name="nupMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 480</value>
+    <value>266, 716</value>
+  </data>
+  <data name="&gt;&gt;Approval.Name" xml:space="preserve">
+    <value>Approval</value>
+  </data>
+  <data name="&gt;&gt;Selected.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnSetDeadLine.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;nupMinute.Name" xml:space="preserve">
-    <value>nupMinute</value>
+  <data name="&gt;&gt;cmbBxApproval.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;dgvTargetGroup.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;dtDeadLine.Name" xml:space="preserve">
+    <value>dtDeadLine</value>
   </data>
   <data name="nupMinute.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 20</value>
   </data>
   <data name="btnSetDeadLine.Text" xml:space="preserve">
-    <value>button1</value>
+    <value>Set &amp;DeadLine</value>
   </data>
   <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
     <value>btnOk</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Approvals</value>
   </data>
   <data name="nupMinute.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="cmbBxApproval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 448</value>
+    <value>12, 684</value>
   </data>
-  <data name="dgvTargetGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 11</value>
+  <data name="&gt;&gt;cmbBxApproval.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;Approvval.Name" xml:space="preserve">
-    <value>Approvval</value>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="dtGrdVwMetaGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dtGrdVwMetaGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 137</value>
   </data>
   <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -620,16 +692,16 @@
     <value>$this</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>629, 508</value>
+    <value>645, 744</value>
   </data>
-  <data name="btnSetDeadLine.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSetApproval.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 23</value>
   </data>
   <data name="dgvTargetGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;cmbBxApproval.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btnSetApproval.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -640,31 +712,37 @@
   <data name="&gt;&gt;nupHour.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;DeadLine.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbBxApproval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;dtDeadLine.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
+  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dtGrdVwMetaGroup.Name" xml:space="preserve">
+    <value>dtGrdVwMetaGroup</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="Group.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="MetaGroup.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Group.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Approvval.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="DeadLine.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Selected.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DeadLine.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Approval.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

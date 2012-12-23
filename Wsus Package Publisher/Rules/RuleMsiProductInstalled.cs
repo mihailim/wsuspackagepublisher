@@ -12,61 +12,6 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleMsiProductInstalled : GenericRule
     {
-         Dictionary<string, int> _languagesByString = new Dictionary<string, int>
-        {   {"Arabic", 1},
-            {"Chinese_HK_SAR", 3076},
-            {"Chinese_simplified", 4},
-            {"Chinese_traditional",31748},
-            {"Czech", 5},
-            {"Danish", 6}, 
-            {"Dutch", 19},
-            {"English", 9},
-            {"Finnish", 11}, 
-            {"French", 12},    
-            {"German", 7},   
-            {"Greek", 8},   
-            {"Hebrew", 13},            
-            {"Hungarian", 14},   
-            {"Italian", 16},              
-            {"Japanese", 17},   
-            {"Korean", 18}, 
-            {"Norwegian", 20},
-            {"Polish", 21},
-            {"Portugese", 22}, 
-            {"Portugese_Brazil", 1046}, 
-            {"Russian", 25},
-            {"Spanish", 10}, 
-            {"Swedish", 29}, 
-            {"Turkish" , 31}
-        };
-        Dictionary<int, string> _languaguesByInt = new Dictionary<int, string>
-        {
-            {1, "Arabic"},
-            {3076, "Chinese_HK_SAR"},
-            {4, "Chinese_simplified"},
-            {31748, "Chinese_traditional"},
-            {5, "Czech"},
-            {6, "Danish"}, 
-            {19, "Dutch"},
-            {9, "English"},
-            {11, "Finnish"}, 
-            {12, "French"},    
-            {7, "German"},   
-            {8, "Greek"},   
-            {13, "Hebrew"},            
-            {14, "Hungarian"},   
-            {16, "Italian"},              
-            {17, "Japanese"},   
-            {18, "Korean"}, 
-            {20, "Norwegian"},
-            {21, "Polish"},
-            {22, "Portugese"}, 
-            {1046, "Portugese_Brazil"}, 
-            {25, "Russian"},
-            {10, "Spanish"}, 
-            {29, "Swedish"}, 
-            {31, "Turkish"}
-        };
 
         Guid _msiCode;
         int _language = -1;
@@ -76,14 +21,15 @@ namespace Wsus_Package_Publisher
         System.Text.RegularExpressions.Regex regExp = new System.Text.RegularExpressions.Regex("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$");
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleMsiProductInstalled).Assembly);
 
-        public RuleMsiProductInstalled():base()
+        public RuleMsiProductInstalled()
+            : base()
         {
             InitializeComponent();
 
             txtBxDescription.Text = resManager.GetString("DescriptionRuleMsiProductInstalled");
-            foreach (string language in _languagesByString.Keys)
+            foreach (KeyValuePair<string, string> pair in Languages.AllLanguagues)
             {
-                cmbBxLanguage.Items.Add(language);
+                cmbBxLanguage.Items.Add(pair.Key);
             }
             txtBxMsiCode.Select();
         }
@@ -133,7 +79,7 @@ namespace Wsus_Package_Publisher
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, "Not");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.green, ">\r\n");
             }
-            
+
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "<msiar:");
             print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.red, "MsiProductInstalled");
             print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " ProductCode");
@@ -202,7 +148,7 @@ namespace Wsus_Package_Publisher
             return resManager.GetString("MsiProductInstalled");
         }
 
-        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
+        internal override void InitializeWithAttributes(Dictionary<string, string> attributes)
         {
             foreach (KeyValuePair<string, string> pair in attributes)
             {
@@ -228,18 +174,41 @@ namespace Wsus_Package_Publisher
                 }
             }
         }
-                
+
+        private void ValidateData()
+        {
+            btnOk.Enabled = false;
+
+            if (!UseLanguage || (UseLanguage && (cmbBxLanguage.SelectedIndex != -1)))
+                if (!string.IsNullOrEmpty(txtBxMsiCode.Text))
+                {
+                    string GUIDCandidate = txtBxMsiCode.Text;
+
+                    GUIDCandidate = GUIDCandidate.TrimStart(new char[] { '{' });
+                    GUIDCandidate = GUIDCandidate.TrimEnd(new char[] { '}' });
+
+                    if (regExp.IsMatch(GUIDCandidate))
+                    {
+                        MsiProductCode = new Guid(GUIDCandidate);
+                        btnOk.Enabled = true;
+                    }
+                }
+        }
+
         #endregion
 
         #region(Properties - propriétés)
-        
+
         internal Guid MsiProductCode
         {
             get { return _msiCode; }
-            set 
+            set
             {
-                _msiCode = value;
-                txtBxMsiCode.Text = value.ToString();
+                if (value != _msiCode)
+                {
+                    _msiCode = value;
+                    txtBxMsiCode.Text = value.ToString();
+                }
             }
         }
 
@@ -333,13 +302,12 @@ namespace Wsus_Package_Publisher
             get { return _language; }
             set
             {
-                if (_languaguesByInt.ContainsKey(value))
+                if (Languages.GetLanguageName(value) != string.Empty)
                 {
                     _language = value;
-                    cmbBxLanguage.SelectedItem = _languaguesByInt[value];
+                    cmbBxLanguage.SelectedItem = Languages.GetLanguageName(value);
                     UseLanguage = true;
                 }
-
             }
         }
 
@@ -354,13 +322,7 @@ namespace Wsus_Package_Publisher
 
         private void txtBxMsiCode_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtBxMsiCode.Text) && regExp.IsMatch(txtBxMsiCode.Text))
-            {
-                MsiProductCode = new Guid(txtBxMsiCode.Text);
-                btnOk.Enabled = true;
-            }
-            else
-                btnOk.Enabled = false;
+            ValidateData();
         }
 
         private void chkBxReverseRule_CheckedChanged(object sender, EventArgs e)
@@ -390,13 +352,12 @@ namespace Wsus_Package_Publisher
 
         private void cmbBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Language = _languagesByString[cmbBxLanguage.SelectedItem.ToString()];
+            Language = Languages.GetLanguageMSICode(cmbBxLanguage.SelectedItem.ToString());
+            ValidateData();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbBxLanguage.Text) || !_languagesByString.ContainsKey(cmbBxLanguage.Text))
-                Language = -1;
             ParentForm.DialogResult = DialogResult.OK;
         }
 
@@ -413,8 +374,10 @@ namespace Wsus_Package_Publisher
         private void chkBxUseLanguage_CheckedChanged(object sender, EventArgs e)
         {
             cmbBxLanguage.Enabled = chkBxUseLanguage.Checked;
+            ValidateData();
         }
 
         #endregion
+
     }
 }

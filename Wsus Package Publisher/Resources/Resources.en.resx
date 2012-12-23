@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArrivalDate" xml:space="preserve">
     <value>Arrival Date</value>
@@ -156,50 +156,96 @@ CVE Id (Optional): Specify the CVE code provided by the publisher.
 
 KB Article Id (Optional): Specify the number of KB article.
 
+Command line (Optional): Indicate one or more parameters for the file update. Eg /q /s or /silent. For Msi file it is not necessary to specify the option to make the installation silent. Wsus does it automatically.
+
+Return codes (Optional) : Only for .EXE files. Meaning of the code return at the end of the installation.
+
 
  Click 'Next' to proceed to the next step.</value>
   </data>
   <data name="DescriptionIsInstallableWizard" xml:space="preserve">
     <value>Indicate here the rule or rules that allow clients computer to determine if the update is installable.
 
- - Msi Product installed: Checks in the registry if the product is already installed based on MSI code.
+ - Msi Product installed: Checks that the specified product is installed. Only the ProductCode is required, but the other attributes will be checked if they are supplied.
  - Processor Architecture: Determines whether the processor is x86, x64 or IA64.
+ - Windows Version : Compare's the operating system's version information to specified values.  Implemented using Win32 VerifyVersionInfo().  The Comparison attribute applies to MajorVersion, MinorVersion, BuildNumber, ServicePackMajor, and ServicePack Minor.  If Comparison is omitted, it is assumed to be set to EqualTo.
+ - Windows Language : Returns true if the operating system is localized to the specified language.  Always returns false if the Windows Multilanguage User Interface (MUI) is installed.
+ - File Exists : Checks for the existence of the specified file.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file. If other optional metadata are specified, such as Version or Size, they must all match for this applicability rule to return true.
+ - File Exists Prepend RegSz : Same as FileExists, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Version : Compares the specified file's version to the specified four-part version string.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Version Prepend Reg Sz : Same as FileVersion, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Created Date : Compares the specified file's creation date to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Created Prepend RegSz : Same as FileCreated, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Modified Date : Compares the specified file's modification date to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Modified Prepend RegSz : Same as FileModified, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Size : Compares the specified file's size to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Size Prepend RegSz : Same as FileSize, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - Registry Key Exists : Checks for the existence of the specified registry subkey.
+ - Registry Value Exists : Checks for the existence of the specified registry value.  Checks the existence of the default value for the subkey when no value is specified.  Checks that the value is of a specific type when a type is specified.  The type must be REG_SZ if a value is not specified (the type of the default value of a subkey is always REG_SZ).
+ - Reg_Dword Registry Key : Compares a specified REG_DWORD registry value to a specified number.
+ - Reg_Expand_Sz Registry Key : Compares a specified REG_EXPAND_SZ registry value to a specified string.
+ - Reg_Sz Registry Key : Compares a specified REG_SZ registry value to a specified string.
+ - Reg Sz To Version Regsitry Key : Compares a specified REG_SZ registry value to a specified four-part version string.
+ - Wmi Query : Executes a specified WMI query and evaluates to true if one or more results are returned, or false of zero results are returned.
 
+
+
+
+* Delete rules at Package level : Allows you to ensure that only the rules that you set here applies. Recommended in the case of custom rules. If you only use the predefined rules in an MSI or MSP, leave unchecked.
 
  Click 'Next' to proceed to the next step.</value>
   </data>
   <data name="DescriptionIsInstalledWizard" xml:space="preserve">
     <value>Indicate here the rule or rules that allow clients computer to determine if the update is already installed.
 
- - Msi Product installed: Checks in the registry if the product is already installed based on MSI code.
+ - Msi Product installed: Checks that the specified product is installed. Only the ProductCode is required, but the other attributes will be checked if they are supplied.
  - Processor Architecture: Determines whether the processor is x86, x64 or IA64.
+ - Windows Version : Compare's the operating system's version information to specified values.  Implemented using Win32 VerifyVersionInfo().  The Comparison attribute applies to MajorVersion, MinorVersion, BuildNumber, ServicePackMajor, and ServicePack Minor.  If Comparison is omitted, it is assumed to be set to EqualTo.
+ - Windows Language : Returns true if the operating system is localized to the specified language.  Always returns false if the Windows Multilanguage User Interface (MUI) is installed.
+ - File Exists : Checks for the existence of the specified file.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file. If other optional metadata are specified, such as Version or Size, they must all match for this applicability rule to return true.
+ - File Exists Prepend RegSz : Same as FileExists, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Version : Compares the specified file's version to the specified four-part version string.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Version Prepend Reg Sz : Same as FileVersion, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Created Date : Compares the specified file's creation date to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Created Prepend RegSz : Same as FileCreated, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Modified Date : Compares the specified file's modification date to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Modified Prepend RegSz : Same as FileModified, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - File Size : Compares the specified file's size to the specified value.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+ - File Size Prepend RegSz : Same as FileSize, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+ - Registry Key Exists : Checks for the existence of the specified registry subkey.
+ - Registry Value Exists : Checks for the existence of the specified registry value.  Checks the existence of the default value for the subkey when no value is specified.  Checks that the value is of a specific type when a type is specified.  The type must be REG_SZ if a value is not specified (the type of the default value of a subkey is always REG_SZ).
+ - Reg_Dword Registry Key : Compares a specified REG_DWORD registry value to a specified number.
+ - Reg_Expand_Sz Registry Key : Compares a specified REG_EXPAND_SZ registry value to a specified string.
+ - Reg_Sz Registry Key : Compares a specified REG_SZ registry value to a specified string.
+ - Reg Sz To Version Regsitry Key : Compares a specified REG_SZ registry value to a specified four-part version string.
+ - Wmi Query : Executes a specified WMI query and evaluates to true if one or more results are returned, or false of zero results are returned.
 
 
+
+* Delete rules at Package level : Allows you to ensure that only the rules that you set here applies. Recommended in the case of custom rules. If you only use the predefined rules in an MSI or MSP, leave unchecked.
 
  Click 'Next' to proceed to the next step.</value>
   </data>
   <data name="DescriptionRuleMsiProductInstalled" xml:space="preserve">
-    <value>Indicate here informations on the Msi product. Fields in bold are required.
+    <value>Checks that the specified product is installed. Only the ProductCode is required, but the other attributes will be checked if they are supplied.
 
-Msi code (required): Msi Product Code in format 12345678-1234-1234-1234-1234566789012
-Reverse the rule: Verify that the product is NOT installed.
-Max version. (Optional): Specifies a maximum version number for the installed product.
-Version Min. (Optional): Specifies a minimum version number for the installed product.
-Language (Optional): Specifies the language in which the product must be installed.</value>
+Msi code (required): MSI product code for the product to be checked. Format 12345678-1234-1234-1234-123456789012
+Max version. (Optional): If present, this specified the maximum version of the product. If not present, there is no maximum version filter.
+Version Min. (Optional): If present, this specified the minimum version of the product. If not present, there is no minimum version filter.
+Language (Optional): If present, specifies the language to be filtered on. If not present, all languages are considered valid.</value>
   </data>
   <data name="DescriptionRuleProcessorArchitecture" xml:space="preserve">
-    <value>Indicate on whitch processor architecture the product can be installed.</value>
+    <value>Checks that the system's processor is the specified architecture.</value>
   </data>
   <data name="DescriptionUpdateFileWizard" xml:space="preserve">
-    <value>Indicate here the file  or files to create the update. Fields in bold are required.
+    <value>Indicate here the file or files to create the update. Fields in bold are required.
 
-File update (Required): Select a msi, msp or exe file corresponding to the binary update.
+Update File (Required): Select a msi, msp or exe file corresponding to the binary update.
 
 Additional files (Optional): Select a file or files needed for the application of the update. For example configuration files or answer file.
 
-Command line (Optional): Indicate one or more parameters for the file update. Eg /q /s or /silent. For Msi file it is not necessary to specify the option to make the installation silent. Wsus does it automatically.
 
-Return codes (Optional) : Only for .EXE files. Meaning of the code return at the end of the installation.
+
 
 Click 'Next' to proceed to the next step.</value>
   </data>
@@ -288,22 +334,22 @@ Click 'Next' to proceed to the next step.</value>
     <value>Processor Architecture</value>
   </data>
   <data name="RegDword" xml:space="preserve">
-    <value>Reg Dword</value>
+    <value>Reg_Dword Registry Key</value>
   </data>
-  <data name="RegExpendSz" xml:space="preserve">
-    <value>Reg Expend Sz</value>
+  <data name="RegExpandSz" xml:space="preserve">
+    <value>Reg_Expand_Sz Registry Key</value>
   </data>
   <data name="RegKeyExists" xml:space="preserve">
-    <value>Reg Key Exists</value>
+    <value>Registry Key Exists</value>
   </data>
   <data name="RegKeyLoop" xml:space="preserve">
     <value>Value Of Every sub Reg Key</value>
   </data>
   <data name="RegSz" xml:space="preserve">
-    <value>Reg Sz</value>
+    <value>Reg_Sz Registry Key</value>
   </data>
   <data name="RegSzToVersion" xml:space="preserve">
-    <value>Reg Sz To Version</value>
+    <value>Reg Sz To Version Regsitry Key</value>
   </data>
   <data name="RuleAnd" xml:space="preserve">
     <value>AND</value>
@@ -342,7 +388,7 @@ Click 'Next' to proceed to the next step.</value>
     <value>Less Than Or Equal To</value>
   </data>
   <data name="DescriptionRuleWindowsVersion" xml:space="preserve">
-    <value>Indicate the version of Windows on which the product can be installed.
+    <value>Compare's the operating system's version information to specified values.  Implemented using Win32 VerifyVersionInfo().  The Comparison attribute applies to MajorVersion, MinorVersion, BuildNumber, ServicePackMajor, and ServicePack Minor.  If Comparison is omitted, it is assumed to be set to EqualTo.
 
 You must set at least 'Major Version' and/or 'Product Type'.
 
@@ -365,12 +411,13 @@ Service Pack Major: Major service pack version.
 Service Pack Minor: Minor service pack version.</value>
   </data>
   <data name="DescriptionWindowsLanguage" xml:space="preserve">
-    <value>Rule based on the Windows installation language. Select the language in which Windows must be installed.
-
-Warning : In case of a multilanguage installation of Windows, this rule will always be evaluated to 'True'.</value>
+    <value>Returns true if the operating system is localized to the specified language.  Always returns false if the Windows Multilanguage User Interface (MUI) is installed.
+</value>
   </data>
   <data name="DescriptionFileExists" xml:space="preserve">
-    <value>Known folder (Optional): List of predefined folder whose location may vary from one OS to another.
+    <value>Checks for the existence of the specified file.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file. If other optional metadata are specified, such as Version or Size, they must all match for this applicability rule to return true.
+
+Known folder (Optional): List of predefined folder whose location may vary from one OS to another.
 File Path (Required): Full path to the file search (260 characters max.).
 File Version (optional): File Version.
 Creation Date (Optional): Creation date of the file.
@@ -379,11 +426,11 @@ File Size (Optional): Size in bytes of the file.
 Language (optional): Language of the file.</value>
   </data>
   <data name="DescriptionFileVersion" xml:space="preserve">
-    <value>Indicate here the information about the file and verify that version.
+    <value>Compares the specified file's version to the specified four-part version string.  If Csidl is specified, the Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
 
-Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
-Path to the file (Required): Full path to the file search (260 characters max.).
-Version (mandatory): File Version.</value>
+Standard folder (Optional) : List of predefined file whose location may vary from one OS to another.
+Path to the file (Required) : Full path to the file search (260 characters max.).
+Version (Required) : File Version.</value>
   </data>
   <data name="NoDescription" xml:space="preserve">
     <value>No description available.</value>
@@ -398,17 +445,17 @@ Version (mandatory): File Version.</value>
     <value>Delete</value>
   </data>
   <data name="DescriptionFileCreated" xml:space="preserve">
-    <value>Indicate here the information about the file and verify that creation date.
+    <value>Compares the specified file's creation date to the specified value.  If Csidl is specified, the MSUS Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
 
 Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
 Path to the file (Required): Full path to the file search (260 characters max.).</value>
   </data>
   <data name="DescriptionFileVersionPrependRegSz" xml:space="preserve">
-    <value>Indicate here the information about the file and verify that version.
+    <value>Same as FileVersion, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
 
-Standard folder (Optional): List of predefined file whose location may vary from one OS to another.
-Path to the file (Required): Full path to the file search (260 characters max.).
-Version (mandatory): File Version.</value>
+Standard folder (Optional) : List of predefined file whose location may vary from one OS to another.
+Path to the file (Required) : Full path to the file search (260 characters max.).
+Version (Required ): File Version.</value>
   </data>
   <data name="Expire" xml:space="preserve">
     <value>Expire</value>
@@ -421,9 +468,6 @@ Version (mandatory): File Version.</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
-  </data>
-  <data name="AllButInstalled" xml:space="preserve">
-    <value>Applicable, but not installed</value>
   </data>
   <data name="Downloaded" xml:space="preserve">
     <value>Downloaded</value>
@@ -465,7 +509,7 @@ Version (mandatory): File Version.</value>
     <value>P&amp;ublish</value>
   </data>
   <data name="Revise" xml:space="preserve">
-    <value>Revise</value>
+    <value>&amp;Revise</value>
   </data>
   <data name="UpdateRevised" xml:space="preserve">
     <value>Update revised.</value>
@@ -501,7 +545,7 @@ Version (mandatory): File Version.</value>
     <value>Approve</value>
   </data>
   <data name="Approved" xml:space="preserve">
-    <value>Approuved</value>
+    <value>Approved</value>
   </data>
   <data name="Declined" xml:space="preserve">
     <value>Declined</value>
@@ -546,8 +590,10 @@ Version (mandatory): File Version.</value>
     <value>Sending Command...</value>
   </data>
   <data name="DescriptionFileExistsPrependRegSz" xml:space="preserve">
-    <value>Hkey_Local_Machine (Mandatory) : Hive of the registry where is the name of the directory.
-Value (Mandatory): Name of the registry key where is the name of th directory.
+    <value>Same as FileExists, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+
+Hkey_Local_Machine (Mandatory) : Hive of the registry where is the name of the directory.
+Value (Mandatory): Name of the registry key where is the name of the directory.
 File Name (Mandatory) : Name of the file to search for (260 char. max.).
 File Version (Optional) : Version of the file.
 Creation Date (Optional) : Creation date of the file.
@@ -560,5 +606,193 @@ Language (Optional) : Language of the file.</value>
   </data>
   <data name="Succeeded" xml:space="preserve">
     <value>Succeeded</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="SendDetectNow" xml:space="preserve">
+    <value>Send "Detect Now"</value>
+  </data>
+  <data name="SendReportNow" xml:space="preserve">
+    <value>Send "Report Now"</value>
+  </data>
+  <data name="NeededButNotInstalled" xml:space="preserve">
+    <value>Needed but not installed</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="DescriptionRegKeyExists" xml:space="preserve">
+    <value>Checks for the existence of the specified registry subkey.
+
+For exemple : Software\Microsoft\Windows in HKEY_LOCAL_MACHINE
+
+If you want to test the existence of a value such as:
+SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{23170F69-40C1-2702-0920-000001000000}\DisplayName in HKEY_LOCAL_MACHINE
+Then use the rule : "Registry Value Exists".</value>
+  </data>
+  <data name="DescriptionRegValueExists" xml:space="preserve">
+    <value>Checks for the existence of the specified registry value.  Checks the existence of the default value for the subkey when no value is specified.  Checks that the value is of a specific type when a type is specified.  The type must be REG_SZ if a value is not specified (the type of the default value of a subkey is always REG_SZ).
+
+Checks the existence of the default value for the subkey when no value is specified.
+Checks that the value is of a specific type when a type is specified. the type must be REG_SZ if a value is not specified.</value>
+  </data>
+  <data name="RegValueExists" xml:space="preserve">
+    <value>Registry Value Exists</value>
+  </data>
+  <data name="DescriptionRuleRegDword" xml:space="preserve">
+    <value>Compares a specified REG_DWORD registry value to a specified number.
+
+SubKey : A registry subkey, such as "Software\Microsoft\Windows". Must be between 1 and 255 characters.
+
+Value : A registry value name, such as "CurrentBuildNumber". Must be between 0 and 16383 characters.
+
+Data : A REG_DWORD registry value. Must be between 0 and uint.maximum</value>
+  </data>
+  <data name="ComparisonBeginsWith" xml:space="preserve">
+    <value>Begins With</value>
+  </data>
+  <data name="ComparisonContains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="ComparisonEndsWith" xml:space="preserve">
+    <value>Ends With</value>
+  </data>
+  <data name="DescriptionRuleRegExpandSz" xml:space="preserve">
+    <value>Compares a specified REG_EXPAND_SZ registry value to a specified string.
+
+SubKey : A registry subkey, such as "Software\Microsoft\Windows". Must be between 1 and 255 characters.
+
+Value : A registry value name, such as "CurrentBuildNumber". Must be between 0 and 16383 characters.
+
+Data : A REG_EXPAND_SZ registry value. Must be between 0 and 16383 characters.</value>
+  </data>
+  <data name="DescriptionRuleRegSz" xml:space="preserve">
+    <value>Compares a specified REG_SZ registry value to a specified string.
+
+SubKey : A registry subkey, such as "Software\Microsoft\Windows". Must be between 1 and 255 characters.
+
+Value : A registry value name, such as "CurrentBuildNumber". Must be between 0 and 16383 characters.
+
+Data : A REG_Sz registry value. Must be between 0 and 16383 characters.</value>
+  </data>
+  <data name="DescriptionRuleRegSzToVersion" xml:space="preserve">
+    <value>Compares a specified REG_SZ registry value to a specified four-part version string.
+
+SubKey : A registry subkey, such as "Software\Microsoft\Windows". Must be between 1 and 255 characters.
+
+Value : A registry value name, such as "CurrentBuildNumber". Must be between 0 and 16383 characters.
+
+Data : A REG_SZ registry value. Should match the pattern 0...99999, 0...99999, 0...99999, 0...99999</value>
+  </data>
+  <data name="DescriptionRuleWmiQuery" xml:space="preserve">
+    <value>Executes a specified WMI query and evaluates to true if one or more results are returned, or false of zero results are returned.
+
+Namespace (Optional) : The WMI namespace of the request. 
+
+WqlQuery (Required) : The WMI WQL Query.</value>
+  </data>
+  <data name="DescriptionRuleMsiFeatureInstalledForProduct" xml:space="preserve">
+    <value>Checks that the specified feature(s) are installed for one (optionally all) of the specified products.</value>
+  </data>
+  <data name="RuleMsiFeatureInstalledForProduct" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DescriptionFileCreatedPrependRegSz" xml:space="preserve">
+    <value>Same as FileCreated, but the Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.
+
+Hkey_Local_Machine (Required) : Hive of the registry where is the name of the directory.
+Value (Required) : Name of the registry key where is the name of the directory.
+File Name (Required) : Name of the file to search for (260 char. max.).
+Creation Date (Required) : Creation date of the file.</value>
+  </data>
+  <data name="DescriptionFileModified" xml:space="preserve">
+    <value>Compares the specified file's modification date to the specified value.  If Csidl is specified, the MSUS Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+
+- Known Folders (Optional) : A list of wellknown folders.
+
+- File Path (Required) : The path to the file.
+
+- Comparison (Required) : The comparison operator.
+
+- Modification Date (Required) : Date of modification.</value>
+  </data>
+  <data name="DescriptionFileSize" xml:space="preserve">
+    <value>Compares the specified file's size to the specified value.  If Csidl is specified, the MSUS Client will call Win32 SHGetFolderPath to retrieve the CSIDL and prepend it to Path to form the actual path to the file.
+
+- Known Folders (Optional) : A list of wellknown folders.
+
+- File Path (Required) : The path to the file.
+
+- Comparison (Required) : The comparison operator.
+
+- File Size (Required) : The size of the file, in bytes, for the comparison.</value>
+  </data>
+  <data name="DescriptionFileSizePrependRegSz" xml:space="preserve">
+    <value>Same as FileSize, but the MSUS Client will prepend the specified REG_SZ value from the registry instead of a CSIDL.</value>
+  </data>
+  <data name="DescriptionRuleMsiPatchInstalledForProduct" xml:space="preserve">
+    <value>Checks that the specified patch is installed for the specified product.
+
+Patch Code (required) : MSI patch code for the patch whose install status is to be checked. Format 12345678-1234-1234-1234-123456789012
+
+Product Code (required) : MSI product code for the product to be checked. Format 12345678-1234-1234-1234-123456789012
+
+Reverse the rule: If check, evaluates the rule then inverts the result.
+
+Max version. (Optional): If present, this specified the maximum version of the product. If not present, there is no maximum version filter.
+
+Version Min. (Optional): If present, this specified the minimum version of the product. If not present, there is no minimum version filter.
+
+Language (Optional): If present, specifies the language to be filtered on. If not present, all languages are considered valid.</value>
+  </data>
+  <data name="SendRebootNow" xml:space="preserve">
+    <value>Reboot remote computer(s)</value>
+  </data>
+  <data name="MetaGroup" xml:space="preserve">
+    <value>MetaGroup</value>
+  </data>
+  <data name="ComputerGroupName" xml:space="preserve">
+    <value>Computer Group Name</value>
+  </data>
+  <data name="CreateMetaGroup" xml:space="preserve">
+    <value>&amp;Create MetaGroup</value>
+  </data>
+  <data name="EditMetaGroup" xml:space="preserve">
+    <value>&amp;Edit MetaGroup</value>
+  </data>
+  <data name="MetaGroupName" xml:space="preserve">
+    <value>MetaGroup Name</value>
+  </data>
+  <data name="DeleteThisMetaGroup" xml:space="preserve">
+    <value>Delete this MetaGroup</value>
+  </data>
+  <data name="ManageMetaGroups" xml:space="preserve">
+    <value>Manage MetaGroups...</value>
+  </data>
+  <data name="ManageThisMetaGroup" xml:space="preserve">
+    <value>Manage This MetaGroup...</value>
+  </data>
+  <data name="CreateUpdate" xml:space="preserve">
+    <value>Create an update...</value>
+  </data>
+  <data name="QuickApproval" xml:space="preserve">
+    <value>Quick Approval</value>
+  </data>
+  <data name="CredentialFailed" xml:space="preserve">
+    <value>Failed to connect with provided crendentials.
+Do you want to continue to use these credentials (may lock the account) ?</value>
+  </data>
+  <data name="FailToConnect" xml:space="preserve">
+    <value>Fail to Connect.</value>
+  </data>
+  <data name="CleanUpdateServicesPackagesFolder" xml:space="preserve">
+    <value>Clean UpdateServicesPackages Folder...</value>
+  </data>
+  <data name="InstalledOrNotApplicable" xml:space="preserve">
+    <value>Installed Or Not Applicable</value>
   </data>
 </root>

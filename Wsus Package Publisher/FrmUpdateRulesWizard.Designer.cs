@@ -41,6 +41,7 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpDsp1 = new Wsus_Package_Publisher.GroupDisplayer();
+            this.chkBxEmptyInstallableItemRule = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,14 +116,15 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAddRule, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.grpDsp1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cmbBxRules, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnPrevious, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnAddAndGroup, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnNext, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnAddOrGroup, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnEdit, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkBxEmptyInstallableItemRule, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnPrevious, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnNext, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // grpDsp1
@@ -130,6 +132,13 @@
             resources.ApplyResources(this.grpDsp1, "grpDsp1");
             this.tableLayoutPanel1.SetColumnSpan(this.grpDsp1, 4);
             this.grpDsp1.Name = "grpDsp1";
+            // 
+            // chkBxEmptyInstallableItemRule
+            // 
+            resources.ApplyResources(this.chkBxEmptyInstallableItemRule, "chkBxEmptyInstallableItemRule");
+            this.tableLayoutPanel1.SetColumnSpan(this.chkBxEmptyInstallableItemRule, 2);
+            this.chkBxEmptyInstallableItemRule.Name = "chkBxEmptyInstallableItemRule";
+            this.chkBxEmptyInstallableItemRule.UseVisualStyleBackColor = true;
             // 
             // FrmUpdateRulesWizard
             // 
@@ -158,5 +167,6 @@
         private System.Windows.Forms.Button btnPrevious;
         private GroupDisplayer grpDsp1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox chkBxEmptyInstallableItemRule;
     }
 }

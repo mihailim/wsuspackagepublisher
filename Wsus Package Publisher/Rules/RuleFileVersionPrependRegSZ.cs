@@ -12,6 +12,15 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleFileVersionPrependRegSZ : GenericRule
     {
+        private enum ComparisonType
+        {
+            LessThan,
+            LessThanOrEqualTo,
+            EqualTo,
+            GreaterThanOrEqualTo,
+            GreaterThan
+        }
+
         System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileVersionPrependRegSZ).Assembly);
 
         public RuleFileVersionPrependRegSZ():base()
@@ -64,7 +73,7 @@ namespace Wsus_Package_Publisher
             {
                 print(rTxtBx, GroupDisplayer.elementAndAttributeFont, GroupDisplayer.blue, " RegType32");
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "=\"");
-                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, RegType32.ToString());
+                print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, RegType32.ToString().ToLower());
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
 
@@ -234,45 +243,17 @@ namespace Wsus_Package_Publisher
         {
             get
             {
-                switch (cmbBxComparison.SelectedIndex)
-                {
-                    case 0:
-                        return "LessThan";
-                    case 1:
-                        return "LessThanOrEqualTo";
-                    case 2:
-                        return "EqualTo";
-                    case 3:
-                        return "GreaterThanOrEqualTo";
-                    case 4:
-                        return "GreaterThan";
-                    default:
-                        return "LessThan";
-                }
+                if (cmbBxComparison.SelectedIndex != -1)
+                    return Enum.GetNames(typeof(ComparisonType))[cmbBxComparison.SelectedIndex];
+                else
+                    return "";
             }
             set
             {
-                switch (value)
-                {
-                    case "LessThan":
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                    case "LessThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 1;
-                        break;
-                    case "EqualTo":
-                        cmbBxComparison.SelectedIndex = 2;
-                        break;
-                    case "GreaterThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 3;
-                        break;
-                    case "GreaterThan":
-                        cmbBxComparison.SelectedIndex = 4;
-                        break;
-                    default:
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                }
+                if (!string.IsNullOrEmpty(value) && Enum.GetNames(typeof(ComparisonType)).Contains(value))
+                    cmbBxComparison.SelectedItem = resMan.GetString("Comparison" + value);
+                else
+                    cmbBxComparison.SelectedIndex = -1;
             }
         }
 

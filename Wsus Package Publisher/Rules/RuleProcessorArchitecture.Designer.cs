@@ -41,6 +41,7 @@
             // 
             resources.ApplyResources(this.txtBxDescription, "txtBxDescription");
             this.txtBxDescription.Name = "txtBxDescription";
+            this.txtBxDescription.ReadOnly = true;
             // 
             // btnOk
             // 

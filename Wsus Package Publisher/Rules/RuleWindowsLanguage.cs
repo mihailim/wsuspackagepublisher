@@ -1,73 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
     internal partial class RuleWindowsLanguage : GenericRule
     {
-        private Dictionary<string, string> _languagesByName = new Dictionary<string, string>
-        {   {"Arabic", "ar"},
-            {"Chinese_HK_SAR", "zh-HK"},
-            {"Chinese_simplified", "zh-CHS"},
-            {"Chinese_traditional","zh-CHT"},
-            {"Czech", "cs"},
-            {"Danish", "da"}, 
-            {"Dutch", "nl"},
-            {"English", "en"},
-            {"Finnish", "fi"}, 
-            {"French", "fr"},    
-            {"German", "de"},   
-            {"Greek", "el"},   
-            {"Hebrew", "he"},            
-            {"Hungarian", "hu"},   
-            {"Italian", "it"},              
-            {"Japanese", "ja"},   
-            {"Korean", "ko"}, 
-            {"Norwegian", "no"},
-            {"Polish", "pl"},
-            {"Portugese", "pt"}, 
-            {"Portugese_Brazil", "pt-br"}, 
-            {"Russian", "ru"},
-            {"Spanish", "es"}, 
-            {"Swedish", "sv"}, 
-            {"Turkish", "tr"}
-        };
-
-        private Dictionary<string, int> _languagesByLCID = new Dictionary<string, int>
-        {   {"ar",0},
-            {"zh-HK", 1},
-            {"zh-CHS", 2},
-            {"zh-CHT", 3},
-            {"cs", 4},
-            {"da", 5},
-            {"nl", 6},
-            {"en", 7},
-            {"fi", 8},
-            {"fr", 9},   
-            {"de", 10},  
-            {"el", 11},  
-            {"he", 12},           
-            {"hu", 13},  
-            {"it", 14},             
-            {"ja", 15},  
-            {"ko", 16},
-            {"no", 17},
-            {"pl", 18},
-            {"pt", 19},
-            {"pt-br", 20},
-            {"ru", 21},
-            {"es", 22},
-            {"sv", 23},
-            {"tr", 24}
-        };
-
         System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleWindowsVersion).Assembly);
 
         public RuleWindowsLanguage()
@@ -75,9 +13,9 @@ namespace Wsus_Package_Publisher
         {
             InitializeComponent();
 
-            foreach (string name in _languagesByName.Keys)
+            foreach (KeyValuePair<string, string> pair in Languages.AllLanguagues)
             {
-                cmbBxLanguage.Items.Add(name);
+                cmbBxLanguage.Items.Add(pair.Key);
             }
             txtBxDescription.Text = resManager.GetString("DescriptionWindowsLanguage");
             cmbBxLanguage.Focus();
@@ -96,14 +34,13 @@ namespace Wsus_Package_Publisher
             get
             {
                 if (cmbBxLanguage.SelectedIndex != -1)
-                    return _languagesByName[cmbBxLanguage.SelectedItem.ToString()];
+                    return Languages.GetLanguageCode(cmbBxLanguage.SelectedItem.ToString());
                 else
-                    return "";
+                    return string.Empty;
             }
             set
             {
-                if (_languagesByLCID.ContainsKey(value))
-                    cmbBxLanguage.SelectedIndex = _languagesByLCID[value];
+                cmbBxLanguage.SelectedIndex = Languages.GetLanguageIndex(value);
             }
         }
 
@@ -163,7 +100,7 @@ namespace Wsus_Package_Publisher
             return resManager.GetString("WindowsLanguage");
         }
 
-        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
+        internal override void InitializeWithAttributes(Dictionary<string, string> attributes)
         {
             foreach (KeyValuePair<string, string> pair in attributes)
             {
@@ -185,10 +122,7 @@ namespace Wsus_Package_Publisher
 
         private void cmbBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBxLanguage.SelectedIndex != -1)
-                btnOk.Enabled = true;
-            else
-                btnOk.Enabled = false;
+                btnOk.Enabled = (cmbBxLanguage.SelectedIndex != -1);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

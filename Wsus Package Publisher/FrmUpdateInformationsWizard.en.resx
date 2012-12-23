@@ -112,23 +112,26 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 15</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 13</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
@@ -142,7 +145,7 @@
     <value>117, 12</value>
   </data>
   <data name="cmbBxVendorName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 21</value>
+    <value>220, 21</value>
   </data>
   <data name="cmbBxVendorName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -152,6 +155,9 @@
   </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>389, 15</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 13</value>
@@ -166,10 +172,10 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="cmbBxProductName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 39</value>
+    <value>494, 12</value>
   </data>
   <data name="cmbBxProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 21</value>
+    <value>220, 21</value>
   </data>
   <data name="cmbBxProductName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -179,6 +185,9 @@
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 42</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 13</value>
@@ -193,7 +202,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="txtBxTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 66</value>
+    <value>117, 39</value>
   </data>
   <data name="txtBxTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>597, 20</value>
@@ -205,7 +214,7 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 92</value>
+    <value>117, 65</value>
   </data>
   <data name="txtBxDescription.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -214,7 +223,7 @@
     <value>Both</value>
   </data>
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 127</value>
+    <value>597, 88</value>
   </data>
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -224,6 +233,9 @@
   </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 68</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
@@ -241,7 +253,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 245</value>
+    <value>12, 162</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
@@ -253,25 +265,25 @@
     <value>More Info URL : </value>
   </data>
   <data name="txtBxMoreInfoURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="txtBxMoreInfoURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 242</value>
+    <value>117, 159</value>
   </data>
   <data name="txtBxMoreInfoURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 20</value>
+    <value>320, 20</value>
   </data>
   <data name="txtBxMoreInfoURL.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="txtBxSupportURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="txtBxSupportURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 268</value>
+    <value>117, 185</value>
   </data>
   <data name="txtBxSupportURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 20</value>
+    <value>320, 20</value>
   </data>
   <data name="txtBxSupportURL.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -283,7 +295,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 271</value>
+    <value>12, 188</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -295,10 +307,10 @@
     <value>Support URL : </value>
   </data>
   <data name="txtBxSecurityBulletinId.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="txtBxSecurityBulletinId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 242</value>
+    <value>478, 210</value>
   </data>
   <data name="txtBxSecurityBulletinId.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 20</value>
@@ -307,13 +319,13 @@
     <value>11</value>
   </data>
   <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 245</value>
+    <value>369, 213</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -325,10 +337,10 @@
     <value>Security Bulletin Id : </value>
   </data>
   <data name="cmbBxMsrcSeverity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="cmbBxMsrcSeverity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 268</value>
+    <value>478, 236</value>
   </data>
   <data name="cmbBxMsrcSeverity.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 21</value>
@@ -337,13 +349,13 @@
     <value>12</value>
   </data>
   <data name="label8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 271</value>
+    <value>392, 240</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 13</value>
@@ -355,10 +367,10 @@
     <value>Msrc Severity : </value>
   </data>
   <data name="txtBxCVEId.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="txtBxCVEId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 295</value>
+    <value>478, 263</value>
   </data>
   <data name="txtBxCVEId.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 20</value>
@@ -367,13 +379,13 @@
     <value>13</value>
   </data>
   <data name="label9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 298</value>
+    <value>423, 266</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -385,10 +397,10 @@
     <value>CVE Id : </value>
   </data>
   <data name="txtBxKBArticleId.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="txtBxKBArticleId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 321</value>
+    <value>478, 289</value>
   </data>
   <data name="txtBxKBArticleId.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 20</value>
@@ -397,13 +409,13 @@
     <value>14</value>
   </data>
   <data name="label10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 324</value>
+    <value>398, 292</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -415,13 +427,13 @@
     <value>KB Article Id : </value>
   </data>
   <data name="cmbBxUpdateClassification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="cmbBxUpdateClassification.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 343</value>
+    <value>133, 213</value>
   </data>
   <data name="cmbBxUpdateClassification.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 21</value>
+    <value>204, 21</value>
   </data>
   <data name="cmbBxUpdateClassification.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -430,7 +442,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 346</value>
+    <value>12, 216</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 13</value>
@@ -442,58 +454,52 @@
     <value>Update Classification : </value>
   </data>
   <data name="chkBxCanREquestUserInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="chkBxCanREquestUserInput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chkBxCanREquestUserInput.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
   <data name="chkBxCanREquestUserInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 297</value>
+    <value>528, 160</value>
   </data>
   <data name="chkBxCanREquestUserInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>140, 17</value>
   </data>
   <data name="chkBxCanREquestUserInput.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="chkBxCanREquestUserInput.Text" xml:space="preserve">
-    <value>Can Request User Input : </value>
+    <value>Can Request User Input</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="chkBxRequiresNetworkConnectivity.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 320</value>
+    <value>528, 187</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 17</value>
+    <value>172, 17</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="chkBxRequiresNetworkConnectivity.Text" xml:space="preserve">
-    <value>Requires Network Connectivity : </value>
+    <value>Requires Network Connectivity</value>
   </data>
   <data name="cmbBxImpact.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="cmbBxImpact.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 370</value>
+    <value>133, 240</value>
   </data>
   <data name="cmbBxImpact.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 21</value>
+    <value>204, 21</value>
   </data>
   <data name="cmbBxImpact.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -502,7 +508,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 373</value>
+    <value>79, 243</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -514,13 +520,13 @@
     <value>Impact : </value>
   </data>
   <data name="cmbBxRebootBehavior.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="cmbBxRebootBehavior.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 397</value>
+    <value>133, 267</value>
   </data>
   <data name="cmbBxRebootBehavior.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 21</value>
+    <value>204, 21</value>
   </data>
   <data name="cmbBxRebootBehavior.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -529,7 +535,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 400</value>
+    <value>31, 270</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 13</value>
@@ -544,10 +550,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>635, 394</value>
-  </data>
-  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>635, 532</value>
   </data>
   <data name="btnNext.Text" xml:space="preserve">
     <value>&amp;Next</value>
@@ -556,10 +559,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>554, 394</value>
+    <value>554, 532</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
@@ -568,15 +571,120 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnPrevious.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 394</value>
+    <value>473, 532</value>
   </data>
   <data name="btnPrevious.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="btnPrevious.Text" xml:space="preserve">
     <value>&amp;Previous</value>
   </data>
+  <data name="label14.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 509</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Command Line : </value>
+  </data>
+  <data name="label15.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 529</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 13</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Optional : Provide Command Line like /q, /s, /silent...</value>
+  </data>
+  <data name="label16.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label16.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 350</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 13</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Return Codes : </value>
+  </data>
+  <data name="txtBxCommandLine.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="txtBxCommandLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 506</value>
+  </data>
+  <data name="txtBxCommandLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 20</value>
+  </data>
+  <data name="txtBxCommandLine.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="dtgrvReturnCodes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="dtgrvReturnCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 350</value>
+  </data>
+  <data name="dtgrvReturnCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 150</value>
+  </data>
+  <data name="dtgrvReturnCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="label17.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 319</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Supersedes : </value>
+  </data>
+  <data name="label18.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>396, 319</value>
+  </data>
+  <data name="chkCmbBxSupersedes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="chkCmbBxSupersedes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 317</value>
+  </data>
+  <data name="chkCmbBxSupersedes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="checkComboBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="checkComboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 315</value>
+  </data>
+  <data name="checkComboBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 21</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>726, 429</value>
+    <value>726, 564</value>
   </data>
 </root>

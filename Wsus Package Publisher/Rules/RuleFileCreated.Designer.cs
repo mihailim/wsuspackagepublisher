@@ -46,10 +46,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.nupHour = new System.Windows.Forms.NumericUpDown();
             this.nupMinute = new System.Windows.Forms.NumericUpDown();
-            this.nupSeconde = new System.Windows.Forms.NumericUpDown();
+            this.nupSecond = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nupHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMinute)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupSeconde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupSecond)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOk
@@ -167,20 +167,20 @@
             // 
             // nupSeconde
             // 
-            resources.ApplyResources(this.nupSeconde, "nupSeconde");
-            this.nupSeconde.Maximum = new decimal(new int[] {
+            resources.ApplyResources(this.nupSecond, "nupSeconde");
+            this.nupSecond.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.nupSeconde.Name = "nupSeconde";
-            this.nupSeconde.Enter += new System.EventHandler(this.nupHour_Enter);
+            this.nupSecond.Name = "nupSeconde";
+            this.nupSecond.Enter += new System.EventHandler(this.nupHour_Enter);
             // 
             // RuleFileCreated
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.nupSeconde);
+            this.Controls.Add(this.nupSecond);
             this.Controls.Add(this.nupMinute);
             this.Controls.Add(this.nupHour);
             this.Controls.Add(this.label6);
@@ -201,7 +201,7 @@
             this.Name = "RuleFileCreated";
             ((System.ComponentModel.ISupportInitialize)(this.nupHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMinute)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupSeconde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupSecond)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +226,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nupHour;
         private System.Windows.Forms.NumericUpDown nupMinute;
-        private System.Windows.Forms.NumericUpDown nupSeconde;
+        private System.Windows.Forms.NumericUpDown nupSecond;
     }
 }

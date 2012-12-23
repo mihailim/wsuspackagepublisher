@@ -125,6 +125,10 @@
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 13</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Comparison : </value>
   </data>
@@ -137,7 +141,6 @@
   <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="&gt;&gt;nupVersion3.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkBxRegType32.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -165,9 +171,6 @@
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkBxRegType32.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="&gt;&gt;nupVersion2.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
@@ -181,7 +184,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -196,7 +199,7 @@
     <value>86, 20</value>
   </data>
   <data name="chkBxRegType32.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;nupVersion4.Name" xml:space="preserve">
     <value>nupVersion4</value>
@@ -208,7 +211,7 @@
     <value>9</value>
   </data>
   <data name="nupVersion2.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -219,14 +222,8 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="cmbBxComparison.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
   <data name="txtBxDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 3</value>
-  </data>
-  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <data name="txtBxFilePath.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 320</value>
@@ -255,14 +252,14 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;chkBxRegType32.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="nupVersion3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;txtBxRegistryValue.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -294,17 +291,20 @@
   <data name="&gt;&gt;chkBxRegType32.Name" xml:space="preserve">
     <value>chkBxRegType32</value>
   </data>
+  <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 346</value>
+  </data>
   <data name="&gt;&gt;nupVersion4.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 270</value>
   </data>
-  <data name="&gt;&gt;cmbBxComparison.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
   </data>
   <data name="txtBxRegistryValue.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;txtBxRegistryValue.Parent" xml:space="preserve">
     <value>$this</value>
@@ -331,7 +331,10 @@
     <value>17</value>
   </data>
   <data name="nupVersion3.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txtBxDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmbBxComparison.Parent" xml:space="preserve">
     <value>$this</value>
@@ -354,17 +357,11 @@
   <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
     <value>btnOk</value>
   </data>
-  <data name="&gt;&gt;txtBxSubKey.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;cmbBxComparison.Name" xml:space="preserve">
     <value>cmbBxComparison</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 348</value>
-  </data>
-  <data name="&gt;&gt;nupVersion4.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -381,6 +378,9 @@
   <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 17</value>
   </data>
+  <data name="&gt;&gt;nupVersion2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="nupVersion3.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 20</value>
   </data>
@@ -390,9 +390,6 @@
   <data name="&gt;&gt;txtBxSubKey.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtBxRegistryValue.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="chkBxRegType32.Location" type="System.Drawing.Point, System.Drawing">
     <value>459, 244</value>
   </data>
@@ -400,7 +397,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="nupVersion4.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="chkBxRegType32.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 17</value>
@@ -420,17 +417,14 @@
   <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 293</value>
   </data>
-  <data name="&gt;&gt;txtBxRegistryValue.Name" xml:space="preserve">
-    <value>txtBxRegistryValue</value>
-  </data>
   <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="nupVersion1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;txtBxFilePath.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -471,8 +465,8 @@
   <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="&gt;&gt;nupVersion1.Name" xml:space="preserve">
-    <value>nupVersion1</value>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 296</value>
@@ -522,6 +516,9 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 13</value>
   </data>
+  <data name="&gt;&gt;cmbBxComparison.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="txtBxSubKey.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 218</value>
   </data>
@@ -541,13 +538,16 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
     <value>468, 20</value>
   </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;txtBxDescription.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="cmbBxComparison.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -561,8 +561,8 @@
   <data name="txtBxRegistryValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>468, 20</value>
   </data>
-  <data name="nupVersion3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;txtBxRegistryValue.Name" xml:space="preserve">
+    <value>txtBxRegistryValue</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -570,8 +570,8 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 323</value>
   </data>
-  <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 346</value>
+  <data name="&gt;&gt;nupVersion1.Name" xml:space="preserve">
+    <value>nupVersion1</value>
   </data>
   <data name="chkBxReverseRule.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -579,8 +579,8 @@
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtBxDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtBxRegistryValue.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
@@ -600,8 +600,8 @@
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>439, 388</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
+  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;txtBxFilePath.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -609,11 +609,11 @@
   <data name="&gt;&gt;chkBxReverseRule.Name" xml:space="preserve">
     <value>chkBxReverseRule</value>
   </data>
-  <data name="&gt;&gt;txtBxDescription.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="&gt;&gt;nupVersion4.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="chkBxRegType32.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="&gt;&gt;txtBxSubKey.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 13</value>
@@ -621,13 +621,13 @@
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nupVersion2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;chkBxRegType32.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;txtBxDescription.Name" xml:space="preserve">
     <value>txtBxDescription</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
@@ -638,8 +638,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
   </metadata>
 </root>

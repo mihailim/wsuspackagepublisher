@@ -60,6 +60,19 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtBxCommandLine = new System.Windows.Forms.TextBox();
+            this.dtgrvReturnCodes = new System.Windows.Forms.DataGridView();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NeedReboot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.chkCmbBxSupersedes = new EasyCompany.Controls.CheckComboBox();
+            this.chkCmbBxPrerequisites = new EasyCompany.Controls.CheckComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrvReturnCodes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,13 +82,12 @@
             // 
             // cmbBxVendorName
             // 
-            resources.ApplyResources(this.cmbBxVendorName, "cmbBxVendorName");
             this.cmbBxVendorName.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxVendorName, "cmbBxVendorName");
             this.cmbBxVendorName.Name = "cmbBxVendorName";
             this.cmbBxVendorName.Sorted = true;
             this.cmbBxVendorName.SelectedIndexChanged += new System.EventHandler(this.cmbBxVendorName_SelectedIndexChanged);
             this.cmbBxVendorName.TextChanged += new System.EventHandler(this.cmbBxVendorName_TextChanged);
-            this.cmbBxVendorName.Leave += new System.EventHandler(this.cmbBxVendorName_Leave);
             // 
             // label2
             // 
@@ -84,12 +96,11 @@
             // 
             // cmbBxProductName
             // 
-            resources.ApplyResources(this.cmbBxProductName, "cmbBxProductName");
             this.cmbBxProductName.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxProductName, "cmbBxProductName");
             this.cmbBxProductName.Name = "cmbBxProductName";
             this.cmbBxProductName.SelectedIndexChanged += new System.EventHandler(this.cmbBxProductName_SelectedIndexChanged);
             this.cmbBxProductName.TextChanged += new System.EventHandler(this.cmbBxProductName_TextChanged);
-            this.cmbBxProductName.Leave += new System.EventHandler(this.cmbBxVendorName_Leave);
             // 
             // label3
             // 
@@ -101,7 +112,6 @@
             resources.ApplyResources(this.txtBxTitle, "txtBxTitle");
             this.txtBxTitle.Name = "txtBxTitle";
             this.txtBxTitle.TextChanged += new System.EventHandler(this.txtBxTitle_TextChanged);
-            this.txtBxTitle.Leave += new System.EventHandler(this.cmbBxVendorName_Leave);
             // 
             // txtBxDescription
             // 
@@ -146,9 +156,9 @@
             // 
             // cmbBxMsrcSeverity
             // 
-            resources.ApplyResources(this.cmbBxMsrcSeverity, "cmbBxMsrcSeverity");
             this.cmbBxMsrcSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxMsrcSeverity.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxMsrcSeverity, "cmbBxMsrcSeverity");
             this.cmbBxMsrcSeverity.Name = "cmbBxMsrcSeverity";
             // 
             // label8
@@ -178,9 +188,9 @@
             // 
             // cmbBxUpdateClassification
             // 
-            resources.ApplyResources(this.cmbBxUpdateClassification, "cmbBxUpdateClassification");
             this.cmbBxUpdateClassification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxUpdateClassification.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxUpdateClassification, "cmbBxUpdateClassification");
             this.cmbBxUpdateClassification.Name = "cmbBxUpdateClassification";
             // 
             // label11
@@ -202,9 +212,9 @@
             // 
             // cmbBxImpact
             // 
-            resources.ApplyResources(this.cmbBxImpact, "cmbBxImpact");
             this.cmbBxImpact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxImpact.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxImpact, "cmbBxImpact");
             this.cmbBxImpact.Name = "cmbBxImpact";
             // 
             // label12
@@ -214,9 +224,9 @@
             // 
             // cmbBxRebootBehavior
             // 
-            resources.ApplyResources(this.cmbBxRebootBehavior, "cmbBxRebootBehavior");
             this.cmbBxRebootBehavior.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxRebootBehavior.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBxRebootBehavior, "cmbBxRebootBehavior");
             this.cmbBxRebootBehavior.Name = "cmbBxRebootBehavior";
             // 
             // label13
@@ -242,10 +252,94 @@
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // txtBxCommandLine
+            // 
+            resources.ApplyResources(this.txtBxCommandLine, "txtBxCommandLine");
+            this.txtBxCommandLine.Name = "txtBxCommandLine";
+            this.txtBxCommandLine.TextChanged += new System.EventHandler(this.txtBxCommandLine_TextChanged);
+            // 
+            // dtgrvReturnCodes
+            // 
+            this.dtgrvReturnCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrvReturnCodes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Value,
+            this.Result,
+            this.NeedReboot});
+            resources.ApplyResources(this.dtgrvReturnCodes, "dtgrvReturnCodes");
+            this.dtgrvReturnCodes.Name = "dtgrvReturnCodes";
+            // 
+            // Value
+            // 
+            this.Value.FillWeight = 20F;
+            resources.ApplyResources(this.Value, "Value");
+            this.Value.Name = "Value";
+            // 
+            // Result
+            // 
+            this.Result.FillWeight = 40F;
+            resources.ApplyResources(this.Result, "Result");
+            this.Result.Name = "Result";
+            // 
+            // NeedReboot
+            // 
+            this.NeedReboot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            resources.ApplyResources(this.NeedReboot, "NeedReboot");
+            this.NeedReboot.Name = "NeedReboot";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // chkCmbBxSupersedes
+            // 
+            this.chkCmbBxSupersedes.BackColor = System.Drawing.Color.AliceBlue;
+            this.chkCmbBxSupersedes.ForeColor = System.Drawing.SystemColors.WindowText;
+            resources.ApplyResources(this.chkCmbBxSupersedes, "chkCmbBxSupersedes");
+            this.chkCmbBxSupersedes.MinimumSize = new System.Drawing.Size(85, 21);
+            this.chkCmbBxSupersedes.Name = "chkCmbBxSupersedes";
+            // 
+            // chkCmbBxPrerequisites
+            // 
+            this.chkCmbBxPrerequisites.BackColor = System.Drawing.Color.AliceBlue;
+            this.chkCmbBxPrerequisites.ForeColor = System.Drawing.SystemColors.WindowText;
+            resources.ApplyResources(this.chkCmbBxPrerequisites, "chkCmbBxPrerequisites");
+            this.chkCmbBxPrerequisites.MinimumSize = new System.Drawing.Size(85, 21);
+            this.chkCmbBxPrerequisites.Name = "chkCmbBxPrerequisites";
+            // 
             // FrmUpdateInformationsWizard
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkCmbBxPrerequisites);
+            this.Controls.Add(this.chkCmbBxSupersedes);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.dtgrvReturnCodes);
+            this.Controls.Add(this.txtBxCommandLine);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
@@ -279,6 +373,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUpdateInformationsWizard";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrvReturnCodes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +412,17 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtBxCommandLine;
+        private System.Windows.Forms.DataGridView dtgrvReturnCodes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Result;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NeedReboot;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private EasyCompany.Controls.CheckComboBox chkCmbBxSupersedes;
+        private EasyCompany.Controls.CheckComboBox chkCmbBxPrerequisites;
     }
 }

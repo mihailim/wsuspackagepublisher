@@ -102,6 +102,34 @@ namespace Wsus_Package_Publisher.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap DownStream {
+            get {
+                object obj = ResourceManager.GetObject("DownStream", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Drapeau_Bleu {
+            get {
+                object obj = ResourceManager.GetObject("Drapeau_Bleu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap drapeau_france {
+            get {
+                object obj = ResourceManager.GetObject("drapeau_france", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap drapeau_grande_bretagne {
+            get {
+                object obj = ResourceManager.GetObject("drapeau_grande_bretagne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Eran_64 {
             get {
                 object obj = ResourceManager.GetObject("Eran_64", resourceCulture);
@@ -154,6 +182,13 @@ namespace Wsus_Package_Publisher.Properties {
         internal static System.Drawing.Bitmap Settings_64 {
             get {
                 object obj = ResourceManager.GetObject("Settings_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UpStream {
+            get {
+                object obj = ResourceManager.GetObject("UpStream", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

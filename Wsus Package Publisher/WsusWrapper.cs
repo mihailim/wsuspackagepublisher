@@ -8,10 +8,16 @@ namespace Wsus_Package_Publisher
 {
     internal sealed class WsusWrapper
     {
+        internal enum StreamTypeServer
+        {
+            UpStream,
+            DownStream
+        }
         private IUpdateServer wsus;
         private static WsusWrapper instance;
         private WsusServer _wsusServer;
         private System.Windows.Forms.Timer _timer;
+        private UpdateServerUserRole _userRole = UpdateServerUserRole.Unauthorized;
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(WsusWrapper).Assembly);
 
         private WsusWrapper()
@@ -22,6 +28,32 @@ namespace Wsus_Package_Publisher
         internal bool IsConnected { get; private set; }
 
         internal bool IsReplica { get; private set; }
+
+        /// <summary>
+        /// Get or Set if the Server is UpStream or DownStream.
+        /// </summary>
+        internal StreamTypeServer StreamType
+        {
+            get;
+            private set;
+        }
+
+        internal DownstreamServerCollection DownStreamServers
+        {
+            get;
+            private set;
+        }
+
+        internal UpdateServerUserRole UserRole
+        {
+            get { return _userRole; }
+            private set { _userRole = value; }
+        }
+
+        private ISubscription GetSubscription()
+        {
+            return wsus.GetSubscription();
+        }
 
         /// <summary>
         /// Allow to always get the same instance of this Class.
@@ -44,6 +76,8 @@ namespace Wsus_Package_Publisher
         /// <returns></returns>
         internal bool Connect(WsusServer serverToConnect, string preferredCulture)
         {
+            IsConnected = false;
+            _timer.Stop();
             try
             {
                 if (serverToConnect.IsLocal)
@@ -60,21 +94,26 @@ namespace Wsus_Package_Publisher
                 }
                 wsus.PreferredCulture = preferredCulture;
                 _wsusServer = serverToConnect;
+                IUpdateServerConfiguration conf = wsus.GetConfiguration();
+                IsReplica = conf.IsReplicaServer;
+                IsConnected = true;
+                if (conf.UpstreamWsusServerName == "")
+                    StreamType = StreamTypeServer.UpStream;
+                else
+                    StreamType = StreamTypeServer.DownStream;
+                DownStreamServers = wsus.GetDownstreamServers();
+                UserRole = wsus.GetCurrentUserRole();
             }
             catch (Exception ex)
             {
 #if DEBUG
                 System.Windows.Forms.MessageBox.Show("Connection failed : \r\n" + ex.Message);
 #endif
-                return false;
             }
-            IsConnected = true;
-            IsReplica = wsus.GetConfiguration().IsReplicaServer;
-
-            return true;
+            return IsConnected;
         }
 
-        void _timer_Tick(object sender, EventArgs e)
+        private void _timer_Tick(object sender, EventArgs e)
         {
             _timer.Stop();
             GetAllComputerTargetGroup();
@@ -86,6 +125,11 @@ namespace Wsus_Package_Publisher
             get { return _wsusServer; }
         }
 
+        internal Version GetServerVersion()
+        {
+            return wsus.Version;
+        }
+
         /// <summary>
         /// Get all computers in a target group.
         /// </summary>
@@ -93,7 +137,11 @@ namespace Wsus_Package_Publisher
         /// <returns>A collection of target computers.</returns>
         internal ComputerTargetCollection GetComputerTargets(Guid computerGroup)
         {
-            return wsus.GetComputerTargetGroup(computerGroup).GetComputerTargets(false);
+            ComputerTargetScope scope = new ComputerTargetScope();
+            scope.IncludeDownstreamComputerTargets = true;
+            scope.ComputerTargetGroups.Add(wsus.GetComputerTargetGroup(computerGroup));
+
+            return wsus.GetComputerTargets(scope);
         }
 
         /// <summary>
@@ -130,7 +178,9 @@ namespace Wsus_Package_Publisher
         /// <returns>Collection of updates.</returns>
         internal UpdateCollection GetAllUpdates()
         {
-            return wsus.GetUpdates();
+            UpdateScope scope = new UpdateScope();
+            scope.UpdateSources = UpdateSources.Other;
+            return wsus.GetUpdates(scope);
         }
 
         internal IUpdate GetUpdate(UpdateRevisionId updateId)
@@ -150,7 +200,21 @@ namespace Wsus_Package_Publisher
 
         internal UpdateInstallationInfoCollection GetUpdateInstallationInfoPerComputerTarget(Guid groupId, IUpdate update)
         {
-            return GetComputerGroup(groupId).GetUpdateInstallationInfoPerComputerTarget(update);
+            ComputerTargetScope scope = new ComputerTargetScope();
+            scope.ComputerTargetGroups.Add(GetComputerGroup(groupId));
+            scope.IncludeDownstreamComputerTargets = true;
+            return update.GetUpdateInstallationInfoPerComputerTarget(scope);
+        }
+
+        internal IUpdateSummary GetSummaryForComputerTargetGroup(IComputerTargetGroup group, IUpdate update)
+        {
+            IUpdateSummary result;
+            if (!_wsusServer.IsLocal)
+                _timer.Stop();
+            result = update.GetSummaryForComputerTargetGroup(group);
+            if (!_wsusServer.IsLocal)
+                _timer.Start();
+            return result;
         }
 
         internal void PublishUpdate(FrmUpdateFilesWizard filesWizard, FrmUpdateInformationsWizard informationsWizard, FrmUpdateRulesWizard isInstalledRulesWizard, FrmUpdateRulesWizard isInstallableRulesWizard)
@@ -163,13 +227,13 @@ namespace Wsus_Package_Publisher
             switch (filesWizard.FileType)
             {
                 case FrmUpdateFilesWizard.UpdateType.WindowsInstaller:
-                    sdp.PopulatePackageFromWindowsInstaller(filesWizard.updateFileName);
+                    sdp.PopulatePackageFromWindowsInstaller(filesWizard.UpdateFileName);
                     break;
                 case FrmUpdateFilesWizard.UpdateType.WindowsInstallerPatch:
-                    sdp.PopulatePackageFromWindowsInstallerPatch(filesWizard.updateFileName);
+                    sdp.PopulatePackageFromWindowsInstallerPatch(filesWizard.UpdateFileName);
                     break;
                 case FrmUpdateFilesWizard.UpdateType.Executable:
-                    sdp.PopulatePackageFromExe(filesWizard.updateFileName);
+                    sdp.PopulatePackageFromExe(filesWizard.UpdateFileName);
                     break;
                 default:
                     break;
@@ -186,7 +250,7 @@ namespace Wsus_Package_Publisher
             if (!System.IO.Directory.Exists(tmpFolderPath + sdp.PackageId + "\\Bin\\"))
                 System.IO.Directory.CreateDirectory(tmpFolderPath + sdp.PackageId + "\\Bin\\");
 
-            System.IO.FileInfo updateFile = new System.IO.FileInfo(filesWizard.updateFileName);
+            System.IO.FileInfo updateFile = new System.IO.FileInfo(filesWizard.UpdateFileName);
             updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Bin\\" + updateFile.Name);
 
             if (filesWizard.AdditionnalFileName.Count != 0)
@@ -196,7 +260,7 @@ namespace Wsus_Package_Publisher
                 foreach (string file in filesWizard.AdditionnalFileName)
                 {
                     System.IO.FileInfo additionalUpdateFile = new System.IO.FileInfo(file);
-                    updateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Add\\" + additionalUpdateFile.Name);
+                    additionalUpdateFile.CopyTo(tmpFolderPath + sdp.PackageId + "\\Add\\" + additionalUpdateFile.Name);
                 }
             }
 
@@ -212,6 +276,8 @@ namespace Wsus_Package_Publisher
 #endif
             if (!_wsusServer.IsLocal)
                 _timer.Start();
+            if (UpdateSuperseded != null && sdp.SupersededPackages.Count != 0)
+                UpdateSuperseded(sdp.SupersededPackages);
             if (UpdatePublished != null)
                 UpdatePublished(GetUpdate(new UpdateRevisionId(sdp.PackageId)));
         }
@@ -232,30 +298,58 @@ namespace Wsus_Package_Publisher
 
             if (filesWizard != null)
             {
-                if (!string.IsNullOrEmpty(filesWizard.CommandLine))
+                if (!string.IsNullOrEmpty(informationsWizard.CommandLine))
                     switch (filesWizard.FileType)
                     {
                         case FrmUpdateFilesWizard.UpdateType.WindowsInstaller:
-                            (sdp.InstallableItems[0] as WindowsInstallerItem).InstallCommandLine = filesWizard.CommandLine;
+                            (sdp.InstallableItems[0] as WindowsInstallerItem).InstallCommandLine = informationsWizard.CommandLine;
                             break;
                         case FrmUpdateFilesWizard.UpdateType.WindowsInstallerPatch:
-                            (sdp.InstallableItems[0] as WindowsInstallerPatchItem).InstallCommandLine = filesWizard.CommandLine;
+                            (sdp.InstallableItems[0] as WindowsInstallerPatchItem).InstallCommandLine = informationsWizard.CommandLine;
                             break;
                         case FrmUpdateFilesWizard.UpdateType.Executable:
-                            (sdp.InstallableItems[0] as CommandLineItem).Arguments = filesWizard.CommandLine;
+                            (sdp.InstallableItems[0] as CommandLineItem).Arguments = informationsWizard.CommandLine;
                             break;
                         default:
                             break;
                     }
-                if (filesWizard.FileType == FrmUpdateFilesWizard.UpdateType.Executable && filesWizard.ReturnCodes.Count != 0)
+                if (filesWizard.FileType == FrmUpdateFilesWizard.UpdateType.Executable && informationsWizard.ReturnCodes.Count != 0)
                 {
                     (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Clear();
-                    foreach (ReturnCode code in filesWizard.ReturnCodes)
+                    foreach (ReturnCode code in informationsWizard.ReturnCodes)
                     {
                         (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Add(code);
                     }
                 }
             }
+            else
+            {
+                string commandLine = informationsWizard.CommandLine;
+                if (string.IsNullOrEmpty(commandLine))
+                    commandLine = " ";
+                Type updateType = sdp.InstallableItems[0].GetType();
+                if (updateType == typeof(WindowsInstallerItem))
+                    (sdp.InstallableItems[0] as WindowsInstallerItem).InstallCommandLine = commandLine;
+                else
+                    if (updateType == typeof(WindowsInstallerPatchItem))
+                        (sdp.InstallableItems[0] as WindowsInstallerPatchItem).InstallCommandLine = commandLine;
+                    else
+                        if (updateType == typeof(CommandLineItem))
+                        {
+                            (sdp.InstallableItems[0] as CommandLineItem).Arguments = commandLine;
+                            (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Clear();
+                            foreach (ReturnCode code in informationsWizard.ReturnCodes)
+                            {
+                                (sdp.InstallableItems[0] as CommandLineItem).ReturnCodes.Add(code);
+                            }
+                        }
+            }
+
+            if (isInstalledRulesWizard.EmptyRuleAtPackageLevel)
+                sdp.InstallableItems[0].IsInstalledApplicabilityRule = string.Empty;
+
+            if (isInstallableRulesWizard.EmptyRuleAtPackageLevel)
+                sdp.InstallableItems[0].IsInstallableApplicabilityRule = string.Empty;
 
             if (!string.IsNullOrEmpty(informationsWizard.UrlMoreInfo))
             {
@@ -281,6 +375,17 @@ namespace Wsus_Package_Publisher
 
             if (!string.IsNullOrEmpty(informationsWizard.KbArticle))
                 sdp.KnowledgebaseArticleId = informationsWizard.KbArticle;
+
+            foreach (Guid id in informationsWizard.GetSupersedes())
+                sdp.SupersededPackages.Add(id);
+
+            if (informationsWizard.GetPrerequisites().Count != 0)
+            {
+                PrerequisiteGroup prerequisite = new PrerequisiteGroup();
+                foreach (Guid id in informationsWizard.GetPrerequisites())
+                    prerequisite.Ids.Add(id);
+                sdp.Prerequisites.Add(prerequisite);
+            }
 
             return sdp;
         }
@@ -328,7 +433,7 @@ namespace Wsus_Package_Publisher
             }
             catch (Exception ex)
             {
-                result = resMan.GetString("ResignPackageFailed" + " : " + ex.Message);
+                result = resMan.GetString("ResignPackageFailed") + " : " + ex.Message;
             }
 
             return result;
@@ -360,7 +465,8 @@ namespace Wsus_Package_Publisher
         /// <param name="updateToDecline">Update to Decline</param>
         internal void DeclineUpdate(IUpdate updateToDecline)
         {
-            updateToDecline.Decline();
+            if (!updateToDecline.IsDeclined)
+                updateToDecline.Decline();
             if (UpdateDeclined != null)
                 UpdateDeclined(GetUpdate(updateToDecline.Id));
         }
@@ -368,31 +474,43 @@ namespace Wsus_Package_Publisher
         internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove, DateTime deadLine)
         {
             updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId), deadLine);
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(updateToApprove.Id));
         }
 
         internal void ApproveUpdateForInstallation(Guid computerGroupId, IUpdate updateToApprove)
         {
             updateToApprove.Approve(UpdateApprovalAction.Install, GetComputerGroup(computerGroupId));
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(updateToApprove.Id));
         }
 
         internal void ApproveUpdateForUninstallation(Guid computerGroupId, IUpdate updateToApprove, DateTime deadLine)
         {
             updateToApprove.Approve(UpdateApprovalAction.Uninstall, GetComputerGroup(computerGroupId), deadLine);
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(updateToApprove.Id));
         }
 
         internal void ApproveUpdateForUninstallation(Guid computerGroupId, IUpdate updateToApprove)
         {
             updateToApprove.Approve(UpdateApprovalAction.Uninstall, GetComputerGroup(computerGroupId));
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(updateToApprove.Id));
         }
 
         internal void ApproveUpdateForOptionalInstallation(Guid computerGroupId, IUpdate updateToApprove)
         {
             updateToApprove.ApproveForOptionalInstall(GetComputerGroup(computerGroupId));
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(updateToApprove.Id));
         }
 
         internal void DisapproveUpdate(Guid computerGroupId, IUpdate udpateToDisapprove)
         {
             udpateToDisapprove.Approve(UpdateApprovalAction.NotApproved, GetComputerGroup(computerGroupId));
+            if (UpdateApprovalChange != null)
+                UpdateApprovalChange(GetUpdate(udpateToDisapprove.Id));
         }
 
         internal void ExpireUpdate(IUpdate updateToExpire)
@@ -413,7 +531,6 @@ namespace Wsus_Package_Publisher
             string tmpFile = GetTempFolder() + update.Id.UpdateId.ToString() + ".xml";
             wsus.ExportPackageMetadata(update.Id, tmpFile);
             SoftwareDistributionPackage sdp = new SoftwareDistributionPackage(tmpFile);
-            string installedRule = sdp.IsInstalled;
 
             return sdp;
         }
@@ -467,8 +584,6 @@ namespace Wsus_Package_Publisher
                 UpdatePublishingProgress(sender, e);
         }
 
-
-
         ~WsusWrapper()
         {
             _timer.Stop();
@@ -492,5 +607,11 @@ namespace Wsus_Package_Publisher
 
         public delegate void UpdateRevisedEventHandler(IUpdate oldUpdate, IUpdate RevisedUpdate);
         public event UpdateRevisedEventHandler UpdateRevised;
+
+        public delegate void UpdateSupersededEventHandler(IList<Guid> SupersededUpdates);
+        public event UpdateSupersededEventHandler UpdateSuperseded;
+
+        public delegate void UpdateApprovalChangeEventHandler(IUpdate ApprovedUpdate);
+        public event UpdateApprovalChangeEventHandler UpdateApprovalChange;
     }
 }

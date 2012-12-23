@@ -19,21 +19,27 @@ namespace Wsus_Package_Publisher
 
         private string _updateFileName = "";
         private List<string> _additionnalFileName = new List<string>();
-        private string _commandLine = "";
         private UpdateType _fileType;
 
         public FrmUpdateFilesWizard()
         {
             InitializeComponent();
-            DataGridViewComboBoxColumn column = (DataGridViewComboBoxColumn)dtgrvReturnCodes.Columns["Result"];
-            column.Items.Add(resManager.GetString("Failed"));
-            column.Items.Add(resManager.GetString("Succeeded"));
-            column.Items.Add(resManager.GetString("Cancelled"));
-
             txtBxUpdateFile.Select();
         }
 
-        internal string updateFileName
+        public FrmUpdateFilesWizard(string fileName)
+        {
+            InitializeComponent();
+            if (System.IO.File.Exists(fileName))
+            {
+                System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
+                string ext = fileInfo.Extension.ToLower();
+                if (ext == ".msi" || ext == ".msp" || ext == ".exe")
+                    txtBxUpdateFile.Text = fileName;
+            }
+        }
+
+        internal string UpdateFileName
         {
             get { return _updateFileName; }
             private set
@@ -52,58 +58,6 @@ namespace Wsus_Package_Publisher
                 if (value != null)
                     _additionnalFileName = value;
             }
-        }
-
-        internal string CommandLine
-        {
-            get { return _commandLine; }
-            private set
-            {
-                _commandLine = value;
-            }
-        }
-
-        internal List<ReturnCode> ReturnCodes
-        {
-            get
-            {
-                _returnCodes.Clear();
-
-                foreach (DataGridViewRow row in dtgrvReturnCodes.Rows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        ReturnCode currentReturnCode = new ReturnCode();
-
-                        currentReturnCode.ReturnCodeValue = GetReturnCodeValue(row.Cells["Value"].Value.ToString());
-                        currentReturnCode.InstallationResult = GetInstallationResult(row.Cells["Result"].Value.ToString());
-                        if (row.Cells["NeedReboot"].Value != null)
-                            currentReturnCode.IsRebootRequired = (bool)row.Cells["NeedReboot"].Value;
-
-                        _returnCodes.Add(currentReturnCode);
-                    }
-                }
-                return _returnCodes;
-            }
-        }
-
-        private InstallationResult GetInstallationResult(string p)
-        {
-            if (p == resManager.GetString("Failed"))
-                return InstallationResult.Failed;
-            if (p == resManager.GetString("Succeeded"))
-                return InstallationResult.Succeeded;
-            if (p == resManager.GetString("Cancelled"))
-                return InstallationResult.Cancelled;
-
-            return InstallationResult.Failed;
-        }
-
-        private int GetReturnCodeValue(string p)
-        {
-            int result;
-            int.TryParse(p, out result);
-            return result;
         }
 
         internal UpdateType FileType
@@ -139,7 +93,7 @@ namespace Wsus_Package_Publisher
                 if (extension == ".msi" || extension == ".msp" || extension == ".exe")
                 {
                     btnNext.Enabled = true;
-                    updateFileName = txtBxUpdateFile.Text;
+                    UpdateFileName = txtBxUpdateFile.Text;
                     switch (extension)
                     {
                         case ".msi":
@@ -200,10 +154,66 @@ namespace Wsus_Package_Publisher
             else
                 btnRemoveAdditionnalFile.Enabled = true;
         }
-
-        private void txtBxCommandLine_TextChanged(object sender, EventArgs e)
+        
+        private void lstBxAdditionnalFiles_DragEnter(object sender, DragEventArgs e)
         {
-            CommandLine = txtBxCommandLine.Text;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void lstBxAdditionnalFiles_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] fileNames = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (fileNames != null)
+                    foreach (string file in fileNames)
+                    {
+                        if (System.IO.File.Exists(file))
+                        {
+                            lstBxAdditionnalFiles.Items.Add(file);
+                            _additionnalFileName.Add(file);
+                        }
+                    }
+            }
+        }
+
+        private void txtBxUpdateFile_DragEnter(object sender, DragEventArgs e)
+        {
+            DragDropEffects effect = DragDropEffects.None;
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                Array tab = (Array)e.Data.GetData(DataFormats.FileDrop);
+                if (tab != null && tab.GetValue(0) != null && tab.Length == 1)
+                {
+                    string fileName = tab.GetValue(0).ToString();
+                    System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
+                    string ext = fileInfo.Extension.ToLower();
+                    if (ext == ".msi" || ext == ".msp" || ext == ".exe")
+                        effect = DragDropEffects.Copy;
+                }
+            }
+            e.Effect = effect;
+        }
+
+        private void txtBxUpdateFile_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] fileNames = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (fileNames != null && fileNames.GetValue(0) != null)
+                {
+                    string fileName = fileNames[0];
+                    System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
+                    string ext = fileInfo.Extension.ToLower();
+                    if (ext == ".msi" || ext == ".msp" || ext == ".exe")
+                        txtBxUpdateFile.Text = fileName;
+                }
+            }
         }
 
     }

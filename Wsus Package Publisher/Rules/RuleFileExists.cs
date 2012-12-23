@@ -12,61 +12,6 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleFileExists : GenericRule
     {
-        private Dictionary<string, int> _languagesByString = new Dictionary<string, int>
-        {   {"Arabic", 1},
-            {"Chinese_HK_SAR", 3076},
-            {"Chinese_simplified", 4},
-            {"Chinese_traditional",31748},
-            {"Czech", 5},
-            {"Danish", 6}, 
-            {"Dutch", 19},
-            {"English", 9},
-            {"Finnish", 11}, 
-            {"French", 12},    
-            {"German", 7},   
-            {"Greek", 8},   
-            {"Hebrew", 13},            
-            {"Hungarian", 14},   
-            {"Italian", 16},              
-            {"Japanese", 17},   
-            {"Korean", 18}, 
-            {"Norwegian", 20},
-            {"Polish", 21},
-            {"Portugese", 22}, 
-            {"Portugese_Brazil", 1046}, 
-            {"Russian", 25},
-            {"Spanish", 10}, 
-            {"Swedish", 29}, 
-            {"Turkish" , 31}
-        };
-        private Dictionary<int, string> _languaguesByInt = new Dictionary<int, string>
-        {
-            {1, "Arabic"},
-            {3076, "Chinese_HK_SAR"},
-            {4, "Chinese_simplified"},
-            {31748, "Chinese_traditional"},
-            {5, "Czech"},
-            {6, "Danish"}, 
-            {19, "Dutch"},
-            {9, "English"},
-            {11, "Finnish"}, 
-            {12, "French"},    
-            {7, "German"},   
-            {8, "Greek"},   
-            {13, "Hebrew"},            
-            {14, "Hungarian"},   
-            {16, "Italian"},              
-            {17, "Japanese"},   
-            {18, "Korean"}, 
-            {20, "Norwegian"},
-            {21, "Polish"},
-            {22, "Portugese"}, 
-            {1046, "Portugese_Brazil"}, 
-            {25, "Russian"},
-            {10, "Spanish"}, 
-            {29, "Swedish"}, 
-            {31, "Turkish"}
-        };
         private Dictionary<string, int> _csidlByName = new Dictionary<string, int>()
         {
             {"COMMON_ADMINTOOLS" , 0x2F},
@@ -130,9 +75,9 @@ namespace Wsus_Package_Publisher
             {
                 cmbBxKnowFolders.Items.Add(knownFolder);
             }
-            foreach (string language in _languagesByString.Keys)
+            foreach (KeyValuePair<string, string> pair in Languages.AllLanguagues)
             {
-                cmbBxLanguage.Items.Add(language);
+                cmbBxLanguage.Items.Add(pair.Key);
             }
 
             txtBxDescription.Text = resMan.GetString("DescriptionFileExists");
@@ -234,7 +179,10 @@ namespace Wsus_Package_Publisher
                     case "Created":
                         DateTime createdDate;
                         if (DateTime.TryParse(pair.Value, out createdDate))
+                        {
                             this.CreationDate = createdDate;
+                            InitializeCreationHour(createdDate);
+                        }
                         break;
                     case "Csidl":
                         int result = 0;
@@ -244,7 +192,10 @@ namespace Wsus_Package_Publisher
                     case "Modified":
                         DateTime modifiedDate;
                         if (DateTime.TryParse(pair.Value, out modifiedDate))
+                        {
                             this.ModifiedDate = modifiedDate;
+                            InitializeModificationHour(modifiedDate);
+                        }
                         break;
                     case "Size":
                         int size = 0;
@@ -334,6 +285,30 @@ namespace Wsus_Package_Publisher
                 return result;
             else
                 return 0;
+        }
+
+        private void ValidateData()
+        {
+            btnOk.Enabled = (!string.IsNullOrEmpty(FilePath) && 
+                FilePath.Length >= 1 && 
+                FilePath.Length <= 260 && 
+                (!UseVersion || (UseVersion && IsVersionStringCorrectlyformated(Version))) 
+                && (!UseLanguage || (UseLanguage && cmbBxLanguage.SelectedIndex != -1)) 
+                && (!UseCsidl || (UseCsidl && cmbBxKnowFolders.SelectedIndex != -1)));
+        }
+
+        private void InitializeCreationHour(DateTime time)
+        {
+            nupCreationDateHour.Value = time.Hour;
+            nupCreationDateMinute.Value = time.Minute;
+            nupCreationDateSecond.Value = time.Second;
+        }
+
+        private void InitializeModificationHour(DateTime time)
+        {
+            nupModificationDateHour.Value = time.Hour;
+            nupModificationDateMinute.Value = time.Minute;
+            nupModificationDateSecond.Value = time.Second;
         }
 
         #endregion
@@ -540,12 +515,8 @@ namespace Wsus_Package_Publisher
         /// </summary>
         internal int Language
         {
-            get { return _languagesByString[cmbBxLanguage.SelectedItem.ToString()]; }
-            set
-            {
-                cmbBxLanguage.SelectedItem = _languaguesByInt[value];
-                UseLanguage = true;
-            }
+            get { return Languages.GetLanguageMSICode(cmbBxLanguage.SelectedItem.ToString()); }
+            set { cmbBxLanguage.SelectedItem = Languages.GetLanguageName(value); UseLanguage = true; }
         }
 
         internal override string XmlElementName
@@ -560,6 +531,7 @@ namespace Wsus_Package_Publisher
         private void chkBxKnownFolder_CheckedChanged(object sender, EventArgs e)
         {
             cmbBxKnowFolders.Enabled = chkBxKnownFolder.Checked;
+            ValidateData();
         }
 
         private void chkBxFileVersion_CheckedChanged(object sender, EventArgs e)
@@ -594,15 +566,12 @@ namespace Wsus_Package_Publisher
         private void chkBxLanguage_CheckedChanged(object sender, EventArgs e)
         {
             cmbBxLanguage.Enabled = chkBxLanguage.Checked;
+            ValidateData();
         }
 
         private void txtBxFolderPath_TextChanged(object sender, EventArgs e)
         {
-            btnOk.Enabled = false;
-
-            if (!string.IsNullOrEmpty(txtBxFolderPath.Text))
-                if (txtBxFolderPath.Text.Length < 260)
-                    btnOk.Enabled = true;
+            ValidateData();
         }
 
         private void nupVersion1_Enter(object sender, EventArgs e)
@@ -619,6 +588,16 @@ namespace Wsus_Package_Publisher
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ParentForm.DialogResult = DialogResult.Cancel;
+        }
+
+        private void cmbBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateData();
+        }
+
+        private void cmbBxKnowFolders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateData();
         }
 
         #endregion

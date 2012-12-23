@@ -150,10 +150,10 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 13</value>
+    <value>86, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Additionnal Files : </value>
+    <value>Additional Files : </value>
   </data>
   <data name="btnAddAdditonnalFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -177,30 +177,6 @@
   <data name="btnRemoveAdditionnalFile.Text" xml:space="preserve">
     <value>&amp;Remove File</value>
   </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 241</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 13</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Command Line : </value>
-  </data>
-  <data name="txtBxCommandLine.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="txtBxCommandLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 238</value>
-  </data>
-  <data name="txtBxCommandLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 20</value>
-  </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
@@ -213,11 +189,14 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Select Update File like *.msi, *.msp or *.exe</value>
   </data>
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 204</value>
+    <value>110, 230</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 13</value>
@@ -225,23 +204,11 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Optional : Select Additionnal Files like configuration files.</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 261</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 13</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Optional : Provide Command Line like /q, /s, /silent...</value>
-  </data>
   <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 463</value>
+    <value>532, 258</value>
   </data>
   <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -253,7 +220,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 463</value>
+    <value>435, 258</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -262,25 +229,16 @@
     <value>&amp;Cancel</value>
   </data>
   <data name="lstBxAdditionnalFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="lstBxAdditionnalFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 93</value>
   </data>
   <data name="lstBxAdditionnalFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 108</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 302</value>
-  </data>
-  <data name="dtgrvReturnCodes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 302</value>
-  </data>
-  <data name="dtgrvReturnCodes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 155</value>
+    <value>385, 134</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>635, 498</value>
+    <value>635, 293</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

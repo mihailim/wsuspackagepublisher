@@ -70,5 +70,89 @@ namespace Wsus_Package_Publisher.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Lime")]
+        public global::System.Drawing.Color InstalledColor {
+            get {
+                return ((global::System.Drawing.Color)(this["InstalledColor"]));
+            }
+            set {
+                this["InstalledColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LawnGreen")]
+        public global::System.Drawing.Color InstalledPendingRebootColor {
+            get {
+                return ((global::System.Drawing.Color)(this["InstalledPendingRebootColor"]));
+            }
+            set {
+                this["InstalledPendingRebootColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GreenYellow")]
+        public global::System.Drawing.Color DownloadedColor {
+            get {
+                return ((global::System.Drawing.Color)(this["DownloadedColor"]));
+            }
+            set {
+                this["DownloadedColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Khaki")]
+        public global::System.Drawing.Color NotApplicableColor {
+            get {
+                return ((global::System.Drawing.Color)(this["NotApplicableColor"]));
+            }
+            set {
+                this["NotApplicableColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
+        public global::System.Drawing.Color NotInstalledColor {
+            get {
+                return ((global::System.Drawing.Color)(this["NotInstalledColor"]));
+            }
+            set {
+                this["NotInstalledColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
+        public global::System.Drawing.Color UnknownColor {
+            get {
+                return ((global::System.Drawing.Color)(this["UnknownColor"]));
+            }
+            set {
+                this["UnknownColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OrangeRed")]
+        public global::System.Drawing.Color FailedColor {
+            get {
+                return ((global::System.Drawing.Color)(this["FailedColor"]));
+            }
+            set {
+                this["FailedColor"] = value;
+            }
+        }
     }
 }

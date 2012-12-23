@@ -135,7 +135,7 @@
     <value>0, 0</value>
   </data>
   <data name="updateListViewer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>781, 389</value>
+    <value>777, 385</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="updateListViewer1.TabIndex" type="System.Int32, mscorlib">
@@ -145,7 +145,7 @@
     <value>updateListViewer1</value>
   </data>
   <data name="&gt;&gt;updateListViewer1.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.UpdateListViewer, Wsus Package Publisher, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Wsus_Package_Publisher.UpdateListViewer, Wsus Package Publisher, Version=1.1.1210.17, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;updateListViewer1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -163,30 +163,6 @@
     <value>splitContainer1</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="updateDetailViewer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="updateDetailViewer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="updateDetailViewer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>781, 340</value>
-  </data>
-  <data name="updateDetailViewer1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;updateDetailViewer1.Name" xml:space="preserve">
-    <value>updateDetailViewer1</value>
-  </data>
-  <data name="&gt;&gt;updateDetailViewer1.Type" xml:space="preserve">
-    <value>Wsus_Package_Publisher.UpdateDetailViewer, Wsus Package Publisher, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;updateDetailViewer1.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;updateDetailViewer1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">

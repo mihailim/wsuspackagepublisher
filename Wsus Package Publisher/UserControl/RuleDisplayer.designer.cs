@@ -39,6 +39,7 @@
             resources.ApplyResources(this, "$this");
             this.ReadOnly = true;
             this.Click += new System.EventHandler(this.RuleDisplayer_Click);
+            this.SizeChanged += new System.EventHandler(this.RuleDisplayer_SizeChanged);
             this.DoubleClick += new System.EventHandler(this.RuleDisplayer_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.RuleDisplayer_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.RuleDisplayer_MouseLeave);

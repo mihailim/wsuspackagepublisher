@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Wsus_Package_Publisher
 {
     internal partial class RuleFileVersion : GenericRule
     {
+        private enum ComparisonType
+        {
+            EqualTo,
+            LessThan,
+            LessThanOrEqualTo,
+            GreaterThanOrEqualTo,
+            GreaterThan
+        }
+
         private Dictionary<string, int> _csidlByName = new Dictionary<string, int>()
         {
             {"COMMON_ADMINTOOLS" , 0x2F},
@@ -37,7 +41,7 @@ namespace Wsus_Package_Publisher
             {"SYSTEMX86", 0x29},
             {"WINDOWS", 0x24}
         };
-        
+
         private Dictionary<int, string> _csidlByCode = new Dictionary<int, string>()
         {
             {0x2F,"COMMON_ADMINTOOLS"},
@@ -66,7 +70,8 @@ namespace Wsus_Package_Publisher
 
         System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(RuleFileVersion).Assembly);
 
-        public RuleFileVersion():base()
+        public RuleFileVersion()
+            : base()
         {
             InitializeComponent();
 
@@ -85,7 +90,7 @@ namespace Wsus_Package_Publisher
         }
 
         #region {Methods - Méthodes}
-           
+
         internal override string GetRtfFormattedRule()
         {
             RichTextBox rTxtBx = new RichTextBox();
@@ -123,7 +128,7 @@ namespace Wsus_Package_Publisher
                 print(rTxtBx, GroupDisplayer.boldFont, GroupDisplayer.black, Csidl.ToString());
                 print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "\"");
             }
-            
+
             print(rTxtBx, GroupDisplayer.normalFont, GroupDisplayer.black, "/>");
 
             if (ReverseRule)
@@ -157,9 +162,9 @@ namespace Wsus_Package_Publisher
             return resMan.GetString("FileVersion");
         }
 
-        internal override void InitializeWithAttributes(Dictionary<string,string> attributes)
+        internal override void InitializeWithAttributes(Dictionary<string, string> attributes)
         {
-             foreach (KeyValuePair<string, string> pair in attributes)
+            foreach (KeyValuePair<string, string> pair in attributes)
             {
                 switch (pair.Key)
                 {
@@ -170,7 +175,7 @@ namespace Wsus_Package_Publisher
                         this.Version = pair.Value;
                         break;
                     case "Comparison":
-                            this.Comparison = pair.Value;
+                        this.Comparison = pair.Value;
                         break;
                     case "Csidl":
                         int result = 0;
@@ -219,15 +224,13 @@ namespace Wsus_Package_Publisher
 
         private void ValidateData()
         {
-            if (!string.IsNullOrEmpty(txtBxFilePath.Text) && cmbBxComparison.SelectedIndex != -1)
-                btnOk.Enabled = true;
-            else btnOk.Enabled = false;
+             btnOk.Enabled = (!string.IsNullOrEmpty(txtBxFilePath.Text) && cmbBxComparison.SelectedIndex != -1 && (!chkBxWellknownDirectory.Checked || (chkBxWellknownDirectory.Checked && cmbBxCsidl.SelectedIndex != -1)));                
         }
 
         #endregion
 
         #region {Properties - Propriétés}
-       
+
         /// <summary>
         /// Get or Set the file path.
         /// </summary>
@@ -241,45 +244,17 @@ namespace Wsus_Package_Publisher
         {
             get
             {
-                switch (cmbBxComparison.SelectedIndex)
-                {
-                    case 0:
-                        return "LessThan";
-                    case 1:
-                        return "LessThanOrEqualTo";
-                    case 2:
-                        return "EqualTo";
-                    case 3:
-                        return "GreaterThanOrEqualTo";
-                    case 4:
-                        return "GreaterThan";
-                    default:
-                        return "LessThan";
-                }
+                if (cmbBxComparison.SelectedIndex != -1)
+                    return Enum.GetNames(typeof(ComparisonType))[cmbBxComparison.SelectedIndex];
+                else
+                    return "";
             }
             set
             {
-                switch (value)
-                {
-                    case "LessThan":
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                    case "LessThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 1;
-                        break;
-                    case "EqualTo":
-                        cmbBxComparison.SelectedIndex = 2;
-                        break;
-                    case "GreaterThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 3;
-                        break;
-                    case "GreaterThan":
-                        cmbBxComparison.SelectedIndex = 4;
-                        break;
-                    default:
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                }
+                if (!string.IsNullOrEmpty(value) && Enum.GetNames(typeof(ComparisonType)).Contains(value))
+                    cmbBxComparison.SelectedItem = resMan.GetString("Comparison" + value);
+                else
+                    cmbBxComparison.SelectedIndex = -1;
             }
         }
 
@@ -291,7 +266,7 @@ namespace Wsus_Package_Publisher
             get { return chkBxReverseRule.Checked; }
             set { chkBxReverseRule.Checked = value; }
         }
-      
+
         /// <summary>
         /// Get or Set the file version informations. Format "xxxxx.xxxxx.xxxxx.xxxxx" where 'x' is a digit.
         /// </summary>
@@ -306,7 +281,7 @@ namespace Wsus_Package_Publisher
                     nupVersion2.Value = GetVersionNumber(value, 1);
                     nupVersion3.Value = GetVersionNumber(value, 2);
                     nupVersion4.Value = GetVersionNumber(value, 3);
-                }                
+                }
             }
         }
 
@@ -325,7 +300,7 @@ namespace Wsus_Package_Publisher
 
             set
             {
-                cmbBxCsidl.SelectedItem = _csidlByCode[value]; 
+                cmbBxCsidl.SelectedItem = _csidlByCode[value];
                 chkBxWellknownDirectory.Checked = true;
             }
         }
@@ -342,6 +317,7 @@ namespace Wsus_Package_Publisher
         private void chkBxWellknownDirectory_CheckedChanged(object sender, EventArgs e)
         {
             cmbBxCsidl.Enabled = chkBxWellknownDirectory.Checked;
+            ValidateData();
         }
 
         private void txtBxFilePath_TextChanged(object sender, EventArgs e)
@@ -375,15 +351,11 @@ namespace Wsus_Package_Publisher
             ParentForm.DialogResult = DialogResult.Cancel;
         }
 
+        private void cmbBxCsidl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateData();
+        }
+
         #endregion
-
-
-
-
-       
-
-        
-
-        
     }
 }

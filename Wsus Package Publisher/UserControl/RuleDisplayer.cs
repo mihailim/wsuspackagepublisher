@@ -16,6 +16,7 @@ namespace Wsus_Package_Publisher
         internal RuleDisplayer(GenericRule ruleToDisplay)
         {
             InitializeComponent();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             DisplayedRule = ruleToDisplay;
         }
 
@@ -60,7 +61,7 @@ namespace Wsus_Package_Publisher
         {
             if (this.Lines.Length > 0)
             {
-                int totalHeight = 1;
+                int totalHeight = 2;
                 float rtfWidth = this.Width;
                 Graphics g = CreateGraphics();
                 
@@ -147,8 +148,17 @@ namespace Wsus_Package_Publisher
         public event EditionRequestedEventHandler EditionRequested;
 
         #endregion
-
         
+        #region {responses to Events - Réponses aux évènements}
+
+        private void RuleDisplayer_SizeChanged(object sender, EventArgs e)
+        {
+            AdjustHeigth();
+        }
+
+        #endregion {responses to Events - Réponses aux évènements}
+
+
 
     }
 }

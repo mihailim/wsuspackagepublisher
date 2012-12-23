@@ -12,7 +12,6 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleWindowsVersion : GenericRule
     {
-        private string _comparison;
         private enum ComparisonType
         {
             LessThan,
@@ -59,16 +58,14 @@ namespace Wsus_Package_Publisher
             get
             {
                 if (cmbBxComparison.SelectedIndex != -1)
-                    _comparison = Enum.GetNames(typeof(ComparisonType))[cmbBxComparison.SelectedIndex];
+                    return Enum.GetNames(typeof(ComparisonType))[cmbBxComparison.SelectedIndex];
                 else
-                    _comparison = "";
-                return _comparison;
+                    return "";
             }
             set
             {
                 if (!string.IsNullOrEmpty(value) && Enum.GetNames(typeof(ComparisonType)).Contains(value))
                 {
-                    _comparison = value;
                     cmbBxComparison.SelectedItem = resManager.GetString("Comparison" + value);
                     UseComparison = true;
                 }
@@ -105,8 +102,10 @@ namespace Wsus_Package_Publisher
         internal uint MinorVersion
         {
             get { return (uint)nupMinorVersion.Value; }
-            set { nupMinorVersion.Value = value;
-            UseMinorVersion = true;
+            set
+            {
+                nupMinorVersion.Value = value;
+                UseMinorVersion = true;
             }
         }
 
@@ -119,8 +118,10 @@ namespace Wsus_Package_Publisher
         internal uint BuildNumber
         {
             get { return (uint)nupBuildNumber.Value; }
-            set { nupBuildNumber.Value = value;
-            UseBuildNumber = true;
+            set
+            {
+                nupBuildNumber.Value = value;
+                UseBuildNumber = true;
             }
         }
 
@@ -133,8 +134,10 @@ namespace Wsus_Package_Publisher
         internal ushort ServicePackMajor
         {
             get { return (ushort)nupServicePackMajor.Value; }
-            set { nupServicePackMajor.Value = value;
-            UseServicePackMajor = true;
+            set
+            {
+                nupServicePackMajor.Value = value;
+                UseServicePackMajor = true;
             }
         }
 
@@ -147,8 +150,10 @@ namespace Wsus_Package_Publisher
         internal ushort ServicePackMinor
         {
             get { return (ushort)nupServicePackMinor.Value; }
-            set { nupServicePackMinor.Value = value;
-            UseServicePackMinor = true;
+            set
+            {
+                nupServicePackMinor.Value = value;
+                UseServicePackMinor = true;
             }
         }
 
@@ -214,24 +219,30 @@ namespace Wsus_Package_Publisher
             switch (cmbBxOperatingSystem.SelectedIndex)
             {
                 case 0:
-                    SelectOS(6, 1, 0); // Windows 7
+                    SelectOS(6, 2, 0); // Windows 8
                     break;
                 case 1:
-                    SelectOS(6, 1, 2); // Windows Server 2008R2
+                    SelectOS(6, 2, 2); // Windows Server 2012
                     break;
                 case 2:
-                    SelectOS(6, 0, 0); // Windows Vista
+                    SelectOS(6, 1, 0); // Windows 7
                     break;
                 case 3:
-                    SelectOS(6, 0, 2); // Windows Server 2008
+                    SelectOS(6, 1, 2); // Windows Server 2008R2
                     break;
                 case 4:
-                    SelectOS(5, 2, 2); // Windows Server 2003R1 & R2
+                    SelectOS(6, 0, 0); // Windows Vista
                     break;
                 case 5:
-                    SelectOS(5, 1, 0); // Windows XP
+                    SelectOS(6, 0, 2); // Windows Server 2008
                     break;
                 case 6:
+                    SelectOS(5, 2, 2); // Windows Server 2003R1 & R2
+                    break;
+                case 7:
+                    SelectOS(5, 1, 0); // Windows XP
+                    break;
+                case 8:
                     SelectOS(5, 0, 0); // Windows 2000
                     break;
                 default:
@@ -242,7 +253,7 @@ namespace Wsus_Package_Publisher
         private void chkBxMajorVersion_CheckedChanged(object sender, EventArgs e)
         {
             nupMajorVersion.Enabled = chkBxMajorVersion.Checked;
-            UpdateOkBtn();
+            ValidateData();
         }
 
         private void chkBxMinorVersion_CheckedChanged(object sender, EventArgs e)
@@ -267,13 +278,18 @@ namespace Wsus_Package_Publisher
 
         private void chkBxProductType_CheckedChanged(object sender, EventArgs e)
         {
-            UpdateOkBtn();
+            ValidateData();
+        }
+
+        private void chkBxComparison_CheckedChanged(object sender, EventArgs e)
+        {
+            ValidateData();
         }
 
         private void cmbBxProductType_SelectedIndexChanged(object sender, EventArgs e)
         {
             UseProductType = true;
-            UpdateOkBtn();
+            ValidateData();
         }
 
         private void nupMajorVersion_Enter(object sender, EventArgs e)
@@ -304,15 +320,16 @@ namespace Wsus_Package_Publisher
             UseMinorVersion = true;
             cmbBxProductType.SelectedIndex = productType;
             UseProductType = true;
-            UpdateOkBtn();
+            ValidateData();
         }
 
-        private void UpdateOkBtn()
+        private void ValidateData()
         {
-            if (UseMajorVersion || UseProductType)
-                btnOk.Enabled = true;
-            else
-                btnOk.Enabled = false;
+            if ((!chkBxComparison.Checked || (chkBxComparison.Checked && cmbBxComparison.SelectedIndex != -1)) && (!chkBxProductType.Checked || (chkBxProductType.Checked && cmbBxProductType.SelectedIndex != -1)))
+                if (UseMajorVersion || UseProductType)
+                    btnOk.Enabled = true;
+                else
+                    btnOk.Enabled = false;
         }
 
         internal override string GetRtfFormattedRule()

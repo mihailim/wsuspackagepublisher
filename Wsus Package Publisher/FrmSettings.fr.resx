@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkBxConnectToLocalServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 105</value>
+    <value>128, 96</value>
   </data>
   <data name="chkBxConnectToLocalServer.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 17</value>
@@ -139,7 +139,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnEditServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 106</value>
+    <value>449, 97</value>
   </data>
   <data name="btnEditServer.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 23</value>
@@ -151,13 +151,13 @@
     <value>&amp;Modif. Serveur</value>
   </data>
   <data name="nupDeadLineMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 212</value>
+    <value>189, 203</value>
   </data>
   <data name="nupDeadLineMinute.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 214</value>
+    <value>8, 205</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 13</value>
@@ -166,13 +166,13 @@
     <value>Minute de l'installation : </value>
   </data>
   <data name="nupDeadLineHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 186</value>
+    <value>189, 177</value>
   </data>
   <data name="nupDeadLineHour.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 188</value>
+    <value>8, 179</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 13</value>
@@ -181,7 +181,7 @@
     <value>Heure de l'installation : </value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 162</value>
+    <value>8, 153</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 13</value>
@@ -190,7 +190,7 @@
     <value>Nombre de jours avant installation : </value>
   </data>
   <data name="nupDeadLineDaysSpan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 160</value>
+    <value>189, 151</value>
   </data>
   <data name="nupDeadLineDaysSpan.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -214,7 +214,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnAddServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 77</value>
+    <value>449, 68</value>
   </data>
   <data name="btnAddServer.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 23</value>
@@ -226,7 +226,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="chkBxUseSSL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 128</value>
+    <value>244, 119</value>
   </data>
   <data name="chkBxUseSSL.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -238,7 +238,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="cmbBxConnectionPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 128</value>
+    <value>128, 119</value>
   </data>
   <data name="cmbBxConnectionPort.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 21</value>
@@ -247,7 +247,7 @@
     <value>4</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 131</value>
+    <value>8, 122</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 13</value>
@@ -256,13 +256,13 @@
     <value>Port de connexion</value>
   </data>
   <data name="txtBxServerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 79</value>
+    <value>128, 70</value>
   </data>
   <data name="txtBxServerName.Size" type="System.Drawing.Size, System.Drawing">
     <value>315, 20</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 82</value>
+    <value>8, 73</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 13</value>
@@ -271,7 +271,7 @@
     <value>Nom du serveur : </value>
   </data>
   <data name="tabServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>566, 279</value>
+    <value>566, 270</value>
   </data>
   <data name="tabServer.Text" xml:space="preserve">
     <value>Serveurs</value>
@@ -283,7 +283,10 @@
     <value>False</value>
   </data>
   <data name="txtBxPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 91</value>
+    <value>131, 93</value>
+  </data>
+  <data name="txtBxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
   </data>
   <data name="txtBxPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 20</value>
@@ -295,7 +298,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 94</value>
+    <value>45, 96</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 13</value>
@@ -310,7 +313,7 @@
     <value>False</value>
   </data>
   <data name="txtBxLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 65</value>
+    <value>131, 67</value>
   </data>
   <data name="txtBxLogin.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 20</value>
@@ -322,7 +325,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 68</value>
+    <value>45, 70</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 13</value>
@@ -334,7 +337,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="rdBtnAsk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 117</value>
+    <value>6, 124</value>
   </data>
   <data name="rdBtnAsk.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 17</value>
@@ -347,6 +350,9 @@
   </data>
   <data name="rdBtnSpecified.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
+  </data>
+  <data name="rdBtnSpecified.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 44</value>
   </data>
   <data name="rdBtnSpecified.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 17</value>
@@ -364,7 +370,7 @@
     <value>Utiliser les mêmes informations d'authentification que l'application.</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>550, 167</value>
+    <value>550, 158</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 13</value>
@@ -373,16 +379,58 @@
     <value>Compte à utiliser lors d'un "DetectNow" ou d'un "ReportNow" distant : </value>
   </data>
   <data name="tabCommonSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>566, 279</value>
+    <value>566, 270</value>
   </data>
   <data name="tabCommonSettings.Text" xml:space="preserve">
     <value>Paramètres d'authentification</value>
   </data>
+  <data name="btnResetToDefault.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 241</value>
+  </data>
+  <data name="btnResetToDefault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 23</value>
+  </data>
+  <data name="btnResetToDefault.Text" xml:space="preserve">
+    <value>&amp;Par défaut</value>
+  </data>
+  <data name="lblFailed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 235</value>
+  </data>
+  <data name="lblUnknown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 203</value>
+  </data>
+  <data name="lblNotInstalled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 171</value>
+  </data>
+  <data name="lblNotApplicable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 139</value>
+  </data>
+  <data name="lblDownloaded.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 107</value>
+  </data>
+  <data name="lblInstalledPendingReboot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 75</value>
+  </data>
+  <data name="lblInstalled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 43</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Double-cliquez sur un label pour modifier la couleur :</value>
+  </data>
+  <data name="tabColors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>566, 270</value>
+  </data>
+  <data name="tabColors.Text" xml:space="preserve">
+    <value>Couleurs</value>
+  </data>
   <data name="tabSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>574, 305</value>
+    <value>574, 296</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>406, 311</value>
+    <value>406, 302</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -394,16 +442,13 @@
     <value>False</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 311</value>
+    <value>487, 302</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="btnOk.Text" xml:space="preserve">
-    <value>&amp;Ok</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>574, 346</value>
+    <value>574, 337</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

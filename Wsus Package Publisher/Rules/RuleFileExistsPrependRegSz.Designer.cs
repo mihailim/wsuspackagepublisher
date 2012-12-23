@@ -189,6 +189,7 @@
             this.cmbBxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxLanguage.FormattingEnabled = true;
             this.cmbBxLanguage.Name = "cmbBxLanguage";
+            this.cmbBxLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbBxLanguage_SelectedIndexChanged);
             // 
             // btnOk
             // 

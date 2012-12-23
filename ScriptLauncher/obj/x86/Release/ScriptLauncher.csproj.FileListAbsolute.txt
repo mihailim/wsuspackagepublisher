@@ -1,0 +1,5 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ScriptLauncher\bin\Release\ScriptLauncher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ScriptLauncher\bin\Release\ScriptLauncher.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ScriptLauncher\obj\x86\Release\ResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ScriptLauncher\obj\x86\Release\ScriptLauncher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ScriptLauncher\obj\x86\Release\ScriptLauncher.pdb

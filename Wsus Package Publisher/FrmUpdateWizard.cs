@@ -19,14 +19,37 @@ namespace Wsus_Package_Publisher
         private FrmUpdateRulesWizard updateIsInstallableRulesWizard = new FrmUpdateRulesWizard();
         private SoftwareDistributionPackage _sdp;
         private bool _revising = false;
+        private bool _inferFromMsiProperties = true;
 
         private System.Resources.ResourceManager resManager = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmUpdateWizard).Assembly);
 
         internal FrmUpdateWizard(Dictionary<string, Company> Companies)
         {
             InitializeComponent();
-
             InitializeComponent(Companies, null, null, null);
+        }
+
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, string updateFile)
+        {
+            InitializeComponent();
+            updateFilesWizard = new FrmUpdateFilesWizard(updateFile);
+            InitializeComponent(Companies, null, null, null);
+        }
+
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct, string updateFile)
+        {
+            InitializeComponent();
+            InferFromMsiProperties = false;
+            updateFilesWizard = new FrmUpdateFilesWizard(updateFile);
+            InitializeComponent(Companies, SelectedCompany, SelectedProduct, null);
+        }
+
+        internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany, string updateFile)
+        {
+            InitializeComponent();
+            InferFromMsiProperties = false;
+            updateFilesWizard = new FrmUpdateFilesWizard(updateFile);
+            InitializeComponent(Companies, SelectedCompany, null, null);
         }
 
         internal FrmUpdateWizard(Dictionary<string, Company> Companies, Company SelectedCompany, Product SelectedProduct)
@@ -108,9 +131,44 @@ namespace Wsus_Package_Publisher
             if (updateFilesWizard.FileType == FrmUpdateFilesWizard.UpdateType.WindowsInstaller)
             {
                 MsiReader.MsiReader msiReader = new MsiReader.MsiReader();
-                string msiCode = msiReader.GetProductCode(updateFilesWizard.updateFileName);
-                updateIsInstalledRulesWizard.InitializeFromXml("<msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/>");
-                updateIsInstallableRulesWizard.InitializeFromXml("<lar:Not><msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/></lar:Not>");
+                msiReader.MsiFilePath = updateFilesWizard.UpdateFileName;
+                string msiCode = msiReader.GetProductCode();
+                string MsiVendorName = msiReader.GetManufacturer();
+                string MsiProductName = msiReader.GetProductName();
+                if (!string.IsNullOrEmpty(msiCode))
+                {
+                    updateIsInstalledRulesWizard.InitializeFromXml("<msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/>");
+                    updateIsInstallableRulesWizard.InitializeFromXml("<lar:Not><msiar:MsiProductInstalled ProductCode=\"" + msiCode + "\"/></lar:Not>");
+                }
+                bool foundVendor = false;
+                bool foundProduct = false;
+
+                if (InferFromMsiProperties)
+                {
+                    foreach (KeyValuePair<string, Company> pair in _companies)
+                    {
+                        if (pair.Key.ToLower() == MsiVendorName.ToLower())
+                        {
+                            updateInformationsWizard.InitializeVendorName(pair.Value.CompanyName);
+                            foundVendor = true;
+                            foreach (KeyValuePair<string, Product> prod in pair.Value.Products)
+                            {
+                                if (prod.Key.ToLower() == MsiProductName.ToLower())
+                                {
+                                    updateInformationsWizard.InitializeProductName(prod.Value.ProductName);
+                                    foundProduct = true;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    if (!foundVendor)
+                        updateInformationsWizard.InitializeVendorName(MsiVendorName);
+                    if (!foundProduct)
+                        updateInformationsWizard.InitializeProductName(MsiProductName);
+                }
+
             }
             else
             {
@@ -122,9 +180,7 @@ namespace Wsus_Package_Publisher
 
         private void updateFilesWizard_btnCancel_Click(object sender, EventArgs e)
         {
-            updateFilesWizard.Dispose();
-            updateFilesWizard = null;
-            DialogResult = System.Windows.Forms.DialogResult.Abort;
+            CleanAndClose();
         }
 
         private void InitializeInformationsWizard()
@@ -156,11 +212,7 @@ namespace Wsus_Package_Publisher
 
         private void updateInformationsWizard_btnCancel_Click(object sender, EventArgs e)
         {
-            updateFilesWizard.Dispose();
-            updateFilesWizard = null;
-            updateInformationsWizard.Dispose();
-            updateInformationsWizard = null;
-            DialogResult = System.Windows.Forms.DialogResult.Abort;
+            CleanAndClose();
         }
 
         private void InitializeUpdateIsInstalledRulesWizard()
@@ -170,8 +222,9 @@ namespace Wsus_Package_Publisher
 
             updateIsInstalledRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstalledRulesWizard);
-            if (Revising)
+            if (Revising && !updateIsInstalledRulesWizard.IsAllReadyInitialized)
                 updateIsInstalledRulesWizard.InitializeFromXml(Sdp.IsInstalled);
+            updateIsInstalledRulesWizard.IsAllReadyInitialized = true;
             updateIsInstalledRulesWizard.Show();
             this.Size = new System.Drawing.Size(updateIsInstalledRulesWizard.Width + 20, txtBxDescription.Height + updateIsInstalledRulesWizard.Height + 2 * SystemInformation.CaptionHeight);
             updateIsInstalledRulesWizard.Dock = DockStyle.Fill;
@@ -186,9 +239,7 @@ namespace Wsus_Package_Publisher
 
         private void updateIsInstalledRulesWizard_btnCancel_Click(object sender, EventArgs e)
         {
-            updateIsInstalledRulesWizard.Dispose();
-            updateIsInstalledRulesWizard = null;
-            DialogResult = System.Windows.Forms.DialogResult.Abort;
+            CleanAndClose();
         }
 
         private void updateIsInstalledRulesWizard_btnPrevious_Click(object sender, EventArgs e)
@@ -207,8 +258,10 @@ namespace Wsus_Package_Publisher
             else
             {
                 updateIsInstallableRulesWizard.Controls["tableLayoutPanel1"].Controls["btnNext"].Text = resManager.GetString("Revise");
-                updateIsInstallableRulesWizard.InitializeFromXml(Sdp.IsInstallable);
+                if (!updateIsInstallableRulesWizard.IsAllReadyInitialized)
+                    updateIsInstallableRulesWizard.InitializeFromXml(Sdp.IsInstallable);
             }
+            updateIsInstallableRulesWizard.IsAllReadyInitialized = true;
             updateIsInstallableRulesWizard.Dock = DockStyle.None;
             splitContainer1.Panel2.Controls.Add(updateIsInstallableRulesWizard);
             updateIsInstallableRulesWizard.Show();
@@ -237,9 +290,7 @@ namespace Wsus_Package_Publisher
 
         private void updateIsInstallableRulesWizard_btnCancel_Click(object sender, EventArgs e)
         {
-            updateIsInstallableRulesWizard.Dispose();
-            updateIsInstallableRulesWizard = null;
-            DialogResult = System.Windows.Forms.DialogResult.Abort;
+            CleanAndClose();
         }
 
         private void updateIsInstallableRulesWizard_btnPrevious_Click(object sender, EventArgs e)
@@ -265,10 +316,36 @@ namespace Wsus_Package_Publisher
             set { _revising = value; }
         }
 
+        private bool InferFromMsiProperties
+        {
+            get { return _inferFromMsiProperties; }
+            set { _inferFromMsiProperties = value; }
+        }
+
         private SoftwareDistributionPackage Sdp
         {
             get { return _sdp; }
             set { _sdp = value; }
+        }
+
+        private void FrmUpdateWizard_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            CleanAndClose();
+        }
+
+        private void CleanAndClose()
+        {
+            updateFilesWizard.Dispose();
+            updateFilesWizard = null;
+            if (updateInformationsWizard != null)
+                updateInformationsWizard.Dispose();
+            updateInformationsWizard = null;
+            updateIsInstalledRulesWizard.Dispose();
+            updateIsInstalledRulesWizard = null;
+            updateIsInstallableRulesWizard.Dispose();
+            updateIsInstallableRulesWizard = null;
+            this.Close();
         }
 
     }

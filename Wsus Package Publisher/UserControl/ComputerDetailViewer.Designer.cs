@@ -76,6 +76,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.dtpInstalledBefore);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRefresh);

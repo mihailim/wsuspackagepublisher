@@ -1,0 +1,43 @@
+<WsusPackagePublisher>
+  <Server>
+    <Name>wsus01</Name>
+    <IsLocal>False</IsLocal>
+    <Port>443</Port>
+    <UseSSL>True</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+    <MetaGroup>
+      <Name>Test Zone</Name>
+      <InnerComputerGroup>Test-Agen</InnerComputerGroup>
+      <InnerComputerGroup>Test-Le Mans</InnerComputerGroup>
+      <InnerComputerGroup>Test-St Langis</InnerComputerGroup>
+      <InnerComputerGroup>Test</InnerComputerGroup>
+    </MetaGroup>
+    <MetaGroup>
+      <Name>Prod Zone</Name>
+      <InnerComputerGroup>Prod-Agen</InnerComputerGroup>
+      <InnerComputerGroup>Prod-Le Mans</InnerComputerGroup>
+      <InnerComputerGroup>Prod-St Langis</InnerComputerGroup>
+      <InnerComputerGroup>Prod</InnerComputerGroup>
+    </MetaGroup>
+  </Server>
+  <Server>
+    <Name>Win2k3</Name>
+    <IsLocal>False</IsLocal>
+    <Port>80</Port>
+    <UseSSL>False</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+  </Server>
+  <Server>
+    <Name>wsus02</Name>
+    <IsLocal>False</IsLocal>
+    <Port>8530</Port>
+    <UseSSL>False</UseSSL>
+    <DeadLineDaysSpan>0</DeadLineDaysSpan>
+    <DeadLineHour>0</DeadLineHour>
+    <DeadLineMinute>0</DeadLineMinute>
+  </Server>
+</WsusPackagePublisher>

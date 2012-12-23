@@ -83,6 +83,7 @@
             this.cmbBxCsidl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxCsidl.FormattingEnabled = true;
             this.cmbBxCsidl.Name = "cmbBxCsidl";
+            this.cmbBxCsidl.SelectedIndexChanged += new System.EventHandler(this.cmbBxCsidl_SelectedIndexChanged);
             // 
             // label1
             // 

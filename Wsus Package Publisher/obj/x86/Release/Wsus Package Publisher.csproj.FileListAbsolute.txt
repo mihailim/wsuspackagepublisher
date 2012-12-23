@@ -1,17 +1,39 @@
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe.config
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.exe
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Wsus Package Publisher.pdb
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\fr\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\en\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\en-IN\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\Interop.WindowsInstaller.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Release\MsiReader.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\Wsus Package Publisher.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\Wsus Package Publisher.XML
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\Wsus Package Publisher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\Wsus Package Publisher.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\CheckComboBox.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\MsiReader.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\CheckComboBox.xml
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\MsiReader.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\x86\Release\MsiReader.xml
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResolveAssemblyReference.cache
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Credentials.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmAbout.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmDeleteObsoleteFolders.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroupCreation.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroups.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmMSIPropertyReader.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Rules.FrmFeatureForProduct.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.GenericRule.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiFeatureInstalledForProduct.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileCreatedPrependRegSz.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileModified.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileSize.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiPatchInstalledForProduct.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegDword.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegExpandSz.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyExists.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyLoop.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSz.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSzToVersion.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegValueExists.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWmiQuery.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerControl.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerDetailViewer.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerListViewer.resources
@@ -39,13 +61,52 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateControl.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateDetailViewer.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateListViewer.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Credentials.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Credentials.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmAbout.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmAbout.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmCertificateManagement.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmDeleteObsoleteFolders.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmDeleteObsoleteFolders.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroupCreation.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroupCreation.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroups.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.frmMetaGroups.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmMSIPropertyReader.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmMSIPropertyReader.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmRemoteExecution.fr.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmUpdateFilesWizard.en-IN.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.FrmWaiting.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Rules.FrmFeatureForProduct.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.Rules.FrmFeatureForProduct.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiFeatureInstalledForProduct.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiFeatureInstalledForProduct.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileCreatedPrependRegSz.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileCreatedPrependRegSz.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileModified.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileSize.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleFileSize.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiPatchInstalledForProduct.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleMsiPatchInstalledForProduct.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegDword.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegDword.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegExpandSz.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegExpandSz.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyExists.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyExists.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyLoop.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegKeyLoop.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSz.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSz.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSzToVersion.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegSzToVersion.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegValueExists.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleRegValueExists.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWmiQuery.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.RuleWmiQuery.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerControl.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerDetailViewer.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerDetailViewer.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.ComputerListViewer.en.resources
@@ -92,10 +153,9 @@ Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateDetailViewer.fr.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateListViewer.en.resources
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus_Package_Publisher.UpdateListViewer.fr.resources
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResGen.read.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\ResGen.write.1.tlog
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\GenerateResource.read.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\GenerateResource.write.1.tlog
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\en\Wsus Package Publisher.resources.dll
-Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\en-IN\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\fr\Wsus Package Publisher.resources.dll
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus Package Publisher.exe
 Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\obj\x86\Release\Wsus Package Publisher.pdb

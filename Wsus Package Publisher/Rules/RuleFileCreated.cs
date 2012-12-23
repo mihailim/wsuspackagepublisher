@@ -12,6 +12,15 @@ namespace Wsus_Package_Publisher
 {
     internal partial class RuleFileCreated : GenericRule
     {
+        private enum ComparisonType
+        {
+            LessThan,
+            LessThanOrEqualTo,
+            EqualTo,
+            GreaterThanOrEqualTo,
+            GreaterThan
+        }
+
         private Dictionary<string, int> _csidlByName = new Dictionary<string, int>()
         {
             {"COMMON_ADMINTOOLS" , 0x2F},
@@ -152,6 +161,7 @@ namespace Wsus_Package_Publisher
                         if (DateTime.TryParse(pair.Value, out newdate))
                         {
                             this.CreationDate = newdate;
+                            InitializeHour(newdate);
                         }
                         break;
                     case "Csidl":
@@ -203,6 +213,13 @@ namespace Wsus_Package_Publisher
                 btnOk.Enabled = true;
             else
                 btnOk.Enabled = false;
+        }
+
+        private void InitializeHour(DateTime time)
+        {
+            nupHour.Value = time.Hour;
+            nupMinute.Value = time.Minute;
+            nupSecond.Value = time.Second;
         }
 
         #endregion
@@ -263,45 +280,17 @@ namespace Wsus_Package_Publisher
         {
             get
             {
-                switch (cmbBxComparison.SelectedIndex)
-                {
-                    case 0:
-                        return "LessThan";
-                    case 1:
-                        return "LessThanOrEqualTo";
-                    case 2:
-                        return "EqualTo";
-                    case 3:
-                        return "GreaterThanOrEqualTo";
-                    case 4:
-                        return "GreaterThan";
-                    default:
-                        return "LessThan";
-                }
+                if (cmbBxComparison.SelectedIndex != -1)
+                    return Enum.GetNames(typeof(ComparisonType))[cmbBxComparison.SelectedIndex];
+                else
+                    return "";
             }
             set
-            {                
-                switch (value)
-                {
-                    case "LessThan":
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                    case "LessThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 1;
-                        break;
-                    case "EqualTo":
-                        cmbBxComparison.SelectedIndex = 2;
-                        break;
-                    case "GreaterThanOrEqualTo":
-                        cmbBxComparison.SelectedIndex = 3;
-                        break;
-                    case "GreaterThan":
-                        cmbBxComparison.SelectedIndex = 4;
-                        break;
-                    default:
-                        cmbBxComparison.SelectedIndex = 0;
-                        break;
-                }
+            {
+                if (!string.IsNullOrEmpty(value) && Enum.GetNames(typeof(ComparisonType)).Contains(value))
+                    cmbBxComparison.SelectedItem = resMan.GetString("Comparison" + value);
+                else
+                    cmbBxComparison.SelectedIndex = -1;
             }
         }
 
@@ -328,8 +317,8 @@ namespace Wsus_Package_Publisher
 
         internal int Second
         {
-            get { return (int)nupSeconde.Value; }
-            set { nupSeconde.Value = value; }
+            get { return (int)nupSecond.Value; }
+            set { nupSecond.Value = value; }
         }
 
         internal override string XmlElementName

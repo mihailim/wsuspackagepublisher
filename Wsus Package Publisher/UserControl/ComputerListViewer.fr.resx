@@ -123,6 +123,27 @@
   <data name="IPAdress.HeaderText" xml:space="preserve">
     <value>Adresse IP</value>
   </data>
+  <data name="BiosName.HeaderText" xml:space="preserve">
+    <value>Nom du BIOS</value>
+  </data>
+  <data name="BiosVersion.HeaderText" xml:space="preserve">
+    <value>Version du BIOS</value>
+  </data>
+  <data name="LastReportedStatusTime.HeaderText" xml:space="preserve">
+    <value>Dernier Rapport</value>
+  </data>
+  <data name="LastSyncTime.HeaderText" xml:space="preserve">
+    <value>Dernière Synchro.</value>
+  </data>
+  <data name="LastSyncResult.HeaderText" xml:space="preserve">
+    <value>Résultat Synchro.</value>
+  </data>
+  <data name="Make.HeaderText" xml:space="preserve">
+    <value>Fabricant</value>
+  </data>
+  <data name="Model.HeaderText" xml:space="preserve">
+    <value>Modèle</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dGVComputer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -130,5 +151,8 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dGVComputer.Size" type="System.Drawing.Size, System.Drawing">
     <value>400, 260</value>
+  </data>
+  <data name="ctxMnuComputer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 4</value>
   </data>
 </root>

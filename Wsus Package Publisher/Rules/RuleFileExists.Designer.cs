@@ -88,6 +88,7 @@
             this.cmbBxKnowFolders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxKnowFolders.FormattingEnabled = true;
             this.cmbBxKnowFolders.Name = "cmbBxKnowFolders";
+            this.cmbBxKnowFolders.SelectedIndexChanged += new System.EventHandler(this.cmbBxKnowFolders_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -211,6 +212,7 @@
             this.cmbBxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxLanguage.FormattingEnabled = true;
             this.cmbBxLanguage.Name = "cmbBxLanguage";
+            this.cmbBxLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbBxLanguage_SelectedIndexChanged);
             // 
             // btnOk
             // 

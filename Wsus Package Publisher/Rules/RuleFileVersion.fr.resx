@@ -117,26 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>452, 424</value>
   </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 424</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>
@@ -144,23 +130,15 @@
   <data name="txtBxDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>524, 213</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtBxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="chkBxWellknownDirectory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="chkBxWellknownDirectory.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkBxWellknownDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  <data name="chkBxWellknownDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 224</value>
   </data>
   <data name="chkBxWellknownDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 17</value>
-  </data>
-  <data name="chkBxWellknownDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="chkBxWellknownDirectory.Text" xml:space="preserve">
     <value>Dossier Standard : </value>
@@ -169,19 +147,13 @@
     <value>False</value>
   </data>
   <data name="cmbBxCsidl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 231</value>
+    <value>125, 222</value>
   </data>
   <data name="cmbBxCsidl.Size" type="System.Drawing.Size, System.Drawing">
     <value>383, 21</value>
   </data>
-  <data name="cmbBxCsidl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 264</value>
+    <value>3, 252</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -193,19 +165,13 @@
     <value>Répertoire : </value>
   </data>
   <data name="txtBxFilePath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 261</value>
+    <value>125, 249</value>
   </data>
   <data name="txtBxFilePath.Size" type="System.Drawing.Size, System.Drawing">
     <value>383, 20</value>
   </data>
-  <data name="txtBxFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 290</value>
+    <value>3, 314</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 13</value>
@@ -217,25 +183,16 @@
     <value>Comparaison : </value>
   </data>
   <data name="cmbBxComparison.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 287</value>
+    <value>125, 311</value>
   </data>
   <data name="cmbBxComparison.Size" type="System.Drawing.Size, System.Drawing">
     <value>383, 21</value>
   </data>
-  <data name="cmbBxComparison.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="nupVersion1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 314</value>
-  </data>
-  <data name="nupVersion1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+    <value>125, 338</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 321</value>
+    <value>3, 345</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 13</value>
@@ -247,30 +204,21 @@
     <value>Version : </value>
   </data>
   <data name="nupVersion2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 314</value>
-  </data>
-  <data name="nupVersion2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>208, 338</value>
   </data>
   <data name="nupVersion3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>291, 314</value>
-  </data>
-  <data name="nupVersion3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>291, 338</value>
   </data>
   <data name="nupVersion4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 314</value>
-  </data>
-  <data name="nupVersion4.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="chkBxReverseRule.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>371, 338</value>
   </data>
   <data name="chkBxReverseRule.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 340</value>
+    <value>125, 275</value>
   </data>
-  <data name="chkBxReverseRule.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="chkBxReverseRule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="chkBxReverseRule.Text" xml:space="preserve">
+    <value>Inverser régle</value>
   </data>
 </root>

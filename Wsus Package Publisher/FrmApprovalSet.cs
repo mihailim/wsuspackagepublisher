@@ -12,24 +12,28 @@ namespace Wsus_Package_Publisher
 {
     internal partial class FrmApprovalSet : Form
     {
-        private Dictionary<string, Guid> _computersGroup;
+        private ComputerGroup _computersGroup;
+        private List<MetaGroup> _metaGroups;
         private List<ApprovalObject> _approval = new List<ApprovalObject>();
         private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(FrmApprovalSet).Assembly);
         private WsusWrapper _wsus;
+        private IComputerTargetGroup _allComputerGroup;
 
-        internal FrmApprovalSet(Dictionary<string, Guid> computersGroup, UpdateCollection updatesToApprove)
+        internal FrmApprovalSet(List<MetaGroup> metaGroups, ComputerGroup computersGroup, UpdateCollection updatesToApprove)
         {
             InitializeComponent();
 
             _wsus = WsusWrapper.GetInstance();
+            _allComputerGroup = _wsus.GetAllComputerTargetGroup();
+            _metaGroups = metaGroups;
             _computersGroup = computersGroup;
             dtDeadLine.Value = DateTime.Now.AddDays(_wsus.Server.DeadLineDaysSpan);
             nupHour.Value = _wsus.Server.DeadLineHour;
             nupMinute.Value = _wsus.Server.DeadLineMinute;
-            FillDataGridView(updatesToApprove);
+            FillDataGridView(updatesToApprove, metaGroups, computersGroup);
         }
 
-        private void FillDataGridView(UpdateCollection updatesToApprove)
+        private void FillDataGridView(UpdateCollection updatesToApprove, List<MetaGroup> metaGroups, ComputerGroup computersGroup)
         {
             object[] approvalsObj = new object[]
             { resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString()), 
@@ -41,58 +45,84 @@ namespace Wsus_Package_Publisher
             DateTime noDeadLineSet = new DateTime(3155378975999999999);
 
             dgvTargetGroup.SuspendLayout();
-            DataGridViewComboBoxColumn approvalColumn = (DataGridViewComboBoxColumn)dgvTargetGroup.Columns[1];
+            DataGridViewComboBoxColumn approvalColumn = (DataGridViewComboBoxColumn)dgvTargetGroup.Columns["Approval"];
             approvalColumn.Items.AddRange(approvalsObj);
             cmbBxApproval.Items.AddRange(approvalsObj);
             cmbBxApproval.SelectedIndex = 0;
 
-            foreach (string group in _computersGroup.Keys)
-            {
-                dgvTargetGroup.Rows.Add(group);
-            }
+            FillMetaGroup(metaGroups);
+            FillComputerGroup(computersGroup);
+
             foreach (DataGridViewRow row in dgvTargetGroup.Rows)
             {
+                if ((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId == _allComputerGroup.Id)
+                    (row.Cells["Approval"] as DataGridViewComboBoxCell).Items.Remove(resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()));
                 if (updatesToApprove.Count == 1)
                 {
-                    UpdateApprovalCollection approvals = _wsus.GetUpdateApprovalStatus(_computersGroup[row.Cells[0].Value.ToString()], updatesToApprove[0]);
+                    UpdateApprovalCollection approvals = _wsus.GetUpdateApprovalStatus((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId, updatesToApprove[0]);
                     if (approvals.Count != 0)
                     {
                         switch (approvals[0].Action)
                         {
                             case UpdateApprovalAction.All:
-                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                                row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
                                 break;
                             case UpdateApprovalAction.Install:
                                 if (approvals[0].IsOptional)
-                                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString());
+                                    row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString());
                                 else
-                                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForInstallation.ToString());
+                                    row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForInstallation.ToString());
                                 if (approvals[0].Deadline != noDeadLineSet)
-                                    row.Cells[2].Value = approvals[0].Deadline;
+                                    row.Cells["DeadLine"].Value = approvals[0].Deadline;
                                 break;
                             case UpdateApprovalAction.NotApproved:
-                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString());
+                                row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString());
                                 break;
                             case UpdateApprovalAction.Uninstall:
-                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForUninstallation.ToString());
+                                row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForUninstallation.ToString());
                                 if (approvals[0].Deadline != noDeadLineSet)
-                                    row.Cells[2].Value = approvals[0].Deadline;
+                                    row.Cells["DeadLine"].Value = approvals[0].Deadline;
                                 break;
                             default:
-                                row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                                row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
                                 break;
                         }
                     }
                     else
-                        row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                        row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
                 }
                 else
-                    row.Cells[1].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                    row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
             }
             dgvTargetGroup.ResumeLayout();
         }
 
+        private void FillMetaGroup(List<MetaGroup> metaGroups)
+        {
+            dtGrdVwMetaGroup.Rows.Clear();
+            foreach (MetaGroup group in metaGroups)
+            {
+                int index = dtGrdVwMetaGroup.Rows.Add();
+                dtGrdVwMetaGroup.Rows[index].Cells["MetaGroup"].Value = group;
+                dtGrdVwMetaGroup.Rows[index].Cells["Selected"].Value = false;
+            }
+            dtGrdVwMetaGroup.Sort(dtGrdVwMetaGroup.Columns["MetaGroup"], ListSortDirection.Ascending);
+        }
+
+        private void FillComputerGroup(ComputerGroup group)
+        {
+            dgvTargetGroup.Rows.Add(group);
+            foreach (ComputerGroup innerGroup in group.InnerComputerGroup)
+                FillComputerGroup(innerGroup);
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
+        {
+            SetApprovals();
+            DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void SetApprovals()
         {
             ApprovalObject.Approvals[] approvalsArray = new ApprovalObject.Approvals[]
             { ApprovalObject.Approvals.Unchanged, 
@@ -106,26 +136,25 @@ namespace Wsus_Package_Publisher
 
             foreach (DataGridViewRow row in dgvTargetGroup.Rows)
             {
-                if (row.Cells[1].Value != null && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+                if (row.Cells["Approval"].Value != null && !string.IsNullOrEmpty(row.Cells["Approval"].Value.ToString()))
                 {
-                    ApprovalObject.Approvals approval = GetApproval(row.Cells[1].Value.ToString());
+                    ApprovalObject.Approvals approval = GetApproval(row.Cells["Approval"].Value.ToString());
                     if (approval != ApprovalObject.Approvals.Unchanged)
                     {
-                        if (row.Cells[2].Value != null)
+                        if (row.Cells["DeadLine"].Value != null)
                         {
                             DateTime deadLine;
                             if (DateTime.TryParse(row.Cells[2].Value.ToString(), out deadLine))
-                                _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval, deadLine));
+                                _approval.Add(new ApprovalObject((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId, approval, deadLine));
                             else
-                                _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval));
+                                _approval.Add(new ApprovalObject((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId, approval));
                         }
                         else
-                            _approval.Add(new ApprovalObject(_computersGroup[row.Cells[0].Value.ToString()], approval));
+                            _approval.Add(new ApprovalObject((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId, approval));
                     }
 
                 }
             }
-            DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
         private ApprovalObject.Approvals GetApproval(string searchValue)
@@ -160,10 +189,13 @@ namespace Wsus_Package_Publisher
             {
                 foreach (DataGridViewRow row in dgvTargetGroup.SelectedRows)
                 {
-                    row.Cells[1].Value = cmbBxApproval.SelectedItem;
-                    if (cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()) ||
-                        cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()))
-                        row.Cells[2].Value = null;
+                    if (!((row.Cells["Group"].Value as ComputerGroup).ComputerGroupId == _allComputerGroup.Id && cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString())))
+                    {
+                        row.Cells["Approval"].Value = cmbBxApproval.SelectedItem;
+                        if (cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.NotApproved.ToString()) ||
+                            cmbBxApproval.SelectedItem.ToString() == resMan.GetString(ApprovalObject.Approvals.ApproveForOptionalInstallation.ToString()))
+                            row.Cells["DeadLine"].Value = null;
+                    }
                 }
             }
         }
@@ -176,6 +208,57 @@ namespace Wsus_Package_Publisher
                     row.Cells[2].Value = null;
             }
         }
-                
+
+        private void dtGrdVwMetaGroup_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow clickedRow = dtGrdVwMetaGroup.Rows[e.RowIndex];
+            MetaGroup clickedMetaGroup = (MetaGroup)clickedRow.Cells["MetaGroup"].Value;
+            bool selected = (bool)clickedRow.Cells["Selected"].Value;
+
+            clickedRow.Selected = !selected;
+            clickedRow.Cells["Selected"].Value = !selected;
+            AdjustComputerGroupState(clickedMetaGroup, !selected);
+        }
+
+        private void AdjustComputerGroupState(MetaGroup clickedMetaGroup, bool state)
+        {
+            foreach (ComputerGroup computerGroupToSelect in clickedMetaGroup.InnerComputerGroups)
+            {
+                foreach (DataGridViewRow row in dgvTargetGroup.Rows)
+                {
+                    if ((ComputerGroup)row.Cells["Group"].Value == computerGroupToSelect)
+                    {
+                        row.Selected = state;
+                        break;
+                    }
+                }
+            }
+
+            foreach (MetaGroup metaGroup in clickedMetaGroup.InnerMetaGroups)
+                AdjustComputerGroupState(metaGroup, state);
+        }
+
+        internal void QuicklyApprove(MetaGroup selectedMetaGroup)
+        {
+            foreach (DataGridViewRow row in dgvTargetGroup.Rows)
+            {
+                row.Selected = false;
+                row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.Unchanged.ToString());
+                row.Cells["DeadLine"].Value = null;
+            }
+            AdjustComputerGroupState(selectedMetaGroup, true);
+            foreach (DataGridViewRow row in dgvTargetGroup.Rows)
+            {
+                if (row.Selected)
+                    row.Cells["Approval"].Value = resMan.GetString(ApprovalObject.Approvals.ApproveForInstallation.ToString());
+            }
+            SetApprovals();
+        }
+
+        private void FrmApprovalSet_Shown(object sender, EventArgs e)
+        {
+            dgvTargetGroup.Rows[0].Selected = false;
+        }
+
     }
 }

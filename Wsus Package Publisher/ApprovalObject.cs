@@ -64,7 +64,7 @@ namespace Wsus_Package_Publisher
             {
                 _hasDeadLine = value; 
                 if(!value)
-                    _deadLine = new DateTime(9999, 12, 31, 23, 59, 59);
+                    _deadLine = new DateTime(3155378975999999999);
             }
         }
 

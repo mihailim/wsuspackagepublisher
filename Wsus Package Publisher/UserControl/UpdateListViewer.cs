@@ -12,9 +12,11 @@ namespace Wsus_Package_Publisher
 {
     public partial class UpdateListViewer : UserControl
     {
-        WsusWrapper _wsus;
-        Product _product;
-        System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(UpdateListViewer).Assembly);
+        private WsusWrapper _wsus;
+        private List<MetaGroup> _metaGroups;
+        private Product _product;
+        private bool _populateDGV = false;
+        private System.Resources.ResourceManager resMan = new System.Resources.ResourceManager("Wsus_Package_Publisher.Resources.Resources", typeof(UpdateListViewer).Assembly);
 
         public UpdateListViewer()
         {
@@ -23,24 +25,50 @@ namespace Wsus_Package_Publisher
             _wsus.UpdateExpired += new WsusWrapper.UpdateExpiredEventHandler(_wsus_UpdateExpired);
             _wsus.UpdateDeleted += new WsusWrapper.UpdateDeletedEventHandler(_wsus_UpdateDeleted);
             _wsus.UpdateDeclined += new WsusWrapper.UpdateDeclinedEventHandler(_wsus_UpdateDeclined);
+            _wsus.UpdateApprovalChange += new WsusWrapper.UpdateApprovalChangeEventHandler(_wsus_UpdateApprovalChange);
+        }
 
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Approve"));
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Revise"));
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Decline"));
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Expire"));
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Delete"));
-            mnuStripUpdateListViewer.Items.Add(resMan.GetString("Resign"));
+        private ToolStripMenuItem GetItem(string text)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem();
+            item.Text = text;
+            item.Name = text;
+            return item;
+        }
 
-            if (_wsus.IsReplica)
-                mnuStripUpdateListViewer.Enabled = false;
-            else
-                mnuStripUpdateListViewer.Enabled = true;
+        private bool HasSomeApprove(UpdateCollection updates)
+        {
+            bool result = false;
+            foreach (IUpdate update in updates)
+            {
+                if (update.IsApproved)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        private void _wsus_UpdateApprovalChange(IUpdate ApprovedUpdate)
+        {
+            ViewedProduct.RefreshUpdate(ApprovedUpdate);
+            foreach (DataGridViewRow row in dgvUpdateList.SelectedRows)
+            {
+                if (((IUpdate)row.Cells["UpdateId"].Value).Id.UpdateId == ApprovedUpdate.Id.UpdateId)
+                {
+                    row.Cells["UpdateId"].Value = ApprovedUpdate;
+                    dgvUpdateList_SelectionChanged(null, null);
+                    break;
+                }
+            }
         }
 
         internal void UpdateDisplay()
         {
             if (ViewedProduct != null)
             {
+                _populateDGV = true;
                 ClearDisplay();
                 dgvUpdateList.SuspendLayout();
 
@@ -51,6 +79,8 @@ namespace Wsus_Package_Publisher
                 if (ContentChanged != null)
                     ContentChanged();
                 dgvUpdateList.ResumeLayout();
+                _populateDGV = false;
+                dgvUpdateList_SelectionChanged(null, null);
             }
         }
 
@@ -58,9 +88,11 @@ namespace Wsus_Package_Publisher
         {
             if (update.IsApproved)
                 if (update.IsSuperseded)
-                    return resMan.GetString("Approve") + " (" + resMan.GetString("Superseded") + ")";
+                    return resMan.GetString("Approved") + " (" + resMan.GetString("Superseded") + ")";
                 else
-                    return resMan.GetString("Approve");
+                    return resMan.GetString("Approved");
+            if (update.IsDeclined && update.PublicationState == PublicationState.Expired)
+                return resMan.GetString("Declined") + " (" + resMan.GetString("Expired") + ")";
             if (update.IsDeclined)
                 return resMan.GetString("Declined");
             if (update.IsSuperseded)
@@ -71,11 +103,33 @@ namespace Wsus_Package_Publisher
             return resMan.GetString("NotApproved");
         }
 
+        internal void LockFunctionnalities(bool isLock)
+        {
+            foreach (ToolStripItem item in mnuStripUpdateListViewer.Items)
+            {
+                if (!isLock && item.Name == resMan.GetString("QuickApproval"))
+                    item.Enabled = (_metaGroups.Count != 0);
+                else
+                    if (item.Name == resMan.GetString("Delete"))
+                        item.Enabled = true;
+                    else
+                        item.Enabled = !isLock;
+            }
+        }
+
         internal void ClearDisplay()
         {
             dgvUpdateList.Rows.Clear();
             if (ContentChanged != null)
                 ContentChanged();
+        }
+
+        internal void RunningLongOperation(bool running)
+        {
+            if (running)
+                this.Cursor = Cursors.WaitCursor;
+            else
+                this.Cursor = Cursors.Default;
         }
 
         /// <summary>
@@ -110,12 +164,6 @@ namespace Wsus_Package_Publisher
             return updates;
         }
 
-        private void dgvUpdateList_SelectionChanged(object sender, EventArgs e)
-        {
-            if (UpdateSelectionChanged != null)
-                UpdateSelectionChanged(dgvUpdateList.SelectedRows);
-        }
-
         internal Product ViewedProduct
         {
             get { return _product; }
@@ -141,6 +189,30 @@ namespace Wsus_Package_Publisher
 
                 return height;
             }
+        }
+
+        internal void SetMetaGroups(List<MetaGroup> metaGroups)
+        {
+            _metaGroups = metaGroups;
+
+            mnuStripUpdateListViewer.Items.Clear();
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Approve")));
+            ToolStripMenuItem quickApprovalItem = GetItem(resMan.GetString("QuickApproval"));
+            foreach (MetaGroup metaGroup in metaGroups)
+            {
+                ToolStripMenuItem metaGroupItem = GetItem(metaGroup.Name);
+                metaGroupItem.Click += new EventHandler(metaGroupItem_Click);
+                quickApprovalItem.DropDownItems.Add(metaGroupItem);
+            }
+            quickApprovalItem.Enabled = (metaGroups.Count != 0);
+            mnuStripUpdateListViewer.Items.Add(quickApprovalItem);
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Revise")));
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Decline")));
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Expire")));
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Delete")));
+            mnuStripUpdateListViewer.Items.Add(GetItem(resMan.GetString("Resign")));
+
+            LockFunctionnalities(_wsus.IsReplica);
         }
 
         #region (Responses to Events - Réponses aux événements)
@@ -198,9 +270,26 @@ namespace Wsus_Package_Publisher
             }
         }
 
+        private void dgvUpdateList_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateCollection selectedUpdates = new UpdateCollection();
+
+            foreach (DataGridViewRow row in dgvUpdateList.SelectedRows)
+            {
+                selectedUpdates.Add((IUpdate)row.Cells["UpdateId"].Value);
+            }
+
+            mnuStripUpdateListViewer.Items[resMan.GetString("Revise")].Enabled = ((dgvUpdateList.SelectedRows.Count < 2) && (!_wsus.IsReplica));
+            mnuStripUpdateListViewer.Items[resMan.GetString("Delete")].Enabled = !HasSomeApprove(selectedUpdates);
+            if (UpdateSelectionChanged != null && !_populateDGV)
+                UpdateSelectionChanged(dgvUpdateList.SelectedRows);
+        }
+
         private void mnuStripUpdateListViewer_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            string name = e.ClickedItem.Text;
+            string command = e.ClickedItem.Text;
+            mnuStripUpdateListViewer.Hide();
+            this.Cursor = Cursors.WaitCursor;
 
             if (dgvUpdateList.SelectedRows.Count != 0)
             {
@@ -211,43 +300,73 @@ namespace Wsus_Package_Publisher
                     updates.Add((IUpdate)row.Cells["UpdateId"].Value);
                 }
 
-                if (name == resMan.GetString("Approve"))
+                if (command == resMan.GetString("Approve"))
                 {
                     if (ApproveUpdate != null)
                         ApproveUpdate(updates);
                 }
 
-                if (name == resMan.GetString("Revise"))
+                if (command == resMan.GetString("Revise"))
                 {
                     if (ReviseUpdate != null)
                         ReviseUpdate(updates[0]);
                 }
 
-                if (name == resMan.GetString("Decline"))
+                if (command == resMan.GetString("Decline"))
                 {
                     if (DeclineUpdate != null)
                         DeclineUpdate(updates);
                 }
 
-                if (name == resMan.GetString("Expire"))
+                if (command == resMan.GetString("Expire"))
                 {
                     if (ExpireUpdate != null)
                         ExpireUpdate(updates);
                 }
 
-                if (name == resMan.GetString("Delete"))
+                if (command == resMan.GetString("Delete"))
                 {
                     if (DeleteUpdate != null)
                         DeleteUpdate(updates);
                 }
 
-                if (name == resMan.GetString("Resign"))
+                if (command == resMan.GetString("Resign"))
                 {
                     if (ResignUpdate != null)
                         ResignUpdate(updates);
                 }
             }
+            this.Cursor = Cursors.Default;
         }
+
+        private void metaGroupItem_Click(object sender, EventArgs e)
+        {
+            string metaGroupName = sender.ToString();
+            MetaGroup selectedMetaGroup = null;
+            mnuStripUpdateListViewer.Hide();
+            this.Cursor = Cursors.WaitCursor;
+
+            foreach (MetaGroup metaGroup in _metaGroups)
+            {
+                if (metaGroup.Name == metaGroupName)
+                {
+                    selectedMetaGroup = metaGroup;
+                    break;
+                }
+            }
+            if (dgvUpdateList.SelectedRows.Count != 0)
+            {
+                UpdateCollection updates = new UpdateCollection();
+
+                foreach (DataGridViewRow row in dgvUpdateList.SelectedRows)
+                {
+                    updates.Add((IUpdate)row.Cells["UpdateId"].Value);
+                }
+                if (QuicklyApproveUpdate != null)
+                    QuicklyApproveUpdate(updates, selectedMetaGroup);
+            }
+        }
+
 
         #endregion
 
@@ -259,6 +378,9 @@ namespace Wsus_Package_Publisher
 
         public delegate void ApproveUpdateEventHandler(UpdateCollection udpatesToApprove);
         public event ApproveUpdateEventHandler ApproveUpdate;
+
+        internal delegate void QuicklyApproveUpdateEventHandler(UpdateCollection udpatesToApprove, MetaGroup metaGroup);
+        internal event QuicklyApproveUpdateEventHandler QuicklyApproveUpdate;
 
         public delegate void DeclineUpdateEventHandler(UpdateCollection udpatesToDecline);
         public event DeclineUpdateEventHandler DeclineUpdate;
