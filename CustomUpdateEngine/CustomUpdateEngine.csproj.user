@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <StartArguments>
+    </StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>\debugfile=C:\Temp\customUpdateEngine.txt  \actionfile=C:\Users\Courtel\Desktop\CustomUpdate.xml</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartArguments>\actionfile=C:\Windows\System32\MsiExec.exe</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <StartArguments>\debugfile=C:\Temp\customUpdateEngine.txt  \actionfile=C:\Users\Courtel\Desktop\CustomUpdate.xml</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>\debugfilefolder=C:\Temp2 \actionfile=C:\Users\Courtel\Desktop\CustomUpdate.xml</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>\debugfile=C:\Temp\customUpdateEngine.txt  \actionfile=CustomUpdate.xml</StartArguments>
+  </PropertyGroup>
+</Project>

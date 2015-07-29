@@ -1,0 +1,67 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Debug\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\Interop.WUApiLib.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.csproj.ResolveComReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Properties.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Resources.Resources.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Resources.Resources.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\GenerateResource.read.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\GenerateResource.write.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\Interop.WUApiLib.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.csproj.ResolveComReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Properties.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\GenerateResource.read.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\GenerateResource.write.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.pdb
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe.config
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.exe
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\ShowPendingUpdates.pdb
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Debug\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\Interop.WUApiLib.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.csproj.ResolveComReference.cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Properties.Resources.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Resources.Resources.de.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Resources.Resources.fr.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.exe
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.pdb
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.csprojResolveAssemblyReference.cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.csproj.GenerateResource.Cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Debug\ShowPendingUpdates.Resources.Resources.resources

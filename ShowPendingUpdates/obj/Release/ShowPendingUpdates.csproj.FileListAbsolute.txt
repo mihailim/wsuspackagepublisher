@@ -1,0 +1,135 @@
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\ShowPendingUpdates.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\Wsus Package Publisher.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\CheckComboBox.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\MsiReader.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\CustomUpdateCreator.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\CustomUpdateElementViewer.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\CheckComboBox.xml
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\MsiReader.pdb
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\MsiReader.xml
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\fr\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\de\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\en\Wsus Package Publisher.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\bin\Release\fr\CustomUpdateCreator.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\Interop.WUApiLib.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.ResolveComReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Properties.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\GenerateResource.read.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\GenerateResource.write.1.tlog
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Release\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Release\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\Wsus Package Publisher\bin\Any CPU\Release\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher - Copie\ShowPendingUpdates\obj\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe.config
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\Interop.WUApiLib.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.ResolveComReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Properties.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\de\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\en\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\fr\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.de.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.fr.resources
+C:\Temp\Wsus Package Publisher - Project\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe.config
+C:\Temp\Wsus Package Publisher - Project\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe
+C:\Temp\Wsus Package Publisher - Project\Wsus Package Publisher\bin\Any CPU\Release\de\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\Wsus Package Publisher\bin\Any CPU\Release\en\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\Wsus Package Publisher\bin\Any CPU\Release\fr\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ResolveAssemblyReference.cache
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\Interop.WUApiLib.dll
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.ResolveComReference.cache
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Properties.Resources.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.de.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.en.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.fr.resources
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\GenerateResource.read.1.tlog
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\GenerateResource.write.1.tlog
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\de\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\en\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\fr\ShowPendingUpdates.resources.dll
+C:\Temp\Wsus Package Publisher - Project\ShowPendingUpdates\obj\Release\ShowPendingUpdates.exe
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe.config
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\Interop.WUApiLib.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.ResolveComReference.cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Properties.Resources.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.de.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.fr.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.exe
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csprojResolveAssemblyReference.cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.GenerateResource.Cache
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ru\ShowPendingUpdates.resources.dll
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.ru.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.ru.resources
+C:\Users\Courtel\Documents\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ru\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\Interop.WUApiLib.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.ResolveComReference.cache
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Properties.Resources.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.de.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.en.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.fr.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.ru.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.de.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.fr.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.ru.resources
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.GenerateResource.Cache
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe.config
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ShowPendingUpdates.exe
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ru\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csprojResolveAssemblyReference.cache
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\de\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\en\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\fr\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ru\ShowPendingUpdates.resources.dll
+C:\Users\Courtel.MCSA\Documents\Visual Studio 2013\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.exe
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csprojResolveAssemblyReference.cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.FrmShowPendingUpdates.ru.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.Resources.Resources.ru.resources
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ShowPendingUpdates.csproj.GenerateResource.Cache
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\Wsus Package Publisher\bin\Any CPU\Release\ru\ShowPendingUpdates.resources.dll
+Z:\Visual Studio 2010\Projects\Wsus Package Publisher\ShowPendingUpdates\obj\Release\ru\ShowPendingUpdates.resources.dll
